@@ -24,6 +24,21 @@
             --section-bg: #2c313a;
             --border-color: #3a3f4b;
         }
+
+        [data-theme="light"] {
+            --bg-color: #f5f5f5;
+            --terminal-bg: #ffffff;
+            --text-color: #333333;
+            --accent-color: #007acc;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --error-color: #dc3545;
+            --purple-color: #6f42c1;
+            --cyan-color: #17a2b8;
+            --cursor-color: #007acc;
+            --section-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
         
         * {
             margin: 0;
@@ -37,12 +52,36 @@
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--terminal-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         /* Terminal Window */
@@ -53,6 +92,7 @@
             overflow: hidden;
             margin-bottom: 30px;
             border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
         
         .terminal-header {
@@ -507,6 +547,14 @@
             .project-links {
                 margin-top: 10px;
             }
+
+            .theme-toggle {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 20px;
+                align-self: center;
+            }
         }
         
         /* Typewriter Effect */
@@ -553,6 +601,12 @@
     </style>
 </head>
 <body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <span>Dark Mode</span>
+    </div>
+
     <div class="container">
         <!-- Terminal Window -->
         <div class="terminal">
@@ -599,10 +653,6 @@
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
                                 <a href="tel:+91-8301939350">+91 8301939350</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-globe"></i>
-                                <a href="https://github.com/nandanadileep" target="_blank">nandanadileep.github.io</a>
                             </div>
                             <div class="contact-item">
                                 <i class="fab fa-linkedin"></i>
@@ -806,11 +856,23 @@
         </div>
         
         <footer>
-            <p>Last updated: October 2025 | Built with <span style="color: var(--error-color);">❤</span> and terminal aesthetics</p>
+            <p>Last updated: October 2025 | Built with <span style="color: var(--error-color);">❤</span> </p>
         </footer>
     </div>
 
     <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const themeText = themeToggle.querySelector('span');
+        
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') === 'light';
+            document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            themeIcon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+            themeText.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+        });
+
         // Interactive Terminal Elements
         const closeButton = document.getElementById('closeButton');
         const minimizeButton = document.getElementById('minimizeButton');
@@ -849,6 +911,15 @@
         const commandHistory = document.getElementById('commandHistory');
         
         let commandBuffer = '';
+        let commandIndex = -1;
+        const commandList = [
+            'help',
+            'about',
+            'skills',
+            'projects',
+            'contact',
+            'clear'
+        ];
         
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
