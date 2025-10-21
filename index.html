@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandana Dileep - Data Scientist Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* This is just basic placeholder CSS so the page isn't completely unstyled.
+         You MUST replace this with your own CSS to match the Figma design.
+        */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+        header nav li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        header nav a, footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .social-links a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+        .cta-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        section {
+            background-color: #ffffff;
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .hero {
+            background-color: #eaf4ff;
+            text-align: center;
+            padding: 60px 30px;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #555;
+        }
+        .skills-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .skill-category, .project-card, .job, .education-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-category li {
+            background-color: #e0e0e0;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+        .job h3 {
+            margin: 0 0 5px 0;
+        }
+        .job-title {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .job-date {
+            font-style: italic;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        #contact-form {
+            display: grid;
+            gap: 15px;
+        }
+        #contact-form input, #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Important for padding to work correctly */
+        }
+        #contact-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <strong>Nandana Dileep</strong>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/nandanadileep" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/nandanadileep" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://nandanadileep.github.io" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+            </div>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Hello, I'm Nandana Dileep</h1>
+                <p>Data Scientist based in Bangalore, India</p>
+                </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>
+                    I am a Data Scientist at Jaguar Land Rover, working in the AI/ML team. My focus is on implementing machine learning algorithms for various applications. I have experience collaborating cross-functionally and have delivered a production-level project with end-to-end deployment and monitoring. Currently, I am leading a 5-member team to drive innovation in data-driven pipelines.
+                </p>
+                <p>
+                    Previously, I interned as a Software Development Engineer at Amazon's Alexa FAST Team, where I developed a service to identify latency reduction opportunities using Amazon's internal tech stack, including AWS and big data technologies. I hold a B.Tech in Civil Engineering from the Indian Institute of Technology Madras.
+                </p>
+            </div>
+        </section>
+
+        <section id="expertise">
+            <div class="container">
+                <h2>My Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>C++</li>
+                            <li>Java</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>ML/AI Frameworks</h3>
+                        <ul>
+                            <li>PyTorch</li>
+                            <li>TensorFlow</li>
+                            <li>scikit-learn</li>
+                            <li>Hugging Face</li>
+                            <li>Gemma</li>
+                            <li>RAG</li>
+                            <li>Playwright</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Cloud & Backend</h3>
+                        <ul>
+                            <li>AWS (Lambda, S3, etc.)</li>
+                            <li>Render</li>
+                            <li>RESTful APIs</li>
+                            <li>Coral</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Data & Tools</h3>
+                        <ul>
+                            <li>NumPy</li>
+                            <li>Pandas</li>
+                            <li>Plotly</li>
+                            <li>Git</li>
+                            <li>Docker</li>
+                            <li>JUnit</li>
+                            <li>Mockito</li>
+                            <li>FFmpeg</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Areas of Interest</h3>
+                        <ul>
+                            <li>Deep Learning</li>
+                            <li>Computer Vision</li>
+                            <li>Reinforcement Learning</li>
+                            <li>Agentic AI</li>
+                            <li>Generative AI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    
+                    <div class="project-card">
+                        <h3>Test Rig Utilization Optimization</h3>
+                        <p>Designed and deployed an ML model in AWS to classify active vs inactive assets in real-time, achieving measurable cost reductions by identifying underutilized rigs.</p>
+                        </div>
+
+                    <div class="project-card">
+                        <h3>Precise Position Estimation</h3>
+                        <p>Implemented a position estimation pipeline in C++ using GTSAM for real-world vehicle localization with GNSS data as part of a JLR research initiative.</p>
+                        </div>
+
+                    <div class="project-card">
+                        <h3>Intelligent Customer Service</h3>
+                        <p>Built an AI-powered customer service system integrating SST, RAG, and TTS with a voice-enabled conversational interface using FFmpeg.</p>
+                        <a href="https://github.com/nandanadileep" target="_blank">View on GitHub</a>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>MCP Server for Browser Automation</h3>
+                        <p>Developed a server enabling AI assistants to control web browsers via natural language, using Playwright for automation.</p>
+                        <a href="https://github.com/nandanadileep" target="_blank">View on GitHub</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2>Work Experience</h2>
+                
+                <div class="job">
+                    <h3>Jaguar Land Rover</h3>
+                    <p class="job-title">Data Scientist</p>
+                    <p class="job-date">July 2024 – Present</p>
+                    <ul>
+                        <li>Working in the AI/ML team focusing on implementing machine learning algorithms.</li>
+                        <li>Completed one production-level project with end-to-end deployment.</li>
+                        <li>Currently leading a 5-member team to drive innovation in data-driven pipelines.</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <h3>Jaguar Land Rover</h3>
+                    <p class="job-title">Data Scientist</p>
+                    <p class="job-date">Aug 2020 – May 2024</p>
+                    </div>
+
+                <div class="job">
+                    <h3>Amazon (Alexa FAST Team)</h3>
+                    <p class="job-title">Software Development Engineer Intern</p>
+                    <p class="job-date">May 2023 – June 2023</p>
+                    <ul>
+                        <li>Developed a service to identify latency reduction opportunities in Alexa's architecture.</li>
+                        <li>Leveraged AWS, distributed systems, and big data technologies.</li>
+                        <li>Successfully deployed the finalized service to production ahead of schedule.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Indian Institute of Technology Madras</h3>
+                    <p>B.Tech in Civil Engineering</p>
+                    <p>GPA: 7.4 / 10.0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications">
+            <div class="container">
+                <h2>Publications</h2>
+                <div class="publication-item">
+                    <h3>GSDC: Precise Position Estimation using Factor Graph Optimization</h3>
+                    <p><strong>Author:</strong> Nandana Dileep, Jaguar Land Rover</p>
+                    <p><strong>Date:</strong> June 2024</p>
+                    <p>Presented at the Jaguar Land Rover Tech Symposium. Focuses on advanced GNSS data processing and graph-based optimization for localization accuracy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>Feel free to reach out via email or connect with me on social media.</p>
+                
+                <p><strong>Email:</strong> <a href="mailto:nandanadileep29@gmail.com">nandanadileep29@gmail.com</a></p>
+                <p><strong>Phone:</strong> +91 8301939350</p>
+                
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/nandanadileep" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/nandanadileep" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://nandanadileep.github.io" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+            </div>
+            <p>&copy; 2025 Nandana Dileep. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
