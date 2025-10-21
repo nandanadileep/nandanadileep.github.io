@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandana Dileep | Terminal Portfolio</title>
+    <title>Nandana Dileep | AI/ML Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -315,6 +315,32 @@
             text-decoration: underline;
         }
         
+        /* Publications */
+        .publication {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #2c313a;
+            border-radius: 6px;
+            border-left: 3px solid var(--purple-color);
+        }
+        
+        .publication-title {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .publication-details {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .publication-description {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        
         /* Footer */
         footer {
             text-align: center;
@@ -352,6 +378,14 @@
             .item-date {
                 margin-top: 5px;
             }
+            
+            .project-header {
+                flex-direction: column;
+            }
+            
+            .project-links {
+                margin-top: 10px;
+            }
         }
         
         /* Typewriter Effect */
@@ -384,7 +418,7 @@
                     <div class="terminal-button minimize"></div>
                     <div class="terminal-button maximize"></div>
                 </div>
-                <div class="terminal-title">nandana_dileep --portfolio</div>
+                <div class="terminal-title">nandana_dileep --portfolio --ai-ml-engineer</div>
             </div>
             <div class="terminal-body">
                 <!-- Welcome Message -->
@@ -395,7 +429,7 @@
                 
                 <div class="output">
                     <span class="comment"># Welcome to my terminal-style portfolio</span><br>
-                    <span class="comment"># AI Engineer | IIT Madras </span><br><br>
+                    <span class="comment"># AI/ML Engineer | IIT Madras Graduate</span><br><br>
                 </div>
                 
                 <!-- Profile Section -->
@@ -425,6 +459,10 @@
                             <div class="contact-item">
                                 <i class="fab fa-github"></i>
                                 <span>nandanadileep</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-globe"></i>
+                                <span>nandanadileep.github.io</span>
                             </div>
                         </div>
                     </div>
@@ -551,8 +589,9 @@
                             <div class="project-date">July 2024 – Feb 2024</div>
                         </div>
                         <ul>
-                            <li>Implemented GNSS data processing pipeline using GTSAM library and Factor Graph Algorithm</li>
+                            <li>Implemented GNSS data processing pipeline using GTSAM library and Factor Graph Algorithm in C++</li>
                             <li>Developed robust state initialization methods and integrated velocity-based priors</li>
+                            <li>Conducted extensive literature review on GNSS processing techniques</li>
                             <li>Presented research at Jaguar Land Rover Tech Symposium (June 2024)</li>
                         </ul>
                     </div>
@@ -563,9 +602,23 @@
                             <div class="project-date">Jan 2025 – Aug 2025</div>
                         </div>
                         <ul>
-                            <li>Collected and analyzed large-scale asset utilization data from testing rigs</li>
-                            <li>Designed and deployed ML classification model on AWS for real-time asset monitoring</li>
-                            <li>Achieved measurable cost reductions through optimized resource allocation</li>
+                            <li>Collected and analyzed large-scale asset utilization data from testing rigs across India and UK sites</li>
+                            <li>Designed and deployed ML classification model on AWS to identify active vs inactive assets in real-time</li>
+                            <li>Generated actionable utilization insights through collaboration with global teams</li>
+                            <li>Achieved measurable cost reductions by optimizing testing resource allocation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-title">Test Case Prioritization for Vehicle Validation</h3>
+                            <div class="project-date">Sept 2025 – Present</div>
+                        </div>
+                        <ul>
+                            <li>Developing multi-stage solution to prioritize test cases across vehicle test plans</li>
+                            <li>Built heuristic algorithms to rank test cases based on execution history and failure likelihood</li>
+                            <li>Implemented automated JIRA-to-test-case mapping for dynamic prioritization</li>
+                            <li>Designing deep learning prototype to predict failure-prone tests using historical data</li>
                         </ul>
                     </div>
                     
@@ -578,9 +631,20 @@
                         </div>
                         <ul>
                             <li>Built AI-powered system with Speech-to-Text, RAG, and Text-to-Speech technologies</li>
-                            <li>Implemented RAG architecture for accurate, context-aware responses</li>
-                            <li>Developed voice-enabled interface using FFmpeg for audio processing</li>
+                            <li>Implemented RAG architecture to retrieve relevant information from knowledge bases</li>
+                            <li>Developed voice-enabled conversational interface using FFmpeg for audio processing</li>
                         </ul>
+                    </div>
+                </div>
+                
+                <!-- Publications -->
+                <div class="section">
+                    <h2 class="section-title">> publications</h2>
+                    
+                    <div class="publication">
+                        <h3 class="publication-title">GSDC: Precise Position Estimation using Factor Graph Optimization</h3>
+                        <p class="publication-details">Nandana Dileep, Jaguar Land Rover Tech Symposium, June 2024</p>
+                        <p class="publication-description">Presented research on advanced GNSS data processing and graph-based optimization methods for real-world localization accuracy improvement</p>
                     </div>
                 </div>
                 
