@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjana Pradeep - Resume</title>
+    <title>Nandana Dileep - Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
@@ -11,7 +11,7 @@
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
+            --light-color: #f8f9fa;
             --dark-color: #2c3e50;
             --text-color: #333;
             --light-text: #777;
@@ -101,18 +101,48 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 60px 0;
-            text-align: center;
             margin-bottom: 40px;
         }
         
         .header-content {
+            display: flex;
+            align-items: center;
             max-width: 800px;
             margin: 0 auto;
         }
         
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 40px;
+            border: 3px solid white;
+            overflow: hidden;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-image-placeholder {
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .header-text {
+            flex: 1;
+        }
+        
         .contact-info {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
             margin-top: 20px;
@@ -132,32 +162,53 @@
             box-shadow: var(--shadow);
         }
         
-        /* Professional Summary */
-        .summary {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        /* Experience and Education Items */
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
         }
         
-        /* Core Competencies */
-        .competencies-grid {
+        .experience-item:last-child, .education-item:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .company, .institution {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .date {
+            color: var(--light-text);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
         
-        .competency-category {
+        .skill-category {
             margin-bottom: 20px;
         }
         
-        .competency-category h4 {
+        .skill-category h4 {
             color: var(--primary-color);
             margin-bottom: 10px;
         }
         
         /* Projects */
         .project {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
         }
         
@@ -165,37 +216,20 @@
             border-bottom: none;
         }
         
-        .project-date {
-            color: var(--light-text);
-            font-style: italic;
-            margin-bottom: 10px;
+        .project-links {
+            margin-top: 10px;
         }
         
-        /* Education */
-        .education-item {
-            margin-bottom: 25px;
+        .project-links a {
+            margin-right: 15px;
         }
         
-        .education-degree {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        .education-institution {
-            color: var(--secondary-color);
-        }
-        
-        .education-details {
-            color: var(--light-text);
-            margin-top: 5px;
-        }
-        
-        /* Co-curricular Activities */
-        .activity {
+        /* Publications */
+        .publication {
             margin-bottom: 20px;
         }
         
-        .activity-title {
+        .publication-title {
             font-weight: bold;
             color: var(--primary-color);
         }
@@ -211,12 +245,21 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
-            .contact-info {
+            .header-content {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
             }
             
-            .competencies-grid {
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -235,24 +278,42 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <h1>Anjana Pradeep</h1>
-                <p>Project Coordinator | Bangalore, India</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:anjanapradeeppk@gmail.com">anjanapradeeppk@gmail.com</a>
+                <div class="profile-image">
+                    <!-- Replace with your actual image -->
+                    <div class="profile-image-placeholder">
+                        <i class="fas fa-user fa-3x"></i>
+                        <p>Your Photo Here</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+918547596006">+91 85475 96006</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://linkedin.com/in/anjana-pradeep" target="_blank">linkedin.com/in/anjana-pradeep</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/anjanapradeep16" target="_blank">github.com/anjanapradeep16</a>
+                    <!-- <img src="your-photo.jpg" alt="Nandana Dileep"> -->
+                </div>
+                <div class="header-text">
+                    <h1>Nandana Dileep</h1>
+                    <p>Data Scientist | Software Engineer</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:nandanadileep29@gmail.com">nandanadileep29@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+918301939350">+91 8301939350</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <a href="https://nandanadileep.github.io" target="_blank">nandanadileep.github.io</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/nandanadileep" target="_blank">nandanadileep</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com/in/nandanadileep" target="_blank">nandanadileep</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -261,98 +322,30 @@
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Professional Summary -->
-        <section id="summary">
-            <h2>Professional Summary</h2>
+        <!-- Professional Experience -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
             <div class="section-content">
-                <p class="summary">
-                    Aspiring Project Coordinator passionate about leading cross-functional projects and delivering impactful results. 
-                    Experienced in designing and executing multiple team-oriented projects, skilled at project planning, tracking milestones, 
-                    and managing resources. Strong communication, analytical, and leadership abilities with a focus on team collaboration and engagement.
-                </p>
-            </div>
-        </section>
-
-        <!-- Core Competencies -->
-        <section id="competencies">
-            <h2>Core Competencies</h2>
-            <div class="section-content">
-                <div class="competencies-grid">
-                    <div class="competency-category">
-                        <h4>Project Management</h4>
-                        <ul>
-                            <li>Planning</li>
-                            <li>Task prioritization</li>
-                            <li>Milestone tracking</li>
-                            <li>Workflow optimization</li>
-                            <li>Resource allocation</li>
-                        </ul>
-                    </div>
-                    <div class="competency-category">
-                        <h4>Team Collaboration & Leadership</h4>
-                        <ul>
-                            <li>Team communication</li>
-                            <li>Delegation</li>
-                            <li>Conflict resolution</li>
-                            <li>Motivation strategies</li>
-                        </ul>
-                    </div>
-                    <div class="competency-category">
-                        <h4>Analytical Problem-Solving</h4>
-                        <ul>
-                            <li>KPI tracking</li>
-                            <li>Performance measurement</li>
-                            <li>Process improvement</li>
-                            <li>Data analysis</li>
-                        </ul>
-                    </div>
-                    <div class="competency-category">
-                        <h4>Tools & Platforms</h4>
-                        <ul>
-                            <li>Notion</li>
-                            <li>Google Workspace</li>
-                            <li>Trello</li>
-                            <li>Asana</li>
-                            <li>MS Office</li>
-                        </ul>
-                    </div>
-                    <div class="competency-category">
-                        <h4>Soft Skills</h4>
-                        <ul>
-                            <li>Communication</li>
-                            <li>Adaptability</li>
-                            <li>Attention to detail</li>
-                            <li>Time management</li>
-                            <li>Critical thinking</li>
-                            <li>Empathy</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="section-content">
-                <div class="project">
-                    <h3>Employee Engagement Program Design – Infosys</h3>
-                    <p class="project-date">March – June 2024</p>
+                <div class="experience-item">
+                    <p class="job-title">Data Scientist — Jaguar Land Rover</p>
+                    <p class="company">Bangalore, India</p>
+                    <p class="date">July 2024 – Present</p>
                     <ul>
-                        <li>Analyzed Glassdoor reviews and internal culture reports to identify engagement gaps.</li>
-                        <li>Designed a "30-Day Recognition Sprint" to boost motivation and internal communication.</li>
-                        <li>Proposed metrics for success tracking (eNPS, feedback participation rate).</li>
-                        <li>Created rollout plan and internal communication strategy using Notion and PowerPoint.</li>
+                        <li>Delivered production-level machine learning project for test rig utilization optimization, achieving measurable cost reductions by identifying underutilized assets across India and UK sites</li>
+                        <li>Leading a 5-member team developing a multi-stage test case prioritization system combining heuristic algorithms, JIRA integration, and deep learning to reduce vehicle validation costs and accelerate issue detection</li>
+                        <li>Deployed real-time ML model to classify active versus inactive testing assets, enabling data-driven resource allocation decisions</li>
+                        <li>Collaborated with global cross-functional teams and participated in internal hackathons, contributing to innovation in data-driven pipeline optimization</li>
                     </ul>
                 </div>
-                <div class="project">
-                    <h3>Marketing Campaign Design – Nykaa</h3>
-                    <p class="project-date">February – April 2024</p>
+                <div class="experience-item">
+                    <p class="job-title">Software Development Engineer Intern — Amazon</p>
+                    <p class="company">Bangalore, India</p>
+                    <p class="date">May 2023 – June 2023</p>
                     <ul>
-                        <li>Designed a hypothetical influencer-led marketing campaign for a new skincare range.</li>
-                        <li>Identified target demographics using Google Trends and customer review analysis.</li>
-                        <li>Proposed a 3-phase campaign with budget allocation, expected reach, and KPI tracking plan.</li>
-                        <li>Built a campaign performance tracker using Google Sheets to monitor conversions and engagement.</li>
+                        <li>Developed and deployed a latency analysis service for Alexa architecture using AWS, distributed systems, and big data technologies, completing production deployment ahead of schedule</li>
+                        <li>Designed system architecture to identify latency reduction opportunities across Alexa's large-scale distributed platform</li>
+                        <li>Built an end-to-end test automation framework using JUnit 5 and Mockito, creating comprehensive test suites that improved code reliability and reduced deployment issues</li>
+                        <li>Implemented integration and unit tests ensuring seamless service interactions and system stability</li>
                     </ul>
                 </div>
             </div>
@@ -363,42 +356,110 @@
             <h2>Education</h2>
             <div class="section-content">
                 <div class="education-item">
-                    <p class="education-degree">B.Tech - Information Technology</p>
-                    <p class="education-institution">Government Engineering College, Palakkad, Kerala</p>
-                    <p class="education-details">Secured 70% aggregate</p>
-                </div>
-                <div class="education-item">
-                    <p class="education-degree">Class XII</p>
-                    <p class="education-institution">Ideal International Institute of Education, Thavanur</p>
-                    <p class="education-details">Scored 97.5%</p>
-                </div>
-                <div class="education-item">
-                    <p class="education-degree">Class X</p>
-                    <p class="education-institution">Delhi International School, Valanchery</p>
-                    <p class="education-details">Scored 95.4%</p>
+                    <p class="job-title">Bachelor of Technology in Civil Engineering</p>
+                    <p class="institution">Indian Institute of Technology Madras</p>
+                    <p class="date">August 2020 – May 2024</p>
+                    <p>GPA: 7.4/10.0</p>
                 </div>
             </div>
         </section>
 
-        <!-- Co-curricular Activities -->
-        <section id="activities">
-            <h2>Co-curricular Activities</h2>
+        <!-- Technical Skills -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
             <div class="section-content">
-                <div class="activity">
-                    <p class="activity-title">National Service Scheme (NSS)</p>
-                    <p>Led and coordinated multiple community service initiatives, managing volunteer teams and ensuring timely completion of projects.</p>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <p>Python, C++, Java, JavaScript, Golang, SQL</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Machine Learning and AI</h4>
+                        <p>Machine Learning, Deep Learning, Natural Language Processing (NLP), Large Language Models (LLMs – BERT, GPT, LLaMA), Computer Vision, Vision Transformers (ViT), Self-Supervised Learning (SimCLR, BYOL), Reinforcement Learning, Generative AI, Prompt Engineering, Hugging Face, PyTorch, TensorFlow, scikit-learn</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Cloud and DevOps</h4>
+                        <p>AWS (Lambda, S3, OpenSearch, EC2, ECS, EKS, ECR, Fargate, DynamoDB), Docker, REST APIs, CI/CD, GitHub Actions</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Data Science and Tools</h4>
+                        <p>Pandas, NumPy, Matplotlib, Seaborn, Plotly, Dash, GTSAM (C++), FAISS, LangChain, Git, FFmpeg</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Testing and Automation</h4>
+                        <p>JUnit, Mockito, Playwright</p>
+                    </div>
                 </div>
-                <div class="activity">
-                    <p class="activity-title">Google Developer Student Club (GDSC)</p>
-                    <p>Organized and facilitated tech workshops and collaborative projects, coordinating cross-functional student teams to achieve project goals.</p>
+            </div>
+        </section>
+
+        <!-- Key Projects -->
+        <section id="projects">
+            <h2>Key Projects</h2>
+            <div class="section-content">
+                <div class="project">
+                    <h3>Precise Position Estimation using Factor Graph Optimization</h3>
+                    <p class="date">July 2024 – February 2024</p>
+                    <ul>
+                        <li>Implemented GNSS data processing pipeline using GTSAM library and Factor Graph Algorithm in C++ for real-world vehicle localization, achieving improved coordinate estimation accuracy</li>
+                        <li>Developed robust state initialization methods and integrated velocity-based priors for enhanced position estimation</li>
+                        <li>Conducted extensive literature review on GNSS processing techniques and algorithms for precise coordinate estimation</li>
+                        <li>Presented research at Jaguar Land Rover Tech Symposium (June 2024); project inspired by Kaggle Smartphone Decimeter 2022 competition</li>
+                    </ul>
                 </div>
-                <div class="activity">
-                    <p class="activity-title">CBSE Kalolsavam</p>
-                    <p>Represented school in cultural and quiz competitions, demonstrating teamwork, planning, and effective communication.</p>
+                <div class="project">
+                    <h3>Test Rig Utilization Optimization</h3>
+                    <p class="date">January 2025 – August 2025</p>
+                    <ul>
+                        <li>Collected and analyzed large-scale asset utilization data from testing rigs across India and UK sites</li>
+                        <li>Designed and deployed a machine learning classification model on AWS to identify active versus inactive assets in real-time</li>
+                        <li>Generated actionable utilization insights through collaboration with global cross-functional teams and rig owners</li>
+                        <li>Achieved measurable cost reductions by optimizing testing resource allocation based on ML-driven insights</li>
+                    </ul>
                 </div>
-                <div class="activity">
-                    <p class="activity-title">All Kerala Balajanasakhyam</p>
-                    <p>Engaged in youth development programs, contributing to event planning, team coordination, and community outreach.</p>
+                <div class="project">
+                    <h3>Test Case Prioritization for Vehicle Validation</h3>
+                    <p class="date">September 2025 – Present</p>
+                    <ul>
+                        <li>Developing a multi-stage solution to prioritize test cases across vehicle test plans for faster issue detection</li>
+                        <li>Built heuristic algorithms to rank test cases based on execution history and failure likelihood patterns</li>
+                        <li>Implemented automated JIRA-to-test-case mapping for dynamic prioritization and traceability</li>
+                        <li>Designing a deep learning prototype to predict failure-prone tests using historical validation data</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>Intelligent Customer Service System</h3>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub Link</a>
+                    </div>
+                    <ul>
+                        <li>Built an AI-powered customer service system integrating Speech-to-Text, Retrieval-Augmented Generation (RAG), and Text-to-Speech technologies</li>
+                        <li>Implemented RAG architecture to retrieve relevant information from knowledge bases and generate accurate, context-aware responses</li>
+                        <li>Developed a voice-enabled conversational interface using FFmpeg for audio processing</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>Chess Move Generation with Fine-tuned Gemma3</h3>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub Link</a>
+                    </div>
+                    <ul>
+                        <li>Fine-tuned the Gemma3 language model on chess game datasets to generate valid moves and understand positions</li>
+                        <li>Trained the model to learn strategic patterns and improve move prediction accuracy using standard notation</li>
+                        <li>Implemented evaluation metrics to assess chess playing capabilities and legal move generation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications">
+            <h2>Publications</h2>
+            <div class="section-content">
+                <div class="publication">
+                    <p class="publication-title">GSDC: Precise Position Estimation using Factor Graph Optimization</p>
+                    <p>Nandana Dileep, Jaguar Land Rover Tech Symposium, June 2024</p>
+                    <p>Presented research on advanced GNSS data processing and graph-based optimization methods for real-world localization accuracy improvement</p>
                 </div>
             </div>
         </section>
@@ -407,7 +468,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Anjana Pradeep. All rights reserved.</p>
+            <p>Last updated: October 2025</p>
+            <p>&copy; 2025 Nandana Dileep. All rights reserved.</p>
         </div>
     </footer>
 </body>
