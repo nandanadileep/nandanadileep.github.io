@@ -3,1023 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandana Dileep | AI/ML Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        /* Base Styles */
-        :root {
-            --bg-color: #282c34;
-            --terminal-bg: #21252b;
-            --text-color: #abb2bf;
-            --accent-color: #61afef;
-            --success-color: #98c379;
-            --warning-color: #e5c07b;
-            --error-color: #e06c75;
-            --purple-color: #c678dd;
-            --cyan-color: #56b6c2;
-            --cursor-color: #528bff;
-            --header-height: 40px;
-            --border-radius: 8px;
-            --section-bg: #2c313a;
-            --border-color: #3a3f4b;
-        }
-
-        [data-theme="light"] {
-            --bg-color: #f5f5f5;
-            --terminal-bg: #ffffff;
-            --text-color: #333333;
-            --accent-color: #007acc;
-            --success-color: #28a745;
-            --warning-color: #ffc107;
-            --error-color: #dc3545;
-            --purple-color: #6f42c1;
-            --cyan-color: #17a2b8;
-            --cursor-color: #007acc;
-            --section-bg: #f8f9fa;
-            --border-color: #dee2e6;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'JetBrains Mono', monospace;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--terminal-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 8px 15px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        /* Terminal Window */
-        .terminal {
-            background-color: var(--terminal-bg);
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            margin-bottom: 30px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-        
-        .terminal-header {
-            background-color: var(--border-color);
-            height: var(--header-height);
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .terminal-buttons {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .terminal-button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .terminal-button:hover {
-            transform: scale(1.2);
-        }
-        
-        .close {
-            background-color: #ff5f56;
-        }
-        
-        .minimize {
-            background-color: #ffbd2e;
-        }
-        
-        .maximize {
-            background-color: #27c93f;
-        }
-        
-        .terminal-title {
-            flex: 1;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-        
-        .terminal-body {
-            padding: 20px;
-            min-height: 500px;
-        }
-        
-        /* Terminal Content */
-        .command-line {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .prompt {
-            color: var(--success-color);
-            margin-right: 10px;
-            white-space: nowrap;
-        }
-        
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 18px;
-            background-color: var(--cursor-color);
-            animation: blink 1s infinite;
-            margin-left: 5px;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        
-        .output {
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .comment {
-            color: var(--text-color);
-            opacity: 0.7;
-            font-style: italic;
-        }
-        
-        .keyword {
-            color: var(--purple-color);
-        }
-        
-        .string {
-            color: var(--success-color);
-        }
-        
-        .function {
-            color: var(--accent-color);
-        }
-        
-        .number {
-            color: var(--warning-color);
-        }
-        
-        .tag {
-            color: var(--error-color);
-        }
-        
-        /* Links */
-        a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            border-bottom: 1px dotted transparent;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
-        }
-        
-        /* Sections */
-        .section {
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .section-title {
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .section-title:hover {
-            padding-left: 10px;
-        }
-
-        .section-title::after {
-            content: '▸';
-            position: absolute;
-            right: 0;
-            transition: transform 0.3s ease;
-        }
-
-        .section-title:hover::after {
-            transform: rotate(90deg);
-        }
-        
-        /* Profile Section */
-        .profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: var(--section-bg);
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .profile:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 30px;
-            border: 2px solid var(--accent-color);
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05);
-        }
-        
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .profile-info {
-            flex: 1;
-        }
-        
-        .name {
-            color: var(--accent-color);
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        
-        .title {
-            color: var(--success-color);
-            margin-bottom: 15px;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.2s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateX(5px);
-        }
-        
-        /* Experience & Education */
-        .item {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .item:hover {
-            background-color: var(--section-bg);
-            padding: 15px;
-            border-radius: 6px;
-            transform: translateX(5px);
-        }
-        
-        .item:last-child {
-            border-bottom: none;
-        }
-        
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        
-        .item-title {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-        
-        .item-subtitle {
-            color: var(--success-color);
-        }
-        
-        .item-date {
-            color: var(--warning-color);
-            font-size: 0.9rem;
-        }
-        
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-category {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: var(--section-bg);
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .skill-category-title {
-            color: var(--purple-color);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .skill-item {
-            background-color: var(--border-color);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .skill-item:hover {
-            background-color: var(--accent-color);
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        /* Projects */
-        .project {
-            margin-bottom: 25px;
-            padding: 15px;
-            background-color: var(--section-bg);
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-color);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .project:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        
-        .project-title {
-            color: var(--accent-color);
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .project-link {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 4px;
-            background-color: var(--border-color);
-        }
-        
-        .project-link:hover {
-            color: var(--accent-color);
-            background-color: var(--accent-color);
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        /* Publications */
-        .publication {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: var(--section-bg);
-            border-radius: 6px;
-            border-left: 3px solid var(--purple-color);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .publication:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .publication-title {
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .publication-details {
-            color: var(--text-color);
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
-        
-        .publication-description {
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: var(--text-color);
-            opacity: 0.7;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .profile {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .profile-image {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .contact-info {
-                justify-content: center;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .item-header {
-                flex-direction: column;
-            }
-            
-            .item-date {
-                margin-top: 5px;
-            }
-            
-            .project-header {
-                flex-direction: column;
-            }
-            
-            .project-links {
-                margin-top: 10px;
-            }
-
-            .theme-toggle {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin-bottom: 20px;
-                align-self: center;
-            }
-        }
-        
-        /* Typewriter Effect */
-        .typewriter {
-            overflow: hidden;
-            border-right: 2px solid var(--cursor-color);
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--cursor-color) }
-        }
-
-        /* Interactive Elements */
-        .interactive-hover {
-            transition: all 0.3s ease;
-        }
-
-        .interactive-hover:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Command History */
-        .command-history {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-
-        .command-history.show {
-            opacity: 1;
-            max-height: 200px;
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>Nandana Dileep - AI/ML Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body>
-    <!-- Theme Toggle -->
-    <div class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-        <span>Dark Mode</span>
-    </div>
-
-    <div class="container">
-        <!-- Terminal Window -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <div class="terminal-button close" id="closeButton"></div>
-                    <div class="terminal-button minimize" id="minimizeButton"></div>
-                    <div class="terminal-button maximize" id="maximizeButton"></div>
-                </div>
-                <div class="terminal-title">nandana_dileep --portfolio --ai-ml-engineer</div>
-            </div>
-            <div class="terminal-body">
-                <!-- Command History -->
-                <div class="command-history" id="commandHistory"></div>
-
-                <!-- Welcome Message -->
-                <div class="command-line">
-                    <span class="prompt">visitor@portfolio:~$</span>
-                    <span class="typewriter">cat nandana_dileep.txt</span>
-                </div>
-                
-                <div class="output">
-                    <span class="comment"># Hi there</span><br>
-                    <span class="comment"># AI/ML Engineer | IIT Madras </span><br><br>
-                </div>
-                
-                <!-- Profile Section -->
-                <div class="profile interactive-hover">
-                    <div class="profile-image">
-                        <img src="nandana.jpg" alt="Nandana Dileep" style="transform: scale(1.3) translateX(10px);">
-                    </div>
-                    <div class="profile-info">
-                        <h1 class="name">Nandana Dileep</h1>
-                        <p class="title">AI/ML Engineer @ Jaguar Land Rover</p>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Bangalore, India</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:nandanadileep29@gmail.com">nandanadileep29@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <a href="tel:+91-8301939350">+91 8301939350</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-linkedin"></i>
-                                <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank">nandanadileep</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-github"></i>
-                                <a href="https://github.com/nandanadileep" target="_blank">nandanadileep</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Professional Experience -->
-                <div class="section">
-                    <h2 class="section-title">> professional_experience</h2>
-                    
-                    <div class="item interactive-hover">
-                        <div class="item-header">
-                            <div>
-                                <h3 class="item-title">AI/ML Engineer</h3>
-                                <p class="item-subtitle">Jaguar Land Rover · Bangalore, India</p>
-                            </div>
-                            <div class="item-date">July 2024 – Present</div>
-                        </div>
-                        <ul>
-                            <li>Delivered production-level ML project for test rig utilization optimization</li>
-                            <li>Leading a 5-member team developing multi-stage test case prioritization system</li>
-                            <li>Deployed real-time ML model to classify active vs inactive testing assets</li>
-                            <li>Collaborated with global cross-functional teams on data-driven pipeline optimization</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="item interactive-hover">
-                        <div class="item-header">
-                            <div>
-                                <h3 class="item-title">Software Development Engineer Intern</h3>
-                                <p class="item-subtitle">Amazon · Bangalore, India</p>
-                            </div>
-                            <div class="item-date">May 2023 – June 2023</div>
-                        </div>
-                        <ul>
-                            <li>Developed and deployed latency analysis service for Alexa architecture</li>
-                            <li>Designed system architecture to identify latency reduction opportunities</li>
-                            <li>Built end-to-end test automation framework using JUnit 5 and Mockito</li>
-                            <li>Implemented integration and unit tests ensuring system stability</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Education -->
-                <div class="section">
-                    <h2 class="section-title">> education</h2>
-                    
-                    <div class="item interactive-hover">
-                        <div class="item-header">
-                            <div>
-                                <h3 class="item-title">Bachelor of Technology in Civil Engineering</h3>
-                                <p class="item-subtitle">Indian Institute of Technology Madras</p>
-                            </div>
-                            <div class="item-date">Aug 2020 – May 2024</div>
-                        </div>
-                        <p>GPA: 7.4/10.0</p>
-                    </div>
-                </div>
-                
-                <!-- Technical Skills -->
-                <div class="section">
-                    <h2 class="section-title">> technical_skills</h2>
-                    
-                    <div class="skills-grid">
-                        <div class="skill-category interactive-hover">
-                            <h3 class="skill-category-title">Programming Languages</h3>
-                            <div class="skill-items">
-                                <span class="skill-item">Python</span>
-                                <span class="skill-item">C++</span>
-                                <span class="skill-item">Java</span>
-                                <span class="skill-item">JavaScript</span>
-                                <span class="skill-item">Golang</span>
-                                <span class="skill-item">SQL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category interactive-hover">
-                            <h3 class="skill-category-title">Machine Learning & AI</h3>
-                            <div class="skill-items">
-                                <span class="skill-item">Machine Learning</span>
-                                <span class="skill-item">Deep Learning</span>
-                                <span class="skill-item">NLP</span>
-                                <span class="skill-item">LLMs</span>
-                                <span class="skill-item">Computer Vision</span>
-                                <span class="skill-item">Vision Transformers</span>
-                                <span class="skill-item">Reinforcement Learning</span>
-                                <span class="skill-item">Generative AI</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category interactive-hover">
-                            <h3 class="skill-category-title">Cloud & DevOps</h3>
-                            <div class="skill-items">
-                                <span class="skill-item">AWS</span>
-                                <span class="skill-item">Docker</span>
-                                <span class="skill-item">REST APIs</span>
-                                <span class="skill-item">CI/CD</span>
-                                <span class="skill-item">GitHub Actions</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category interactive-hover">
-                            <h3 class="skill-category-title">Tools & Frameworks</h3>
-                            <div class="skill-items">
-                                <span class="skill-item">PyTorch</span>
-                                <span class="skill-item">TensorFlow</span>
-                                <span class="skill-item">scikit-learn</span>
-                                <span class="skill-item">Hugging Face</span>
-                                <span class="skill-item">Pandas</span>
-                                <span class="skill-item">NumPy</span>
-                                <span class="skill-item">Git</span>
-                                <span class="skill-item">FFmpeg</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Key Projects -->
-                <div class="section">
-                    <h2 class="section-title">> key_projects</h2>
-                    
-                    <div class="project interactive-hover">
-                        <div class="project-header">
-                            <h3 class="project-title">Precise Position Estimation using Factor Graph Optimization</h3>
-                            <div class="project-date">July 2024 – Feb 2024</div>
-                        </div>
-                        <ul>
-                            <li>Implemented GNSS data processing pipeline using GTSAM library and Factor Graph Algorithm in C++</li>
-                            <li>Developed robust state initialization methods and integrated velocity-based priors</li>
-                            <li>Conducted extensive literature review on GNSS processing techniques</li>
-                            <li>Presented research at Jaguar Land Rover Tech Symposium (June 2024)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project interactive-hover">
-                        <div class="project-header">
-                            <h3 class="project-title">Test Rig Utilization Optimization</h3>
-                            <div class="project-date">Jan 2025 – Aug 2025</div>
-                        </div>
-                        <ul>
-                            <li>Collected and analyzed large-scale asset utilization data from testing rigs across India and UK sites</li>
-                            <li>Designed and deployed ML classification model on AWS to identify active vs inactive assets in real-time</li>
-                            <li>Generated actionable utilization insights through collaboration with global teams</li>
-                            <li>Achieved measurable cost reductions by optimizing testing resource allocation</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project interactive-hover">
-                        <div class="project-header">
-                            <h3 class="project-title">Test Case Prioritization for Vehicle Validation</h3>
-                            <div class="project-date">Sept 2025 – Present</div>
-                        </div>
-                        <ul>
-                            <li>Developing multi-stage solution to prioritize test cases across vehicle test plans</li>
-                            <li>Built heuristic algorithms to rank test cases based on execution history and failure likelihood</li>
-                            <li>Implemented automated JIRA-to-test-case mapping for dynamic prioritization</li>
-                            <li>Designing deep learning prototype to predict failure-prone tests using historical data</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project interactive-hover">
-                        <div class="project-header">
-                            <h3 class="project-title">Intelligent Customer Service System</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/nandanadileep/Intelligent-Customer-Service" class="project-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            </div>
-                        </div>
-                        <ul>
-                            <li>Built AI-powered system with Speech-to-Text, RAG, and Text-to-Speech technologies</li>
-                            <li>Implemented RAG architecture to retrieve relevant information from knowledge bases</li>
-                            <li>Developed voice-enabled conversational interface using FFmpeg for audio processing</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Publications -->
-                <div class="section">
-                    <h2 class="section-title">> publications</h2>
-                    
-                    <div class="publication interactive-hover">
-                        <h3 class="publication-title">GSDC: Precise Position Estimation using Factor Graph Optimization</h3>
-                        <p class="publication-details">Nandana Dileep, Jaguar Land Rover Tech Symposium, June 2024</p>
-                        <p class="publication-description">Presented research on advanced GNSS data processing and graph-based optimization methods for real-world localization accuracy improvement</p>
-                    </div>
-                </div>
-                
-                <!-- Interactive Command Prompt -->
-                <div class="command-line" id="interactivePrompt">
-                    <span class="prompt">visitor@portfolio:~$</span>
-                    <span id="commandInput"></span>
-                    <div class="cursor" id="interactiveCursor"></div>
-                </div>
+<body class="dark-mode"> <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="nav-logo">Nandana Dileep</a>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="theme-switcher">
+                <i class="fas fa-sun"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle-checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+                <i class="fas fa-moon"></i>
             </div>
         </div>
-        
-        <footer>
-            <p>Last updated: October 2025 | Built with <span style="color: var(--error-color);">❤</span> </p>
-        </footer>
-    </div>
+    </nav>
 
-    <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-        const themeText = themeToggle.querySelector('span');
-        
-        themeToggle.addEventListener('click', () => {
-            const isDark = document.body.getAttribute('data-theme') === 'light';
-            document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            themeIcon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
-            themeText.textContent = isDark ? 'Dark Mode' : 'Light Mode';
-        });
+    <header class="hero" id="about">
+        <div class="hero-content">
+            <h1>Nandana Dileep</h1>
+            <p class="subtitle">AI/ML Engineer | Deep Learning | NLP | Cloud</p>
+            <p class="hero-bio">
+                AI/ML Engineer at Jaguar Land Rover, specializing in production-level machine learning, deep learning for test prioritization, and real-time model deployment. 
+                Former SDE Intern at Amazon with experience in large-scale distributed systems and AWS.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/nandanadileep" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:nandanadileep29@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://nandanadileep.github.io" target="_blank" aria-label="Portfolio Website"><i class="fas fa-link"></i></a>
+            </div>
+        </div>
+    </header>
 
-        // Interactive Terminal Elements
-        const closeButton = document.getElementById('closeButton');
-        const minimizeButton = document.getElementById('minimizeButton');
-        const maximizeButton = document.getElementById('maximizeButton');
-        
-        closeButton.addEventListener('click', () => {
-            document.querySelector('.terminal').style.transform = 'scale(0.8)';
-            document.querySelector('.terminal').style.opacity = '0';
-            setTimeout(() => {
-                alert('Terminal closed! Refresh page to reopen.');
-            }, 300);
-        });
+    <main>
+        <section id="experience" class="container">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2024 – Present</span>
+                        <h3>AI/ML Engineer</h3>
+                        <p class="company">Jaguar Land Rover | Bangalore, India</p>
+                        <ul>
+                            <li>Delivered production-level ML project for test rig utilization optimization, achieving measurable cost reductions.</li>
+                            <li>Leading a 5-member team on a multi-stage test case prioritization system using heuristics and deep learning.</li>
+                            <li>Deployed real-time ML models to classify testing asset status, enabling data-driven resource allocation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">May 2023 – July 2023</span>
+                        <h3>Software Development Engineer Intern</h3>
+                        <p class="company">Amazon | Bangalore, India</p>
+                        <ul>
+                            <li>Developed and deployed a latency analysis service for Alexa architecture using AWS and big data technologies.</li>
+                            <li>Designed system architecture to identify latency reduction opportunities in a large-scale distributed platform.</li>
+                            <li>Built an end-to-end test automation framework using JUnit 5 and Mockito.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        minimizeButton.addEventListener('click', () => {
-            const terminalBody = document.querySelector('.terminal-body');
-            terminalBody.style.display = terminalBody.style.display === 'none' ? 'block' : 'none';
-        });
+        <section id="skills" class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <p>Python, C++, Java, JavaScript, Golang, SQL</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <p>Deep Learning, NLP, LLMs (BERT, GPT), Computer Vision, ViT, Self-Supervised Learning, Reinforcement Learning, Generative AI, PyTorch, TensorFlow, Hugging Face, LangChain</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <p>AWS (Lambda, S3, OpenSearch, EC2, ECS, EKS), Docker, REST APIs, CI/CD, GitHub Actions</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Science & Tools</h3>
+                    <p>Pandas, NumPy, Plotly, Dash, GTSAM (C++), FAISS, Git, FFmpeg, JUnit, Mockito, Playwright</p>
+                </div>
+            </div>
+        </section>
 
-        maximizeButton.addEventListener('click', () => {
-            const terminal = document.querySelector('.terminal');
-            terminal.style.transform = terminal.style.transform === 'scale(1.1)' ? 'scale(1)' : 'scale(1.1)';
-        });
+        <section id="projects" class="container">
+            <h2>Key Projects</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="professional">Professional</button>
+                <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+                <button class="filter-btn" data-filter="llm-nlp">LLM / NLP</button>
+                <button class="filter-btn" data-filter="web-cloud">Web / Cloud</button>
+            </div>
 
-        // Interactive Sections
-        const sections = document.querySelectorAll('.section-title');
-        sections.forEach(section => {
-            section.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                content.style.display = content.style.display === 'none' ? 'block' : 'none';
-            });
-        });
+            <div class="project-grid">
+                
+                <div class="project-card" data-tags="all professional ai-ml llm-nlp">
+                    <div class="card-content">
+                        <span class="project-type">Professional</span>
+                        <h3>Test Case Prioritization for Vehicle Validation</h3>
+                        <p>Multi-stage system to prioritize test cases using heuristic algorithms and a deep learning prototype for faster issue detection at JLR.</p>
+                        <div class="project-tags">
+                            <span>Deep Learning</span>
+                            <span>Heuristics</span>
+                            <span>JIRA</span>
+                            <span>NLP</span>
+                        </div>
+                        <div class="project-links">
+                            </div>
+                    </div>
+                </div>
 
-        // Interactive Command Prompt
-        const commandInput = document.getElementById('commandInput');
-        const interactiveCursor = document.getElementById('interactiveCursor');
-        const commandHistory = document.getElementById('commandHistory');
-        
-        let commandBuffer = '';
-        let commandIndex = -1;
-        const commandList = [
-            'help',
-            'about',
-            'skills',
-            'projects',
-            'contact',
-            'clear'
-        ];
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                executeCommand(commandBuffer.trim());
-                commandBuffer = '';
-                commandInput.textContent = '';
-            } else if (e.key === 'Backspace') {
-                commandBuffer = commandBuffer.slice(0, -1);
-                commandInput.textContent = commandBuffer;
-            } else if (e.key.length === 1) {
-                commandBuffer += e.key;
-                commandInput.textContent = commandBuffer;
-            }
-        });
+                <div class="project-card" data-tags="all professional ai-ml web-cloud">
+                    <div class="card-content">
+                        <span class="project-type">Professional</span>
+                        <h3>Test Rig Utilization Optimization</h3>
+                        <p>Production ML classification model deployed on AWS to identify active vs. inactive testing assets, driving cost reductions.</p>
+                        <div class="project-tags">
+                            <span>Machine Learning</span>
+                            <span>AWS</span>
+                            <span>Classification</span>
+                        </div>
+                        <div class="project-links">
+                            </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="all professional ai-ml">
+                    <div class="card-content">
+                        <span class="project-type">Research / Publication</span>
+                        <h3>Precise Position Estimation (GSDC)</h3>
+                        <p>Implemented GNSS data processing pipeline using GTSAM and Factor Graph Optimization in C++ for vehicle localization. Presented at JLR Tech Symposium.</p>
+                        <div class="project-tags">
+                            <span>C++</span>
+                            <span>GTSAM</span>
+                            <span>Factor Graph</span>
+                        </div>
+                        <div class="project-links">
+                             </div>
+                    </div>
+                </div>
 
-        function executeCommand(cmd) {
-            const prompt = document.createElement('div');
-            prompt.className = 'command-line';
-            prompt.innerHTML = `<span class="prompt">visitor@portfolio:~$</span> <span>${cmd}</span>`;
-            
-            const output = document.createElement('div');
-            output.className = 'output';
-            
-            switch(cmd.toLowerCase()) {
-                case 'help':
-                    output.innerHTML = `
-                        <span class="comment"># Available commands:</span><br>
-                        <span class="string">help</span> - Show this help message<br>
-                        <span class="string">about</span> - About Nandana<br>
-                        <span class="string">skills</span> - View technical skills<br>
-                        <span class="string">projects</span> - List key projects<br>
-                        <span class="string">contact</span> - Contact information<br>
-                        <span class="string">clear</span> - Clear terminal<br>
-                    `;
-                    break;
-                case 'about':
-                    output.innerHTML = `
-                        <span class="comment"># AI/ML Engineer @ Jaguar Land Rover</span><br>
-                        <span class="comment"># IIT Madras Graduate</span><br>
-                        <span class="comment"># Passionate about machine learning and software engineering</span>
-                    `;
-                    break;
-                case 'skills':
-                    output.innerHTML = `
-                        <span class="comment"># Technical Skills:</span><br>
-                        <span class="string">• Python, C++, Java, JavaScript</span><br>
-                        <span class="string">• Machine Learning & Deep Learning</span><br>
-                        <span class="string">• AWS, Docker, CI/CD</span><br>
-                        <span class="string">• PyTorch, TensorFlow, scikit-learn</span>
-                    `;
-                    break;
-                case 'projects':
-                    output.innerHTML = `
-                        <span class="comment"># Key Projects:</span><br>
-                        <span class="string">• Precise Position Estimation</span><br>
-                        <span class="string">• Test Rig Utilization Optimization</span><br>
-                        <span class="string">• Test Case Prioritization System</span><br>
-                        <span class="string">• Intelligent Customer Service</span>
-                    `;
-                    break;
-                case 'contact':
-                    output.innerHTML = `
-                        <span class="comment"># Contact Information:</span><br>
-                        <span class="string">Email: nandanadileep29@gmail.com</span><br>
-                        <span class="string">Phone: +91 8301939350</span><br>
-                        <span class="string">GitHub: nandanadileep</span><br>
-                        <span class="string">LinkedIn: nandanadileep</span>
-                    `;
-                    break;
-                case 'clear':
-                    commandHistory.innerHTML = '';
-                    commandHistory.classList.remove('show');
-                    return;
-                case '':
-                    return;
-                default:
-                    output.innerHTML = `<span class="error">Command not found: ${cmd}. Type 'help' for available commands.</span>`;
-            }
-            
-            commandHistory.appendChild(prompt);
-            commandHistory.appendChild(output);
-            commandHistory.classList.add('show');
-            commandHistory.scrollTop = commandHistory.scrollHeight;
-        }
+                <div class="project-card" data-tags="all ai-ml llm-nlp">
+                    <div class="card-content">
+                        <h3>Intelligent Customer Service System</h3>
+                        <p>AI-powered system integrating Speech-to-Text, RAG, and Text-to-Speech for a voice-enabled conversational interface.</p>
+                        <div class="project-tags">
+                            <span>RAG</span>
+                            <span>LLM</span>
+                            <span>NLP</span>
+                            <span>FFmpeg</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/nandanadileep/Intelligent-Customer-Service" target="_blank">GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="all ai-ml web-cloud">
+                    <div class="card-content">
+                        <h3>MCP Server for Browser Automation</h3>
+                        <p>Developed a server enabling AI assistants to control web browsers via natural language, using Playwright for automation.</p>
+                        <div class="project-tags">
+                            <span>AI</span>
+                            <span>Playwright</span>
+                            <span>Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/nandanadileep/MCP-Server-for-Browser-Automation" target="_blank">GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="all ai-ml llm-nlp">
+                    <div class="card-content">
+                        <h3>Chess Move Generation with Gemma3</h3>
+                        <p>Fine-tuned the Gemma3 language model on chess datasets to generate valid moves and understand strategic positions.</p>
+                        <div class="project-tags">
+                            <span>LLM</span>
+                            <span>Fine-Tuning</span>
+                            <span>Gemma3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/nandanadileep/Chess-Gemma3-Finetuning" target="_blank">GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="all ai-ml web-cloud">
+                    <div class="card-content">
+                        <h3>Neural Network Movie Recommendation System</h3>
+                        <p>Full-stack deep learning recommendation system deployed with a frontend on GitHub Pages and backend on Render.</p>
+                        <div class="project-tags">
+                            <span>Deep Learning</span>
+                            <span>Full-Stack</span>
+                            <span>Render</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/nandanadileep/Movie-Recommendation-System-using-Neural-Networks" target="_blank">GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-tags="all ai-ml">
+                    <div class="card-content">
+                        <h3>Face Recognition using CNNs</h3>
+                        <p>Developed a CNN model for accurate face recognition, implementing data preprocessing and augmentation for robustness.</p>
+                        <div class="project-tags">
+                            <span>Computer Vision</span>
+                            <span>CNN</span>
+                            <span>Kaggle</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.kaggle.com/code/nandanadileep29/face-recognition-using-cnn" target="_blank">Kaggle <i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-        // Skill items interaction
-        const skillItems = document.querySelectorAll('.skill-item');
-        skillItems.forEach(skill => {
-            skill.addEventListener('click', function() {
-                this.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1.05)';
-                }, 200);
-            });
-        });
+            </div>
+        </section>
 
-        // Add animation delays for sections
-        document.querySelectorAll('.section').forEach((section, index) => {
-            section.style.animationDelay = `${index * 0.1}s`;
-        });
-    </script>
+        <section id="contact" class="container">
+            <h2>Get In Touch</h2>
+            <p class="contact-text">
+                I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out!
+            </p>
+            <a href="mailto:nandanadileep29@gmail.com" class="cta-button">Say Hello <i class="fas fa-paper-plane"></i></a>
+            <div class="social-links-footer">
+                <a href="https://github.com/nandanadileep" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://nandanadileep.github.io" target="_blank" aria-label="Portfolio Website"><i class="fas fa-link"></i> nandanadileep.github.io</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nandana Dileep. Built with HTML, CSS, and JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
