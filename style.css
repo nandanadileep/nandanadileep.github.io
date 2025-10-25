@@ -51,7 +51,6 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scrollbar during animations */
 }
 
 .container {
@@ -209,52 +208,24 @@ input:checked + .slider:before {
     transform: translateX(20px); /* adjusted */
 }
 
-
-/* --- ================================== --- */
-/* --- JAW-DROPPING HERO SECTION STYLES --- */
-/* --- ================================== --- */
-
+/* --- Hero Section --- */
 .hero {
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     min-height: 100vh;
-    width: 100%;
     padding-top: 80px; /* Offset for fixed navbar */
     background-color: var(--bg-secondary-color);
-    overflow: hidden; /* Contain animations */
 }
 
-.hero-container {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr; /* 55% text, 45% image */
-    align-items: center;
-    gap: 3rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
+.hero-content {
+    max-width: 800px;
 }
 
-.hero-text {
-    /* Animation: Slide in from left */
-    animation: slideInFromLeft 1s ease-out forwards;
-    opacity: 0; /* Start hidden */
-}
-
-@keyframes slideInFromLeft {
-    from {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.hero-text h1 {
-    font-size: 3.5rem; /* Slightly larger */
+.hero h1 {
+    font-size: 4rem;
     color: var(--text-color);
-    font-weight: 700;
 }
 
 .hero .subtitle {
@@ -272,8 +243,8 @@ input:checked + .slider:before {
 
 .social-links {
     display: flex;
+    justify-content: center;
     gap: 1.5rem;
-    /* Removed justify-content: center; */
 }
 
 .social-links a {
@@ -286,61 +257,6 @@ input:checked + .slider:before {
     color: var(--primary-color);
     transform: translateY(-5px);
 }
-
-/* --- Hero Image & Masking --- */
-
-.hero-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-photo {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: center; /* Assumes face is centered */
-    border-radius: 30px; /* Softens the shape */
-    
-    /* The CSS Mask! */
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    
-    /* Animation: Reveal */
-    animation: revealImage 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 0.2s; /* Start just after text */
-    
-    /* Start hidden for animation */
-    clip-path: polygon(25% 0%, 25% 0%, 0% 100%, 0% 100%);
-    
-    transition: transform 0.4s ease, clip-path 0.4s ease, box-shadow 0.4s ease;
-}
-
-@keyframes revealImage {
-    from {
-        /* Starts as a sliver on the left */
-        clip-path: polygon(25% 0%, 25% 0%, 0% 100%, 0% 100%);
-    }
-    to {
-        /* Animates to its final shape */
-        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    }
-}
-
-.profile-photo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px var(--shadow-color);
-    
-    /* Interactive mask change on hover */
-    clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
-}
-
-
-/* --- --- */
-/* --- End Hero Section Styles --- */
-/* --- --- */
-
 
 /* --- Experience Timeline --- */
 .timeline {
@@ -645,75 +561,38 @@ footer p {
 }
 
 
-/* --- =================== --- */
 /* --- Responsive Design --- */
-/* --- =================== --- */
-
-/* For Tablets */
 @media (max-width: 900px) {
-    /* Stack hero section on tablets */
-    .hero {
-        min-height: auto; /* Allow height to be natural */
-        padding-top: 8rem; /* More space for navbar */
-        padding-bottom: 4rem;
-    }
-    .hero-container {
-        grid-template-columns: 1fr; /* Stack columns */
-        text-align: center;
-    }
-    .hero-text {
-        text-align: center;
-    }
-    .social-links {
-        justify-content: center; /* Center links */
-    }
-    .hero-image-container {
-        margin-top: 2rem;
-        order: -1; /* Move image to the top on mobile */
-    }
-    .profile-photo {
-        /* Use a simpler shape for mobile */
-        clip-path: none;
-        border-radius: 20px;
-        max-width: 300px; /* Control size */
-        
-        /* Reset animations for mobile */
-        animation: none;
-        clip-path: none;
-        opacity: 1;
-    }
-    .hero-text {
-        animation: none;
-        opacity: 1;
-    }
-
-
-    /* Experience timeline */
     .timeline::after {
         left: 31px;
     }
+    
     .timeline-item {
         width: 100%;
         padding-left: 70px;
         padding-right: 25px;
     }
-    .timeline-item:nth-child(odd),
+    
+    .timeline-item:nth-child(odd) {
+        left: 0;
+    }
+
     .timeline-item:nth-child(even) {
         left: 0;
     }
+
     .timeline-item::after {
         left: 21px;
     }
 }
 
-/* For Mobile Phones */
 @media (max-width: 768px) {
     .nav-menu {
         display: none; /* Simplification: Hide menu. Can be replaced with hamburger. */
     }
 
-    .hero-text h1 {
-        font-size: 2.8rem;
+    .hero h1 {
+        font-size: 3rem;
     }
 
     .hero .subtitle {
