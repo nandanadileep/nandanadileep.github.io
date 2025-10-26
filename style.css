@@ -3,33 +3,37 @@
 
 /* --- CSS Variables for Theming --- */
 :root {
-    /* Dark Mode (Default) */
-    --primary-color: #007bff; /* A bright, techy blue */
-    --primary-color-hover: #0056b3;
-    --bg-color: #121212;
+    /* Dark Mode (Default) - NEW GREEN THEME */
+    --primary-color: #4CAF50; /* Tech Green */
+    --primary-color-hover: #45a049; /* Darker Green */
+    --bg-color: #121212; /* Dark Black */
     --bg-secondary-color: #1e1e1e;
     --card-bg-color: #2a2a2a;
     --text-color: #e0e0e0;
     --text-secondary-color: #a0a0a0;
     --border-color: #333;
     --shadow-color: rgba(0, 0, 0, 0.4);
-    
-    /* CV Primary Color (rgb(0, 79, 144)) */
-    --cv-primary: #004f90;
-    --cv-primary-light: #006dc7;
+
+    /* Spotlight colors for dark mode */
+    --spotlight-color-1: rgba(76, 175, 80, 0.15); /* Greenish, semi-transparent */
+    --spotlight-color-2: rgba(30, 30, 30, 0); /* Fades to background */
 }
 
 body.light-mode {
-    /* Light Mode */
-    --primary-color: var(--cv-primary); /* Using your CV's color */
-    --primary-color-hover: var(--cv-primary-light);
-    --bg-color: #ffffff;
+    /* Light Mode - NEW GREEN THEME */
+    --primary-color: #4CAF50; /* Tech Green */
+    --primary-color-hover: #45a049; /* Darker Green */
+    --bg-color: #ffffff; /* White */
     --bg-secondary-color: #f4f4f4;
     --card-bg-color: #ffffff;
     --text-color: #333333;
     --text-secondary-color: #555555;
     --border-color: #e0e0e0;
     --shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* Spotlight colors for light mode */
+    --spotlight-color-1: rgba(76, 175, 80, 0.1); /* Lighter Green, semi-transparent */
+    --spotlight-color-2: rgba(255, 255, 255, 0); /* Fades to background */
 }
 /* --- End Theming --- */
 
@@ -53,6 +57,30 @@ body {
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scrollbar during animations */
 }
+
+/* --- NEW: Cursor Spotlight Effect --- */
+.spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicking through the element */
+    z-index: 9999;
+    background: radial-gradient(
+        circle at 50% 50%, 
+        var(--spotlight-color-1) 0%, 
+        var(--spotlight-color-2) 350px
+    );
+    transition: background 0.1s linear; /* Smooths the movement */
+    opacity: 0; /* Hidden by default, script will show it */
+}
+
+body:hover .spotlight {
+    opacity: 1; /* Show on hover */
+}
+/* --- End Spotlight --- */
+
 
 .container {
     max-width: 1100px;
@@ -211,7 +239,7 @@ input:checked + .slider:before {
 
 
 /* --- ================================== --- */
-/* --- JAW-DROPPING HERO SECTION STYLES --- */
+/* --- HERO SECTION STYLES --- */
 /* --- ================================== --- */
 
 .hero {
@@ -273,7 +301,6 @@ input:checked + .slider:before {
 .social-links {
     display: flex;
     gap: 1.5rem;
-    /* Removed justify-content: center; */
 }
 
 .social-links a {
@@ -646,6 +673,25 @@ footer p {
 
 
 /* --- =================== --- */
+/* --- NEW: Scroll Animation --- */
+/* --- =================== --- */
+
+/* Initial state for elements to be animated */
+.fade-in-up {
+    opacity: 0;
+    /* Start 20px below final position */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Final state when 'is-visible' class is added */
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- =================== --- */
 /* --- Responsive Design --- */
 /* --- =================== --- */
 
@@ -703,6 +749,11 @@ footer p {
     }
     .timeline-item::after {
         left: 21px;
+    }
+
+    /* Hide cursor spotlight on mobile/touch devices */
+    .spotlight {
+        display: none;
     }
 }
 
