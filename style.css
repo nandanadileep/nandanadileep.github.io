@@ -3,28 +3,28 @@
 
 /* --- CSS Variables for Theming --- */
 :root {
-    /* Dark Mode (Default) - NEW GREEN THEME */
-    --primary-color: #4CAF50; /* Tech Green */
-    --primary-color-hover: #45a049; /* Darker Green */
-    --bg-color: #121212; /* Dark Black */
-    --bg-secondary-color: #1e1e1e;
-    --card-bg-color: #2a2a2a;
+    /* Dark Mode (Default) - NEW CHESS THEME */
+    --primary-color: #b58863; /* Wood (Dark Squares) */
+    --primary-color-hover: #a07652; /* Lighter wood */
+    --bg-color: #2a2a2a; /* Dark background */
+    --bg-secondary-color: #3a3a3a; /* Darker card/navbar bg */
+    --card-bg-color: #3a3a3a;
     --text-color: #e0e0e0;
-    --text-secondary-color: #a0a0a0;
-    --border-color: #333;
-    --shadow-color: rgba(0, 0, 0, 0.4);
-
+    --text-secondary-color: #b0b0b0;
+    --border-color: #4a4a4a;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    
     /* Spotlight colors for dark mode */
-    --spotlight-color-1: rgba(76, 175, 80, 0.15); /* Greenish, semi-transparent */
-    --spotlight-color-2: rgba(30, 30, 30, 0); /* Fades to background */
+    --spotlight-color-1: rgba(181, 136, 99, 0.15); /* Warm brownish glow */
+    --spotlight-color-2: rgba(42, 42, 42, 0); /* Fades to dark */
 }
 
 body.light-mode {
-    /* Light Mode - NEW GREEN THEME */
-    --primary-color: #4CAF50; /* Tech Green */
-    --primary-color-hover: #45a049; /* Darker Green */
-    --bg-color: #ffffff; /* White */
-    --bg-secondary-color: #f4f4f4;
+    /* Light Mode - NEW CHESS THEME */
+    --primary-color: #b58863; /* Wood (Dark Squares) */
+    --primary-color-hover: #8b4513; /* Darker Wood (SaddleBrown) */
+    --bg-color: #f0d9b5; /* Parchment (Light Squares) */
+    --bg-secondary-color: #ffffff; /* White (for cards/navbar) */
     --card-bg-color: #ffffff;
     --text-color: #333333;
     --text-secondary-color: #555555;
@@ -32,8 +32,8 @@ body.light-mode {
     --shadow-color: rgba(0, 0, 0, 0.1);
 
     /* Spotlight colors for light mode */
-    --spotlight-color-1: rgba(76, 175, 80, 0.1); /* Lighter Green, semi-transparent */
-    --spotlight-color-2: rgba(255, 255, 255, 0); /* Fades to background */
+    --spotlight-color-1: rgba(181, 136, 99, 0.15); /* Warm brownish glow */
+    --spotlight-color-2: rgba(240, 217, 181, 0); /* Fades to parchment */
 }
 /* --- End Theming --- */
 
@@ -87,6 +87,30 @@ body:hover .spotlight {
     margin: 0 auto;
     padding: 4rem 2rem;
 }
+
+/* --- NEW: Checkered Pattern for Sections --- */
+#experience, #skills, #projects {
+    position: relative;
+    /* Base color is set */
+    background-color: var(--bg-color);
+    
+    /* Subtle checkered pattern for light mode */
+    background-image:
+      repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.03) 75%, rgba(0,0,0,0.03)),
+      repeating-linear-gradient(-45deg, rgba(0,0,0,0.03) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.03) 75%, rgba(0,0,0,0.03));
+    background-size: 40px 40px;
+}
+
+/* Checkered pattern for dark mode */
+body.dark-mode #experience,
+body.dark-mode #skills,
+body.dark-mode #projects {
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.03) 75%, rgba(255,255,255,0.03)),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.03) 75%, rgba(255,255,255,0.03));
+}
+/* --- End Checkered Pattern --- */
+
 
 h1, h2, h3 {
     font-weight: 600;
@@ -314,7 +338,7 @@ input:checked + .slider:before {
     transform: translateY(-5px);
 }
 
-/* --- Hero Image & Masking --- */
+/* --- Hero Image --- */
 
 .hero-image-container {
     display: flex;
@@ -322,45 +346,42 @@ input:checked + .slider:before {
     align-items: center;
 }
 
+/* --- UPDATED: Classic Circle for Chess Theme --- */
 .profile-photo {
     width: 100%;
-    max-width: 400px;
+    max-width: 350px; /* Adjusted size */
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    object-position: center; /* Assumes face is centered */
-    border-radius: 30px; /* Softens the shape */
+    object-position: center;
     
-    /* The CSS Mask! */
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    /* Changed to circle */
+    border-radius: 50%; 
+    border: 8px solid var(--primary-color); /* Frame with theme color */
     
-    /* Animation: Reveal */
-    animation: revealImage 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 0.2s; /* Start just after text */
+    /* Simple fade-in animation */
+    animation: fadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.2s;
+    opacity: 0; /* Start hidden for animation */
     
-    /* Start hidden for animation */
-    clip-path: polygon(25% 0%, 25% 0%, 0% 100%, 0% 100%);
-    
-    transition: transform 0.4s ease, clip-path 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-@keyframes revealImage {
+/* Replaced clip-path animation with simple fade-in */
+@keyframes fadeIn {
     from {
-        /* Starts as a sliver on the left */
-        clip-path: polygon(25% 0%, 25% 0%, 0% 100%, 0% 100%);
+        opacity: 0;
+        transform: scale(0.9);
     }
     to {
-        /* Animates to its final shape */
-        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
 .profile-photo:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Keep simple hover scale */
     box-shadow: 0 15px 35px var(--shadow-color);
-    
-    /* Interactive mask change on hover */
-    clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
 }
 
 
@@ -517,12 +538,12 @@ input:checked + .slider:before {
 
 .filter-btn:hover {
     background-color: var(--primary-color);
-    color: white; /* Always white text on hover */
+    color: var(--bg-secondary-color); /* Updated for contrast */
 }
 
 .filter-btn.active {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--bg-secondary-color); /* Updated for contrast */
 }
 
 .project-grid {
@@ -582,7 +603,7 @@ input:checked + .slider:before {
 }
 
 .project-tags span {
-    background-color: var(--bg-secondary-color);
+    background-color: var(--bg-color); /* Use main bg for contrast */
     color: var(--text-secondary-color);
     font-size: 0.75rem;
     font-weight: 500;
@@ -621,7 +642,7 @@ input:checked + .slider:before {
 .cta-button {
     display: inline-block;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--bg-secondary-color); /* Updated for contrast */
     padding: 0.8rem 2.5rem;
     border-radius: 30px;
     font-size: 1.1rem;
@@ -633,7 +654,7 @@ input:checked + .slider:before {
 .cta-button:hover {
     background-color: var(--primary-color-hover);
     transform: translateY(-3px);
-    color: white;
+    color: var(--bg-secondary-color);
 }
 
 .cta-button i {
@@ -673,7 +694,7 @@ footer p {
 
 
 /* --- =================== --- */
-/* --- NEW: Scroll Animation --- */
+/* --- Scroll Animation --- */
 /* --- =================== --- */
 
 /* Initial state for elements to be animated */
@@ -718,15 +739,8 @@ footer p {
         order: -1; /* Move image to the top on mobile */
     }
     .profile-photo {
-        /* Use a simpler shape for mobile */
-        clip-path: none;
-        border-radius: 20px;
         max-width: 300px; /* Control size */
-        
-        /* Reset animations for mobile */
-        animation: none;
-        clip-path: none;
-        opacity: 1;
+        border-width: 6px;
     }
     .hero-text {
         animation: none;
