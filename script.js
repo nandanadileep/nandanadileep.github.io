@@ -68,10 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Show card if its tags include the filter, or if the filter is 'all'
                 if (cardTags.includes(filter) || filter === 'all') {
                     card.style.display = 'flex'; // Use flex to maintain layout
-                    card.style.opacity = '1';
+                    
+                    // Use a timeout to allow the 'display' to apply before fading in
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                    }, 10); // A small delay is all that's needed
+
                 } else {
-                    card.style.display = 'none';
                     card.style.opacity = '0';
+                    // Wait for fade-out to finish before setting display: none
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 400); // Must match the transition duration
                 }
             });
         });
@@ -80,6 +88,57 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add simple transition for smoother filtering
     projectCards.forEach(card => {
         card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+
+
+    // --- NEW: Cursor Spotlight Effect ---
+    const spotlight = document.querySelector('.spotlight');
+    
+    // Only run this on devices that are not touch-based
+    if (window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', (e) => {
+            // Use requestAnimationFrame for smooth performance
+            requestAnimationFrame(() => {
+                // Get the computed style to read CSS variables
+                const style = getComputedStyle(document.body);
+                const color1 = style.getPropertyValue('--spotlight-color-1').trim();
+                const color2 = style.getPropertyValue('--spotlight-color-2').trim();
+
+                // Update the background gradient position
+                spotlight.style.background = `radial-gradient(
+                    circle at ${e.clientX}px ${e.clientY}px, 
+                    ${color1} 0%, 
+                    ${color2} 350px
+                )`;
+            });
+        });
+    } else {
+        // Hide spotlight on touch devices
+        if (spotlight) spotlight.style.display = 'none';
+    }
+
+
+    // --- NEW: Scroll Animation (Intersection Observer) ---
+    const animatedElements = document.querySelectorAll('.fade-in-up');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the 'is-visible' class to trigger the animation
+                entry.target.classList.add('is-visible');
+                
+                // Stop observing the element so the animation only runs once
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    // Observe each element
+    animatedElements.forEach(el => {
+        observer.observe(el);
     });
 
 });
