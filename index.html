@@ -109,12 +109,39 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: space-between; /* Split text and image */
             padding: 0 10%;
             padding-top: 80px;
+            gap: 4rem;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 600px;
+            flex: 1;
+        }
+
+        /* --- PROFILE PHOTO --- */
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-photo {
+            width: 320px;
+            height: 320px;
+            border-radius: 20%; /* Squircle shape */
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+            transition: var(--transition);
+            background-color: var(--card-bg); /* Fallback if image missing */
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px var(--accent-glow);
         }
 
         .hero-tag {
@@ -130,7 +157,7 @@
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
@@ -140,10 +167,9 @@
         }
 
         .hero-bio {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
-            max-width: 600px;
         }
 
         .cta-group {
@@ -342,6 +368,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            padding-bottom: 1rem; /* Added padding to prevent link hitting bottom */
         }
 
         .project-card:hover {
@@ -392,25 +419,55 @@
             color: #e2e8f0;
         }
 
+        /* --- UPDATED CARD LINKS --- */
         .card-links {
-            padding-top: 1rem;
-            border-top: 1px solid var(--card-border);
+            padding: 0 1.5rem 0.5rem 1.5rem; /* Padding inside the card */
+            border-top: none; /* Removed the border to make it cleaner */
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-end; /* Keeps it on the right */
         }
 
         .card-links a {
-            color: var(--text-primary);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            color: var(--accent);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 0.4rem;
             transition: var(--transition);
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         .card-links a:hover {
-            color: var(--accent);
+            background: var(--accent);
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        /* --- CONTACT SECTION --- */
+        #contact {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-box {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
 
         /* --- FOOTER --- */
@@ -424,9 +481,17 @@
 
         /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
+            header { 
+                flex-direction: column-reverse; /* Image on top on mobile */
+                text-align: center;
+                gap: 2rem;
+            }
+            .hero-content { max-width: 100%; }
+            .cta-group { justify-content: center; }
             h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Simplified mobile handling */
+            .nav-links { display: none; } 
             section { padding: 4rem 5%; }
+            .profile-photo { width: 250px; height: 250px; }
         }
     </style>
 </head>
@@ -442,13 +507,13 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="mailto:nandanadileep29@gmail.com">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <header id="about">
         <div class="hero-content">
-        
+            <span class="hero-tag">🚀 Aspiring Founding Engineer</span>
             <h1>Building Intelligent<br>Systems that Scale</h1>
             <p class="hero-bio">
                 AI/ML Engineer at Jaguar Land Rover & Ex-Amazon. I specialize in Full-Stack GenAI, High-Performance Compute, and turning research papers into deployed products.
@@ -458,6 +523,10 @@
                 <a href="https://github.com/nandanadileep" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
                 <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
+        </div>
+        
+        <div class="hero-image-container">
+            <img src="your-photo.jpg" alt="Nandana Dileep" class="profile-photo">
         </div>
     </header>
 
@@ -728,6 +797,22 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Always open to discussing new projects and opportunities.</p>
+        </div>
+        <div class="contact-box">
+            <p class="contact-text">
+                I'm currently looking for Founding Engineer or AI Engineer roles in Dubai. 
+                Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </p>
+            <a href="mailto:nandanadileep29@gmail.com" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Say Hello
+            </a>
         </div>
     </section>
 
