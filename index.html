@@ -25,12 +25,11 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
         ::selection {
@@ -38,7 +37,6 @@
             color: var(--bg);
         }
 
-        /* Cursor Effect */
         .cursor-glow {
             position: fixed;
             width: 400px;
@@ -47,10 +45,8 @@
             pointer-events: none;
             z-index: 9999;
             transform: translate(-50%, -50%);
-            transition: opacity 0.3s;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -70,7 +66,6 @@
             font-weight: 500;
             color: var(--text);
             text-decoration: none;
-            letter-spacing: -0.02em;
         }
 
         .nav-links {
@@ -83,7 +78,6 @@
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 400;
             position: relative;
             transition: color 0.3s;
         }
@@ -107,13 +101,11 @@
             width: 100%;
         }
 
-        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 0 5%;
-            position: relative;
         }
 
         .hero-grid {
@@ -123,10 +115,6 @@
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-        }
-
-        .hero-content {
-            padding-top: 2rem;
         }
 
         .hero-label {
@@ -150,11 +138,10 @@
             animation: fadeIn 0.8s forwards 0.4s;
         }
 
-        .hero h1 .highlight {
+        .highlight {
             background: linear-gradient(135deg, #ffffff 0%, #808080 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hero-description {
@@ -207,7 +194,6 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
-            border-radius: 2px;
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
@@ -234,7 +220,6 @@
             color: var(--accent);
         }
 
-        /* Hero Side */
         .hero-side {
             display: flex;
             flex-direction: column;
@@ -247,7 +232,6 @@
             background: var(--surface);
             border: 1px solid var(--border);
             padding: 2rem;
-            border-radius: 4px;
             transition: all 0.3s;
         }
 
@@ -275,7 +259,6 @@
             margin-top: 0.5rem;
         }
 
-        /* Sections */
         section {
             padding: 10rem 5%;
             max-width: 1400px;
@@ -294,7 +277,6 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
             color: var(--text-muted);
-            letter-spacing: 0.1em;
         }
 
         .section-title {
@@ -303,29 +285,17 @@
             letter-spacing: -0.02em;
         }
 
-        /* Experience */
-        .experience-grid {
-            display: grid;
-            gap: 4rem;
-        }
-
         .exp-item {
             display: grid;
             grid-template-columns: 250px 1fr;
             gap: 4rem;
             padding: 2rem 0;
             border-bottom: 1px solid var(--border);
-            transition: all 0.3s;
+            transition: padding-left 0.3s;
         }
 
         .exp-item:hover {
             padding-left: 1rem;
-        }
-
-        .exp-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
         }
 
         .exp-company {
@@ -366,7 +336,6 @@
             color: var(--accent);
         }
 
-        /* Projects */
         .projects-filter {
             display: flex;
             gap: 1rem;
@@ -383,7 +352,6 @@
             cursor: pointer;
             transition: all 0.3s;
             font-family: inherit;
-            border-radius: 2px;
         }
 
         .filter-btn:hover {
@@ -407,7 +375,6 @@
             background: var(--surface);
             border: 1px solid var(--border);
             padding: 2.5rem;
-            border-radius: 4px;
             transition: all 0.4s;
             display: flex;
             flex-direction: column;
@@ -470,7 +437,6 @@
             color: var(--text-muted);
             padding: 0.3rem 0.8rem;
             border: 1px solid var(--border);
-            border-radius: 2px;
         }
 
         .project-link {
@@ -488,7 +454,6 @@
             gap: 1rem;
         }
 
-        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -499,8 +464,7 @@
             padding: 2rem;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 4px;
-            transition: all 0.3s;
+            transition: border-color 0.3s;
         }
 
         .skill-category:hover {
@@ -526,7 +490,6 @@
             font-size: 0.9rem;
         }
 
-        /* Contact */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -552,7 +515,7 @@
             text-decoration: none;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 0.3rem;
-            transition: all 0.3s;
+            transition: opacity 0.3s;
         }
 
         .contact-email:hover {
@@ -572,7 +535,6 @@
             padding: 1.5rem;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 4px;
             text-decoration: none;
             color: var(--text);
             transition: all 0.3s;
@@ -595,14 +557,12 @@
         .link-label {
             font-size: 0.8rem;
             color: var(--text-muted);
-            margin-bottom: 0.2rem;
         }
 
         .link-value {
             font-size: 1rem;
         }
 
-        /* Footer */
         footer {
             padding: 4rem 5%;
             text-align: center;
@@ -611,7 +571,6 @@
             font-size: 0.9rem;
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -623,7 +582,6 @@
             }
         }
 
-        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -633,33 +591,13 @@
             cursor: pointer;
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-
-            .section-header {
+            .hero-grid, .section-header, .exp-item, .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .exp-item {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
+            .skills-grid, .projects-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -699,7 +637,6 @@
 
             .hero-stats {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
 
             section {
@@ -711,6 +648,10 @@
             }
 
             .skill-items {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -735,22 +676,13 @@
     <section class="hero">
         <div class="hero-grid">
             <div class="hero-content">
-                <div class="hero-label">AI/ML Engineer</div>
+                <div class="hero-label">AI/ML ENGINEER</div>
                 <h1>Building <span class="highlight">intelligent systems</span> that scale</h1>
                 <p class="hero-description">
                     Currently at Jaguar Land Rover, previously Amazon. I architect production GenAI systems, 
                     optimize distributed compute infrastructure, and translate research into deployable products 
                     that solve real problems.
                 </p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">2+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Projects Shipped</div>
-                    </div>
                 </div>
                 <div class="hero-cta">
                     <a href="#projects" class="cta-primary">
@@ -770,9 +702,9 @@
             <div class="section-number">01 — EXPERIENCE</div>
             <h2 class="section-title">Where I've Built</h2>
         </div>
-        <div class="experience-grid">
+        <div>
             <div class="exp-item">
-                <div class="exp-meta">
+                <div>
                     <div class="exp-company">Jaguar Land Rover</div>
                     <div class="exp-role">AI/ML Engineer</div>
                     <div class="exp-date">2024.07 — Present</div>
@@ -787,7 +719,7 @@
             </div>
 
             <div class="exp-item">
-                <div class="exp-meta">
+                <div>
                     <div class="exp-company">Amazon</div>
                     <div class="exp-role">Software Engineer Intern</div>
                     <div class="exp-date">2023.05 — 2023.07</div>
@@ -824,7 +756,7 @@
                     <span class="tech-tag">FastAPI</span>
                     <span class="tech-tag">React</span>
                     <span class="tech-tag">Celery</span>
-                    <span class="tech-tag">AST Parsing</span>
+                    <span class="tech-tag">AST</span>
                 </div>
                 <a href="https://github.com/nandanadileep/RefractorIQ" target="_blank" class="project-link">
                     View Project <i class="fas fa-arrow-right"></i>
@@ -834,7 +766,7 @@
             <div class="project-card" data-category="genai fullstack">
                 <span class="project-type">Automation</span>
                 <h3>AI Code Review Agent</h3>
-                <p>GitHub App that automatically reviews pull requests using Llama-3. Analyzes diffs for bugs and security risks, posting inline comments directly to PRs via webhooks.</p>
+                <p>GitHub App that automatically reviews pull requests using Llama-3. Analyzes diffs for bugs and security risks, posting inline comments directly to PRs.</p>
                 <div class="project-tech">
                     <span class="tech-tag">Llama-3</span>
                     <span class="tech-tag">GitHub API</span>
@@ -848,7 +780,7 @@
             <div class="project-card" data-category="genai">
                 <span class="project-type">Multimodal AI</span>
                 <h3>Img2Tweet Pipeline</h3>
-                <p>End-to-end multimodal system transforming images into viral-style tweets. Fine-tuned ViT-GPT2 for captioning with LoRA adapters for style transfer.</p>
+                <p>Multimodal system transforming images into viral-style tweets. Fine-tuned ViT-GPT2 for captioning with LoRA adapters for style transfer.</p>
                 <div class="project-tech">
                     <span class="tech-tag">PyTorch</span>
                     <span class="tech-tag">LoRA</span>
@@ -863,7 +795,7 @@
             <div class="project-card" data-category="genai fullstack">
                 <span class="project-type">RAG System</span>
                 <h3>ChatPDF</h3>
-                <p>Production RAG system for document querying with sliding window chunking, FAISS vector search, and conversational memory for natural interactions.</p>
+                <p>Production RAG system for document querying with sliding window chunking, FAISS vector search, and conversational memory.</p>
                 <div class="project-tech">
                     <span class="tech-tag">RAG</span>
                     <span class="tech-tag">FAISS</span>
@@ -888,7 +820,7 @@
 
             <div class="project-card" data-category="genai">
                 <span class="project-type">Voice AI</span>
-                <h3>Voice Customer Service Agent</h3>
+                <h3>Voice Customer Service</h3>
                 <p>Voice-enabled AI integrating Speech-to-Text (Whisper), RAG for knowledge retrieval, and Text-to-Speech for conversational support.</p>
                 <div class="project-tech">
                     <span class="tech-tag">Whisper</span>
@@ -904,4 +836,154 @@
 
     <section id="skills">
         <div class="section-header">
-            <div class="
+            <div class="section-number">03 — CAPABILITIES</div>
+            <h2 class="section-title">Technical Stack</h2>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>GenAI & LLMs</h3>
+                <div class="skill-items">
+                    <span>Llama-3</span>
+                    <span>RAG Architectures</span>
+                    <span>LoRA Fine-tuning</span>
+                    <span>LangChain</span>
+                    <span>Vector Databases</span>
+                    <span>Prompt Engineering</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend & Infrastructure</h3>
+                <div class="skill-items">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>Docker</span>
+                    <span>AWS Lambda/ECS</span>
+                    <span>Redis</span>
+                    <span>PostgreSQL</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Core Engineering</h3>
+                <div class="skill-items">
+                    <span>C++</span>
+                    <span>Data Structures</span>
+                    <span>Distributed Systems</span>
+                    <span>Graph Algorithms</span>
+                    <span>GTSAM</span>
+                    <span>System Design</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-items">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Tailwind CSS</span>
+                    <span>Modern Web APIs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <div class="section-number">04 — CONTACT</div>
+            <h2 class="section-title">Let's Connect</h2>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Open to discussing technical challenges, collaboration opportunities, and building products that scale.</h3>
+                <p>
+                    Whether you're working on cutting-edge AI systems, need expertise in production ML deployments, 
+                    or want to explore new ideas — I'm always interested in meaningful conversations.
+                </p>
+                <a href="mailto:nandanadileep29@gmail.com" class="contact-email">
+                    nandanadileep29@gmail.com
+                </a>
+            </div>
+
+            <div class="contact-links">
+                <a href="https://github.com/nandanadileep" target="_blank" class="contact-link">
+                    <i class="fab fa-github"></i>
+                    <div class="link-text">
+                        <span class="link-label">Code</span>
+                        <span class="link-value">github.com/nandanadileep</span>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank" class="contact-link">
+                    <i class="fab fa-linkedin"></i>
+                    <div class="link-text">
+                        <span class="link-label">Professional</span>
+                        <span class="link-value">LinkedIn Profile</span>
+                    </div>
+                </a>
+
+                <a href="mailto:nandanadileep29@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <div class="link-text">
+                        <span class="link-label">Email</span>
+                        <span class="link-value">nandanadileep29@gmail.com</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Nandana Dileep — Built with intention</p>
+    </footer>
+
+    <script>
+        // Cursor glow effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Project filtering
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+                if (category === 'all' || categories.includes(category)) {
+                    card.style.display = 'flex';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
