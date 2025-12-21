@@ -251,6 +251,24 @@
             font-size: 1.1rem;
             line-height: 1.6;
         }
+        .photo-card {
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%) contrast(1.1);
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+        
+        .photo-card:hover img {
+            transform: scale(1.03);
+            filter: grayscale(0%) contrast(1.1);
+        }
 
         .code-block {
             font-family: 'JetBrains Mono', monospace;
@@ -673,29 +691,48 @@
         </ul>
     </nav>
 
-    <section class="hero">
-        <div class="hero-grid">
-            <div class="hero-content">
-                <div class="hero-label">AI/ML ENGINEER</div>
-                <h1>Building <span class="highlight">intelligent systems</span> that scale</h1>
-                <p class="hero-description">
-                    Currently at Jaguar Land Rover, previously Amazon. I architect production GenAI systems, 
-                    optimize distributed compute infrastructure, and translate research into deployable products 
-                    that solve real problems.
-                </p>
-                </div>
-                <div class="hero-cta">
-                    <a href="#projects" class="cta-primary">
-                        View Work <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <div class="social-links">
-                        <a href="https://github.com/nandanadileep" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
+<section class="hero">
+    <div class="hero-grid">
+
+        <!-- LEFT -->
+        <div class="hero-content">
+            <div class="hero-label">AI/ML ENGINEER</div>
+            <h1>Building <span class="highlight">intelligent systems</span> that scale</h1>
+            <p class="hero-description">
+                Currently at Jaguar Land Rover, previously Amazon. I architect production GenAI systems, 
+                optimize distributed compute infrastructure, and translate research into deployable products 
+                that solve real problems.
+            </p>
+
+            <div class="hero-cta">
+                <a href="#projects" class="cta-primary">
+                    View Work <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="social-links">
+                    <a href="https://github.com/nandanadileep" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- RIGHT -->
+        <div class="hero-side">
+            <div class="side-card photo-card">
+                <img src="Nandana.jpg" alt="Nandana Dileep">
+            </div>
+
+            <div class="side-card">
+                <h3>Currently</h3>
+                <p>
+                    AI/ML Engineer at Jaguar Land Rover, focused on GenAI systems,
+                    scalable ML infrastructure, and research-to-production work.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
     <section id="work">
         <div class="section-header">
@@ -897,14 +934,9 @@
         
         <div class="contact-grid">
             <div class="contact-info">
-                <h3>Open to discussing technical challenges, collaboration opportunities, and building products that scale.</h3>
                 <p>
-                    Whether you're working on cutting-edge AI systems, need expertise in production ML deployments, 
-                    or want to explore new ideas — I'm always interested in meaningful conversations.
+                    Open to geeking out on tough technical problems, collab opportunities, and building AI products that actually scale.
                 </p>
-                <a href="mailto:nandanadileep29@gmail.com" class="contact-email">
-                    nandanadileep29@gmail.com
-                </a>
             </div>
 
             <div class="contact-links">
@@ -936,7 +968,7 @@
     </section>
 
     <footer>
-        <p>© 2025 Nandana Dileep — Built with intention</p>
+        <p>© 2025 Nandana Dileep — Built with caffeine and too many tabs open</p>
     </footer>
 
     <script>
