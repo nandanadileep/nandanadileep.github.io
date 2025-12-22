@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nandana Dileep</title>
-    <!-- <link rel="icon" type="image/png" href="Gemini_Generated_Image_39hwis39hwis39hw.png"> -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -34,7 +33,6 @@
             padding-left: var(--container-padding);
             padding-right: var(--container-padding);
         }
-
 
         body {
             padding-top: var(--nav-height);
@@ -72,7 +70,6 @@
             display: flex;
             align-items: center;
         }
-
 
         .nav-name {
             font-size: 0.95rem;
@@ -132,8 +129,6 @@
             align-items: center;
         }
 
-
-
         .hero-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
@@ -146,7 +141,7 @@
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
             line-height: 1.1;
             font-weight: 600;
             margin-bottom: 2rem;
@@ -159,6 +154,7 @@
             background: linear-gradient(135deg, #ffffff 0%, #808080 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline;
         }
 
         .hero-description {
@@ -169,31 +165,6 @@
             margin-bottom: 3rem;
             opacity: 0;
             animation: fadeIn 0.8s forwards 0.6s;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 0.8s;
-        }
-
-        .stat-item {
-            border-left: 1px solid var(--border);
-            padding-left: 1rem;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
         }
 
         .hero-cta {
@@ -257,17 +228,6 @@
             transform: translateX(5px);
         }
 
-        .side-card h3 {
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-        }
-
-        .side-card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
         .photo-card {
             padding: 0;
             overflow: hidden;
@@ -275,7 +235,7 @@
         
         .photo-card img {
             width: 100%;
-            height: 380px; /* SLIGHTLY REDUCED FOR BETTER ORIENTATION */
+            height: 380px;
             object-fit: cover;
             display: block;
             filter: grayscale(100%) contrast(1.1);
@@ -287,18 +247,8 @@
             filter: grayscale(0%) contrast(1.1);
         }
 
-        .code-block {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: #00ff88;
-            margin-top: 0.5rem;
-        }
-
         section {
-            padding: 10rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-            border-top: 1px solid var(--border);
+            padding: 10rem 0;
         }
 
         .section-header {
@@ -531,30 +481,10 @@
             gap: 6rem;
         }
 
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-        }
-
         .contact-info p {
             color: var(--text-muted);
             line-height: 1.8;
             margin-bottom: 2rem;
-        }
-
-        .contact-email {
-            display: inline-block;
-            font-size: 1.3rem;
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.3rem;
-            transition: opacity 0.3s;
-        }
-
-        .contact-email:hover {
-            opacity: 0.7;
         }
 
         .contact-links {
@@ -599,7 +529,7 @@
         }
 
         footer {
-            padding: 4rem 5%;
+            padding: 4rem 0;
             text-align: center;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
@@ -624,10 +554,11 @@
             color: var(--text);
             font-size: 1.2rem;
             cursor: pointer;
+            padding: 0.5rem;
         }
 
         @media (max-width: 1024px) {
-            .hero-grid, .section-header, .exp-item, .contact-grid {
+            .section-header, .exp-item, .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -636,61 +567,18 @@
                 grid-template-columns: 1fr;
             }
         }
-        @media (max-width: 768px) {
-            .hero {
-                padding-top: calc(64px + 2.5rem);
-                padding-bottom: 3rem;
-            }
-        }
 
         @media (max-width: 768px) {
-            .hero-content {
-                max-width: 100%;
+            :root {
+                --nav-height: 64px;
             }
-        
-            .hero-description {
-                font-size: 1rem;
-            }
-        
-            .hero-cta {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-        }
 
-        @media (max-width: 768px) {
-            .hero-side {
-                margin-top: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-        
-            .hero h1 {
-                font-size: clamp(2.2rem, 8vw, 3rem);
-            }
-        
-            .hero-description {
-                font-size: 1rem;
-            }
-        
-            .hero-side {
-                margin-top: 2rem;
-            }
-        
-            .hero-cta {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-        }
-
-
-        @media (max-width: 768px) {
             nav {
-                padding: 2rem 1.5rem;
+                padding: 0;
+            }
+
+            .nav-inner {
+                padding: 1rem 1.5rem;
             }
 
             .nav-links {
@@ -700,9 +588,11 @@
                 left: 0;
                 right: 0;
                 background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
             }
 
             .nav-links.active {
@@ -714,19 +604,30 @@
             }
 
             .hero {
-                padding: 0 1.5rem;
+                padding-top: 2rem;
+                padding-bottom: 3rem;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-stats {
+            .hero-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-side {
+                margin-top: 1rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-wrap: wrap;
+                gap: 1rem;
             }
 
             section {
-                padding: 6rem 1.5rem;
+                padding: 6rem 0;
             }
 
             .section-title {
@@ -740,6 +641,10 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .project-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -747,251 +652,263 @@
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <nav>
-      <div class="container nav-inner">
-        <a href="#" class="nav-name">Nandana Dileep</a>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-        <ul class="nav-links" id="navLinks">...</ul>
-      </div>
+        <div class="container nav-inner">
+            <a href="#" class="nav-name">Nandana Dileep</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-label">AI/ML ENGINEER</div>
+                    <h1>Building <span class="highlight">intelligent systems</span> that scale</h1>
+                    <p class="hero-description">
+                        AI/ML Engineer at Jaguar Land Rover, focused on GenAI systems,
+                        scalable ML infrastructure, and translate research into deployable products 
+                        that solve real problems. 
+                    </p>
 
-<section class="hero">
-    <div class="hero-grid">
+                    <div class="hero-cta">
+                        <a href="#projects" class="cta-primary">
+                            View Work <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="social-links">
+                            <a href="https://github.com/nandanadileep" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="hero-content">
-            <div class="hero-label">AI/ML ENGINEER</div>
-            <h1>Building <span class="highlight">intelligent systems</span> that scale</h1>
-            <p class="hero-description">
-                AI/ML Engineer at Jaguar Land Rover, focused on GenAI systems,
-                scalable ML infrastructure, and translate research into deployable products 
-                that solve real problems. 
-            </p>
-
-            <div class="hero-cta">
-                <a href="#projects" class="cta-primary">
-                    View Work <i class="fas fa-arrow-right"></i>
-                </a>
-                <div class="social-links">
-                    <a href="https://github.com/nandanadileep" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <div class="hero-side">
+                    <div class="side-card photo-card">
+                        <img src="nandana.jpg" alt="Nandana Dileep">
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="hero-side">
-            <div class="side-card photo-card">
-                <img src="nandana.jpg" alt="Nandana Dileep">
-            </div>
-        </div>
-
-    </div>
-</section>
-
+    </section>
 
     <section id="work">
-        <div class="section-header">
-            <div class="section-number">01 — EXPERIENCE</div>
-        </div>
-        <div>
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">Jaguar Land Rover</div>
-                    <div class="exp-role">AI/ML Engineer</div>
-                    <div class="exp-date">2024.07 — Present</div>
-                </div>
-                <div class="exp-content">
-                    <ul>
-                        <li>Currently part of a team building deep learning-powered test prioritization engine with JIRA integration for automated validation workflows</li>
-                        <li>Deployed production ML models identifying underutilized test rigs, driving measurable cost reductions through optimized asset allocation</li>
-                        <li>Implemented GNSS Factor Graph Optimization in C++ using GTSAM for precise vehicle localization. Presented research at JLR Tech Symposium</li>
-                    </ul>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">01 — EXPERIENCE</div>
             </div>
-
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">Amazon</div>
-                    <div class="exp-role">Software Engineer Intern</div>
-                    <div class="exp-date">2023.05 — 2023.07</div>
+            <div>
+                <div class="exp-item">
+                    <div>
+                        <div class="exp-company">Jaguar Land Rover</div>
+                        <div class="exp-role">AI/ML Engineer</div>
+                        <div class="exp-date">2024.07 — Present</div>
+                    </div>
+                    <div class="exp-content">
+                        <ul>
+                            <li>Currently part of a team building deep learning-powered test prioritization engine with JIRA integration for automated validation workflows</li>
+                            <li>Deployed production ML models identifying underutilized test rigs, driving measurable cost reductions through optimized asset allocation</li>
+                            <li>Implemented GNSS Factor Graph Optimization in C++ using GTSAM for precise vehicle localization. Presented research at JLR Tech Symposium</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="exp-content">
-                    <ul>
-                        <li>Built serverless analytics service using AWS Lambda and Coral to detect latency bottlenecks in Alexa's voice processing pipeline</li>
-                        <li>Engineered robust test automation framework with JUnit and Mockito, significantly reducing deployment rollback rates</li>
-                    </ul>
+
+                <div class="exp-item">
+                    <div>
+                        <div class="exp-company">Amazon</div>
+                        <div class="exp-role">Software Engineer Intern</div>
+                        <div class="exp-date">2023.05 — 2023.07</div>
+                    </div>
+                    <div class="exp-content">
+                        <ul>
+                            <li>Built serverless analytics service using AWS Lambda and Coral to detect latency bottlenecks in Alexa's voice processing pipeline</li>
+                            <li>Engineered robust test automation framework with JUnit and Mockito, significantly reducing deployment rollback rates</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <div class="section-header">
-            <div class="section-number">02 — PROJECTS</div>
-        </div>
-
-        <div class="projects-filter">
-            <button class="filter-btn active" onclick="filterProjects('all')">All Work</button>
-            <button class="filter-btn" onclick="filterProjects('genai')">GenAI</button>
-            <button class="filter-btn" onclick="filterProjects('fullstack')">Full Stack</button>
-            <button class="filter-btn" onclick="filterProjects('research')">Research</button>
-        </div>
-
-        <div class="projects-grid">
-            <div class="project-card" data-category="fullstack genai">
-                <span class="project-type">Developer Tool</span>
-                <h3>RefractorIQ</h3>
-                <p>Full-stack code quality analysis platform combining AST parsing for complexity metrics with Google Gemini for automated refactoring. Handles async analysis via Celery.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Celery</span>
-                    <span class="tech-tag">AST</span>
-                </div>
-                <a href="https://github.com/nandanadileep/RefractorIQ" target="_blank" class="project-link">
-                    View Project <i class="fas fa-arrow-right"></i>
-                </a>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">02 — PROJECTS</div>
             </div>
 
-            <div class="project-card" data-category="genai fullstack">
-                <span class="project-type">Automation</span>
-                <h3>AI Code Review Agent</h3>
-                <p>GitHub App that automatically reviews pull requests using Llama-3. Analyzes diffs for bugs and security risks, posting inline comments directly to PRs.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Llama-3</span>
-                    <span class="tech-tag">GitHub API</span>
-                    <span class="tech-tag">Webhooks</span>
-                </div>
-                <a href="https://github.com/nandanadileep/ai-code-review-bot" target="_blank" class="project-link">
-                    View Project <i class="fas fa-arrow-right"></i>
-                </a>
+            <div class="projects-filter">
+                <button class="filter-btn active" onclick="filterProjects('all')">All Work</button>
+                <button class="filter-btn" onclick="filterProjects('genai')">GenAI</button>
+                <button class="filter-btn" onclick="filterProjects('fullstack')">Full Stack</button>
+                <button class="filter-btn" onclick="filterProjects('research')">Research</button>
             </div>
 
-            <div class="project-card" data-category="genai">
-                <span class="project-type">Multimodal AI</span>
-                <h3>Img2Tweet Pipeline</h3>
-                <p>Multimodal system transforming images into viral-style tweets. Fine-tuned ViT-GPT2 for captioning with LoRA adapters for style transfer.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">PyTorch</span>
-                    <span class="tech-tag">LoRA</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">React</span>
+            <div class="projects-grid">
+                <div class="project-card" data-category="fullstack genai">
+                    <span class="project-type">Developer Tool</span>
+                    <h3>RefractorIQ</h3>
+                    <p>Full-stack code quality analysis platform combining AST parsing for complexity metrics with Google Gemini for automated refactoring. Handles async analysis via Celery.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Celery</span>
+                        <span class="tech-tag">AST</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/RefractorIQ" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <a href="https://github.com/nandanadileep/img2tweet" target="_blank" class="project-link">
-                    View Project <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
 
-            <div class="project-card" data-category="genai fullstack">
-                <span class="project-type">RAG System</span>
-                <h3>ChatPDF</h3>
-                <p>Production RAG system for document querying with sliding window chunking, FAISS vector search, and conversational memory.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">RAG</span>
-                    <span class="tech-tag">FAISS</span>
-                    <span class="tech-tag">LangChain</span>
-                    <span class="tech-tag">FastAPI</span>
+                <div class="project-card" data-category="genai fullstack">
+                    <span class="project-type">Automation</span>
+                    <h3>AI Code Review Agent</h3>
+                    <p>GitHub App that automatically reviews pull requests using Llama-3. Analyzes diffs for bugs and security risks, posting inline comments directly to PRs.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Llama-3</span>
+                        <span class="tech-tag">GitHub API</span>
+                        <span class="tech-tag">Webhooks</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/ai-code-review-bot" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <a href="https://github.com/nandanadileep/custom-pdf-RAG" target="_blank" class="project-link">
-                    View Project <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
 
-            <div class="project-card" data-category="research">
-                <span class="project-type">Robotics</span>
-                <h3>GNSS Factor Graph Optimization</h3>
-                <p>Precise vehicle localization using Factor Graph Optimization with GTSAM library. Presented technical findings at JLR Tech Symposium.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">C++</span>
-                    <span class="tech-tag">GTSAM</span>
-                    <span class="tech-tag">Graph Theory</span>
+                <div class="project-card" data-category="genai">
+                    <span class="project-type">Multimodal AI</span>
+                    <h3>Img2Tweet Pipeline</h3>
+                    <p>Multimodal system transforming images into viral-style tweets. Fine-tuned ViT-GPT2 for captioning with LoRA adapters for style transfer.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">LoRA</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">React</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/img2tweet" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-            </div>
 
-            <div class="project-card" data-category="genai">
-                <span class="project-type">Voice AI</span>
-                <h3>Voice Customer Service</h3>
-                <p>Voice-enabled AI integrating Speech-to-Text (Whisper), RAG for knowledge retrieval, and Text-to-Speech for conversational support.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Whisper</span>
-                    <span class="tech-tag">RAG</span>
-                    <span class="tech-tag">FFmpeg</span>
+                <div class="project-card" data-category="genai fullstack">
+                    <span class="project-type">RAG System</span>
+                    <h3>ChatPDF</h3>
+                    <p>Production RAG system for document querying with sliding window chunking, FAISS vector search, and conversational memory.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">FAISS</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">FastAPI</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/custom-pdf-RAG" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <a href="https://github.com/nandanadileep/Intelligent-Customer-Service" target="_blank" class="project-link">
-                    View Project <i class="fas fa-arrow-right"></i>
-                </a>
+
+                <div class="project-card" data-category="research">
+                    <span class="project-type">Robotics</span>
+                    <h3>GNSS Factor Graph Optimization</h3>
+                    <p>Precise vehicle localization using Factor Graph Optimization with GTSAM library. Presented technical findings at JLR Tech Symposium.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">GTSAM</span>
+                        <span class="tech-tag">Graph Theory</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="genai">
+                    <span class="project-type">Voice AI</span>
+                    <h3>Voice Customer Service</h3>
+                    <p>Voice-enabled AI integrating Speech-to-Text (Whisper), RAG for knowledge retrieval, and Text-to-Speech for conversational support.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Whisper</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">FFmpeg</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/Intelligent-Customer-Service" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="skills">
-        <div class="section-header">
-            <div class="section-number">03 — Technical Stack</div>
-        </div>
-        
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>GenAI & LLMs</h3>
-                <div class="skill-items">
-                    <span>Llama-3</span>
-                    <span>RAG Architectures</span>
-                    <span>LoRA Fine-tuning</span>
-                    <span>LangChain</span>
-                    <span>Vector Databases</span>
-                    <span>Prompt Engineering</span>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03 — Technical Stack</div>
             </div>
-
-            <div class="skill-category">
-                <h3>Backend & Infrastructure</h3>
-                <div class="skill-items">
-                    <span>Python</span>
-                    <span>FastAPI</span>
-                    <span>Docker</span>
-                    <span>AWS Lambda/ECS</span>
-                    <span>Redis</span>
-                    <span>PostgreSQL</span>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>GenAI & LLMs</h3>
+                    <div class="skill-items">
+                        <span>Llama-3</span>
+                        <span>RAG Architectures</span>
+                        <span>LoRA Fine-tuning</span>
+                        <span>LangChain</span>
+                        <span>Vector Databases</span>
+                        <span>Prompt Engineering</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="skill-category">
-                <h3>Core Engineering</h3>
-                <div class="skill-items">
-                    <span>C++</span>
-                    <span>Data Structures</span>
-                    <span>Distributed Systems</span>
-                    <span>Graph Algorithms</span>
-                    <span>GTSAM</span>
-                    <span>System Design</span>
+                <div class="skill-category">
+                    <h3>Backend & Infrastructure</h3>
+                    <div class="skill-items">
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>Docker</span>
+                        <span>AWS Lambda/ECS</span>
+                        <span>Redis</span>
+                        <span>PostgreSQL</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="skill-category">
-                <h3>Frontend</h3>
-                <div class="skill-items">
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>Tailwind CSS</span>
-                    <span>Modern Web APIs</span>
+                <div class="skill-category">
+                    <h3>Core Engineering</h3>
+                    <div class="skill-items">
+                        <span>C++</span>
+                        <span>Data Structures</span>
+                        <span>Distributed Systems</span>
+                        <span>Graph Algorithms</span>
+                        <span>GTSAM</span>
+                        <span>System Design</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-items">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Tailwind CSS</span>
+                        <span>Modern Web APIs</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="section-header">
-            <div class="section-number">04 — CONTACT</div>
-            <h2 class="section-title">Let's Connect</h2>
-        </div>
-        
-        <div class="contact-grid">
-            <div class="contact-info">
-                <p>
-                    Open to geeking out on tough technical problems, collab opportunities, and building AI products that actually scale.
-                </p>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">04 — CONTACT</div>
+                <h2 class="section-title">Let's Connect</h2>
             </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p>
+                        Open to geeking out on tough technical problems, collab opportunities, and building AI products that actually scale.
+                    </p>
+                </div>
 
-            <div class="contact-links">
-                <a href="https://github.com/nandanadileep" target="_blank" class="contact-link">
+                <div class="contact-links">
+                    <a href="https://github.com/nandanadileep" target="_blank" class="contact-link">
                     <i class="fab fa-github"></i>
                     <div class="link-text">
                         <span class="link-label">Code</span>
