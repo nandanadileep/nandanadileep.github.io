@@ -626,9 +626,32 @@
         }
         @media (max-width: 768px) {
             .hero {
-                padding: 6rem 0 3rem 0;
+                padding-top: calc(64px + 2.5rem);
+                padding-bottom: 3rem;
             }
         }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                max-width: 100%;
+            }
+        
+            .hero-description {
+                font-size: 1rem;
+            }
+        
+            .hero-cta {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-side {
+                margin-top: 2.5rem;
+            }
+        }
+
 
 
         @media (max-width: 768px) {
