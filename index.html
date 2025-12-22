@@ -107,17 +107,20 @@
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            padding: 0 5%;
+            padding: 7rem 1.5rem 4rem 1.5rem;             
+            align-items: flex-start; 
+            min-height: auto;
+        }
         }
 
         .hero-grid {
-            display: grid;
+            display: flex;
             grid-template-columns: 1.3fr 0.7fr; /* REBALANCED ORIENTATION */
-            gap: 6rem;
+            gap: 3rem;
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
+            flex-direction: column;
             align-items: center; /* VERTICAL ALIGNMENT FIX */
         }
 
