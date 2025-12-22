@@ -18,16 +18,26 @@
             --text: #e8e8e8;
             --text-muted: #8a8a8a;
             --border: #242424;
-            --accent: #ffffff;
+            --accent: #ffffff;    
+            --nav-height: 72px;
+            --container-max: 1400px;
+            --container-padding: clamp(1.25rem, 5vw, 3rem);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+        }
+
 
         body {
+            padding-top: var(--nav-height);
             font-family: 'Inter', sans-serif;
             background: var(--bg);
             color: var(--text);
@@ -53,16 +63,16 @@
         nav {
             position: fixed;
             top: 0;
-            width: 100%;
-            padding: 2.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 10, 10, 0.8);
+            inset-inline: 0;
+            height: var(--nav-height);
+            background: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
+            display: flex;
+            align-items: center;
         }
+
 
         .nav-name {
             font-size: 0.95rem;
@@ -103,20 +113,22 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-
-        .hero {
+        
+        .nav-inner {
             display: flex;
-            padding: 7rem 0 4rem 0;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
 
-
+        .hero {
+            padding-block: clamp(3rem, 8vw, 6rem);
+        }
+        
         .hero-grid {
             display: grid;
             grid-template-columns: 1.3fr 0.7fr;
-            gap: 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
+            gap: clamp(2rem, 6vw, 4rem);
             align-items: center;
         }
 
@@ -652,6 +664,28 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+        
+            .hero h1 {
+                font-size: clamp(2.2rem, 8vw, 3rem);
+            }
+        
+            .hero-description {
+                font-size: 1rem;
+            }
+        
+            .hero-side {
+                margin-top: 2rem;
+            }
+        
+            .hero-cta {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
 
 
         @media (max-width: 768px) {
@@ -713,17 +747,13 @@
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <nav>
+      <div class="container nav-inner">
         <a href="#" class="nav-name">Nandana Dileep</a>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">...</ul>
+      </div>
     </nav>
+
 
 <section class="hero">
     <div class="hero-grid">
