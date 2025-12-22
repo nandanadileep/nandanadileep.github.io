@@ -105,24 +105,22 @@
         }
 
         .hero {
-            min-height: 100vh;
             display: flex;
-            padding: 7rem 1.5rem 4rem 1.5rem;             
-            align-items: flex-start; 
-            min-height: auto;
-        }
+            padding: 7rem 1.5rem 4rem 1.5rem;
+            align-items: flex-start;
         }
 
+
         .hero-grid {
-            display: flex;
-            grid-template-columns: 1.3fr 0.7fr; /* REBALANCED ORIENTATION */
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
             gap: 3rem;
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-            flex-direction: column;
-            align-items: center; /* VERTICAL ALIGNMENT FIX */
+            align-items: start;
         }
+
 
         .hero-label {
             font-family: 'JetBrains Mono', monospace;
@@ -624,6 +622,11 @@
 
             .skills-grid, .projects-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1.5rem 3rem 1.5rem;
             }
         }
 
