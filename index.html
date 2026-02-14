@@ -453,6 +453,32 @@
             gap: 1rem;
         }
 
+        .haphazards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .haphazard-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .haphazard-card:hover {
+            border-color: #404040;
+            transform: translateX(5px);
+        }
+
+        .haphazard-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid var(--border);
+            background: #0d0d0d;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -582,7 +608,8 @@
             }
 
             .skills-grid,
-            .projects-grid {
+            .projects-grid,
+            .haphazards-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -681,6 +708,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#haphazards">Haphazards</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -880,10 +908,25 @@
         </div>
     </section>
 
+    <section id="haphazards">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03 — HAPHAZARDS</div>
+            </div>
+
+            <div class="haphazards-grid">
+                <figure class="haphazard-card">
+                    <img src="haphazards-01.png" alt="Excalidraw blog about digit sums of cubes (mod 9)"
+                        loading="lazy">
+                </figure>
+            </div>
+        </div>
+    </section>
+
     <section id="skills">
         <div class="container">
             <div class="section-header">
-                <div class="section-number">03 — Technical Stack</div>
+                <div class="section-number">04 — Technical Stack</div>
             </div>
 
             <div class="skills-grid">
@@ -939,7 +982,7 @@
     <section id="contact">
         <div class="container">
             <div class="section-header">
-                <div class="section-number">04 — CONTACT</div>
+                <div class="section-number">05 — CONTACT</div>
                 <h2 class="section-title">Let's Connect</h2>
             </div>
 
