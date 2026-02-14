@@ -160,25 +160,71 @@
             font-size: 1.05rem;
         }
 
-        .haphazards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+        .haphazards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .haphazard-card {
+        .haphazard-item {
             background: var(--surface);
             border: 1px solid var(--border);
-            padding: 1.5rem;
-            transition: all 0.3s;
+            transition: border-color 0.3s, transform 0.3s;
         }
 
-        .haphazard-card:hover {
+        .haphazard-item:hover {
             border-color: #404040;
             transform: translateX(5px);
         }
 
-        .haphazard-card img {
+        .haphazard-summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .haphazard-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .haphazard-summary::marker {
+            content: "";
+        }
+
+        .summary-icon {
+            width: 28px;
+            height: 28px;
+            border: 1px solid var(--border);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--text-muted);
+            transition: transform 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .haphazard-item[open] .summary-icon {
+            transform: rotate(45deg);
+            color: var(--accent);
+            border-color: #404040;
+        }
+
+        .haphazard-body {
+            border-top: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .haphazard-body img {
             width: 100%;
             height: auto;
             display: block;
@@ -186,19 +232,7 @@
             background: #0d0d0d;
         }
 
-        .haphazard-meta {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .haphazard-meta h3 {
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-
-        .haphazard-meta p {
+        .haphazard-caption {
             color: var(--text-muted);
             font-size: 0.95rem;
         }
@@ -225,10 +259,6 @@
             .section-header {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-
-            .haphazards-grid {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -308,16 +338,21 @@
                 Quick sketches, stray thoughts, and small proofs that felt too interesting to leave in a notebook.
             </p>
 
-            <div class="haphazards-grid">
-                <article class="haphazard-card">
-                    <img src="haphazards-01.png"
-                        alt="Handwritten note explaining why 698 cubed behaves like 5 cubed modulo 9"
-                        loading="lazy">
-                    <div class="haphazard-meta">
-                        <h3>Why 698<sup>3</sup> Behaves Exactly Like 5<sup>3</sup></h3>
-                        <p>A quick dive into digit sums, mod 9 behavior, and why cubes only land on 0, 1, or 8.</p>
+            <div class="haphazards-list">
+                <details class="haphazard-item">
+                    <summary class="haphazard-summary">
+                        <span>Why 698<sup>3</sup> Behaves Exactly Like 5<sup>3</sup></span>
+                        <span class="summary-icon">+</span>
+                    </summary>
+                    <div class="haphazard-body">
+                        <img src="haphazards-01.png"
+                            alt="Handwritten note explaining why 698 cubed behaves like 5 cubed modulo 9"
+                            loading="lazy">
+                        <p class="haphazard-caption">
+                            A quick dive into digit sums, mod 9 behavior, and why cubes only land on 0, 1, or 8.
+                        </p>
                     </div>
-                </article>
+                </details>
             </div>
         </div>
     </section>
