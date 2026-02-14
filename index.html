@@ -6,7 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Nandana Dileep - AI/ML Engineer at Jaguar Land Rover specializing in production AI/ML infrastructure." />
+    <meta property="og:title" content="Nandana Dileep" />
+    <meta property="og:description"
+        content="AI/ML Engineer at Jaguar Land Rover specializing in production AI/ML infrastructure." />
+    <meta property="og:image" content="https://nandanadileep.com/favicon.png" />
+    <meta property="og:url" content="https://nandanadileep.com/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Nandana Dileep" />
+    <meta name="twitter:description"
+        content="AI/ML Engineer at Jaguar Land Rover specializing in production AI/ML infrastructure." />
+    <meta name="twitter:image" content="https://nandanadileep.com/favicon.png" />
     <title>Nandana Dileep</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -453,6 +465,13 @@
             gap: 1rem;
         }
 
+        .product-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -681,6 +700,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#shipcv">ShipCV</a></li>
                 <li><a href="haphazards.html">Haphazards</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -881,10 +901,45 @@
         </div>
     </section>
 
+    <section id="shipcv">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03 — PRODUCT</div>
+                <h2 class="section-title">ShipCV</h2>
+            </div>
+
+            <div class="exp-item">
+                <div>
+                    <div class="exp-company">ShipCV</div>
+                    <div class="exp-role">Next.js resume builder</div>
+                </div>
+                <div class="exp-content">
+                    <ul>
+                        <li>Ingests projects/profile data and uses OpenAI to extract skills and tailor resume content
+                            per target role.</li>
+                        <li>Renders LaTeX templates into PDFs via an external API, with optional storage in Supabase and
+                            downloadable PDF/DOCX outputs.</li>
+                        <li>Built on App Router + React + Tailwind with Prisma/PostgreSQL, and a workflow driven by
+                            `app/api/*` route handlers.</li>
+                    </ul>
+                    <div class="product-links">
+                        <a href="https://shipcv.nandanadileep.com" target="_blank" class="project-link">
+                            Visit ShipCV <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="https://www.producthunt.com/products/shipcv?launch=shipcv" target="_blank"
+                            class="project-link">
+                            Product Hunt <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="skills">
         <div class="container">
             <div class="section-header">
-                <div class="section-number">03 — Technical Stack</div>
+                <div class="section-number">04 — Technical Stack</div>
             </div>
 
             <div class="skills-grid">
@@ -940,7 +995,7 @@
     <section id="contact">
         <div class="container">
             <div class="section-header">
-                <div class="section-number">04 — CONTACT</div>
+                <div class="section-number">05 — CONTACT</div>
                 <h2 class="section-title">Let's Connect</h2>
             </div>
 
