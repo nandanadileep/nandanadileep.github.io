@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Haphazards — Nandana Dileep's casual notes and curiosities." />
+    <title>Haphazards — Nandana Dileep</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --text: #e8e8e8;
+            --text-muted: #8a8a8a;
+            --border: #242424;
+            --accent: #ffffff;
+            --nav-height: 72px;
+            --container-max: 1400px;
+            --container-padding: clamp(1.25rem, 5vw, 3rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+        }
+
+        body {
+            padding-top: var(--nav-height);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            inset-inline: 0;
+            height: var(--nav-height);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        section {
+            padding: 8rem 0 10rem;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .section-intro {
+            color: var(--text-muted);
+            max-width: 720px;
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+        }
+
+        .haphazards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .haphazard-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .haphazard-card:hover {
+            border-color: #404040;
+            transform: translateX(5px);
+        }
+
+        .haphazard-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid var(--border);
+            background: #0d0d0d;
+        }
+
+        .haphazard-meta {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .haphazard-meta h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .haphazard-meta p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .section-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .haphazards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --nav-height: 64px;
+            }
+
+            nav {
+                padding: 0;
+            }
+
+            .nav-inner {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            section {
+                padding: 6rem 0 7rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-name">Nandana Dileep</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="haphazards.html">Haphazards</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="haphazards">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">01 — HAPHAZARDS</div>
+                <h1 class="section-title">Haphazards</h1>
+            </div>
+
+            <p class="section-intro">
+                Quick sketches, stray thoughts, and small proofs that felt too interesting to leave in a notebook.
+            </p>
+
+            <div class="haphazards-grid">
+                <article class="haphazard-card">
+                    <img src="haphazards-01.png"
+                        alt="Handwritten note explaining why 698 cubed behaves like 5 cubed modulo 9"
+                        loading="lazy">
+                    <div class="haphazard-meta">
+                        <h3>Why 698<sup>3</sup> Behaves Exactly Like 5<sup>3</sup></h3>
+                        <p>A quick dive into digit sums, mod 9 behavior, and why cubes only land on 0, 1, or 8.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Nandana Dileep — Built with caffeine and too many tabs open</p>
+    </footer>
+
+    <script>
+        // ========== ANIMATED CONNECTED GRAPH BACKGROUND ==========
+        const bgCanvas = document.getElementById('bgCanvas');
+        const bgCtx = bgCanvas.getContext('2d');
+
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+
+        const bgMouse = {
+            x: null,
+            y: null,
+            radius: 150
+        };
+
+        window.addEventListener('mousemove', (e) => {
+            bgMouse.x = e.clientX;
+            bgMouse.y = e.clientY;
+        });
+
+        window.addEventListener('resize', () => {
+            bgCanvas.width = window.innerWidth;
+            bgCanvas.height = window.innerHeight;
+            initNodes();
+        });
+
+        class Node {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.baseX = x;
+                this.baseY = y;
+                this.size = 1.5;
+
+                this.angle = Math.random() * Math.PI * 2;
+                this.angularVelocity = (Math.random() - 0.5) * 0.02;
+                this.ambientRadius = 15;
+                this.orbitPhase = Math.random() * Math.PI * 2;
+
+                this.opacity = 0.6 + Math.random() * 0.4;
+            }
+
+            update() {
+                this.angle += this.angularVelocity;
+                this.orbitPhase += 0.015;
+                const ambientX = Math.cos(this.angle) * this.ambientRadius;
+                const ambientY = Math.sin(this.angle) * this.ambientRadius + Math.cos(this.orbitPhase) * 8;
+
+                const dx = bgMouse.x - this.x;
+                const dy = bgMouse.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < bgMouse.radius) {
+                    const force = (bgMouse.radius - distance) / bgMouse.radius;
+                    const angle = Math.atan2(dy, dx);
+
+                    this.x -= Math.cos(angle) * force * 8;
+                    this.y -= Math.sin(angle) * force * 8;
+                } else {
+                    this.x += (this.baseX + ambientX - this.x) * 0.05;
+                    this.y += (this.baseY + ambientY - this.y) * 0.05;
+                }
+            }
+
+            draw() {
+                bgCtx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                bgCtx.beginPath();
+                bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                bgCtx.fill();
+            }
+        }
+
+        let nodes = [];
+
+        function initNodes() {
+            nodes = [];
+            const spacing = 70;
+            const cols = Math.ceil(bgCanvas.width / spacing);
+            const rows = Math.ceil(bgCanvas.height / spacing);
+
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    const x = (i + 0.5) * spacing + (Math.random() - 0.5) * 40;
+                    const y = (j + 0.5) * spacing + (Math.random() - 0.5) * 40;
+                    nodes.push(new Node(x, y));
+                }
+            }
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 180) {
+                        const opacity = (1 - (distance / 180)) * 0.25;
+                        bgCtx.strokeStyle = `rgba(200, 200, 220, ${opacity})`;
+                        bgCtx.lineWidth = 1;
+                        bgCtx.beginPath();
+                        bgCtx.moveTo(nodes[i].x, nodes[i].y);
+                        bgCtx.lineTo(nodes[j].x, nodes[j].y);
+                        bgCtx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateBackground() {
+            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+            drawConnections();
+
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+
+            requestAnimationFrame(animateBackground);
+        }
+
+        initNodes();
+        animateBackground();
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
