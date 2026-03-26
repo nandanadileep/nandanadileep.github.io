@@ -870,18 +870,18 @@
                 </div>
 
 
-                <!-- 6. LLM Inference Serving -->
-                <div class="project-card" data-category="genai">
-                    <span class="project-type">ML Infrastructure</span>
-                    <h3>LLM Inference Serving</h3>
-                    <p>High-throughput LLM inference server using vLLM's PagedAttention and continuous batching. Solves KV cache memory fragmentation under concurrent load — keeping GPU utilization high while minimising tail latency across requests.</p>
+                <!-- 6. LLaMA Fine-tuning -->
+                <div class="project-card" data-category="genai research">
+                    <span class="project-type">LLM Fine-tuning</span>
+                    <h3>LLaMA-7B QLoRA Fine-tuning</h3>
+                    <p>Full fine-tuning pipeline for LLaMA-7B using 4-bit quantization and LoRA adapters for instruction-following. Covers data prep, adapter training, and inference — producing a deployable, ownable model variant with lower latency than prompt-only approaches.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">vLLM</span>
-                        <span class="tech-tag">PagedAttention</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">CUDA</span>
+                        <span class="tech-tag">QLoRA</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">bitsandbytes</span>
+                        <span class="tech-tag">Hugging Face</span>
                     </div>
-                    <a href="https://github.com/nandanadileep/llm-inference-serving-vllm" target="_blank" class="project-link">
+                    <a href="https://github.com/nandanadileep/llama-7b-finetuning-qlora" target="_blank" class="project-link">
                         View Project <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
