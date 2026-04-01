@@ -244,6 +244,37 @@
             background: #0d0d0d;
         }
 
+        .haphazard-body p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 680px;
+        }
+
+        .haphazard-body p + p {
+            margin-top: 0.75rem;
+        }
+
+        .haphazard-table {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            margin: 0.25rem 0;
+        }
+
+        .table-row {
+            display: flex;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .table-row span:first-child {
+            min-width: 160px;
+            color: var(--text);
+        }
+
         .haphazard-caption {
             color: var(--text-muted);
             font-size: 0.95rem;
@@ -359,9 +390,31 @@
                         <span class="summary-icon">+</span>
                     </summary>
                     <div class="haphazard-body">
-                        <img src="haphazards-01.png"
-                            alt="Handwritten note explaining why 698 cubed behaves like 5 cubed modulo 9"
-                            loading="lazy">
+                        <p>I was bored and had no phone with me, so pardon me.</p>
+                        <p>I noticed something weird about digit sums of cubes:</p>
+                        <div class="haphazard-table">
+                            <div class="table-row"><span>1³ = 1</span><span>→ 1</span></div>
+                            <div class="table-row"><span>2³ = 8</span><span>→ 8</span></div>
+                            <div class="table-row"><span>3³ = 27</span><span>→ 9</span></div>
+                            <div class="table-row"><span>4³ = 64</span><span>→ 1</span></div>
+                            <div class="table-row"><span>5³ = 125</span><span>→ 8</span></div>
+                            <div class="table-row"><span>6³ = 216</span><span>→ 9</span></div>
+                            <div class="table-row"><span>7³ = 343</span><span>→ 1</span></div>
+                            <div class="table-row"><span>8³ = 512</span><span>→ 8</span></div>
+                            <div class="table-row"><span>9³ = 729</span><span>→ 9</span></div>
+                            <div class="table-row"><span>10³ = 1,000</span><span>→ 1</span></div>
+                        </div>
+                        <p>Only 1, 8, 9. Over and over. Why would cubes be so picky?</p>
+                        <p>When I looked into it, I realized I shouldn't be surprised — something obvious is happening.</p>
+                        <p>Every number is built from powers of 10. Like 347 = 3×100 + 4×10 + 7. But in the world of remainders mod 9, the number 10 behaves exactly like 1. So does 100, 1000, 10000...</p>
+                        <p>That means 347 mod 9 acts like 3 + 4 + 7 mod 9. Which is just the digit sum. Adding digits is just taking remainders mod 9.</p>
+                        <div class="haphazard-table">
+                            <div class="table-row"><span>347 % 9</span><span>= 5</span></div>
+                            <div class="table-row"><span>3 + 4 + 7 = 14 → 1 + 4</span><span>= 5</span></div>
+                        </div>
+                        <p>So what do cubes actually produce mod 9? Every number is either a multiple of 3, or it isn't. If n = 3k, then n³ = 27k³, which is 0 mod 9. For everything else — 1, 2, 4, 5, 7, 8 — their cubes mod 9 cycle through just 1 and 8. Cubes don't choose 0, 1, 8. They have no other option.</p>
+                        <p>Now take 698. Its digit sum is 6 + 9 + 8 = 23 → 2 + 3 = 5. So 698 behaves like 5 mod 9. Which means 698³ behaves exactly like 5³.</p>
+                        <p>Try any number. Same thing.</p>
                     </div>
                 </details>
             </div>
@@ -373,9 +426,17 @@
                         <span class="summary-icon">+</span>
                     </summary>
                     <div class="haphazard-body">
-                        <img src="Untitled-2026-02-14-0043-2.png"
-                            alt="Handwritten note explaining why this world is small - six degrees of freedom"
-                            loading="lazy">
+                        <p>I was thinking about this the other day and it messed me up a little.</p>
+                        <p>The claim is: you can reach any person on the planet through at most 6 people. You to a friend, to a friend, to a friend... six hops and you personally know Max Verstappen or Jon Hamm.</p>
+                        <p>Sounds insane. But let's actually think about it.</p>
+                        <p>Say you know 100 people. Those 100 know 100 people. That's 10,000 at 2 hops. At 3 hops: 1,000,000. At 4: 100,000,000. At 5: 10,000,000,000. That's already more than the world's population. And we only used 5.</p>
+                        <p>So mathematically? Yeah. Totally believable.</p>
+                        <p>But hold on — math is cheating a little. The assumption here is that every hop is a fresh person. In reality, your friend group overlaps a lot. Your college friends know each other. Your work people know each other. So the 100 → 10,000 step is optimistic.</p>
+                        <p>So the real question becomes: how clustered are human social networks?</p>
+                        <p>And this is where it gets interesting. Human networks are "small worlds" — highly clustered locally, but with a few random long-range connections that act like shortcuts. Those shortcuts collapse the degrees dramatically.</p>
+                        <p>Think of it like this. India and the US feel socially far. But one person who studied abroad just bridges the whole thing. One hop and suddenly two massive clusters are connected.</p>
+                        <p>The real number apparently varies between 3 and 7 depending on the study. Facebook found it was 3.5 on average in 2016.</p>
+                        <p>3.5 hops. You're not that far from anyone.</p>
                     </div>
                 </details>
             </div>
