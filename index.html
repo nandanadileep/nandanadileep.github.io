@@ -465,6 +465,12 @@
             gap: 1rem;
         }
 
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
         .product-links {
             display: flex;
             flex-wrap: wrap;
@@ -802,7 +808,24 @@
             </div>
 
             <div class="projects-grid">
-                <!-- 1. MOST IMPRESSIVE: Autonomous CI Repair -->
+                <!-- 1. nanoLLaMA -->
+                <div class="project-card" data-category="research genai">
+                    <span class="project-type">ML Research</span>
+                    <h3>nanoLLaMA</h3>
+                    <p>Rebuilt nanoGPT component-by-component with modern LLM techniques — RoPE, SwiGLU, RMSNorm, GQA, MLA, MoE, and Multi-Token Prediction. Each change benchmarked independently. Combined stack hits baseline 4× faster at −0.139 val loss.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">RoPE</span>
+                        <span class="tech-tag">SwiGLU</span>
+                        <span class="tech-tag">MoE</span>
+                        <span class="tech-tag">Transformers</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/nanoLLaMA" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 2. Autonomous CI Repair -->
                 <div class="project-card" data-category="genai fullstack">
                     <span class="project-type">Autonomous Agent</span>
                     <h3>Autonomous CI Repair</h3>
@@ -821,7 +844,46 @@
                     </a>
                 </div>
 
-                <!-- 2. RefractorIQ -->
+                <!-- 3. Identiti -->
+                <div class="project-card" data-category="genai research">
+                    <span class="project-type">AI Memory & Retrieval</span>
+                    <h3>Identiti: Personal AI Memory Layer</h3>
+                    <p>Persistent memory system that constructs a knowledge graph of user identity from conversations. Confidence-scored entity extraction, per-user field-level encryption, and portable Memory Card export for cross-platform LLM context transfer.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Neo4j</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">FAISS</span>
+                        <span class="tech-tag">Knowledge Graphs</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://identiti.nandanadileep.com" target="_blank" class="project-link">
+                            View Live <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="https://github.com/nandanadileep/aegis" target="_blank" class="project-link">
+                            GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Chess-Gemma3 Fine-Tuning -->
+                <div class="project-card" data-category="genai research">
+                    <span class="project-type">LLM Fine-tuning</span>
+                    <h3>Chess-Gemma3: Domain Fine-Tuning</h3>
+                    <p>Fine-tuned Gemma3 LLM on chess notation to predict valid moves and understand board states. Demonstrates fine-tuning on a novel, structured domain outside typical NLP tasks.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Gemma3</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Fine-tuning</span>
+                        <span class="tech-tag">LoRA</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/Chess-Gemma3-Finetuning" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 5. RefractorIQ -->
                 <div class="project-card" data-category="fullstack genai">
                     <span class="project-type">Developer Tool</span>
                     <h3>RefractorIQ</h3>
@@ -838,7 +900,7 @@
                     </a>
                 </div>
 
-                <!-- 3. AI Code Review Agent -->
+                <!-- 6. AI Code Review Agent -->
                 <div class="project-card" data-category="genai fullstack">
                     <span class="project-type">Automation</span>
                     <h3>AI Code Review Agent</h3>
@@ -854,25 +916,7 @@
                     </a>
                 </div>
 
-                <!-- 4. nanoLLaMA -->
-                <div class="project-card" data-category="research">
-                    <span class="project-type">ML Research</span>
-                    <h3>nanoLLaMA</h3>
-                    <p>Rebuilt nanoGPT component-by-component with modern LLM techniques — RoPE, SwiGLU, RMSNorm, GQA, MLA, MoE, and Multi-Token Prediction. Each change benchmarked independently. Combined stack hits baseline 4× faster at −0.139 val loss.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">RoPE</span>
-                        <span class="tech-tag">SwiGLU</span>
-                        <span class="tech-tag">MoE</span>
-                        <span class="tech-tag">Transformers</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/nanoLLaMA" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-
-                <!-- 6. LLaMA Fine-tuning -->
+                <!-- 7. LLaMA Fine-tuning -->
                 <div class="project-card" data-category="genai research">
                     <span class="project-type">LLM Fine-tuning</span>
                     <h3>LLaMA-7B QLoRA Fine-tuning</h3>
@@ -888,7 +932,7 @@
                     </a>
                 </div>
 
-                <!-- 7. GNSS Factor Graph -->
+                <!-- 8. GNSS Factor Graph -->
                 <div class="project-card" data-category="research">
                     <span class="project-type">Robotics</span>
                     <h3>GNSS Factor Graph Optimization</h3>
