@@ -4,28 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scraps — Nandana Dileep's casual notes and curiosities." />
-    <meta property="og:title" content="Scraps — Nandana Dileep" />
-    <meta property="og:description"
-        content="Quick sketches, stray thoughts, and small things that felt too interesting to leave in a notebook." />
+    <meta name="description" content="Why 698³ Behaves Exactly Like 5³ — Nandana Dileep" />
+    <meta property="og:title" content="Why 698³ Behaves Exactly Like 5³ — Nandana Dileep" />
+    <meta property="og:description" content="Digit sums, modular arithmetic, and why cubes have no other option." />
     <meta property="og:image" content="https://nandanadileep.com/favicon.png" />
-    <meta property="og:url" content="https://nandanadileep.com/haphazards.html" />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nandanadileep.com/698-cubes.html" />
+    <meta property="og:type" content="article" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Scraps — Nandana Dileep" />
-    <meta name="twitter:description"
-        content="Quick sketches, stray thoughts, and small things that felt too interesting to leave in a notebook." />
+    <meta name="twitter:title" content="Why 698³ Behaves Exactly Like 5³" />
+    <meta name="twitter:description" content="Digit sums, modular arithmetic, and why cubes have no other option." />
     <meta name="twitter:image" content="https://nandanadileep.com/favicon.png" />
-    <title>Scraps — Nandana Dileep</title>
+    <title>Why 698³ Behaves Exactly Like 5³ — Nandana Dileep</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0a0a0a;
@@ -39,18 +35,7 @@
             --container-padding: clamp(1.25rem, 5vw, 3rem);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding-left: var(--container-padding);
-            padding-right: var(--container-padding);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             padding-top: var(--nav-height);
@@ -61,17 +46,12 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        ::selection {
-            background: var(--accent);
-            color: var(--bg);
-        }
+        ::selection { background: var(--accent); color: var(--bg); }
 
         #bgCanvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: 0;
             opacity: 0.4;
             pointer-events: none;
@@ -91,8 +71,19 @@
         }
 
         .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
             position: relative;
             z-index: 1;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
 
         .nav-name {
@@ -119,114 +110,14 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
+            bottom: -4px; left: 0;
+            width: 0; height: 1px;
             background: var(--accent);
             transition: width 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        section {
-            padding: 8rem 0 10rem;
-        }
-
-        .section-header {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .section-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .section-intro {
-            color: var(--text-muted);
-            max-width: 720px;
-            margin-bottom: 3rem;
-            font-size: 1.05rem;
-        }
-
-        .haphazards-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            border: 1px solid var(--border);
-        }
-
-        .haphazard-item {
-            display: block;
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            text-decoration: none;
-            color: var(--text);
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .haphazard-item:last-child {
-            border-bottom: none;
-        }
-
-        .haphazard-item:hover {
-            background: #1a1a1a;
-            transform: translateX(5px);
-        }
-
-        .haphazard-item-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .haphazard-arrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            transition: color 0.2s, transform 0.2s;
-            flex-shrink: 0;
-        }
-
-        .haphazard-item:hover .haphazard-arrow {
-            color: var(--accent);
-            transform: translateX(4px);
-        }
-
-        footer {
-            padding: 4rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover::after { width: 100%; }
 
         .mobile-menu-btn {
             display: none;
@@ -238,32 +129,96 @@
             padding: 0.5rem;
         }
 
-        @media (max-width: 1024px) {
-            .section-header {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        article {
+            padding: 6rem 0 10rem;
+        }
+
+        .article-inner {
+            max-width: 680px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 3rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover { color: var(--accent); }
+
+        .article-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 3rem;
+        }
+
+        .article-body p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.85;
+        }
+
+        .article-body p + p {
+            margin-top: 1.25rem;
+        }
+
+        .math-table {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin: 1.5rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .math-row {
+            display: flex;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .math-row span:first-child {
+            min-width: 180px;
+            color: var(--text);
+        }
+
+        .math-row span:last-child {
+            color: var(--text-muted);
+        }
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            :root {
-                --nav-height: 64px;
-            }
+            :root { --nav-height: 64px; }
 
-            nav {
-                padding: 0;
-            }
-
-            .nav-inner {
-                padding: 1rem 1.5rem;
-            }
+            .nav-inner { padding: 1rem 1.5rem; }
 
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
+                top: 100%; left: 0; right: 0;
                 background: rgba(10, 10, 10, 0.98);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
@@ -272,21 +227,12 @@
                 border-bottom: 1px solid var(--border);
             }
 
-            .nav-links.active {
-                display: flex;
-            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
 
-            .mobile-menu-btn {
-                display: block;
-            }
+            .article-title { font-size: 1.8rem; }
 
-            section {
-                padding: 6rem 0 7rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+            .math-row span:first-child { min-width: 140px; }
         }
     </style>
 </head>
@@ -312,72 +258,72 @@
         </div>
     </nav>
 
-    <section id="scraps">
+    <article>
         <div class="container">
-            <div class="section-header">
-                <div class="section-number">01 — HAPHAZARDS</div>
-                <h1 class="section-title">Scraps</h1>
-            </div>
+            <div class="article-inner">
+                <a href="haphazards.html" class="back-link">← Scraps</a>
+                <div class="article-meta">SCRAPS — HAPHAZARDS</div>
+                <h1 class="article-title">Why 698<sup>3</sup> Behaves Exactly Like 5<sup>3</sup></h1>
+                <div class="article-body">
+                    <p>I was bored and had no phone with me, so pardon me.</p>
+                    <p>I noticed something weird about digit sums of cubes:</p>
 
-            <p class="section-intro">
-                Quick sketches, stray thoughts, and small things that felt too interesting to leave in a notebook.
-            </p>
+                    <div class="math-table">
+                        <div class="math-row"><span>1³ = 1</span><span>→ 1</span></div>
+                        <div class="math-row"><span>2³ = 8</span><span>→ 8</span></div>
+                        <div class="math-row"><span>3³ = 27</span><span>→ 9</span></div>
+                        <div class="math-row"><span>4³ = 64</span><span>→ 1</span></div>
+                        <div class="math-row"><span>5³ = 125</span><span>→ 8</span></div>
+                        <div class="math-row"><span>6³ = 216</span><span>→ 9</span></div>
+                        <div class="math-row"><span>7³ = 343</span><span>→ 1</span></div>
+                        <div class="math-row"><span>8³ = 512</span><span>→ 8</span></div>
+                        <div class="math-row"><span>9³ = 729</span><span>→ 9</span></div>
+                        <div class="math-row"><span>10³ = 1,000</span><span>→ 1</span></div>
+                    </div>
 
-            <div class="haphazards-list">
-                <a href="698-cubes.html" class="haphazard-item">
-                    <span class="haphazard-item-title">Why 698<sup>3</sup> Behaves Exactly Like 5<sup>3</sup></span>
-                    <span class="haphazard-arrow">→</span>
-                </a>
-                <a href="small-world.html" class="haphazard-item">
-                    <span class="haphazard-item-title">Why is this world literally small?</span>
-                    <span class="haphazard-arrow">→</span>
-                </a>
+                    <p>Only 1, 8, 9. Over and over. Why would cubes be so picky?</p>
+                    <p>When I looked into it, I realized I shouldn't be surprised — something obvious is happening.</p>
+                    <p>Every number is built from powers of 10. Like 347 = 3×100 + 4×10 + 7. But in the world of remainders mod 9, the number 10 behaves exactly like 1. So does 100, 1000, 10000...</p>
+                    <p>That means 347 mod 9 acts like 3 + 4 + 7 mod 9. Which is just the digit sum. Adding digits is literally just taking remainders mod 9.</p>
+
+                    <div class="math-table">
+                        <div class="math-row"><span>347 % 9</span><span>= 5</span></div>
+                        <div class="math-row"><span>3 + 4 + 7 = 14 → 1 + 4</span><span>= 5</span></div>
+                    </div>
+
+                    <p>So what do cubes produce mod 9? Every number is either a multiple of 3, or it isn't. If n = 3k, then n³ = 27k³ — that's 0 mod 9. For everything else — 1, 2, 4, 5, 7, 8 — their cubes mod 9 cycle through just 1 and 8.</p>
+                    <p>Cubes don't choose 0, 1, 8. They have no other option.</p>
+                    <p>Now take 698. Its digit sum is 6 + 9 + 8 = 23 → 2 + 3 = 5. So 698 behaves like 5 mod 9. Which means 698³ behaves exactly like 5³.</p>
+                    <p>Try any number. Same thing.</p>
+                </div>
             </div>
         </div>
-    </section>
+    </article>
 
     <footer>
         <p>© 2025 Nandana Dileep — Built with caffeine and too many tabs open</p>
     </footer>
 
     <script>
-        // ========== ANIMATED CONNECTED GRAPH BACKGROUND ==========
         const bgCanvas = document.getElementById('bgCanvas');
         const bgCtx = bgCanvas.getContext('2d');
 
         bgCanvas.width = window.innerWidth;
         bgCanvas.height = window.innerHeight;
 
-        const bgMouse = {
-            x: null,
-            y: null,
-            radius: 150
-        };
+        const bgMouse = { x: null, y: null, radius: 150 };
 
-        window.addEventListener('mousemove', (e) => {
-            bgMouse.x = e.clientX;
-            bgMouse.y = e.clientY;
-        });
-
-        window.addEventListener('resize', () => {
-            bgCanvas.width = window.innerWidth;
-            bgCanvas.height = window.innerHeight;
-            initNodes();
-        });
+        window.addEventListener('mousemove', (e) => { bgMouse.x = e.clientX; bgMouse.y = e.clientY; });
+        window.addEventListener('resize', () => { bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight; initNodes(); });
 
         class Node {
             constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.baseX = x;
-                this.baseY = y;
+                this.x = x; this.y = y; this.baseX = x; this.baseY = y;
                 this.size = 1.5;
-
                 this.angle = Math.random() * Math.PI * 2;
                 this.angularVelocity = (Math.random() - 0.5) * 0.02;
                 this.ambientRadius = 15;
                 this.orbitPhase = Math.random() * Math.PI * 2;
-
                 this.opacity = 0.6 + Math.random() * 0.4;
             }
 
@@ -386,15 +332,12 @@
                 this.orbitPhase += 0.015;
                 const ambientX = Math.cos(this.angle) * this.ambientRadius;
                 const ambientY = Math.sin(this.angle) * this.ambientRadius + Math.cos(this.orbitPhase) * 8;
-
                 const dx = bgMouse.x - this.x;
                 const dy = bgMouse.y - this.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-
                 if (distance < bgMouse.radius) {
                     const force = (bgMouse.radius - distance) / bgMouse.radius;
                     const angle = Math.atan2(dy, dx);
-
                     this.x -= Math.cos(angle) * force * 8;
                     this.y -= Math.sin(angle) * force * 8;
                 } else {
@@ -418,12 +361,12 @@
             const spacing = 70;
             const cols = Math.ceil(bgCanvas.width / spacing);
             const rows = Math.ceil(bgCanvas.height / spacing);
-
             for (let i = 0; i < cols; i++) {
                 for (let j = 0; j < rows; j++) {
-                    const x = (i + 0.5) * spacing + (Math.random() - 0.5) * 40;
-                    const y = (j + 0.5) * spacing + (Math.random() - 0.5) * 40;
-                    nodes.push(new Node(x, y));
+                    nodes.push(new Node(
+                        (i + 0.5) * spacing + (Math.random() - 0.5) * 40,
+                        (j + 0.5) * spacing + (Math.random() - 0.5) * 40
+                    ));
                 }
             }
         }
@@ -434,10 +377,8 @@
                     const dx = nodes[i].x - nodes[j].x;
                     const dy = nodes[i].y - nodes[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-
                     if (distance < 180) {
-                        const opacity = (1 - (distance / 180)) * 0.25;
-                        bgCtx.strokeStyle = `rgba(200, 200, 220, ${opacity})`;
+                        bgCtx.strokeStyle = `rgba(200, 200, 220, ${(1 - distance / 180) * 0.25})`;
                         bgCtx.lineWidth = 1;
                         bgCtx.beginPath();
                         bgCtx.moveTo(nodes[i].x, nodes[i].y);
@@ -450,14 +391,8 @@
 
         function animateBackground() {
             bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
-
             drawConnections();
-
-            nodes.forEach(node => {
-                node.update();
-                node.draw();
-            });
-
+            nodes.forEach(n => { n.update(); n.draw(); });
             requestAnimationFrame(animateBackground);
         }
 
@@ -465,8 +400,7 @@
         animateBackground();
 
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
     </script>
 </body>
