@@ -802,14 +802,15 @@
 
             <div class="projects-filter">
                 <button class="filter-btn active" onclick="filterProjects('all')">All Work</button>
-                <button class="filter-btn" onclick="filterProjects('genai')">GenAI</button>
-                <button class="filter-btn" onclick="filterProjects('fullstack')">Full Stack</button>
+                <button class="filter-btn" onclick="filterProjects('agents')">Agents</button>
+                <button class="filter-btn" onclick="filterProjects('fine-tuning')">Fine-tuning</button>
+                <button class="filter-btn" onclick="filterProjects('developer-tools')">Developer Tools</button>
                 <button class="filter-btn" onclick="filterProjects('research')">Research</button>
             </div>
 
             <div class="projects-grid">
                 <!-- 1. auto-agent -->
-                <div class="project-card" data-category="genai fullstack">
+                <div class="project-card" data-category="agents">
                     <span class="project-type">Autonomous Agent</span>
                     <h3>auto-agent: Background Coding Daemon</h3>
                     <p>Autonomous daemon that runs against live repos and returns real ACTION responses. Tick engine polls every N minutes, builds full context from git history, TODOs, dangling imports, and missing env keys, then calls Groq/llama-3.3-70b to decide whether to act. Presence detection adjusts how loudly it speaks — desktop notification if you're away, quiet terminal line if you're at your desk. AutoDream consolidates the day's observations into rolling memory every night. GitHub watcher surfaces stale PRs with diffs. Scheduler, SQLite state, FastAPI dashboard.</p>
@@ -827,7 +828,7 @@
                 </div>
 
                 <!-- 2. Autonomous CI Repair -->
-                <div class="project-card" data-category="genai fullstack">
+                <div class="project-card" data-category="agents">
                     <span class="project-type">Autonomous Agent</span>
                     <h3>Autonomous CI Repair</h3>
                     <p>Self-healing CI agent that detects failing builds, diagnoses issues from logs, generates fixes
@@ -846,7 +847,7 @@
                 </div>
 
                 <!-- 3. AI Code Review Agent -->
-                <div class="project-card" data-category="genai fullstack">
+                <div class="project-card" data-category="agents">
                     <span class="project-type">Automation</span>
                     <h3>AI Code Review Agent</h3>
                     <p>GitHub App that automatically reviews pull requests using Llama-3. Analyzes diffs for bugs and
@@ -862,7 +863,7 @@
                 </div>
 
                 <!-- 4. Identiti -->
-                <div class="project-card" data-category="genai research">
+                <div class="project-card" data-category="developer-tools">
                     <span class="project-type">AI Memory & Retrieval</span>
                     <h3>Identiti: Personal AI Memory Layer</h3>
                     <p>Persistent memory system that constructs a knowledge graph of user identity from conversations. Confidence-scored entity extraction, per-user field-level encryption, and portable Memory Card export for cross-platform LLM context transfer.</p>
@@ -885,7 +886,7 @@
                 </div>
 
                 <!-- 5. RefractorIQ -->
-                <div class="project-card" data-category="fullstack genai">
+                <div class="project-card" data-category="developer-tools">
                     <span class="project-type">Developer Tool</span>
                     <h3>RefractorIQ</h3>
                     <p>Full-stack code quality analysis platform combining AST parsing for complexity metrics with
@@ -902,7 +903,7 @@
                 </div>
 
                 <!-- 6. nanoLLaMA -->
-                <div class="project-card" data-category="research genai">
+                <div class="project-card" data-category="fine-tuning research">
                     <span class="project-type">ML Research</span>
                     <h3>nanoLLaMA</h3>
                     <p>Rebuilt nanoGPT component-by-component with modern LLM techniques: RoPE, SwiGLU, RMSNorm, GQA, MLA, MoE, and Multi-Token Prediction. Each change benchmarked independently. Combined stack hits baseline 4× faster at −0.139 val loss.</p>
@@ -919,7 +920,7 @@
                 </div>
 
                 <!-- 7. img2tweet -->
-                <div class="project-card" data-category="genai research">
+                <div class="project-card" data-category="fine-tuning">
                     <span class="project-type">Multimodal Fine-tuning</span>
                     <h3>img2tweet: Vision-to-Text Generation</h3>
                     <p>End-to-end multimodal pipeline that fine-tunes ViT-GPT2 for image captioning then applies LoRA adapters to GPT-2 to rewrite captions as tweets — matching tone, length, and style. Covers vision encoder fine-tuning, cross-modal alignment, and parameter-efficient adaptation in a single project.</p>
@@ -936,7 +937,7 @@
                 </div>
 
                 <!-- 8. Chess-Gemma3 Fine-Tuning -->
-                <div class="project-card" data-category="genai research">
+                <div class="project-card" data-category="fine-tuning">
                     <span class="project-type">LLM Fine-tuning</span>
                     <h3>Chess-Gemma3: Domain Fine-Tuning</h3>
                     <p>Fine-tuned Gemma3 LLM on chess notation to predict valid moves and understand board states. Demonstrates fine-tuning on a novel, structured domain outside typical NLP tasks.</p>
@@ -952,7 +953,7 @@
                 </div>
 
                 <!-- 9. LLaMA Fine-tuning -->
-                <div class="project-card" data-category="genai research">
+                <div class="project-card" data-category="fine-tuning">
                     <span class="project-type">LLM Fine-tuning</span>
                     <h3>LLaMA-7B QLoRA Fine-tuning</h3>
                     <p>Full fine-tuning pipeline for LLaMA-7B using 4-bit quantization and LoRA adapters for instruction-following. Covers data prep, adapter training, and inference, producing a deployable, ownable model variant with lower latency than prompt-only approaches.</p>
