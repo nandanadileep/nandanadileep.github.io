@@ -809,60 +809,7 @@
             </div>
 
             <div class="projects-grid">
-                <!-- 1. auto-agent -->
-                <div class="project-card" data-category="agents">
-                    <span class="project-type">Autonomous Agent</span>
-                    <h3>auto-agent: Background Coding Daemon</h3>
-                    <p>Autonomous daemon that runs against live repos and returns real ACTION responses. Tick engine polls every N minutes, builds full context from git history, TODOs, dangling imports, and missing env keys, then calls Groq/llama-3.3-70b to decide whether to act. Presence detection adjusts how loudly it speaksdesktop notification if you're away, quiet terminal line if you're at your desk. AutoDream consolidates the day's observations into rolling memory every night. GitHub watcher surfaces stale PRs with diffs. Scheduler, SQLite state, FastAPI dashboard.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Groq</span>
-                        <span class="tech-tag">Llama-3.3-70b</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">SQLite</span>
-                        <span class="tech-tag">GitHub API</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/auto-agent" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 2. Autonomous CI Repair -->
-                <div class="project-card" data-category="agents">
-                    <span class="project-type">Autonomous Agent</span>
-                    <h3>Autonomous CI Repair</h3>
-                    <p>Self-healing CI agent that detects failing builds, diagnoses issues from logs, generates fixes
-                        using multi-model LLM reasoning, and auto-commits verified solutions. Features hyper-fuzzy
-                        patching and deterministic guardrails for 90% reliability.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Agentic AI</span>
-                        <span class="tech-tag">GitHub Actions</span>
-                        <span class="tech-tag">Multi-Model LLM</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/autonomous-ci-repair" target="_blank"
-                        class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 3. AI Code Review Agent -->
-                <div class="project-card" data-category="agents">
-                    <span class="project-type">Automation</span>
-                    <h3>AI Code Review Agent</h3>
-                    <p>GitHub App that automatically reviews pull requests using Llama-3. Analyzes diffs for bugs and
-                        security risks, posting inline comments directly to PRs.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Llama-3</span>
-                        <span class="tech-tag">GitHub API</span>
-                        <span class="tech-tag">Webhooks</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/ai-code-review-bot" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 4. Identiti -->
+                <!-- 1. Identiti -->
                 <div class="project-card" data-category="developer-tools">
                     <span class="project-type">AI Memory & Retrieval</span>
                     <h3>Identiti: Personal AI Memory Layer</h3>
@@ -885,24 +832,30 @@
                     </div>
                 </div>
 
-                <!-- 5. RefractorIQ -->
+                <!-- 2. vLLM Serving Engine -->
                 <div class="project-card" data-category="developer-tools">
-                    <span class="project-type">Developer Tool</span>
-                    <h3>RefractorIQ</h3>
-                    <p>Full-stack code quality analysis platform combining AST parsing for complexity metrics with
-                        Google Gemini for automated refactoring. Handles async analysis via Celery.</p>
+                    <span class="project-type">LLM Infrastructure</span>
+                    <h3>vLLM-Inspired LLM Serving Engine on Apple Silicon</h3>
+                    <p>Production-grade LLM serving engine built from scratch on Apple Silicon using MLX. Implements PagedAttention-inspired KV cache management, continuous batching, and an async request scheduler — bringing vLLM-style inference to local Mac hardware.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Celery</span>
-                        <span class="tech-tag">AST</span>
+                        <span class="tech-tag">MLX</span>
+                        <span class="tech-tag">Apple Silicon</span>
+                        <span class="tech-tag">vLLM</span>
+                        <span class="tech-tag">KV Cache</span>
+                        <span class="tech-tag">Inference</span>
+                        <span class="tech-tag">Python</span>
                     </div>
-                    <a href="https://github.com/nandanadileep/RefractorIQ" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="project-links">
+                        <a href="https://github.com/nandanadileep/vllm-like-llm-serving" target="_blank" class="project-link">
+                            GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05" target="_blank" class="project-link">
+                            Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- 6. nanoLLaMA -->
+                <!-- 3. nanoLLaMA -->
                 <div class="project-card" data-category="fine-tuning research">
                     <span class="project-type">ML Research</span>
                     <h3>nanoLLaMA</h3>
@@ -915,6 +868,58 @@
                         <span class="tech-tag">Transformers</span>
                     </div>
                     <a href="https://github.com/nandanadileep/nanoLLaMA" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 4. auto-agent -->
+                <div class="project-card" data-category="agents">
+                    <span class="project-type">Autonomous Agent</span>
+                    <h3>auto-agent: Background Coding Daemon</h3>
+                    <p>Autonomous daemon that runs against live repos and returns real ACTION responses. Tick engine polls every N minutes, builds full context from git history, TODOs, dangling imports, and missing env keys, then calls Groq/llama-3.3-70b to decide whether to act. Presence detection adjusts how loudly it speaksdesktop notification if you're away, quiet terminal line if you're at your desk. AutoDream consolidates the day's observations into rolling memory every night. GitHub watcher surfaces stale PRs with diffs. Scheduler, SQLite state, FastAPI dashboard.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Groq</span>
+                        <span class="tech-tag">Llama-3.3-70b</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">GitHub API</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/auto-agent" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 5. Autonomous CI Repair -->
+                <div class="project-card" data-category="agents">
+                    <span class="project-type">Autonomous Agent</span>
+                    <h3>Autonomous CI Repair</h3>
+                    <p>Self-healing CI agent that detects failing builds, diagnoses issues from logs, generates fixes
+                        using multi-model LLM reasoning, and auto-commits verified solutions. Features hyper-fuzzy
+                        patching and deterministic guardrails for 90% reliability.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Agentic AI</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">Multi-Model LLM</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/autonomous-ci-repair" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 6. LLaMA Fine-tuning -->
+                <div class="project-card" data-category="fine-tuning">
+                    <span class="project-type">LLM Fine-tuning</span>
+                    <h3>LLaMA-7B QLoRA Fine-tuning</h3>
+                    <p>Full fine-tuning pipeline for LLaMA-7B using 4-bit quantization and LoRA adapters for instruction-following. Covers data prep, adapter training, and inference, producing a deployable, ownable model variant with lower latency than prompt-only approaches.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">QLoRA</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">bitsandbytes</span>
+                        <span class="tech-tag">Hugging Face</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/llama-7b-finetuning-qlora" target="_blank" class="project-link">
                         View Project <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -936,7 +941,40 @@
                     </a>
                 </div>
 
-                <!-- 8. Chess-Gemma3 Fine-Tuning -->
+                <!-- 8. AI Code Review Agent -->
+                <div class="project-card" data-category="agents">
+                    <span class="project-type">Automation</span>
+                    <h3>AI Code Review Agent</h3>
+                    <p>GitHub App that automatically reviews pull requests using Llama-3. Analyzes diffs for bugs and
+                        security risks, posting inline comments directly to PRs.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Llama-3</span>
+                        <span class="tech-tag">GitHub API</span>
+                        <span class="tech-tag">Webhooks</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/ai-code-review-bot" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 9. RefractorIQ -->
+                <div class="project-card" data-category="developer-tools">
+                    <span class="project-type">Developer Tool</span>
+                    <h3>RefractorIQ</h3>
+                    <p>Full-stack code quality analysis platform combining AST parsing for complexity metrics with
+                        Google Gemini for automated refactoring. Handles async analysis via Celery.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Celery</span>
+                        <span class="tech-tag">AST</span>
+                    </div>
+                    <a href="https://github.com/nandanadileep/RefractorIQ" target="_blank" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 10. Chess-Gemma3 Fine-Tuning -->
                 <div class="project-card" data-category="fine-tuning">
                     <span class="project-type">LLM Fine-tuning</span>
                     <h3>Chess-Gemma3: Domain Fine-Tuning</h3>
@@ -952,23 +990,7 @@
                     </a>
                 </div>
 
-                <!-- 9. LLaMA Fine-tuning -->
-                <div class="project-card" data-category="fine-tuning">
-                    <span class="project-type">LLM Fine-tuning</span>
-                    <h3>LLaMA-7B QLoRA Fine-tuning</h3>
-                    <p>Full fine-tuning pipeline for LLaMA-7B using 4-bit quantization and LoRA adapters for instruction-following. Covers data prep, adapter training, and inference, producing a deployable, ownable model variant with lower latency than prompt-only approaches.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">QLoRA</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">bitsandbytes</span>
-                        <span class="tech-tag">Hugging Face</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/llama-7b-finetuning-qlora" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 10. GNSS Factor Graph -->
+                <!-- 11. GNSS Factor Graph -->
                 <div class="project-card" data-category="research">
                     <span class="project-type">Robotics</span>
                     <h3>GNSS Factor Graph Optimization</h3>
@@ -978,28 +1000,6 @@
                         <span class="tech-tag">C++</span>
                         <span class="tech-tag">GTSAM</span>
                         <span class="tech-tag">Graph Theory</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="developer-tools">
-                    <span class="project-type">LLM Infrastructure</span>
-                    <h3>vLLM-Inspired LLM Serving Engine on Apple Silicon</h3>
-                    <p>Production-grade LLM serving engine built from scratch on Apple Silicon using MLX. Implements PagedAttention-inspired KV cache management, continuous batching, and an async request scheduler — bringing vLLM-style inference to local Mac hardware.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MLX</span>
-                        <span class="tech-tag">Apple Silicon</span>
-                        <span class="tech-tag">vLLM</span>
-                        <span class="tech-tag">KV Cache</span>
-                        <span class="tech-tag">Inference</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/nandanadileep/vllm-like-llm-serving" target="_blank" class="project-link">
-                            GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05" target="_blank" class="project-link">
-                            Article <i class="fas fa-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1112,15 +1112,23 @@
 
             <div class="projects-grid">
                 <div class="project-card" data-category="research">
-                    <span class="project-type">Conference Publication</span>
-                    <h3>Precise Position Estimation using Factor Graph Optimization</h3>
-                    <p>Original research on GNSS localization optimization using factor graph methods in C++ with GTSAM. Presented at Jaguar Land Rover Tech Symposium, June 2024.</p>
+                    <span class="project-type">Engineering</span>
+                    <h3>Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX</h3>
+                    <p>Built a vLLM-style inference engine from scratch on Apple Silicon using MLX — with PagedAttention-inspired KV cache management, continuous batching, and an async scheduler. A deep dive into what makes production LLM serving fast.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">GTSAM</span>
-                        <span class="tech-tag">Factor Graphs</span>
-                        <span class="tech-tag">GNSS</span>
-                        <span class="tech-tag">Localization</span>
+                        <span class="tech-tag">MLX</span>
+                        <span class="tech-tag">Apple Silicon</span>
+                        <span class="tech-tag">vLLM</span>
+                        <span class="tech-tag">LLM Serving</span>
+                        <span class="tech-tag">Inference</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05" target="_blank" class="project-link">
+                            Read on Medium <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="https://github.com/nandanadileep/vllm-like-llm-serving" target="_blank" class="project-link">
+                            GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -1136,6 +1144,22 @@
                         <span class="tech-tag">Transformers</span>
                     </div>
                     <a href="https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6" target="_blank" class="project-link">
+                        Read on Medium <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="project-card" data-category="research">
+                    <span class="project-type">Deep Dive</span>
+                    <h3>The Beautiful Memory Architecture Hidden Inside LlamaIndex</h3>
+                    <p>A breakdown of the layered memory system LlamaIndex uses under the hood — from short-term buffers to vector-backed long-term stores — and why the architecture is more thoughtfully designed than most people realize.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">LlamaIndex</span>
+                        <span class="tech-tag">Memory</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">AI Agents</span>
+                    </div>
+                    <a href="https://medium.com/@nandanadileep29/the-beautiful-memory-architecture-hidden-inside-llamaindex-eef91e01bc2c" target="_blank" class="project-link">
                         Read on Medium <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -1171,22 +1195,6 @@
                 </div>
 
                 <div class="project-card" data-category="research">
-                    <span class="project-type">Deep Dive</span>
-                    <h3>The Beautiful Memory Architecture Hidden Inside LlamaIndex</h3>
-                    <p>A breakdown of the layered memory system LlamaIndex uses under the hood — from short-term buffers to vector-backed long-term stores — and why the architecture is more thoughtfully designed than most people realize.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">LlamaIndex</span>
-                        <span class="tech-tag">Memory</span>
-                        <span class="tech-tag">RAG</span>
-                        <span class="tech-tag">LLMs</span>
-                        <span class="tech-tag">AI Agents</span>
-                    </div>
-                    <a href="https://medium.com/@nandanadileep29/the-beautiful-memory-architecture-hidden-inside-llamaindex-eef91e01bc2c" target="_blank" class="project-link">
-                        Read on Medium <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-category="research">
                     <span class="project-type">Practical Guide</span>
                     <h3>When to Prompt, RAG, or Fine-Tune</h3>
                     <p>Sounds basic but most people still get wrong in practice. A decision framework for choosing between the three LLM implementation approaches, grounded in real project examples.</p>
@@ -1202,23 +1210,15 @@
                 </div>
 
                 <div class="project-card" data-category="research">
-                    <span class="project-type">Engineering</span>
-                    <h3>Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX</h3>
-                    <p>Built a vLLM-style inference engine from scratch on Apple Silicon using MLX — with PagedAttention-inspired KV cache management, continuous batching, and an async scheduler. A deep dive into what makes production LLM serving fast.</p>
+                    <span class="project-type">Conference Publication</span>
+                    <h3>Precise Position Estimation using Factor Graph Optimization</h3>
+                    <p>Original research on GNSS localization optimization using factor graph methods in C++ with GTSAM. Presented at Jaguar Land Rover Tech Symposium, June 2024.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">MLX</span>
-                        <span class="tech-tag">Apple Silicon</span>
-                        <span class="tech-tag">vLLM</span>
-                        <span class="tech-tag">LLM Serving</span>
-                        <span class="tech-tag">Inference</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05" target="_blank" class="project-link">
-                            Read on Medium <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://github.com/nandanadileep/vllm-like-llm-serving" target="_blank" class="project-link">
-                            GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">GTSAM</span>
+                        <span class="tech-tag">Factor Graphs</span>
+                        <span class="tech-tag">GNSS</span>
+                        <span class="tech-tag">Localization</span>
                     </div>
                 </div>
             </div>
