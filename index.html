@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nandana Dileep — builder working on agents and LLM systems. Open to early-stage startups.">
+    <meta name="description" content="Nandana Dileep builds agents and LLM systems. Open to early-stage startups.">
     <meta property="og:title" content="Nandana Dileep">
     <meta property="og:description" content="Builder working on agents and LLM systems. Open to early-stage startups.">
     <meta property="og:image" content="https://nandanadileep.com/favicon.png">
@@ -19,20 +19,37 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <style>
+        :root {
+            --milk: #ebe5db;
+            --milk-deep: #e2dcd2;
+            --ink: #1a1a1a;
+            --muted: #6b7280;
+            --faint: #9ca3af;
+            --orange: #d97706;
+            --line: #d8d2c8;
+            --width: 36rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            line-height: 1.55;
-            font-size: 16px;
-            padding: 0 16px;
-            margin: 64px auto 80px;
-            max-width: 650px;
-            background: #ebe5db;
-            color: #1a1a1a;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 3.5rem 1rem 5rem;
+            background: var(--milk);
+            color: var(--ink);
+            font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
+        main {
+            max-width: var(--width);
+            margin: 0 auto;
+        }
+
         a {
-            color: #d97706;
+            color: var(--orange);
             text-decoration: none;
         }
 
@@ -40,56 +57,147 @@
             text-decoration: underline;
         }
 
-        h2 {
+        .intro h1 {
+            margin: 0 0 0.25rem;
             font-size: 1.35rem;
             font-weight: 600;
-            margin: 0 0 0.35rem;
         }
 
-        h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 2.25rem 0 0.65rem;
+        .tagline {
+            margin: 0 0 1rem;
+            color: var(--muted);
+            font-size: 0.95rem;
         }
 
-        p {
+        .lede {
             margin: 0 0 0.85rem;
         }
 
-        ul {
-            margin: 0 0 1rem 1.25rem;
-        }
-
-        li {
-            margin-bottom: 0.35rem;
-        }
-
-        .nav {
-            margin-bottom: 2rem;
-            font-size: 0.92rem;
-            color: #6b7280;
-        }
-
-        .nav a {
-            color: #6b7280;
-        }
-
-        .nav a:hover {
-            color: #d97706;
-        }
-
-        .muted {
-            color: #6b7280;
+        .intent {
+            margin: 0 0 1.25rem;
+            padding: 0.85rem 1rem;
+            background: var(--milk-deep);
+            border: 1px solid var(--line);
+            font-size: 0.95rem;
         }
 
         .links {
-            margin-bottom: 0.5rem;
+            margin: 0 0 2rem;
+            font-size: 0.92rem;
+        }
+
+        .toc {
+            margin: 0 0 2.5rem;
+            padding: 0 0 1.5rem;
+            border-bottom: 1px solid var(--line);
+            font-size: 0.88rem;
+            color: var(--muted);
+        }
+
+        .toc a {
+            color: var(--muted);
+        }
+
+        .toc a:hover {
+            color: var(--orange);
+        }
+
+        .aside {
+            margin: -1.75rem 0 2.5rem;
+            font-size: 0.88rem;
+            color: var(--faint);
+        }
+
+        .aside a {
+            color: var(--muted);
+        }
+
+        .aside a:hover {
+            color: var(--orange);
+        }
+
+        section {
+            margin-bottom: 2.75rem;
+        }
+
+        section h2 {
+            margin: 0 0 1rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .item {
+            margin-bottom: 1.35rem;
+            padding-bottom: 1.35rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .item h3 {
+            margin: 0 0 0.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .meta {
+            margin: 0 0 0.45rem;
+            font-size: 0.88rem;
+            color: var(--muted);
+        }
+
+        .desc {
+            margin: 0 0 0.45rem;
+            font-size: 0.95rem;
+        }
+
+        .item-links {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .item ul {
+            margin: 0.35rem 0 0;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .item li {
+            margin-bottom: 0.3rem;
+        }
+
+        .writing {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .writing li {
+            margin-bottom: 0.55rem;
+            padding-bottom: 0.55rem;
+            border-bottom: 1px solid var(--line);
+            font-size: 0.95rem;
+        }
+
+        .writing li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
         footer {
             margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--line);
             font-size: 0.85rem;
-            color: #9ca3af;
+            color: var(--faint);
         }
     </style>
 </head>
@@ -97,86 +205,125 @@
 <body>
 
     <main>
-        <h2>Nandana Dileep</h2>
-        <p class="muted">Builder · IIT Madras '24</p>
-        <p>
-            I build and ship AI products — mostly agents, memory systems, and LLM infrastructure.
-            Currently at Jaguar Land Rover; looking to join an early-stage startup or start something of my own.
-        </p>
-        <p class="links">
-            <a href="https://github.com/nandanadileep">GitHub</a> ·
-            <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/">LinkedIn</a> ·
-            <a href="https://medium.com/@nandanadileep29">Medium</a> ·
-            <a href="mailto:nandanadileep29@gmail.com">Email</a>
-        </p>
+        <header class="intro">
+            <h1>Nandana Dileep</h1>
+            <p class="tagline">Builder · IIT Madras '24</p>
+            <p class="lede">
+                I build and ship AI products: agents, memory systems, and LLM infrastructure.
+                Currently at Jaguar Land Rover.
+            </p>
+            <p class="intent">
+                Looking to join an early-stage startup or start something of my own.
+                Open to co-founding and hard 0 to 1 technical problems.
+            </p>
+            <p class="links">
+                <a href="mailto:nandanadileep29@gmail.com">Email</a> ·
+                <a href="https://github.com/nandanadileep">GitHub</a> ·
+                <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/">LinkedIn</a> ·
+                <a href="https://medium.com/@nandanadileep29">Medium</a>
+            </p>
+        </header>
 
-        <p class="nav">
+        <nav class="toc" aria-label="Sections">
+            <a href="#shipped">Shipped</a> ·
+            <a href="#builds">Builds</a> ·
             <a href="#work">Work</a> ·
-            <a href="#built">Built</a> ·
-            <a href="haphazards.html">Scraps</a> ·
-            <a href="#writing">Writing</a> ·
-            <a href="#contact">Contact</a>
-        </p>
+            <a href="#writing">Writing</a>
+        </nav>
+        <p class="aside"><a href="haphazards.html">Scraps</a></p>
 
-        <h3 id="work">Work</h3>
+        <section id="shipped">
+            <h2>Shipped</h2>
 
-        <p><strong>Jaguar Land Rover</strong> — AI/ML Engineer<br>
-        <span class="muted">2024–present</span></p>
-        <ul>
-            <li>Built an LLM spec-to-code system (natural language → HLD, LLD, requirements) now used by an internal product team</li>
-            <li>Shipping agentic and deep learning tools for engineering workflows — test prioritization, validation automation</li>
-        </ul>
+            <article class="item">
+                <h3>Identiti</h3>
+                <p class="meta">Live product</p>
+                <p class="desc">Personal AI memory with a knowledge graph from conversations and cross-platform memory export.</p>
+                <p class="item-links">
+                    <a href="https://identiti.nandanadileep.com">Live</a> ·
+                    <a href="https://github.com/nandanadileep/aegis">GitHub</a>
+                </p>
+            </article>
 
-        <p><strong>Amazon</strong> — SWE Intern<br>
-        <span class="muted">Summer 2023</span> — serverless analytics on Alexa's voice pipeline</p>
+            <article class="item">
+                <h3>ShipCV</h3>
+                <p class="meta">Live product · Product Hunt</p>
+                <p class="desc">Turn GitHub projects into ATS-ready resumes in one click.</p>
+                <p class="item-links">
+                    <a href="https://shipcv.nandanadileep.com">Live</a> ·
+                    <a href="https://www.producthunt.com/products/shipcv?launch=shipcv">Product Hunt</a>
+                </p>
+            </article>
 
-        <h3 id="built">Things I've built</h3>
+            <article class="item">
+                <h3>DesignDNA</h3>
+                <p class="meta">Live product</p>
+                <p class="desc">Paste a URL, get the site's design system and a ready-to-use UI prompt.</p>
+                <p class="item-links">
+                    <a href="https://designdna.nandanadileep.com">Live</a> ·
+                    <a href="https://github.com/nandanadileep/DesignDNA">GitHub</a>
+                </p>
+            </article>
+        </section>
 
-        <p><strong>Identiti</strong><br>
-        Personal AI memory — knowledge graph from conversations, cross-platform memory export. Shipped and live.<br>
-        <a href="https://identiti.nandanadileep.com">Live</a> · <a href="https://github.com/nandanadileep/aegis">GitHub</a></p>
+        <section id="builds">
+            <h2>Builds</h2>
 
-        <p><strong>ShipCV</strong><br>
-        Turn GitHub projects into ATS-ready resumes in one click. Launched on Product Hunt.<br>
-        <a href="https://shipcv.nandanadileep.com">Live</a> · <a href="https://www.producthunt.com/products/shipcv?launch=shipcv">Product Hunt</a></p>
+            <article class="item">
+                <h3>auto-agent</h3>
+                <p class="meta">Agents</p>
+                <p class="desc">Background coding daemon that watches your repo, builds context from git and TODOs, and acts via LLM.</p>
+                <p class="item-links"><a href="https://github.com/nandanadileep/auto-agent">GitHub</a></p>
+            </article>
 
-        <p><strong>DesignDNA</strong><br>
-        Paste a URL, get the site's design system and a ready-to-use UI prompt.<br>
-        <a href="https://designdna.nandanadileep.com">Live</a> · <a href="https://github.com/nandanadileep/DesignDNA">GitHub</a></p>
+            <article class="item">
+                <h3>Autonomous CI Repair</h3>
+                <p class="meta">Agents</p>
+                <p class="desc">Self-healing CI agent that reads logs, generates fixes, and auto-commits verified patches.</p>
+                <p class="item-links"><a href="https://github.com/nandanadileep/autonomous-ci-repair">GitHub</a></p>
+            </article>
 
-        <p><strong>auto-agent</strong><br>
-        Background coding daemon — watches your repo, builds context from git/TODOs, acts via LLM. FastAPI + SQLite.<br>
-        <a href="https://github.com/nandanadileep/auto-agent">GitHub</a></p>
+            <article class="item">
+                <h3>vLLM-style LLM Serving on Apple Silicon</h3>
+                <p class="meta">LLM infrastructure</p>
+                <p class="desc">Inference engine on MLX with PagedAttention KV cache, continuous batching, and async scheduling.</p>
+                <p class="item-links">
+                    <a href="https://github.com/nandanadileep/vllm-like-llm-serving">GitHub</a> ·
+                    <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Article</a>
+                </p>
+            </article>
+        </section>
 
-        <p><strong>Autonomous CI Repair</strong><br>
-        Self-healing CI agent that reads logs, generates fixes, and auto-commits verified patches.<br>
-        <a href="https://github.com/nandanadileep/autonomous-ci-repair">GitHub</a></p>
+        <section id="work">
+            <h2>Work</h2>
 
-        <p><strong>vLLM-style LLM Serving on Apple Silicon</strong><br>
-        Inference engine from scratch on MLX — PagedAttention KV cache, continuous batching, async scheduler.<br>
-        <a href="https://github.com/nandanadileep/vllm-like-llm-serving">GitHub</a> · <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Article</a></p>
+            <article class="item">
+                <h3>Jaguar Land Rover</h3>
+                <p class="meta">AI/ML Engineer · 2024 to present</p>
+                <ul>
+                    <li>Built an LLM spec-to-code system (natural language to HLD, LLD, requirements) now used by an internal product team</li>
+                    <li>Shipping agentic and deep learning tools for engineering workflows: test prioritization, validation automation</li>
+                </ul>
+            </article>
 
-        <h3 id="writing">Writing</h3>
+            <article class="item">
+                <h3>Amazon</h3>
+                <p class="meta">SWE Intern · Summer 2023</p>
+                <p class="desc">Serverless analytics on Alexa's voice pipeline.</p>
+            </article>
+        </section>
 
-        <p><a href="https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1">Checklist to Prevent All the Agent Failure Modes</a></p>
-
-        <p><a href="https://medium.com/@nandanadileep29/my-takeaways-from-leaked-claude-code-repo-3ec2f42b7545">My Takeaways from the Leaked Claude Code Repo</a></p>
-
-        <p><a href="https://medium.com/@nandanadileep29/the-beautiful-memory-architecture-hidden-inside-llamaindex-eef91e01bc2c">The Beautiful Memory Architecture Hidden Inside LlamaIndex</a></p>
-
-        <p><a href="https://medium.com/@nandanadileep29/when-to-prompt-rag-or-fine-tune-efdb4ba67a84">When to Prompt, RAG, or Fine-Tune</a></p>
-
-        <p><a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX</a></p>
-
-        <p><a href="https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6">Swapped Every Part of nanoGPT With Modern Alternatives</a></p>
-
-        <h3 id="contact">Contact</h3>
-        <p>Open to early-stage startups, co-founding, and hard 0→1 technical problems.</p>
-        <p>
-            <a href="mailto:nandanadileep29@gmail.com">nandanadileep29@gmail.com</a><br>
-            <a href="https://github.com/nandanadileep">github.com/nandanadileep</a><br>
-            <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/">LinkedIn</a>
-        </p>
+        <section id="writing">
+            <h2>Writing</h2>
+            <ul class="writing">
+                <li><a href="https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1">Checklist to Prevent All the Agent Failure Modes</a></li>
+                <li><a href="https://medium.com/@nandanadileep29/my-takeaways-from-leaked-claude-code-repo-3ec2f42b7545">My Takeaways from the Leaked Claude Code Repo</a></li>
+                <li><a href="https://medium.com/@nandanadileep29/the-beautiful-memory-architecture-hidden-inside-llamaindex-eef91e01bc2c">The Beautiful Memory Architecture Hidden Inside LlamaIndex</a></li>
+                <li><a href="https://medium.com/@nandanadileep29/when-to-prompt-rag-or-fine-tune-efdb4ba67a84">When to Prompt, RAG, or Fine-Tune</a></li>
+                <li><a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX</a></li>
+                <li><a href="https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6">Swapped Every Part of nanoGPT With Modern Alternatives</a></li>
+            </ul>
+        </section>
 
         <footer>© 2025 Nandana Dileep</footer>
     </main>
