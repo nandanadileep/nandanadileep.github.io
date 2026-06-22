@@ -4,1508 +4,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Nandana Dileep - AI/ML Engineer at Jaguar Land Rover specializing in production AI/ML infrastructure." />
-    <meta property="og:title" content="Nandana Dileep" />
-    <meta property="og:description"
-        content="AI/ML Engineer at Jaguar Land Rover specializing in production AI/ML infrastructure." />
-    <meta property="og:image" content="https://nandanadileep.com/favicon.png" />
-    <meta property="og:url" content="https://nandanadileep.com/" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Nandana Dileep" />
-    <meta name="twitter:description"
-        content="AI/ML Engineer at Jaguar Land Rover specializing in production AI/ML infrastructure." />
-    <meta name="twitter:image" content="https://nandanadileep.com/favicon.png" />
+    <meta name="description" content="Nandana Dileep — AI/ML Engineer at Jaguar Land Rover.">
+    <meta property="og:title" content="Nandana Dileep">
+    <meta property="og:description" content="AI/ML Engineer at Jaguar Land Rover.">
+    <meta property="og:image" content="https://nandanadileep.com/favicon.png">
+    <meta property="og:url" content="https://nandanadileep.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Nandana Dileep">
+    <meta name="twitter:description" content="AI/ML Engineer at Jaguar Land Rover.">
+    <meta name="twitter:image" content="https://nandanadileep.com/favicon.png">
     <title>Nandana Dileep</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --surface: #141414;
-            --text: #e8e8e8;
-            --text-muted: #8a8a8a;
-            --border: #242424;
-            --accent: #ffffff;
-            --nav-height: 72px;
-            --container-max: 1400px;
-            --container-padding: clamp(1.25rem, 5vw, 3rem);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding-left: var(--container-padding);
-            padding-right: var(--container-padding);
-        }
-
-        body {
-            padding-top: var(--nav-height);
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        ::selection {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        #bgCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-
-        nav {
-            position: fixed;
-            top: 0;
-            inset-inline: 0;
-            height: var(--nav-height);
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .nav-name {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .hero {
-            padding-block: clamp(3rem, 8vw, 6rem);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: clamp(2rem, 6vw, 4rem);
-            align-items: center;
-        }
-
-        .hero-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 0.2s;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.2rem, 6vw, 4.5rem);
-            line-height: 1.1;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            letter-spacing: -0.03em;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 0.4s;
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, #ffffff 0%, #808080 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            max-width: 600px;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 0.6s;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 1s;
-        }
-
-        .cta-primary {
-            padding: 1rem 2rem;
-            background: var(--accent);
-            color: var(--bg);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-links a {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-        }
-
-        .hero-side {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 0.8s;
-        }
-
-        .side-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .side-card:hover {
-            border-color: #404040;
-            transform: translateX(5px);
-        }
-
-        .photo-card {
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .photo-card img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            display: block;
-            filter: grayscale(100%) contrast(1.1);
-            transition: transform 0.6s ease, filter 0.6s ease;
-        }
-
-        .photo-card:hover img {
-            transform: scale(1.03);
-            filter: grayscale(0%) contrast(1.1);
-        }
-
-        section {
-            padding: 10rem 0;
-        }
-
-        .section-header {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 4rem;
-            margin-bottom: 5rem;
-        }
-
-        .section-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .exp-item {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 4rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border);
-            transition: padding-left 0.3s;
-        }
-
-        .exp-item:hover {
-            padding-left: 1rem;
-        }
-
-        .exp-company {
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        .exp-role {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .exp-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-        }
-
-        .exp-content ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .exp-content li {
-            color: var(--text-muted);
-            line-height: 1.7;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .exp-content li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        .projects-filter {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 0.7rem 1.5rem;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-
-        .filter-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .filter-btn.active {
-            background: var(--accent);
-            color: var(--bg);
-            border-color: var(--accent);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 2.5rem;
-            transition: all 0.4s;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-        }
-
-        .project-card:hover::before {
-            transform: translateX(100%);
-        }
-
-        .project-card:hover {
-            border-color: #404040;
-            transform: translateY(-5px);
-        }
-
-        .project-type {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            flex: 1;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .tech-tag {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            padding: 0.3rem 0.8rem;
-            border: 1px solid var(--border);
-        }
-
-        .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s;
-        }
-
-        .project-link:hover {
-            gap: 1rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .product-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-        }
-
-        .skill-category {
-            padding: 2rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            transition: border-color 0.3s;
-        }
-
-        .skill-category:hover {
-            border-color: #404040;
-        }
-
-        .skill-category h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .skill-items {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .skill-items span {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-        }
-
-        .contact-info p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.3s;
-        }
-
-        .contact-link:hover {
-            border-color: var(--accent);
-            transform: translateX(10px);
-        }
-
-        .contact-link i {
-            font-size: 1.5rem;
-        }
-
-        .link-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .link-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .link-value {
-            font-size: 1rem;
-        }
-
-        footer {
-            padding: 4rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        @media (max-width: 1024px) {
-
-            .section-header,
-            .exp-item,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --nav-height: 64px;
-            }
-
-            nav {
-                padding: 0;
-            }
-
-            .nav-inner {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding-top: 2rem;
-                padding-bottom: 3rem;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero-side {
-                margin-top: 1rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .hero-cta {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            section {
-                padding: 6rem 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .skill-items {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card {
-                padding: 1.5rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <canvas id="bgCanvas"></canvas>
-
-
-    <nav>
-        <div class="container nav-inner">
-            <a href="/" class="nav-name">Nandana Dileep</a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#work">Work</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="haphazards.html">Scraps</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#writing">Writing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="hero-label">AI ENGINEER</div>
-                    <h1>love tinkering <span class="highlight">with AI</span></h1>
-                    <p class="hero-description">
-                        AI/ML Engineer building production LLM systems and Agentic systems, from retrieval architectures to end-to-end agent pipelines. IIT Madras 2024, currently at Jaguar Land Rover.
-                    </p>
-
-                    <div class="hero-cta">
-                        <a href="#projects" class="cta-primary">
-                            View Work <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <div class="social-links">
-                            <a href="https://github.com/nandanadileep" target="_blank" aria-label="GitHub"><i
-                                    class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank"
-                                aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://medium.com/@nandanadileep29" target="_blank" aria-label="Medium"><i
-                                    class="fab fa-medium"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-side">
-                    <div class="side-card photo-card">
-                        <img src="nandana.jpg" alt="Nandana Dileep">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="work">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-number">01 EXPERIENCE</div>
-            </div>
-            <div>
-                <div class="exp-item">
-                    <div>
-                        <div class="exp-company">Jaguar Land Rover</div>
-                        <div class="exp-role">AI/ML Engineer</div>
-                        <div class="exp-date">2024.07 to Present</div>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li>Part of team building an LLM-powered spec-driven development system that transforms natural language specifications into structured engineering artifacts (HLD, LLD, requirements); already adopted by a software defined vehicles team</li>
-                            <li>Currently part of a team building deep learning-powered test prioritization engine with
-                                JIRA integration for automated validation workflows</li>
-                            <li>Deployed production ML models identifying underutilized test rigs, driving measurable
-                                cost reductions through optimized asset allocation</li>
-                            <li>Implemented GNSS Factor Graph Optimization in C++ using GTSAM for precise vehicle
-                                localization. Presented research at JLR Tech Symposium</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="exp-item">
-                    <div>
-                        <div class="exp-company">Amazon</div>
-                        <div class="exp-role">Software Engineer Intern</div>
-                        <div class="exp-date">2023.05 to 2023.07</div>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li>Built serverless analytics service using AWS Lambda and Coral to detect latency
-                                bottlenecks in Alexa's voice processing pipeline</li>
-                            <li>Engineered robust test automation framework with JUnit and Mockito, significantly
-                                reducing deployment rollback rates</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-number">02 PROJECTS</div>
-            </div>
-
-            <div class="projects-filter">
-                <button class="filter-btn active" onclick="filterProjects('all')">All Work</button>
-                <button class="filter-btn" onclick="filterProjects('agents')">Agents</button>
-                <button class="filter-btn" onclick="filterProjects('fine-tuning')">Fine-tuning</button>
-                <button class="filter-btn" onclick="filterProjects('developer-tools')">Developer Tools</button>
-                <button class="filter-btn" onclick="filterProjects('research')">Research</button>
-            </div>
-
-            <div class="projects-grid">
-                <!-- 1. Identiti -->
-                <div class="project-card" data-category="developer-tools">
-                    <span class="project-type">AI Memory & Retrieval</span>
-                    <h3>Identiti: Personal AI Memory Layer</h3>
-                    <p>Persistent memory system that constructs a knowledge graph of user identity from conversations. Confidence-scored entity extraction, per-user field-level encryption, and portable Memory Card export for cross-platform LLM context transfer.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Neo4j</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Redis</span>
-                        <span class="tech-tag">FAISS</span>
-                        <span class="tech-tag">Knowledge Graphs</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://identiti.nandanadileep.com" target="_blank" class="project-link">
-                            View Live <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://github.com/nandanadileep/aegis" target="_blank" class="project-link">
-                            GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 2. vLLM Serving Engine -->
-                <div class="project-card" data-category="developer-tools">
-                    <span class="project-type">LLM Infrastructure</span>
-                    <h3>vLLM-Inspired LLM Serving Engine on Apple Silicon</h3>
-                    <p>Production-grade LLM serving engine built from scratch on Apple Silicon using MLX. Implements PagedAttention-inspired KV cache management, continuous batching, and an async request scheduler — bringing vLLM-style inference to local Mac hardware.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MLX</span>
-                        <span class="tech-tag">Apple Silicon</span>
-                        <span class="tech-tag">vLLM</span>
-                        <span class="tech-tag">KV Cache</span>
-                        <span class="tech-tag">Inference</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/nandanadileep/vllm-like-llm-serving" target="_blank" class="project-link">
-                            GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05" target="_blank" class="project-link">
-                            Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 3. nanoLLaMA -->
-                <div class="project-card" data-category="fine-tuning research">
-                    <span class="project-type">ML Research</span>
-                    <h3>nanoLLaMA</h3>
-                    <p>Rebuilt nanoGPT component-by-component with modern LLM techniques: RoPE, SwiGLU, RMSNorm, GQA, MLA, MoE, and Multi-Token Prediction. Each change benchmarked independently. Combined stack hits baseline 4× faster at −0.139 val loss.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">RoPE</span>
-                        <span class="tech-tag">SwiGLU</span>
-                        <span class="tech-tag">MoE</span>
-                        <span class="tech-tag">Transformers</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/nanoLLaMA" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 4. auto-agent -->
-                <div class="project-card" data-category="agents">
-                    <span class="project-type">Autonomous Agent</span>
-                    <h3>auto-agent: Background Coding Daemon</h3>
-                    <p>Autonomous daemon that runs against live repos and returns real ACTION responses. Tick engine polls every N minutes, builds full context from git history, TODOs, dangling imports, and missing env keys, then calls Groq/llama-3.3-70b to decide whether to act. Presence detection adjusts how loudly it speaksdesktop notification if you're away, quiet terminal line if you're at your desk. AutoDream consolidates the day's observations into rolling memory every night. GitHub watcher surfaces stale PRs with diffs. Scheduler, SQLite state, FastAPI dashboard.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Groq</span>
-                        <span class="tech-tag">Llama-3.3-70b</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">SQLite</span>
-                        <span class="tech-tag">GitHub API</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/auto-agent" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 5. Autonomous CI Repair -->
-                <div class="project-card" data-category="agents">
-                    <span class="project-type">Autonomous Agent</span>
-                    <h3>Autonomous CI Repair</h3>
-                    <p>Self-healing CI agent that detects failing builds, diagnoses issues from logs, generates fixes
-                        using multi-model LLM reasoning, and auto-commits verified solutions. Features hyper-fuzzy
-                        patching and deterministic guardrails for 90% reliability.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Agentic AI</span>
-                        <span class="tech-tag">GitHub Actions</span>
-                        <span class="tech-tag">Multi-Model LLM</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/autonomous-ci-repair" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 6. LLaMA Fine-tuning -->
-                <div class="project-card" data-category="fine-tuning">
-                    <span class="project-type">LLM Fine-tuning</span>
-                    <h3>LLaMA-7B QLoRA Fine-tuning</h3>
-                    <p>Full fine-tuning pipeline for LLaMA-7B using 4-bit quantization and LoRA adapters for instruction-following. Covers data prep, adapter training, and inference, producing a deployable, ownable model variant with lower latency than prompt-only approaches.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">QLoRA</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">bitsandbytes</span>
-                        <span class="tech-tag">Hugging Face</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/llama-7b-finetuning-qlora" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 7. img2tweet -->
-                <div class="project-card" data-category="fine-tuning">
-                    <span class="project-type">Multimodal Fine-tuning</span>
-                    <h3>img2tweet: Vision-to-Text Generation</h3>
-                    <p>End-to-end multimodal pipeline that fine-tunes ViT-GPT2 for image captioning then applies LoRA adapters to GPT-2 to rewrite captions as tweetsmatching tone, length, and style. Covers vision encoder fine-tuning, cross-modal alignment, and parameter-efficient adaptation in a single project.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">ViT</span>
-                        <span class="tech-tag">GPT-2</span>
-                        <span class="tech-tag">LoRA</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Hugging Face</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/img2tweet" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 8. AI Code Review Agent -->
-                <div class="project-card" data-category="agents">
-                    <span class="project-type">Automation</span>
-                    <h3>AI Code Review Agent</h3>
-                    <p>GitHub App that automatically reviews pull requests using Llama-3. Analyzes diffs for bugs and
-                        security risks, posting inline comments directly to PRs.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Llama-3</span>
-                        <span class="tech-tag">GitHub API</span>
-                        <span class="tech-tag">Webhooks</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/ai-code-review-bot" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 9. RefractorIQ -->
-                <div class="project-card" data-category="developer-tools">
-                    <span class="project-type">Developer Tool</span>
-                    <h3>RefractorIQ</h3>
-                    <p>Full-stack code quality analysis platform combining AST parsing for complexity metrics with
-                        Google Gemini for automated refactoring. Handles async analysis via Celery.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Celery</span>
-                        <span class="tech-tag">AST</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/RefractorIQ" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 10. Chess-Gemma3 Fine-Tuning -->
-                <div class="project-card" data-category="fine-tuning">
-                    <span class="project-type">LLM Fine-tuning</span>
-                    <h3>Chess-Gemma3: Domain Fine-Tuning</h3>
-                    <p>Fine-tuned Gemma3 LLM on chess notation to predict valid moves and understand board states. Demonstrates fine-tuning on a novel, structured domain outside typical NLP tasks.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Gemma3</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Fine-tuning</span>
-                        <span class="tech-tag">LoRA</span>
-                    </div>
-                    <a href="https://github.com/nandanadileep/Chess-Gemma3-Finetuning" target="_blank" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- 11. GNSS Factor Graph -->
-                <div class="project-card" data-category="research">
-                    <span class="project-type">Robotics</span>
-                    <h3>GNSS Factor Graph Optimization</h3>
-                    <p>Precise vehicle localization using Factor Graph Optimization with GTSAM library. Presented
-                        technical findings at JLR Tech Symposium.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">GTSAM</span>
-                        <span class="tech-tag">Graph Theory</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="products">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-number">03 PRODUCTS</div>
-                <h2 class="section-title">Products</h2>
-            </div>
-
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">ShipCV</div>
-                    <div class="exp-role">Turn your projects into an ATS-friendly resume in seconds.</div>
-                </div>
-                <div class="exp-content">
-                    <ul>
-                        <li>Auto-import projects and generate tailored bullet points for specific roles.</li>
-                        <li>Export ATS-friendly resumes as PDF or DOCX with clean, professional templates.</li>
-                        <li>One-click updates from GitHub/portfolio links to keep resumes current.</li>
-                    </ul>
-                    <div class="product-links">
-                        <a href="https://shipcv.nandanadileep.com" target="_blank" class="project-link">
-                            Visit ShipCV <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://www.producthunt.com/products/shipcv?launch=shipcv" target="_blank"
-                            class="project-link">
-                            Product Hunt <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">Identiti</div>
-                    <div class="exp-role">Chat with an AI that actually knows who you are.</div>
-                </div>
-                <div class="exp-content">
-                    <ul>
-                        <li>Builds a personal knowledge graph from conversations, memory that persists and grows over time.</li>
-                        <li>Extracts context from chats to populate graph nodes, enabling genuinely personalized responses.</li>
-                        <li>Import memory exports from ChatGPT or Claude to carry your history across platforms.</li>
-                    </ul>
-                    <div class="product-links">
-                        <a href="http://identiti.nandanadileep.com" target="_blank" class="project-link">
-                            Visit Identiti <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://github.com/nandanadileep/aegis" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">DesignDNA</div>
-                    <div class="exp-role">Extract the visual identity of any website in one click.</div>
-                </div>
-                <div class="exp-content">
-                    <ul>
-                        <li>Paste a URL and get a full breakdown of its design systemcolors, typography, spacing, and visual tone.</li>
-                        <li>Generates ready-to-use UI prompts from the extracted aesthetic, so you can replicate the look in any design tool.</li>
-                        <li>Useful for designers doing competitive research or developers matching a brand's style.</li>
-                    </ul>
-                    <div class="product-links">
-                        <a href="https://designdna.nandanadileep.com" target="_blank" class="project-link">
-                            Visit DesignDNA <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://github.com/nandanadileep/DesignDNA" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">Kimi AI</div>
-                    <div class="exp-role">An Alexa skill that brings AI-powered conversations to your Echo device.</div>
-                </div>
-                <div class="exp-content">
-                    <ul>
-                        <li>Ask Kimi anything and get intelligent, conversational answers through Alexa.</li>
-                        <li>Built with LLM integration for natural voice-driven Q&amp;A on Amazon Echo devices.</li>
-                        <li>Available on the Amazon Alexa Skills Store.</li>
-                    </ul>
-                    <div class="product-links">
-                        <a href="https://docs-seven-gules-96.vercel.app" target="_blank" class="project-link">
-                            Visit Kimi <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://www.amazon.in/dp/B0GFDHZP4S/" target="_blank" class="project-link">
-                            Get on Alexa <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="writing">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-number">05 RESEARCH & WRITING</div>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card" data-category="research">
-                    <span class="project-type">Engineering</span>
-                    <h3>Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX</h3>
-                    <p>Built a vLLM-style inference engine from scratch on Apple Silicon using MLX — with PagedAttention-inspired KV cache management, continuous batching, and an async scheduler. A deep dive into what makes production LLM serving fast.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MLX</span>
-                        <span class="tech-tag">Apple Silicon</span>
-                        <span class="tech-tag">vLLM</span>
-                        <span class="tech-tag">LLM Serving</span>
-                        <span class="tech-tag">Inference</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05" target="_blank" class="project-link">
-                            Read on Medium <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://github.com/nandanadileep/vllm-like-llm-serving" target="_blank" class="project-link">
-                            GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="research">
-                    <span class="project-type">Deep Dive</span>
-                    <h3>Swapped Every Part of nanoGPT With Modern Alternatives</h3>
-                    <p>Systematically replaced each component of nanoGPT (RoPE, SwiGLU, GQA, MLA) and measured the impact one piece at a time. RoPE delivered the biggest win (−0.100 loss). Combined, all changes hit baseline 3× faster.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">nanoGPT</span>
-                        <span class="tech-tag">RoPE</span>
-                        <span class="tech-tag">SwiGLU</span>
-                        <span class="tech-tag">Transformers</span>
-                    </div>
-                    <a href="https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6" target="_blank" class="project-link">
-                        Read on Medium <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-category="research">
-                    <span class="project-type">Deep Dive</span>
-                    <h3>The Beautiful Memory Architecture Hidden Inside LlamaIndex</h3>
-                    <p>A breakdown of the layered memory system LlamaIndex uses under the hood — from short-term buffers to vector-backed long-term stores — and why the architecture is more thoughtfully designed than most people realize.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">LlamaIndex</span>
-                        <span class="tech-tag">Memory</span>
-                        <span class="tech-tag">RAG</span>
-                        <span class="tech-tag">LLMs</span>
-                        <span class="tech-tag">AI Agents</span>
-                    </div>
-                    <a href="https://medium.com/@nandanadileep29/the-beautiful-memory-architecture-hidden-inside-llamaindex-eef91e01bc2c" target="_blank" class="project-link">
-                        Read on Medium <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-category="research">
-                    <span class="project-type">Analysis</span>
-                    <h3>My Takeaways from the Leaked Claude Code Repo</h3>
-                    <p>A breakdown of what the leaked Claude Code source reveals about how Anthropic builds and constrains AI coding agentsthe design decisions, guardrails, and surprises worth paying attention to.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Claude</span>
-                        <span class="tech-tag">AI Agents</span>
-                        <span class="tech-tag">Claude Code</span>
-                        <span class="tech-tag">LLMs</span>
-                    </div>
-                    <a href="https://medium.com/@nandanadileep29/my-takeaways-from-leaked-claude-code-repo-3ec2f42b7545" target="_blank" class="project-link">
-                        Read on Medium <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-category="research">
-                    <span class="project-type">Practical Guide</span>
-                    <h3>Checklist to Prevent All the Agent Failure Modes</h3>
-                    <p>When your agent says it's done, how do you know it actually is? A comprehensive checklist covering every way agents silently failfrom tool misuse and memory drift to premature termination and hallucinated success.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">AI Agents</span>
-                        <span class="tech-tag">Reliability</span>
-                        <span class="tech-tag">LLMs</span>
-                        <span class="tech-tag">Debugging</span>
-                    </div>
-                    <a href="https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1" target="_blank" class="project-link">
-                        Read on Medium <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-category="research">
-                    <span class="project-type">Practical Guide</span>
-                    <h3>When to Prompt, RAG, or Fine-Tune</h3>
-                    <p>Sounds basic but most people still get wrong in practice. A decision framework for choosing between the three LLM implementation approaches, grounded in real project examples.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">RAG</span>
-                        <span class="tech-tag">Fine-Tuning</span>
-                        <span class="tech-tag">Prompt Engineering</span>
-                        <span class="tech-tag">LLMs</span>
-                    </div>
-                    <a href="https://medium.com/@nandanadileep29/when-to-prompt-rag-or-fine-tune-efdb4ba67a84" target="_blank" class="project-link">
-                        Read on Medium <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-category="research">
-                    <span class="project-type">Conference Publication</span>
-                    <h3>Precise Position Estimation using Factor Graph Optimization</h3>
-                    <p>Original research on GNSS localization optimization using factor graph methods in C++ with GTSAM. Presented at Jaguar Land Rover Tech Symposium, June 2024.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">GTSAM</span>
-                        <span class="tech-tag">Factor Graphs</span>
-                        <span class="tech-tag">GNSS</span>
-                        <span class="tech-tag">Localization</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-number">06 Technical Stack</div>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>GenAI & LLMs</h3>
-                    <div class="skill-items">
-                        <span>Llama-3</span>
-                        <span>RAG Architectures</span>
-                        <span>LoRA / QLoRA</span>
-                        <span>vLLM</span>
-                        <span>Embedding Models</span>
-                        <span>Re-ranking</span>
-                        <span>MCP Servers</span>
-                        <span>Vector Databases</span>
-                        <span>Prompt Engineering</span>
-                        <span>Claude Code</span>
-                        <span>LangChain</span>
-                    </div>
-                </div>
-
-<div class="skill-category">
-                    <h3>Backend & Infrastructure</h3>
-                    <div class="skill-items">
-                        <span>Python</span>
-                        <span>FastAPI</span>
-                        <span>Docker</span>
-                        <span>AWS Lambda/ECS</span>
-                        <span>Redis</span>
-                        <span>FAISS</span>
-                        <span>Neo4j</span>
-                        <span>PostgreSQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Core Engineering</h3>
-                    <div class="skill-items">
-                        <span>C++</span>
-                        <span>Distributed Systems</span>
-                        <span>Graph Algorithms</span>
-                        <span>GTSAM</span>
-                        <span>System Design</span>
-                        <span>TypeScript</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-number">07 CONTACT</div>
-                <h2 class="section-title">Let's Connect</h2>
-            </div>
-
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <p>
-                        Open to research collaborations, tough technical problems, and building AI systems that actually scale.
-                    </p>
-                </div>
-
-                <div class="contact-links">
-                    <a href="https://github.com/nandanadileep" target="_blank" class="contact-link">
-                        <i class="fab fa-github"></i>
-                        <div class="link-text">
-                            <span class="link-label">Code</span>
-                            <span class="link-value">github.com/nandanadileep</span>
-                        </div>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" target="_blank"
-                        class="contact-link">
-                        <i class="fab fa-linkedin"></i>
-                        <div class="link-text">
-                            <span class="link-label">Professional</span>
-                            <span class="link-value">LinkedIn Profile</span>
-                        </div>
-                    </a>
-
-                    <a href="mailto:nandanadileep29@gmail.com" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <div class="link-text">
-                            <span class="link-label">Email</span>
-                            <span class="link-value">nandanadileep29@gmail.com</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-    </section>
-
-    <footer>
-        <p>© 2025 Nandana Dileep · Built with caffeine and too many tabs open</p>
-    </footer>
-
-    <script>
-        // ========== ANIMATED CONNECTED GRAPH BACKGROUND ==========
-        const bgCanvas = document.getElementById('bgCanvas');
-        const bgCtx = bgCanvas.getContext('2d');
-
-        // Set canvas size
-        bgCanvas.width = window.innerWidth;
-        bgCanvas.height = window.innerHeight;
-
-        // Mouse position
-        const bgMouse = {
-            x: null,
-            y: null,
-            radius: 150
-        };
-
-        // Track mouse movement
-        window.addEventListener('mousemove', (e) => {
-            bgMouse.x = e.clientX;
-            bgMouse.y = e.clientY;
-        });
-
-        window.addEventListener('resize', () => {
-            bgCanvas.width = window.innerWidth;
-            bgCanvas.height = window.innerHeight;
-            initNodes();
-        });
-
-        // Simple Node class
-        class Node {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.baseX = x;
-                this.baseY = y;
-                this.size = 1.5;
-
-                // Ambient movement
-                this.angle = Math.random() * Math.PI * 2;
-                this.angularVelocity = (Math.random() - 0.5) * 0.02;
-                this.ambientRadius = 15;
-                this.orbitPhase = Math.random() * Math.PI * 2;
-
-                // Visual
-                this.opacity = 0.6 + Math.random() * 0.4;
-            }
-
-            update() {
-                // Gentle ambient movement
-                this.angle += this.angularVelocity;
-                this.orbitPhase += 0.015;
-                const ambientX = Math.cos(this.angle) * this.ambientRadius;
-                const ambientY = Math.sin(this.angle) * this.ambientRadius + Math.cos(this.orbitPhase) * 8;
-
-                // Mouse interaction - repulsion
-                const dx = bgMouse.x - this.x;
-                const dy = bgMouse.y - this.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < bgMouse.radius) {
-                    const force = (bgMouse.radius - distance) / bgMouse.radius;
-                    const angle = Math.atan2(dy, dx);
-
-                    // Repel from mouse
-                    this.x -= Math.cos(angle) * force * 8;
-                    this.y -= Math.sin(angle) * force * 8;
-                } else {
-                    // Return to base position with ambient movement
-                    this.x += (this.baseX + ambientX - this.x) * 0.05;
-                    this.y += (this.baseY + ambientY - this.y) * 0.05;
-                }
-            }
-
-            draw() {
-                bgCtx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                bgCtx.beginPath();
-                bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                bgCtx.fill();
-            }
-        }
-
-        // Create nodes
-        let nodes = [];
-
-        function initNodes() {
-            nodes = [];
-            const spacing = 70;
-            const cols = Math.ceil(bgCanvas.width / spacing);
-            const rows = Math.ceil(bgCanvas.height / spacing);
-
-            for (let i = 0; i < cols; i++) {
-                for (let j = 0; j < rows; j++) {
-                    const x = (i + 0.5) * spacing + (Math.random() - 0.5) * 40;
-                    const y = (j + 0.5) * spacing + (Math.random() - 0.5) * 40;
-                    nodes.push(new Node(x, y));
-                }
-            }
-        }
-
-        // Draw connections between nearby nodes
-        function drawConnections() {
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    const dx = nodes[i].x - nodes[j].x;
-                    const dy = nodes[i].y - nodes[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 180) {
-                        const opacity = (1 - (distance / 180)) * 0.25;
-                        bgCtx.strokeStyle = `rgba(200, 200, 220, ${opacity})`;
-                        bgCtx.lineWidth = 1;
-                        bgCtx.beginPath();
-                        bgCtx.moveTo(nodes[i].x, nodes[i].y);
-                        bgCtx.lineTo(nodes[j].x, nodes[j].y);
-                        bgCtx.stroke();
-                    }
-                }
-            }
-        }
-
-        // Animation loop
-        function animateBackground() {
-            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
-
-            // Draw connections first
-            drawConnections();
-
-            // Update and draw nodes
-            nodes.forEach(node => {
-                node.update();
-                node.draw();
-            });
-
-            requestAnimationFrame(animateBackground);
-        }
-
-        // Start
-        initNodes();
-        animateBackground();
-
-
-        // ========== ORIGINAL PORTFOLIO SCRIPTS ==========
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Project filtering
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            cards.forEach(card => {
-                const categories = card.getAttribute('data-category');
-                if (category === 'all' || categories.includes(category)) {
-                    card.style.display = 'flex';
-                    setTimeout(() => card.style.opacity = '1', 10);
-                } else {
-                    card.style.opacity = '0';
-                    setTimeout(() => card.style.display = 'none', 300);
-                }
-            });
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-    </script>
+
+    <p><strong><a href="/">Nandana Dileep</a></strong></p>
+    <p>
+        <a href="#work">Work</a> ·
+        <a href="#projects">Projects</a> ·
+        <a href="#products">Products</a> ·
+        <a href="haphazards.html">Scraps</a> ·
+        <a href="#writing">Writing</a> ·
+        <a href="#contact">Contact</a>
+    </p>
+
+    <hr>
+
+    <h1>Nandana Dileep</h1>
+    <p>AI/ML Engineer at Jaguar Land Rover</p>
+    <p>
+        Building production LLM systems and agentic pipelines — retrieval architectures to end-to-end agent workflows.
+        IIT Madras 2024.
+    </p>
+    <p>
+        <a href="https://github.com/nandanadileep">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/">LinkedIn</a> ·
+        <a href="https://medium.com/@nandanadileep29">Medium</a> ·
+        <a href="mailto:nandanadileep29@gmail.com">Email</a>
+    </p>
+
+    <p><img src="nandana.jpg" alt="Nandana Dileep" width="120"></p>
+
+    <hr>
+
+    <h2 id="work">Experience</h2>
+
+    <p><strong>Jaguar Land Rover</strong> — AI/ML Engineer<br>
+    2024–present</p>
+    <ul>
+        <li>LLM-powered spec-driven development system that turns natural language specs into structured engineering artifacts (HLD, LLD, requirements); adopted by a software defined vehicles team</li>
+        <li>Deep learning test prioritization engine with JIRA integration for automated validation workflows</li>
+        <li>Production ML models for underutilized test rig identification and cost reduction through optimized asset allocation</li>
+        <li>GNSS Factor Graph Optimization in C++ with GTSAM for vehicle localization; presented at JLR Tech Symposium</li>
+    </ul>
+
+    <p><strong>Amazon</strong> — Software Engineer Intern<br>
+    May–Jul 2023</p>
+    <ul>
+        <li>Serverless analytics service on AWS Lambda and Coral to detect latency bottlenecks in Alexa's voice processing pipeline</li>
+        <li>Test automation framework with JUnit and Mockito, reducing deployment rollback rates</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="projects">Projects</h2>
+
+    <h3>Identiti — Personal AI Memory Layer</h3>
+    <p>Persistent memory system that builds a knowledge graph of user identity from conversations. Confidence-scored entity extraction, per-user encryption, portable Memory Card export.</p>
+    <p>
+        <a href="https://identiti.nandanadileep.com">Live</a> ·
+        <a href="https://github.com/nandanadileep/aegis">GitHub</a>
+    </p>
+
+    <h3>vLLM-Inspired LLM Serving Engine on Apple Silicon</h3>
+    <p>LLM serving engine on Apple Silicon with MLX. PagedAttention-inspired KV cache, continuous batching, async scheduler.</p>
+    <p>
+        <a href="https://github.com/nandanadileep/vllm-like-llm-serving">GitHub</a> ·
+        <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Article</a>
+    </p>
+
+    <h3>nanoLLaMA</h3>
+    <p>Rebuilt nanoGPT with RoPE, SwiGLU, RMSNorm, GQA, MLA, MoE, and Multi-Token Prediction. Combined stack: 4× faster at −0.139 val loss.</p>
+    <p><a href="https://github.com/nandanadileep/nanoLLaMA">GitHub</a></p>
+
+    <h3>auto-agent — Background Coding Daemon</h3>
+    <p>Autonomous daemon for live repos. Polls git history, TODOs, and env gaps; calls Groq/llama-3.3-70b to decide actions. FastAPI dashboard, SQLite state, GitHub PR watcher.</p>
+    <p><a href="https://github.com/nandanadileep/auto-agent">GitHub</a></p>
+
+    <h3>Autonomous CI Repair</h3>
+    <p>Self-healing CI agent: detects failing builds, diagnoses from logs, generates fixes with multi-model LLM reasoning, auto-commits verified solutions.</p>
+    <p><a href="https://github.com/nandanadileep/autonomous-ci-repair">GitHub</a></p>
+
+    <h3>LLaMA-7B QLoRA Fine-tuning</h3>
+    <p>Full fine-tuning pipeline with 4-bit quantization and LoRA adapters for instruction-following.</p>
+    <p><a href="https://github.com/nandanadileep/llama-7b-finetuning-qlora">GitHub</a></p>
+
+    <h3>img2tweet — Vision-to-Text Generation</h3>
+    <p>Fine-tunes ViT-GPT2 for captioning, then LoRA on GPT-2 to rewrite captions as tweets.</p>
+    <p><a href="https://github.com/nandanadileep/img2tweet">GitHub</a></p>
+
+    <h3>AI Code Review Agent</h3>
+    <p>GitHub App that reviews PRs with Llama-3, posting inline comments for bugs and security risks.</p>
+    <p><a href="https://github.com/nandanadileep/ai-code-review-bot">GitHub</a></p>
+
+    <h3>RefractorIQ</h3>
+    <p>Code quality platform: AST parsing for complexity metrics plus Gemini for automated refactoring. Celery for async analysis.</p>
+    <p><a href="https://github.com/nandanadileep/RefractorIQ">GitHub</a></p>
+
+    <h3>Chess-Gemma3 — Domain Fine-Tuning</h3>
+    <p>Fine-tuned Gemma3 on chess notation to predict valid moves and understand board states.</p>
+    <p><a href="https://github.com/nandanadileep/Chess-Gemma3-Finetuning">GitHub</a></p>
+
+    <h3>GNSS Factor Graph Optimization</h3>
+    <p>Vehicle localization with Factor Graph Optimization and GTSAM. Presented at JLR Tech Symposium.</p>
+
+    <hr>
+
+    <h2 id="products">Products</h2>
+
+    <h3>ShipCV</h3>
+    <p>Turn projects into ATS-friendly resumes in seconds. Auto-import, tailored bullet points, PDF/DOCX export, GitHub sync.</p>
+    <p>
+        <a href="https://shipcv.nandanadileep.com">ShipCV</a> ·
+        <a href="https://www.producthunt.com/products/shipcv?launch=shipcv">Product Hunt</a>
+    </p>
+
+    <h3>Identiti</h3>
+    <p>Chat with an AI that knows who you are. Personal knowledge graph from conversations; import memory from ChatGPT or Claude.</p>
+    <p>
+        <a href="https://identiti.nandanadileep.com">Identiti</a> ·
+        <a href="https://github.com/nandanadileep/aegis">GitHub</a>
+    </p>
+
+    <h3>DesignDNA</h3>
+    <p>Extract a website's design system — colors, typography, spacing — and generate UI prompts from it.</p>
+    <p>
+        <a href="https://designdna.nandanadileep.com">DesignDNA</a> ·
+        <a href="https://github.com/nandanadileep/DesignDNA">GitHub</a>
+    </p>
+
+    <h3>Kimi AI</h3>
+    <p>Alexa skill for AI-powered conversations on Echo devices.</p>
+    <p>
+        <a href="https://docs-seven-gules-96.vercel.app">Kimi</a> ·
+        <a href="https://www.amazon.in/dp/B0GFDHZP4S/">Alexa Skills Store</a>
+    </p>
+
+    <hr>
+
+    <h2 id="writing">Writing</h2>
+
+    <h3><a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX</a></h3>
+
+    <h3><a href="https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6">Swapped Every Part of nanoGPT With Modern Alternatives</a></h3>
+
+    <h3><a href="https://medium.com/@nandanadileep29/the-beautiful-memory-architecture-hidden-inside-llamaindex-eef91e01bc2c">The Beautiful Memory Architecture Hidden Inside LlamaIndex</a></h3>
+
+    <h3><a href="https://medium.com/@nandanadileep29/my-takeaways-from-leaked-claude-code-repo-3ec2f42b7545">My Takeaways from the Leaked Claude Code Repo</a></h3>
+
+    <h3><a href="https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1">Checklist to Prevent All the Agent Failure Modes</a></h3>
+
+    <h3><a href="https://medium.com/@nandanadileep29/when-to-prompt-rag-or-fine-tune-efdb4ba67a84">When to Prompt, RAG, or Fine-Tune</a></h3>
+
+    <h3>Precise Position Estimation using Factor Graph Optimization</h3>
+    <p>GNSS localization with factor graphs in C++ and GTSAM. JLR Tech Symposium, June 2024.</p>
+
+    <hr>
+
+    <h2 id="contact">Contact</h2>
+    <p>Open to research collaborations and hard technical problems.</p>
+    <p>
+        <a href="mailto:nandanadileep29@gmail.com">nandanadileep29@gmail.com</a><br>
+        <a href="https://github.com/nandanadileep">github.com/nandanadileep</a><br>
+        <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/">LinkedIn</a>
+    </p>
+
+    <hr>
+    <p><small>© 2025 Nandana Dileep</small></p>
+
 </body>
-
 </html>
