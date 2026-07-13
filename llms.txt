@@ -28,6 +28,7 @@
 ## Projects
 
 - [Mycelium](https://mycelium-labs.github.io/mycelium/): Framework-independent open-source runtime that prevents predictable AI agent failures before tool execution (LangGraph, CrewAI, custom loops). SDK: mycelium-runtime on PyPI. Source: https://github.com/mycelium-labs/mycelium
+- Meridian: JLR Global Techathon 2026 winning hiring-automation platform. Converts job descriptions into skill-ontology graphs, overlays resumes with evidence-grounded present/partial/gap analysis, and generates adaptive assessments using topic-tree routing, Rasch ability estimation, and deduplicated question banks
 - [KAIROS / Auto-Agent](https://github.com/nandanadileep/auto-agent): Autonomous background coding agent with presence-aware notifications and nightly memory consolidation
 - [vLLM-style LLM Serving on Apple Silicon](https://github.com/nandanadileep/vllm-like-llm-serving): MLX inference engine with PagedAttention-inspired KV cache, continuous batching, OpenAI-compatible chat completions
 - [Identiti](https://identiti.nandanadileep.com): Personal AI memory layer using Neo4j knowledge graphs. Source: https://github.com/nandanadileep/aegis

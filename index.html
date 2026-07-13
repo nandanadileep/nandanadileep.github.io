@@ -119,6 +119,17 @@
               "@type": "ListItem",
               "position": 2,
               "item": {
+                "@type": "SoftwareApplication",
+                "name": "Meridian",
+                "applicationCategory": "BusinessApplication",
+                "description": "JLR Global Techathon 2026 winning platform that automates hiring with skill-ontology knowledge graphs, evidence-grounded resume gap analysis, and adaptive technical assessments.",
+                "author": { "@id": "https://nandanadileep.com/#person" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
                 "@type": "SoftwareSourceCode",
                 "name": "KAIROS / Auto-Agent",
                 "description": "Autonomous background coding agent with presence-aware notifications and nightly memory consolidation.",
@@ -129,7 +140,7 @@
             },
             {
               "@type": "ListItem",
-              "position": 3,
+              "position": 4,
               "item": {
                 "@type": "SoftwareSourceCode",
                 "name": "vLLM-style LLM Serving on Apple Silicon",
@@ -140,7 +151,7 @@
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 5,
               "item": {
                 "@type": "SoftwareApplication",
                 "name": "Identiti",
@@ -501,6 +512,16 @@
                         <span>Tool execution</span>
                     </div>
                     <p>Mycelium stays outside the model's reasoning path. It classifies side effects, validates calls, and resolves retries with durable transition keys before a tool can run.</p>
+                </details>
+            </article>
+
+            <article class="item" itemscope itemtype="https://schema.org/SoftwareApplication">
+                <h3 itemprop="name">Meridian</h3>
+                <p class="meta">JLR Global Techathon 2026 Winner · AI hiring automation</p>
+                <p class="desc" itemprop="description">A multi-tenant hiring platform that turns job descriptions into skill-ontology graphs, overlays resume evidence as present, partial, or gap nodes, and gives recruiters an interactive D3 view before human-gated decisions.</p>
+                <details class="project-details">
+                    <summary>Architecture / key engineering decisions</summary>
+                    <p>The JD-to-assessment pipeline combines ontology extraction, 5×5 topic-tree routing, 1PL Rasch ability estimation, bank-first question serving, and embedding/lexical deduplication. Audit trails and human review keep the system decision-support rather than automated hiring.</p>
                 </details>
             </article>
 
