@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandana Dileep | AI Engineer — Agentic Systems &amp; LLM Infrastructure</title>
+    <title>Nandana Dileep | AI Engineer | Agentic Systems &amp; LLM Infrastructure</title>
     <meta name="description" content="Nandana Dileep is an AI engineer at Jaguar Land Rover building production agentic systems, LLM infrastructure, and Mycelium, an open-source runtime safety layer for AI agents. IIT Madras '24.">
     <meta name="author" content="Nandana Dileep">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="google-site-verification" content="ei09DmVVSZSUnJfPhFEc9sBvPksd3MSU_f5wtFDOf4M" />
     <meta name="keywords" content="Nandana Dileep, AI engineer, agentic systems, LLM infrastructure, Mycelium, Jaguar Land Rover, IIT Madras, AI agents, LangGraph, Apple Silicon LLM serving">
     <link rel="canonical" href="https://nandanadileep.com/">
     <link rel="alternate" type="text/plain" title="LLM context" href="https://nandanadileep.com/llms.txt">
@@ -16,7 +17,7 @@
     <meta property="og:site_name" content="Nandana Dileep">
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Nandana Dileep | AI Engineer">
-    <meta property="og:description" content="AI engineer building production agentic systems, LLM infrastructure, and Mycelium — an open-source runtime safety layer for AI agents.">
+    <meta property="og:description" content="AI engineer building production agentic systems, LLM infrastructure, and Mycelium, an open-source runtime safety layer for AI agents.">
     <meta property="og:url" content="https://nandanadileep.com/">
     <meta property="og:image" content="https://nandanadileep.com/nandana.jpg">
     <meta property="og:image:alt" content="Nandana Dileep">
@@ -81,6 +82,7 @@
             "https://github.com/nandanadileep",
             "https://www.linkedin.com/in/nandana-dileep-06935a212/",
             "https://medium.com/@nandanadileep29",
+            "https://x.com/nandana_dileep",
             "https://pypi.org/project/mycelium-runtime/"
           ]
         },
@@ -331,6 +333,68 @@
             margin-bottom: 0.3rem;
         }
 
+        .item.featured {
+            margin-left: -1rem;
+            margin-right: -1rem;
+            padding: 1rem;
+            background: rgba(217, 119, 6, 0.07);
+            border: 1px solid rgba(217, 119, 6, 0.22);
+            border-radius: 10px;
+        }
+
+        .featured-label {
+            display: inline-block;
+            margin-bottom: 0.55rem;
+            color: var(--orange);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .project-details {
+            margin-top: 0.7rem;
+            font-size: 0.88rem;
+            color: var(--muted);
+        }
+
+        .project-details summary {
+            width: fit-content;
+            color: var(--muted);
+            cursor: pointer;
+        }
+
+        .project-details summary:hover {
+            color: var(--orange);
+        }
+
+        .project-details p {
+            margin: 0.65rem 0 0;
+        }
+
+        .architecture-flow {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 0.75rem;
+            overflow-x: auto;
+            color: var(--ink);
+            white-space: nowrap;
+        }
+
+        .architecture-flow span {
+            padding: 0.35rem 0.55rem;
+            border: 1px solid var(--line);
+            border-radius: 5px;
+            background: var(--milk);
+            font-size: 0.78rem;
+        }
+
+        .architecture-flow b {
+            color: var(--faint);
+            font-weight: 400;
+        }
+
         .writing {
             margin: 0;
             padding: 0;
@@ -348,6 +412,11 @@
             margin-bottom: 0;
             padding-bottom: 0;
             border-bottom: none;
+        }
+
+        .section-link {
+            margin: 0.8rem 0 0;
+            font-size: 0.88rem;
         }
 
         footer {
@@ -385,18 +454,19 @@
     <main>
         <header class="intro">
             <h1>Nandana Dileep</h1>
-            <p class="tagline">AI Engineer at Jaguar Land Rover · IIT Madras '24</p>
+            <p class="tagline">AI Engineer building reliable agents and LLM infrastructure.</p>
             <p class="lede">
-                Nandana Dileep is an AI engineer building production agentic systems,
-                LLM infrastructure, and developer tools. At Jaguar Land Rover, Nandana develops
-                an AI-native spec-driven engineering platform for software-defined vehicles,
-                and created Mycelium, an open-source runtime safety layer for AI agents.
+                I am an AI engineer building production agentic systems, LLM infrastructure,
+                and developer tools. At Jaguar Land Rover, I develop an AI-native spec-driven
+                engineering platform for software-defined vehicles. I also created Mycelium,
+                an open-source runtime safety layer for AI agents.
             </p>
             <p class="links">
                 <a href="mailto:nandanadileep29@gmail.com">Email</a> ·
                 <a href="https://github.com/nandanadileep" rel="me">GitHub</a> ·
                 <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" rel="me">LinkedIn</a> ·
-                <a href="https://medium.com/@nandanadileep29" rel="me">Medium</a>
+                <a href="resume.pdf">Resume</a> ·
+                <a href="https://x.com/nandana_dileep" rel="me">Twitter</a>
             </p>
         </header>
 
@@ -411,22 +481,38 @@
         <section id="projects" aria-labelledby="projects-heading">
             <h2 id="projects-heading">Projects</h2>
 
-            <article class="item" itemscope itemtype="https://schema.org/SoftwareApplication">
+            <article class="item featured" itemscope itemtype="https://schema.org/SoftwareApplication">
+                <span class="featured-label">Currently building</span>
                 <h3 itemprop="name">Mycelium</h3>
                 <p class="meta">Agent runtime · In development · Open source</p>
                 <p class="desc" itemprop="description">Mycelium is a framework-independent runtime safety layer for LangGraph, CrewAI, and custom agent loops. It prevents duplicate side effects, stale context, invalid inputs, and out-of-scope tool calls before execution.</p>
                 <p class="item-links">
-                    <a href="https://mycelium-labs.github.io/mycelium/" itemprop="url">Docs</a> ·
-                    <a href="https://github.com/mycelium-labs/mycelium">GitHub</a> ·
-                    <a href="https://pypi.org/project/mycelium-runtime/">PyPI</a>
+                    <a href="https://mycelium-labs.github.io/mycelium/" itemprop="url">Read docs</a> ·
+                    <a href="https://github.com/mycelium-labs/mycelium">View source</a> ·
+                    <a href="https://pypi.org/project/mycelium-runtime/">Install from PyPI</a>
                 </p>
+                <details class="project-details">
+                    <summary>Read architecture / key engineering decisions</summary>
+                    <div class="architecture-flow" aria-label="Mycelium architecture: Agent loop to Mycelium guards to Tool execution">
+                        <span>Agent loop</span>
+                        <b aria-hidden="true">→</b>
+                        <span>Mycelium guards</span>
+                        <b aria-hidden="true">→</b>
+                        <span>Tool execution</span>
+                    </div>
+                    <p>Mycelium stays outside the model's reasoning path. It classifies side effects, validates calls, and resolves retries with durable transition keys before a tool can run.</p>
+                </details>
             </article>
 
             <article class="item">
                 <h3>KAIROS / Auto-Agent</h3>
                 <p class="meta">Autonomous developer tooling</p>
                 <p class="desc">KAIROS is a background coding agent that gathers context from git history, TODOs, modified files, stale pull requests, and environment configuration. It includes presence-aware notifications and nightly memory consolidation.</p>
-                <p class="item-links"><a href="https://github.com/nandanadileep/auto-agent">GitHub</a></p>
+                <p class="item-links"><a href="https://github.com/nandanadileep/auto-agent">View source</a></p>
+                <details class="project-details">
+                    <summary>Architecture / key engineering decisions</summary>
+                    <p>An asynchronous tick engine separates observation, autonomy decisions, and notification delivery. Nightly consolidation keeps persistent memory bounded while preserving useful project context.</p>
+                </details>
             </article>
 
             <article class="item">
@@ -434,9 +520,13 @@
                 <p class="meta">LLM inference infrastructure</p>
                 <p class="desc">An MLX-based inference engine with PagedAttention-inspired KV cache management, continuous batching, chunked prefill, prefix caching, asynchronous scheduling, and OpenAI-compatible chat completions for Apple Silicon.</p>
                 <p class="item-links">
-                    <a href="https://github.com/nandanadileep/vllm-like-llm-serving">GitHub</a> ·
-                    <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Article</a>
+                    <a href="https://github.com/nandanadileep/vllm-like-llm-serving">View source</a> ·
+                    <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Read architecture</a>
                 </p>
+                <details class="project-details">
+                    <summary>Architecture / key engineering decisions</summary>
+                    <p>Request scheduling is decoupled from token generation so new requests can join active batches. Paged KV blocks and prefix reuse reduce memory waste and repeated prefill work.</p>
+                </details>
             </article>
 
             <article class="item">
@@ -444,9 +534,13 @@
                 <p class="meta">Full-stack AI memory system</p>
                 <p class="desc">Identiti extracts confidence-scored identity entities from conversations into a Neo4j knowledge graph. Built with React, Flask, Redis, Supabase authentication, field-level encryption, and portable memory export.</p>
                 <p class="item-links">
-                    <a href="https://identiti.nandanadileep.com">Live</a> ·
-                    <a href="https://github.com/nandanadileep/aegis">GitHub</a>
+                    <a href="https://identiti.nandanadileep.com">Open product</a> ·
+                    <a href="https://github.com/nandanadileep/aegis">View source</a>
                 </p>
+                <details class="project-details">
+                    <summary>Architecture / key engineering decisions</summary>
+                    <p>Neo4j stores identity relationships, Redis holds conversation history, and confidence-scored extraction prevents uncertain observations from becoming durable user facts.</p>
+                </details>
             </article>
         </section>
 
@@ -480,14 +574,15 @@
                 <li><a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX</a></li>
                 <li><a href="https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6">Swapped Every Part of nanoGPT With Modern Alternatives</a></li>
             </ul>
+            <p class="section-link"><a href="https://medium.com/@nandanadileep29" rel="me">Read more on Medium</a></p>
         </section>
 
         <section id="about" aria-labelledby="about-heading">
             <h2 id="about-heading">About</h2>
             <div class="item">
-                <p class="desc"><strong>Who is Nandana Dileep?</strong> An AI engineer at Jaguar Land Rover (SDV) and IIT Madras '24 graduate focused on agentic systems, LLM infrastructure, and developer tools.</p>
-                <p class="desc"><strong>What is Mycelium?</strong> An open-source runtime safety layer for AI agents (LangGraph, CrewAI, custom loops), published on PyPI as <code>mycelium-runtime</code>.</p>
-                <p class="desc"><strong>Focus areas:</strong> AI agents, runtime guardrails, LLM serving, knowledge graphs, and AI-native engineering platforms for software-defined vehicles.</p>
+                <p class="desc"><strong>About me:</strong> I am an AI engineer at Jaguar Land Rover (SDV) and an IIT Madras '24 graduate focused on agentic systems, LLM infrastructure, and developer tools.</p>
+                <p class="desc"><strong>Mycelium:</strong> I created this open-source runtime safety layer for AI agents (LangGraph, CrewAI, and custom loops) and published it on PyPI as <code>mycelium-runtime</code>.</p>
+                <p class="desc"><strong>My focus:</strong> I work on AI agents, runtime guardrails, LLM serving, knowledge graphs, and AI-native engineering platforms for software-defined vehicles.</p>
             </div>
         </section>
 
