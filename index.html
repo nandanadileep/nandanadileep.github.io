@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nandana Dileep | AI Engineer | Agentic Systems &amp; LLM Infrastructure</title>
-    <meta name="description" content="Nandana Dileep is an AI engineer at Jaguar Land Rover building production agentic systems, LLM infrastructure, and Mycelium, an open-source runtime safety layer for AI agents. IIT Madras '24.">
+    <meta name="description" content="Nandana Dileep is an AI engineer at Jaguar Land Rover building production agentic systems, LLM infrastructure, and Mycelium, an open-source agent runtime with 7.4k+ PyPI downloads. IIT Madras '24.">
     <meta name="author" content="Nandana Dileep">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="google-site-verification" content="ei09DmVVSZSUnJfPhFEc9sBvPksd3MSU_f5wtFDOf4M" />
@@ -17,7 +17,7 @@
     <meta property="og:site_name" content="Nandana Dileep">
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Nandana Dileep | AI Engineer">
-    <meta property="og:description" content="AI engineer building production agentic systems, LLM infrastructure, and Mycelium, an open-source runtime safety layer for AI agents.">
+    <meta property="og:description" content="AI engineer building production agentic systems, LLM infrastructure, and Mycelium, an open-source agent runtime with 7.4k+ PyPI downloads.">
     <meta property="og:url" content="https://nandanadileep.com/">
     <meta property="og:image" content="https://nandanadileep.com/nandana.jpg">
     <meta property="og:image:alt" content="Nandana Dileep">
@@ -26,7 +26,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nandana Dileep | AI Engineer">
-    <meta name="twitter:description" content="Building production agentic systems, LLM infrastructure, and Mycelium, an open-source runtime safety layer for AI agents.">
+    <meta name="twitter:description" content="Building production agentic systems, LLM infrastructure, and Mycelium, an open-source agent runtime with 7.4k+ PyPI downloads.">
     <meta name="twitter:image" content="https://nandanadileep.com/nandana.jpg">
     <meta name="twitter:image:alt" content="Nandana Dileep">
 
@@ -55,7 +55,7 @@
           "image": "https://nandanadileep.com/nandana.jpg",
           "email": "mailto:nandanadileep29@gmail.com",
           "jobTitle": "AI Engineer",
-          "description": "AI engineer at Jaguar Land Rover building production agentic systems, LLM infrastructure, and developer tools. Creator of Mycelium, an open-source runtime safety layer for AI agents. IIT Madras graduate.",
+          "description": "AI engineer at Jaguar Land Rover building production agentic systems, LLM infrastructure, and developer tools. Creator of Mycelium, an open-source agent runtime with runtime guards and YAML auto-instrumentation (mycelium-runtime on PyPI, 7.4k+ downloads). IIT Madras graduate.",
           "worksFor": {
             "@type": "Organization",
             "name": "Jaguar Land Rover",
@@ -109,9 +109,10 @@
                 "name": "Mycelium",
                 "applicationCategory": "DeveloperApplication",
                 "operatingSystem": "Cross-platform",
-                "description": "Framework-independent open-source runtime safety layer for AI agents. Prevents duplicate side effects, stale context, invalid inputs, and out-of-scope tool calls before execution.",
+                "description": "Open-source runtime guards and zero-touch YAML auto-instrumentation for AI agents. Prevents duplicate side effects on retry, stale context, invalid inputs, and out-of-scope tool calls before execution. Published on PyPI as mycelium-runtime (v1.13.4, 7.4k+ downloads).",
                 "url": "https://mycelium-labs.github.io/mycelium/",
                 "codeRepository": "https://github.com/mycelium-labs/mycelium",
+                "softwareVersion": "1.13.4",
                 "author": { "@id": "https://nandanadileep.com/#person" }
               }
             },
@@ -181,7 +182,7 @@
               "name": "What is Mycelium by Nandana Dileep?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Mycelium is an open-source, framework-independent runtime safety layer for AI agents. It works with LangGraph, CrewAI, and custom agent loops to prevent duplicate side effects, stale context, invalid inputs, and out-of-scope tool calls before execution. The Python SDK is published on PyPI as mycelium-runtime."
+                "text": "Mycelium is an open-source runtime for AI agents with zero-touch YAML auto-instrumentation and runtime guards. It works with LangGraph, CrewAI, and custom agent loops to prevent duplicate side effects on retry, stale context, invalid inputs, and out-of-scope tool calls before execution. The Python SDK is published on PyPI as mycelium-runtime (v1.13.4, 7.4k+ downloads)."
               }
             },
             {
@@ -237,9 +238,15 @@
         }
 
         .intro h1 {
-            margin: 0 0 0.25rem;
+            margin: 0 0 0.15rem;
             font-size: 1.35rem;
             font-weight: 600;
+        }
+
+        .affiliation {
+            margin: 0 0 0.35rem;
+            color: var(--muted);
+            font-size: 0.88rem;
         }
 
         .tagline {
@@ -465,12 +472,14 @@
     <main>
         <header class="intro">
             <h1>Nandana Dileep</h1>
+            <p class="affiliation">IITM'24</p>
             <p class="tagline">AI Engineer building reliable agents and LLM infrastructure.</p>
             <p class="lede">
                 I am an AI engineer building production agentic systems, LLM infrastructure,
                 and developer tools. At Jaguar Land Rover, I develop an AI-native spec-driven
                 engineering platform for software-defined vehicles. I also created Mycelium,
-                an open-source runtime safety layer for AI agents.
+                an open-source agent runtime with runtime guards, YAML auto-instrumentation,
+                and 7.4k+ PyPI downloads.
             </p>
             <p class="links">
                 <a href="mailto:nandanadileep29@gmail.com">Email</a> ·
@@ -493,14 +502,16 @@
             <h2 id="projects-heading">Projects</h2>
 
             <article class="item featured" itemscope itemtype="https://schema.org/SoftwareApplication">
-                <span class="featured-label">Currently building</span>
+                <span class="featured-label">Open source · API-stable</span>
                 <h3 itemprop="name">Mycelium</h3>
-                <p class="meta">Agent runtime · In development · Open source</p>
-                <p class="desc" itemprop="description">Mycelium is a framework-independent runtime safety layer for LangGraph, CrewAI, and custom agent loops. It prevents duplicate side effects, stale context, invalid inputs, and out-of-scope tool calls before execution.</p>
+                <p class="meta">Agent runtime · v1.13.4 · 7.4k+ PyPI downloads · Open source</p>
+                <meta itemprop="softwareVersion" content="1.13.4">
+                <p class="desc" itemprop="description">Runtime guards and zero-touch YAML auto-instrumentation for AI agents on LangGraph, CrewAI, and custom loops. Stops duplicate side effects on retry/redispatch, blocks bad tool args and out-of-scope calls, and keeps tool data fresh — before execution, not after.</p>
                 <p class="item-links">
                     <a href="https://mycelium-labs.github.io/mycelium/" itemprop="url">Read docs</a> ·
                     <a href="https://github.com/mycelium-labs/mycelium">View source</a> ·
-                    <a href="https://pypi.org/project/mycelium-runtime/">Install from PyPI</a>
+                    <a href="https://pypi.org/project/mycelium-runtime/">Install from PyPI</a> ·
+                    <a href="https://pepy.tech/projects/mycelium-runtime">Download stats</a>
                 </p>
                 <details class="project-details">
                     <summary>Read architecture / key engineering decisions</summary>
@@ -511,7 +522,7 @@
                         <b aria-hidden="true">→</b>
                         <span>Tool execution</span>
                     </div>
-                    <p>Mycelium stays outside the model's reasoning path. It classifies side effects, validates calls, and resolves retries with durable transition keys before a tool can run.</p>
+                    <p>Mycelium sits between the agent loop and tools. <code>mycelium init</code> / <code>mycelium run</code> wrap configured callables from YAML — no decorators required. It classifies side effects, issues durable transition envelopes (lease + terminal state + hard-block / reconcile), and fail-closes ambiguous mutating retries instead of blind re-execute.</p>
                 </details>
             </article>
 
@@ -602,7 +613,7 @@
             <h2 id="about-heading">About</h2>
             <div class="item">
                 <p class="desc"><strong>About me:</strong> I am an AI engineer at Jaguar Land Rover (SDV) and an IIT Madras '24 graduate focused on agentic systems, LLM infrastructure, and developer tools.</p>
-                <p class="desc"><strong>Mycelium:</strong> I created this open-source runtime safety layer for AI agents (LangGraph, CrewAI, and custom loops) and published it on PyPI as <code>mycelium-runtime</code>.</p>
+                <p class="desc"><strong>Mycelium:</strong> I created this open-source agent runtime (guards + YAML auto-instrumentation) for LangGraph, CrewAI, and custom loops. Published on PyPI as <code>mycelium-runtime</code> — v1.13.4, 7.4k+ downloads.</p>
                 <p class="desc"><strong>My focus:</strong> I work on AI agents, runtime guardrails, LLM serving, knowledge graphs, and AI-native engineering platforms for software-defined vehicles.</p>
             </div>
         </section>

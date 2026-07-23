@@ -1,6 +1,6 @@
 # Nandana Dileep
 
-> AI engineer at Jaguar Land Rover building production agentic systems, LLM infrastructure, and developer tools. Creator of Mycelium, an open-source runtime safety layer for AI agents. IIT Madras '24.
+> AI engineer at Jaguar Land Rover building production agentic systems, LLM infrastructure, and developer tools. Creator of Mycelium, an open-source agent runtime with runtime guards, YAML auto-instrumentation, and 7.4k+ PyPI downloads. IIT Madras '24.
 
 ## Identity
 
@@ -27,7 +27,7 @@
 
 ## Projects
 
-- [Mycelium](https://mycelium-labs.github.io/mycelium/): Framework-independent open-source runtime that prevents predictable AI agent failures before tool execution (LangGraph, CrewAI, custom loops). SDK: mycelium-runtime on PyPI. Source: https://github.com/mycelium-labs/mycelium
+- [Mycelium](https://mycelium-labs.github.io/mycelium/): Open-source runtime guards and zero-touch YAML auto-instrumentation for AI agents (LangGraph, CrewAI, custom loops). Prevents duplicate side effects on retry, stale context, invalid inputs, and out-of-scope tool calls before execution. SDK: mycelium-runtime on PyPI (v1.13.4, 7.4k+ downloads). Source: https://github.com/mycelium-labs/mycelium · Stats: https://pepy.tech/projects/mycelium-runtime
 - Meridian: JLR Global Techathon 2026 winning hiring-automation platform. Converts job descriptions into skill-ontology graphs, overlays resumes with evidence-grounded present/partial/gap analysis, and generates adaptive assessments using topic-tree routing, Rasch ability estimation, and deduplicated question banks
 - [KAIROS / Auto-Agent](https://github.com/nandanadileep/auto-agent): Autonomous background coding agent with presence-aware notifications and nightly memory consolidation
 - [vLLM-style LLM Serving on Apple Silicon](https://github.com/nandanadileep/vllm-like-llm-serving): MLX inference engine with PagedAttention-inspired KV cache, continuous batching, OpenAI-compatible chat completions
