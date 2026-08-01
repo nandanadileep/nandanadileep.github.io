@@ -1,11 +1,11 @@
 # Nandana Dileep
 
-> AI engineer at Technology & Business Services India (JLR) building production agentic systems, LLM infrastructure, and developer tools. Creator of Mycelium, an open-source agent runtime with runtime guards, YAML auto-instrumentation, and 9.8k+ PyPI downloads. IIT Madras '24.
+> AI engineer at JLR Technology & Business Services India building production agentic systems, LLM infrastructure, and developer tools. Creator of Mycelium, an open-source agent runtime with runtime guards, YAML auto-instrumentation, and 9.8k+ PyPI downloads. IIT Madras '24.
 
 ## Identity
 
 - Name: Nandana Dileep
-- Role: AI Engineer (GSET), Technology & Business Services India (JLR) — Software-Defined Vehicles
+- Role: AI Engineer (GSET), JLR Technology & Business Services India — Software-Defined Vehicles
 - Education: B.Tech, Indian Institute of Technology Madras (IIT Madras), 2020–2024
 - Location: Bangalore, India
 - Site: https://nandanadileep.com/
@@ -35,7 +35,7 @@
 
 ## Work
 
-- Technology & Business Services India (JLR) (2024–present): Core developer on Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance; ML systems for test-rig optimization (18% cost reduction on 500K+ daily telemetry events)
+- JLR Technology & Business Services India (2024–present): Core developer on Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance; ML systems for test-rig optimization (18% cost reduction on 500K+ daily telemetry events)
 - Amazon (Summer 2023): SWE Intern — Alexa latency-analysis service on AWS Lambda, Coral, and OpenSearch
 
 ## Writing
