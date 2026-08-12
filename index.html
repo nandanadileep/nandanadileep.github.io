@@ -109,10 +109,10 @@
                 "name": "Mycelium",
                 "applicationCategory": "DeveloperApplication",
                 "operatingSystem": "Cross-platform",
-                "description": "Open-source runtime guards and zero-touch YAML auto-instrumentation for AI agents. Prevents duplicate side effects on retry, stale context, invalid inputs, and out-of-scope tool calls before execution. Published on PyPI as mycelium-runtime (v1.27.0, {{MYCELIUM_DOWNLOADS}} downloads).",
+                "description": "Open-source reliability runtime for consequential AI-agent tool calls. Durable transition envelopes return stored results, poll in-flight work, reconcile provider state, or fail closed under ambiguous mutating retries. Published on PyPI as mycelium-runtime (v1.31.0, {{MYCELIUM_DOWNLOADS}} downloads).",
                 "url": "https://mycelium-labs.github.io/mycelium/",
                 "codeRepository": "https://github.com/mycelium-labs/mycelium",
-                "softwareVersion": "1.27.0",
+                "softwareVersion": "1.31.0",
                 "author": { "@id": "https://nandanadileep.com/#person" }
               }
             },
@@ -182,7 +182,7 @@
               "name": "What is Mycelium by Nandana Dileep?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Mycelium is an open-source runtime for AI agents with zero-touch YAML auto-instrumentation and runtime guards. It works with LangGraph, CrewAI, and custom agent loops to prevent duplicate side effects on retry, stale context, invalid inputs, and out-of-scope tool calls before execution. The Python SDK is published on PyPI as mycelium-runtime (v1.27.0, {{MYCELIUM_DOWNLOADS}} downloads)."
+                "text": "Mycelium is an open-source reliability runtime for consequential AI-agent tool calls. It uses durable transition envelopes to return completed results, poll in-flight work, reconcile provider state, or fail closed when a mutating retry is ambiguous. It supports LangGraph, CrewAI, and custom Python loops and is published on PyPI as mycelium-runtime (v1.31.0, {{MYCELIUM_DOWNLOADS}} downloads)."
               }
             },
             {
@@ -554,9 +554,9 @@
             <article class="item featured" itemscope itemtype="https://schema.org/SoftwareApplication">
                 <span class="featured-label">Open source · Agent infrastructure</span>
                 <h3 itemprop="name">Mycelium</h3>
-                <p class="meta">Agent runtime · v1.27.0 · {{MYCELIUM_DOWNLOADS}} PyPI downloads · Open source</p>
-                <meta itemprop="softwareVersion" content="1.27.0">
-                <p class="desc" itemprop="description">Runtime guards and zero-touch YAML auto-instrumentation for AI agents on LangGraph, CrewAI, and custom loops. It guards against duplicate side effects on retry/redispatch, invalid tool arguments, out-of-scope calls, and stale context before tool execution.</p>
+                <p class="meta">Agent reliability runtime · v1.31.0 · {{MYCELIUM_DOWNLOADS}} PyPI downloads · Open source</p>
+                <meta itemprop="softwareVersion" content="1.31.0">
+                <p class="desc" itemprop="description">A framework-independent Python runtime for consequential agent tool calls. Durable transition envelopes make retries, crashes, and concurrent redispatches return stored results, poll in-flight work, reconcile provider state, or fail closed instead of blindly repeating a mutation.</p>
                 <p class="item-links">
                     <a href="https://mycelium-labs.github.io/mycelium/" itemprop="url">Read docs</a> ·
                     <a href="https://github.com/mycelium-labs/mycelium">View source</a> ·
@@ -572,7 +572,7 @@
                         <b aria-hidden="true">→</b>
                         <span>Tool execution</span>
                     </div>
-                    <p>Mycelium sits between the agent loop and tools. <code>mycelium init</code> / <code>mycelium run</code> wrap configured callables from YAML — no decorators required. It classifies side effects, issues durable transition envelopes (lease + terminal state + hard-block / reconcile), and fail-closes ambiguous mutating retries instead of blind re-execute.</p>
+                    <p>Mycelium sits between the agent loop and tools. <code>mycelium init</code> / <code>mycelium run</code> wrap configured callables from YAML, while decorators and manual claim/execute/complete flows remain available. File, SQLite, Redis, and PostgreSQL ledgers persist leases, side-effect boundaries, and terminal outcomes. The repository's 800+ test verification posture covers process crashes, multi-worker races, storage outages, reconciliation, and operator release. It does not claim to solve hallucination, prompt injection, or general goal alignment.</p>
                 </details>
             </article>
 
@@ -663,7 +663,7 @@
             <h2 id="about-heading">About</h2>
             <div class="item">
                 <p class="desc"><strong>About me:</strong> I am an AI engineer at JLR Technology & Business Services India (SDV) and an IIT Madras '24 graduate. I am looking to work with startups building ambitious AI products, agent infrastructure, or LLM systems.</p>
-                <p class="desc"><strong>Mycelium:</strong> I created this open-source agent runtime (guards + YAML auto-instrumentation) for LangGraph, CrewAI, and custom loops. Published on PyPI as <code>mycelium-runtime</code> — v1.27.0, {{MYCELIUM_DOWNLOADS}} downloads.</p>
+                <p class="desc"><strong>Mycelium:</strong> I created this open-source reliability runtime for consequential tool execution in LangGraph, CrewAI, and custom Python loops. Published on PyPI as <code>mycelium-runtime</code> — v1.31.0, {{MYCELIUM_DOWNLOADS}} downloads.</p>
                 <p class="desc"><strong>My focus:</strong> The boundary between probabilistic model decisions and real software actions: runtime safety, memory, serving, knowledge systems, and the backend infrastructure needed to ship them.</p>
             </div>
         </section>
