@@ -674,13 +674,28 @@
     </main>
 
     <script>
-        const MYCELIUM_DOWNLOADS = "20.0k+";
         const P = "{{MYCELIUM_DOWNLOADS}}";
-        const fill = (s) => s.split(P).join(MYCELIUM_DOWNLOADS);
-        document.querySelectorAll("meta[content]").forEach((m) => (m.content = fill(m.content)));
-        document.querySelectorAll('script[type="application/ld+json"]').forEach((s) => (s.textContent = fill(s.textContent)));
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-        while (walker.nextNode()) walker.currentNode.nodeValue = fill(walker.currentNode.nodeValue);
+        const FALLBACK_DOWNLOADS = "24k+";
+
+        function formatDownloads(svgText) {
+            // The Pepy badge SVG contains the count as text, e.g. "24k".
+            const matches = [...svgText.matchAll(/>([\d.]+[kKmM]?)<\/text>/g)].map((m) => m[1]);
+            const count = matches.find((m) => /\d/.test(m));
+            return count ? count + "+" : FALLBACK_DOWNLOADS;
+        }
+
+        function fill(value) {
+            const replace = (s) => s.split(P).join(value);
+            document.querySelectorAll("meta[content]").forEach((m) => (m.content = replace(m.content)));
+            document.querySelectorAll('script[type="application/ld+json"]').forEach((s) => (s.textContent = replace(s.textContent)));
+            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+            while (walker.nextNode()) walker.currentNode.nodeValue = replace(walker.currentNode.nodeValue);
+        }
+
+        fetch("https://static.pepy.tech/badge/mycelium-runtime")
+            .then((r) => r.text())
+            .then((svg) => fill(formatDownloads(svg)))
+            .catch(() => fill(FALLBACK_DOWNLOADS));
     </script>
 
     <script data-goatcounter="https://nandana.goatcounter.com/count"

@@ -1,6 +1,6 @@
 # Nandana Dileep
 
-> AI systems engineer focused on reliable agentic software, LLM infrastructure, and developer tools. AI Engineer at JLR Technology & Business Services India and creator of Mycelium, an open-source agent runtime with runtime guards, YAML auto-instrumentation, and 20.0k+ PyPI downloads. IIT Madras '24.
+> AI systems engineer focused on reliable agentic software, LLM infrastructure, and developer tools. AI Engineer at JLR Technology & Business Services India and creator of Mycelium, an open-source agent runtime with runtime guards, YAML auto-instrumentation, and a PyPI package. IIT Madras '24.
 
 ## Identity
 
@@ -27,7 +27,7 @@
 
 ## Projects
 
-- [Mycelium](https://mycelium-labs.github.io/mycelium/): Open-source reliability runtime for consequential AI-agent tool calls. Durable transition envelopes return stored results, poll in-flight work, reconcile provider state, or fail closed under ambiguous mutating retries. Supports LangGraph, CrewAI, and custom Python loops with file, SQLite, Redis, and PostgreSQL ledgers. Its 800+ test verification posture covers process crashes, multi-worker races, storage outages, and reconciliation. SDK: mycelium-runtime on PyPI (v1.31.0, 20.0k+ downloads). Source: https://github.com/mycelium-labs/mycelium · Stats: https://pepy.tech/projects/mycelium-runtime
+- [Mycelium](https://mycelium-labs.github.io/mycelium/): Open-source reliability runtime for consequential AI-agent tool calls. Durable transition envelopes return stored results, poll in-flight work, reconcile provider state, or fail closed under ambiguous mutating retries. Supports LangGraph, CrewAI, and custom Python loops with file, SQLite, Redis, and PostgreSQL ledgers. Its 800+ test verification posture covers process crashes, multi-worker races, storage outages, and reconciliation. SDK: mycelium-runtime on PyPI (v1.31.0). Source: https://github.com/mycelium-labs/mycelium · Stats: https://pepy.tech/projects/mycelium-runtime
 - Meridian: JLR Global Techathon 2026 winning hiring-automation platform. Converts job descriptions into skill-ontology graphs, overlays resumes with evidence-grounded present/partial/gap analysis, and generates adaptive assessments using topic-tree routing, Rasch ability estimation, and deduplicated question banks
 - [KAIROS / Auto-Agent](https://github.com/nandanadileep/auto-agent): Autonomous background coding agent with presence-aware notifications and nightly memory consolidation
 - [vLLM-style LLM Serving on Apple Silicon](https://github.com/nandanadileep/vllm-like-llm-serving): MLX inference engine with PagedAttention-inspired KV cache, continuous batching, OpenAI-compatible chat completions
