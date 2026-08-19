@@ -1,6 +1,6 @@
 # Nandana Dileep
 
-> AI systems engineer focused on reliable agentic software, LLM infrastructure, and developer tools. AI Engineer at JLR Technology & Business Services India and creator of Mycelium, an open-source agent runtime with runtime guards, YAML auto-instrumentation, and a PyPI package. IIT Madras '24.
+> AI engineer focused on reliable agentic software, LLM infrastructure, and developer tools. AI Engineer at JLR Technology & Business Services India and creator of Mycelium, an open-source agent runtime with runtime guards, YAML auto-instrumentation, and a PyPI package. IIT Madras '24.
 
 ## Identity
 
