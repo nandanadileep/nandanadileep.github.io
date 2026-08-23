@@ -25,18 +25,51 @@
         .map((link) => document.querySelector(link.getAttribute("href")))
         .filter(Boolean);
 
-    if (sections.length && "IntersectionObserver" in window) {
-        const sectionObserver = new IntersectionObserver((entries) => {
-            const visible = entries.filter((entry) => entry.isIntersecting)
-                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-            if (!visible) return;
+    if (sections.length) {
+        const nav = document.querySelector(".toc");
+        let scrollFrame;
+
+        const setActiveSection = (section) => {
             sectionLinks.forEach((link) => {
-                const active = link.getAttribute("href") === `#${visible.target.id}`;
-                if (active) link.setAttribute("aria-current", "true");
+                const active = link.getAttribute("href") === `#${section.id}`;
+                if (active) link.setAttribute("aria-current", "location");
                 else link.removeAttribute("aria-current");
             });
-        }, { rootMargin: "-20% 0px -65%", threshold: [0, 0.2, 0.5] });
-        sections.forEach((section) => sectionObserver.observe(section));
+        };
+
+        const updateActiveSection = () => {
+            scrollFrame = undefined;
+            const pageBottom = window.scrollY + window.innerHeight;
+            const documentBottom = document.documentElement.scrollHeight;
+
+            // The last section cannot always cross a viewport activation band.
+            // Treat reaching the end of the page as reaching that section.
+            if (pageBottom >= documentBottom - 4) {
+                setActiveSection(sections.at(-1));
+                return;
+            }
+
+            const activationLine = (nav?.offsetHeight || 0) + window.innerHeight * 0.28;
+            let activeSection = sections[0];
+            sections.forEach((section) => {
+                if (section.getBoundingClientRect().top <= activationLine) activeSection = section;
+            });
+            setActiveSection(activeSection);
+        };
+
+        const queueActiveSectionUpdate = () => {
+            if (scrollFrame) return;
+            scrollFrame = requestAnimationFrame(updateActiveSection);
+        };
+
+        sectionLinks.forEach((link, index) => {
+            link.addEventListener("click", () => setActiveSection(sections[index]));
+        });
+        window.addEventListener("scroll", queueActiveSectionUpdate, { passive: true });
+        window.addEventListener("resize", queueActiveSectionUpdate);
+        window.addEventListener("hashchange", queueActiveSectionUpdate);
+        window.addEventListener("pageshow", queueActiveSectionUpdate);
+        queueActiveSectionUpdate();
     }
 
     document.querySelectorAll("details").forEach((details) => {
