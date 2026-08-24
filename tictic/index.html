@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4ede2">
+  <meta name="description" content="TicTic is native voice-to-text for Indian languages on macOS. Hold a shortcut, speak naturally, and your words appear wherever your cursor is.">
+  <meta name="author" content="Nandana Dileep">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nandanadileep.com/tictic/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nandana Dileep">
+  <meta property="og:title" content="TicTic — Voice, naturally.">
+  <meta property="og:description" content="Native voice-to-text for Indian languages on your Mac.">
+  <meta property="og:url" content="https://nandanadileep.com/tictic/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="TicTic — Voice, naturally.">
+  <meta name="twitter:description" content="Native voice-to-text for Indian languages on your Mac.">
+  <title>TicTic — Voice-to-text for Indian languages on Mac</title>
+  <style>
+    :root {
+      --paper: #f4ede2;
+      --paper-soft: #fbf7f0;
+      --ink: #211c1a;
+      --muted: #706762;
+      --coral: #ed4b3e;
+      --orange: #f6943f;
+      --wine: #4c1723;
+      --green: #2e7551;
+      --line: rgba(43, 31, 27, .14);
+      --shadow: 0 28px 80px rgba(65, 35, 24, .15);
+      --display: "Avenir Next", Avenir, "Century Gothic", sans-serif;
+      --body: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 14%, rgba(246, 148, 63, .16), transparent 26rem),
+        radial-gradient(circle at 88% 32%, rgba(237, 75, 62, .12), transparent 28rem),
+        var(--paper);
+      font: 17px/1.6 var(--body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+      z-index: 10;
+      mix-blend-mode: multiply;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid rgba(237, 75, 62, .45); outline-offset: 4px; }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--display);
+      font-weight: 650;
+      position: relative;
+      z-index: 5;
+    }
+
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; letter-spacing: -.03em; }
+    .mark {
+      width: 38px;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      background: linear-gradient(145deg, var(--orange), var(--coral) 68%, #cb2846);
+      box-shadow: 0 9px 22px rgba(210, 53, 49, .22), inset 0 1px 0 rgba(255, 255, 255, .38);
+    }
+    .mark i { display: block; width: 3px; border-radius: 9px; background: white; }
+    .mark i:nth-child(1), .mark i:nth-child(5) { height: 8px; }
+    .mark i:nth-child(2), .mark i:nth-child(4) { height: 14px; }
+    .mark i:nth-child(3) { height: 20px; }
+    .beta { color: var(--coral); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; vertical-align: top; margin-left: 4px; }
+    .navlinks { display: flex; align-items: center; gap: 27px; font-size: 13px; }
+    .navlinks a { text-decoration: none; }
+    .navlinks a:not(.nav-download) { color: var(--muted); }
+    .navlinks a:hover { color: var(--coral); }
+    .nav-download { border-bottom: 1.5px solid currentColor; padding-bottom: 3px; }
+
+    .hero {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: clamp(30px, 6vw, 86px);
+      padding: 68px 0 96px;
+      position: relative;
+    }
+    .kicker {
+      margin: 0 0 24px;
+      color: var(--coral);
+      font: 700 12px/1 var(--display);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: var(--display); }
+    h1 {
+      max-width: 710px;
+      margin: 0;
+      font-size: clamp(58px, 7.2vw, 104px);
+      line-height: .92;
+      letter-spacing: -.07em;
+      font-weight: 750;
+    }
+    h1 em { color: var(--coral); font-family: var(--body); font-weight: 400; }
+    .lede { max-width: 580px; margin: 30px 0 33px; color: var(--muted); font-size: clamp(18px, 2vw, 22px); line-height: 1.45; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .button {
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font: 700 14px/1 var(--display);
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { color: white; background: var(--ink); box-shadow: 0 12px 26px rgba(33, 28, 26, .18); }
+    .button.primary:hover { box-shadow: 0 16px 32px rgba(33, 28, 26, .25); }
+    .button.secondary { border: 1px solid var(--line); background: rgba(255,255,255,.32); }
+    .download-icon { width: 15px; height: 15px; }
+    .requirements { margin: 18px 0 0; color: var(--muted); font: 500 12px/1.4 var(--display); }
+
+    .stage { position: relative; min-height: 510px; display: grid; place-items: center; }
+    .orbit {
+      position: absolute;
+      width: min(100%, 530px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(237, 75, 62, .2);
+      border-radius: 50%;
+      animation: breathe 6s ease-in-out infinite;
+    }
+    .orbit::before, .orbit::after { content: ""; position: absolute; border: inherit; border-radius: inherit; inset: 9%; }
+    .orbit::after { inset: 20%; }
+
+    .mac-window {
+      width: min(100%, 520px);
+      background: rgba(250, 249, 247, .85);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(48, 28, 20, .07);
+      transform: rotate(2.5deg);
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(16px);
+    }
+    .titlebar { height: 39px; display: flex; align-items: center; gap: 7px; padding: 0 15px; border-bottom: 1px solid rgba(0,0,0,.08); background: rgba(255,255,255,.6); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
+    .dot:nth-child(2) { background: #febc2e; }
+    .dot:nth-child(3) { background: #28c840; }
+    .window-title { margin-left: auto; margin-right: auto; transform: translateX(-26px); color: #777; font: 600 11px/1 var(--display); }
+    .app-body { min-height: 324px; display: grid; grid-template-columns: 132px 1fr; }
+    .sidebar { padding: 22px 13px; border-right: 1px solid rgba(0,0,0,.07); background: rgba(234,231,229,.6); }
+    .side-brand { display: flex; align-items: center; gap: 8px; font: 700 13px/1 var(--display); margin-bottom: 24px; }
+    .side-brand .mark { width: 28px; border-radius: 9px; gap: 1.5px; }
+    .side-brand .mark i { width: 2px; transform: scale(.72); }
+    .side-item { height: 28px; padding: 0 8px; display: flex; align-items: center; gap: 8px; border-radius: 6px; color: #696461; font: 500 10px/1 var(--display); }
+    .side-item.active { color: #3b302c; background: rgba(255,255,255,.72); box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+    .side-icon { color: var(--coral); width: 12px; text-align: center; }
+    .app-main { padding: 26px 24px; }
+    .app-main h3 { font-size: 18px; letter-spacing: -.04em; margin: 0; }
+    .app-sub { color: #88817c; font: 500 9px/1.4 var(--display); margin: 4px 0 16px; }
+    .speak-card { min-height: 102px; padding: 19px; border-radius: 15px; color: white; background: linear-gradient(120deg, #271b29, #671d2c); display: flex; align-items: center; gap: 16px; }
+    .speak-card .mark { flex: 0 0 auto; width: 50px; border-radius: 15px; }
+    .speak-title { font: 700 13px/1.25 var(--display); }
+    .speak-copy { margin-top: 5px; color: rgba(255,255,255,.62); font: 500 8px/1.4 var(--display); }
+    .try { margin-left: auto; border: 0; border-radius: 999px; background: white; padding: 8px 13px; font: 700 9px/1 var(--display); }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+    .metric { padding: 11px; border: 1px solid rgba(0,0,0,.07); border-radius: 10px; background: rgba(255,255,255,.66); font: 500 8px/1.35 var(--display); color: #777; }
+    .metric strong { display: block; margin: 5px 0 2px; color: #332a27; font-size: 9px; }
+    .overlay {
+      width: 320px;
+      position: absolute;
+      z-index: 3;
+      left: -36px;
+      bottom: 44px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px;
+      border-radius: 18px;
+      color: white;
+      background: rgba(40, 31, 34, .91);
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: 0 22px 48px rgba(45, 23, 21, .28);
+      backdrop-filter: blur(18px);
+      transform: rotate(-2.5deg);
+    }
+    .mic { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; color: var(--coral); background: rgba(237,75,62,.15); font: 700 16px/1 var(--display); }
+    .listening { flex: 1; }
+    .listening-top { display: flex; justify-content: space-between; font: 650 10px/1 var(--display); }
+    .listening-top span:last-child { color: rgba(255,255,255,.5); font-variant-numeric: tabular-nums; }
+    .wave { height: 20px; display: flex; align-items: center; gap: 2.5px; margin-top: 7px; }
+    .wave i { width: 3px; height: 5px; border-radius: 5px; background: linear-gradient(var(--coral), var(--orange)); animation: wave 1.05s ease-in-out infinite; }
+    .wave i:nth-child(3n+1) { animation-delay: -.24s; }
+    .wave i:nth-child(3n+2) { animation-delay: -.48s; }
+    .wave i:nth-child(5n) { animation-delay: -.72s; }
+
+    .proof { padding: 18px 0 110px; }
+    .proof-line { display: flex; align-items: center; gap: 20px; color: var(--muted); font: 700 12px/1.3 var(--display); letter-spacing: .05em; text-transform: uppercase; }
+    .proof-line::before, .proof-line::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+    .language-ribbon { margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: center; gap: 11px 22px; color: #8c827d; font-size: clamp(18px, 2vw, 26px); }
+    .language-ribbon span:nth-child(3n+1) { color: var(--wine); }
+    .language-ribbon span:nth-child(5n) { color: var(--coral); }
+
+    .section { padding: 110px 0; border-top: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: .72fr 1.28fr; gap: 50px; margin-bottom: 62px; }
+    .eyebrow { color: var(--coral); font: 700 11px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; }
+    h2 { margin: 0; max-width: 800px; font-size: clamp(40px, 5vw, 70px); line-height: 1.02; letter-spacing: -.06em; }
+    .section-intro { max-width: 630px; color: var(--muted); font-size: 20px; }
+
+    .three-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: steps; }
+    .step { counter-increment: steps; min-height: 300px; padding: 27px; border: 1px solid var(--line); border-radius: 22px; background: rgba(251,247,240,.52); position: relative; overflow: hidden; }
+    .step::after { content: "0" counter(steps); position: absolute; right: -7px; bottom: -35px; color: rgba(237,75,62,.08); font: 750 120px/1 var(--display); letter-spacing: -.08em; }
+    .step-num { color: var(--coral); font: 700 11px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; }
+    .step h3 { margin: 42px 0 13px; font-size: 26px; line-height: 1.1; letter-spacing: -.04em; }
+    .step p { color: var(--muted); margin: 0; position: relative; z-index: 1; }
+    .step a { color: var(--coral); text-underline-offset: 3px; }
+
+    .notice { margin-top: 22px; padding: 20px 24px; border-left: 3px solid var(--orange); background: rgba(246,148,63,.09); color: var(--muted); }
+    .notice strong { color: var(--ink); font-family: var(--display); }
+
+    .use-panel { border-radius: 30px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; color: white; background: var(--wine); box-shadow: 0 32px 80px rgba(76,23,35,.18); }
+    .use-copy { padding: clamp(38px, 6vw, 76px); }
+    .use-copy .eyebrow { color: #ff9c67; }
+    .use-copy h2 { margin: 19px 0 22px; }
+    .use-copy p { color: rgba(255,255,255,.65); max-width: 480px; }
+    .shortcut { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; }
+    kbd { min-width: 48px; height: 45px; display: inline-grid; place-items: center; padding: 0 13px; border-radius: 10px; background: #f8f1e8; color: #2a2020; border: 1px solid rgba(255,255,255,.6); box-shadow: inset 0 -3px 0 rgba(60,30,30,.17), 0 4px 14px rgba(0,0,0,.18); font: 700 17px/1 var(--display); }
+    .shortcut-label { color: rgba(255,255,255,.6); font: 600 12px/1.3 var(--display); }
+    .use-visual { min-height: 500px; display: grid; place-items: center; padding: 40px; background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(246,148,63,.18)); position: relative; }
+    .use-visual::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(255,255,255,.035) 36px); }
+    .text-demo { width: min(100%, 430px); padding: 30px; border-radius: 18px; color: #2f2825; background: var(--paper-soft); box-shadow: 0 20px 40px rgba(0,0,0,.2); position: relative; z-index: 1; transform: rotate(2deg); }
+    .demo-label { font: 700 10px/1 var(--display); color: var(--coral); text-transform: uppercase; letter-spacing: .12em; }
+    .typed { min-height: 150px; margin: 20px 0; font-size: 22px; line-height: 1.45; }
+    .caret { display: inline-block; width: 2px; height: 1em; vertical-align: -.1em; background: var(--coral); animation: blink .9s steps(1) infinite; }
+    .demo-app { display: flex; gap: 7px; align-items: center; color: #8a807b; font: 600 10px/1 var(--display); }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .feature { min-height: 225px; padding: 27px; border: 1px solid var(--line); border-radius: 22px; background: rgba(251,247,240,.48); }
+    .feature:nth-child(1), .feature:nth-child(4) { grid-column: span 7; }
+    .feature:nth-child(2), .feature:nth-child(3) { grid-column: span 5; }
+    .feature-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: white; background: var(--coral); font: 700 17px/1 var(--display); }
+    .feature h3 { margin: 34px 0 10px; font-size: 23px; letter-spacing: -.035em; }
+    .feature p { color: var(--muted); margin: 0; }
+
+    .privacy { background: var(--ink); color: var(--paper); }
+    .privacy .section-head { margin-bottom: 0; align-items: end; }
+    .privacy .eyebrow { color: #ff9360; }
+    .privacy .section-intro { color: rgba(244,237,226,.57); }
+    .privacy-list { margin-top: 60px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.13); }
+    .privacy-item { padding: 34px; background: var(--ink); }
+    .privacy-item strong { display: block; margin-bottom: 8px; font: 700 15px/1.3 var(--display); }
+    .privacy-item span { color: rgba(244,237,226,.55); }
+
+    .faq { max-width: 880px; }
+    details { border-top: 1px solid var(--line); }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; list-style: none; padding: 25px 42px 25px 0; position: relative; font: 700 18px/1.3 var(--display); }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 5px; color: var(--coral); font-size: 24px; font-weight: 400; transition: transform .2s ease; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { margin: -7px 50px 25px 0; color: var(--muted); }
+
+    .final { padding: 120px 0; text-align: center; }
+    .final .mark { width: 64px; border-radius: 20px; margin-bottom: 26px; gap: 3px; }
+    .final .mark i { width: 4px; transform: scale(1.35); }
+    .final h2 { margin: 0 auto 18px; }
+    .final p { color: var(--muted); margin: 0 auto 30px; }
+    footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font: 600 12px/1.4 var(--display); }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+    footer a { text-underline-offset: 3px; }
+
+    .reveal { opacity: 1; transform: none; }
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: reveal-up both;
+        animation-timeline: view();
+        animation-range: entry 5% cover 28%;
+      }
+    }
+    @keyframes wave { 0%, 100% { height: 4px; } 50% { height: 18px; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes breathe { 0%,100% { transform: scale(.94); opacity: .7; } 50% { transform: scale(1.03); opacity: 1; } }
+    @keyframes reveal-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 54px; }
+      .hero-copy { max-width: 720px; }
+      .stage { min-height: 530px; }
+      .section-head { grid-template-columns: 1fr; gap: 22px; }
+      .three-steps { grid-template-columns: 1fr; }
+      .step { min-height: 230px; }
+      .use-panel { grid-template-columns: 1fr; }
+      .feature:nth-child(n) { grid-column: span 6; }
+      .privacy-list { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 1160px); }
+      .navlinks a:not(.nav-download) { display: none; }
+      .hero { min-height: auto; padding: 56px 0 78px; }
+      h1 { font-size: clamp(54px, 18vw, 78px); }
+      .stage { min-height: 390px; margin: 20px 0 0; }
+      .mac-window { transform: rotate(1deg); }
+      .app-body { grid-template-columns: 94px 1fr; min-height: 270px; }
+      .sidebar { padding: 15px 8px; }
+      .side-brand span:last-child { display: none; }
+      .app-main { padding: 20px 14px; }
+      .speak-card { padding: 13px; }
+      .speak-card .mark, .try { display: none; }
+      .metrics { grid-template-columns: 1fr; }
+      .metric:nth-child(n+2) { display: none; }
+      .overlay { width: 270px; left: 3px; bottom: 18px; }
+      .proof { padding-bottom: 80px; }
+      .section { padding: 80px 0; }
+      .feature:nth-child(n) { grid-column: 1 / -1; }
+      .use-visual { min-height: 400px; padding: 24px; }
+      .text-demo { padding: 23px; }
+      .typed { font-size: 19px; }
+      .footer-row { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell nav">
+    <a class="brand" href="/tictic/" aria-label="TicTic home">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <span>tictic <sup class="beta">beta</sup></span>
+    </a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#setup">Set up</a>
+      <a href="#privacy">Privacy</a>
+      <a href="https://github.com/nandanadileep/tictic">Source</a>
+      <a class="nav-download" href="TicTic-0.1.0-macOS-arm64.zip" download>Download</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div class="hero-copy reveal">
+        <p class="kicker">Voice-to-text for Indian languages</p>
+        <h1>Your voice,<br><em>already there.</em></h1>
+        <p class="lede">Hold one shortcut, speak naturally, and TicTic places your words wherever your cursor is—from a quick message to a long document.</p>
+        <div class="actions">
+          <a class="button primary" href="TicTic-0.1.0-macOS-arm64.zip" download>
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14"/></svg>
+            Download for Mac
+          </a>
+          <a class="button secondary" href="#setup">Installation guide ↓</a>
+        </div>
+        <p class="requirements">Free beta · Version 0.1.0 · macOS 14+ · Apple silicon</p>
+      </div>
+
+      <div class="stage reveal" aria-label="Preview of the TicTic macOS application">
+        <div class="orbit" aria-hidden="true"></div>
+        <div class="mac-window">
+          <div class="titlebar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="window-title">tictic</span></div>
+          <div class="app-body">
+            <aside class="sidebar">
+              <div class="side-brand"><span class="mark"><i></i><i></i><i></i><i></i><i></i></span><span>tictic</span></div>
+              <div class="side-item active"><span class="side-icon">✦</span> Home</div>
+              <div class="side-item"><span class="side-icon">≋</span> Dictation</div>
+              <div class="side-item"><span class="side-icon">Aa</span> Vocabulary</div>
+              <div class="side-item"><span class="side-icon">◷</span> History</div>
+              <div class="side-item"><span class="side-icon">♢</span> Permissions</div>
+            </aside>
+            <div class="app-main">
+              <h3>Speak freely</h3>
+              <p class="app-sub">Your words, ready wherever the cursor is.</p>
+              <div class="speak-card">
+                <span class="mark"><i></i><i></i><i></i><i></i><i></i></span>
+                <div><div class="speak-title">Hold ⌥ Z and speak</div><div class="speak-copy">Release to insert. Double-tap for hands-free.</div></div>
+                <button class="try" type="button" tabindex="-1">Try it</button>
+              </div>
+              <div class="metrics">
+                <div class="metric">◉<strong>Auto-detect</strong>Input language</div>
+                <div class="metric">Aa<strong>Hinglish / Roman</strong>Output style</div>
+                <div class="metric">◷<strong>12</strong>Saved dictations</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="overlay" aria-hidden="true">
+          <div class="mic">●</div>
+          <div class="listening"><div class="listening-top"><span>Listening</span><span id="timer">0:08</span></div><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell proof reveal" aria-label="Supported languages">
+      <div class="proof-line">22 Indian languages, plus Indian English</div>
+      <div class="language-ribbon" aria-hidden="true">
+        <span>नमस्ते</span><span>നമസ്കാരം</span><span>வணக்கம்</span><span>ನಮಸ್ಕಾರ</span><span>నమస్కారం</span><span>নমস্কার</span><span>ਸਤ ਸ੍ਰੀ ਅਕਾਲ</span><span>નમસ્તે</span><span>नमस्कार</span>
+      </div>
+    </section>
+
+    <section class="section" id="setup">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="eyebrow">Set up in three minutes</div>
+          <div><h2>Download. Allow. Start talking.</h2><p class="section-intro">TicTic is an early Mac beta, so the first opening has one extra security step. After that, it lives quietly in your menu bar.</p></div>
+        </div>
+        <div class="three-steps">
+          <article class="step reveal">
+            <div class="step-num">Step one</div>
+            <h3>Move TicTic to Applications</h3>
+            <p><a href="TicTic-0.1.0-macOS-arm64.zip" download>Download the ZIP</a>, open it, then drag <strong>TicTic.app</strong> into your Applications folder.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">Step two</div>
+            <h3>Open the beta safely</h3>
+            <p>In Applications, Control-click TicTic and choose <strong>Open</strong>. Confirm Open once more. If macOS blocks it, use System Settings → Privacy &amp; Security → Open Anyway.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">Step three</div>
+            <h3>Connect and grant access</h3>
+            <p>Add your own <a href="https://dashboard.sarvam.ai/" target="_blank" rel="noopener">Sarvam API key</a>, then allow Microphone and Accessibility when TicTic asks.</p>
+          </article>
+        </div>
+        <div class="notice reveal"><strong>Why Accessibility?</strong> It lets TicTic hear the global shortcut and insert completed text at your cursor. It does not give TicTic your passwords or send the contents of other apps anywhere.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell use-panel reveal">
+        <div class="use-copy">
+          <div class="eyebrow">One gesture</div>
+          <h2>Speak wherever you type.</h2>
+          <p>Put your cursor in Notes, Messages, Mail, Slack, a browser—or almost any text field. Hold the shortcut while speaking, then release to transcribe and insert.</p>
+          <div class="shortcut"><kbd>⌥ Z</kbd><span class="shortcut-label">Hold to talk<br>Double-tap for hands-free</span></div>
+        </div>
+        <div class="use-visual">
+          <div class="text-demo">
+            <div class="demo-label">Message</div>
+            <div class="typed">Hey, I’ll send the updated document by this evening. അതിന് ശേഷം നമുക്ക് ഒന്ന് review ചെയ്യാം.<span class="caret"></span></div>
+            <div class="demo-app"><span class="status-dot"></span> Inserted by TicTic · code-mixed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="eyebrow">Made for how India speaks</div>
+          <div><h2>Not just English with an accent setting.</h2><p class="section-intro">Switch languages mid-thought, preserve original scripts, transliterate into Roman text, or turn your speech into clean English.</p></div>
+        </div>
+        <div class="feature-grid">
+          <article class="feature reveal"><div class="feature-icon">अ</div><h3>Language-aware by default</h3><p>Auto-detect across 22 Indian languages and Indian English, with manual language selection when you want control.</p></article>
+          <article class="feature reveal"><div class="feature-icon">Aa</div><h3>Five output modes</h3><p>Original script, English translation, code-mixed, Hinglish/Roman transliteration, or verbatim speech.</p></article>
+          <article class="feature reveal"><div class="feature-icon">✦</div><h3>Your words, remembered</h3><p>Teach local corrections for names and terminology, or create spoken shortcuts for phrases you reuse.</p></article>
+          <article class="feature reveal"><div class="feature-icon">↗</div><h3>Works where your cursor is</h3><p>TicTic returns focus to the app where you started and inserts the result. If direct insertion is unavailable, it safely falls back to your clipboard.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section privacy" id="privacy">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="eyebrow">Privacy, plainly</div>
+          <div><h2>Your Mac does the work. Your key pays for it.</h2><p class="section-intro">There is no TicTic account, analytics service, application server, or database. Your Mac talks directly to Sarvam using the API key you provide.</p></div>
+        </div>
+        <div class="privacy-list reveal">
+          <div class="privacy-item"><strong>Audio is temporary</strong><span>Recordings are sent directly to Sarvam for transcription and deleted from your Mac after each request.</span></div>
+          <div class="privacy-item"><strong>Your key stays in Keychain</strong><span>Your Sarvam API key is stored in macOS Keychain and used only for requests from the app.</span></div>
+          <div class="privacy-item"><strong>History stays local</strong><span>Text history is saved only on your Mac. You can disable it or clear it at any time in Settings.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell faq">
+        <div class="section-head reveal">
+          <div class="eyebrow">Good to know</div>
+          <div><h2>Before you download.</h2></div>
+        </div>
+        <div class="reveal">
+          <details><summary>Which Macs are supported?</summary><p>This beta supports Apple silicon Macs—M1, M2, M3, M4 and newer—running macOS 14 or later. An Intel build is not included yet.</p></details>
+          <details><summary>Why does macOS warn me when I open it?</summary><p>This friend beta is not yet notarized by Apple. Control-click the app, choose Open, and confirm. Only download TicTic from this page or the linked GitHub repository.</p></details>
+          <details><summary>Do I need a Sarvam account?</summary><p>Yes. TicTic currently uses your personal Sarvam API key, so requests, quotas, and any usage charges belong to your Sarvam account.</p></details>
+          <details><summary>Does TicTic run in the cloud?</summary><p>The app runs on your Mac. Only recorded audio and optional formatting requests go directly to Sarvam. Nandana does not operate a proxy server for TicTic.</p></details>
+          <details><summary>How do updates work?</summary><p>Updates are manual during the beta. Return to this page, download the latest ZIP, quit TicTic, and replace the old app in Applications.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell final reveal">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <h2>Say the first draft.</h2>
+      <p>Try TicTic, then tell me where it delighted you—or got in your way.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="button primary" href="TicTic-0.1.0-macOS-arm64.zip" download>Download TicTic</a>
+        <a class="button secondary" href="mailto:nandanadileep29@gmail.com?subject=TicTic%20beta%20feedback">Send feedback</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>Built by <a href="https://nandanadileep.com/">Nandana Dileep</a> · Powered by Sarvam AI</span>
+      <span><a href="https://github.com/nandanadileep/tictic">View source</a> · <a href="mailto:nandanadileep29@gmail.com?subject=TicTic%20beta%20feedback">Feedback</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>
