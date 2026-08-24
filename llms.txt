@@ -47,5 +47,6 @@
 ## Optional
 
 - [Portfolio home](https://nandanadileep.com/): Primary profile page with projects, work, and writing
-- [Scraps](https://nandanadileep.com/haphazards.html): Math notes and curiosities
+- [Miscellaneous](https://nandanadileep.com/haphazards.html): Reading notes, math, and small curiosities
+- [Meditations](https://nandanadileep.com/meditations.html): Notes from Marcus Aurelius
 - [sitemap.xml](https://nandanadileep.com/sitemap.xml)
