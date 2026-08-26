@@ -366,7 +366,7 @@
       <a href="#setup">Set up</a>
       <a href="#privacy">Privacy</a>
       <a href="https://github.com/nandanadileep/tictic">Source</a>
-      <a class="nav-download" href="TicTic-0.2.2-macOS-arm64.zip" download>Download</a>
+      <a class="nav-download" href="TicTic-0.3.0-macOS-arm64.zip" download>Download</a>
     </nav>
   </header>
 
@@ -377,13 +377,13 @@
         <h1>Your voice,<br><em>already there.</em></h1>
         <p class="lede">Hold one shortcut, speak naturally, and TicTic places your words wherever your cursor is—from a quick message to a long document.</p>
         <div class="actions">
-          <a class="button primary" href="TicTic-0.2.2-macOS-arm64.zip" download>
+          <a class="button primary" href="TicTic-0.3.0-macOS-arm64.zip" download>
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14"/></svg>
             Download for Mac
           </a>
           <a class="button secondary" href="#setup">Installation guide ↓</a>
         </div>
-        <p class="requirements">5 minutes free for the entire beta · Version 0.2.2 · macOS 14+ · Apple silicon</p>
+        <p class="requirements">No account or access code · 5 minutes free for the entire beta · Version 0.3.0 · macOS 14+ · Apple silicon</p>
       </div>
 
       <div class="stage reveal" aria-label="Preview of the TicTic macOS application">
@@ -439,7 +439,7 @@
           <article class="step reveal">
             <div class="step-num">Step one</div>
             <h3>Move TicTic to Applications</h3>
-            <p><a href="TicTic-0.2.2-macOS-arm64.zip" download>Download the ZIP</a>, open it, then drag <strong>TicTic.app</strong> into your Applications folder.</p>
+            <p><a href="TicTic-0.3.0-macOS-arm64.zip" download>Download the ZIP</a>, open it, then drag <strong>TicTic.app</strong> into your Applications folder.</p>
           </article>
           <article class="step reveal">
             <div class="step-num">Step two</div>
@@ -448,8 +448,8 @@
           </article>
           <article class="step reveal">
             <div class="step-num">Step three</div>
-            <h3>Enter your beta code</h3>
-            <p>Enter the private access code Nandana shared with you, then allow Microphone and Accessibility when TicTic asks. Each code includes five total minutes.</p>
+            <h3>Allow permissions</h3>
+            <p>Allow Microphone and Accessibility when TicTic asks. Your five-minute beta starts automatically—there is no account, API key, or access code.</p>
           </article>
         </div>
         <div class="notice reveal"><strong>Why Accessibility?</strong> It lets TicTic hear the global shortcut and insert completed text at your cursor. It does not give TicTic your passwords or send the contents of other apps anywhere.</div>
@@ -493,11 +493,11 @@
       <div class="shell">
         <div class="section-head reveal">
           <div class="eyebrow">Privacy, plainly</div>
-          <div><h2>No account. No API key. Five minutes on us.</h2><p class="section-intro">Your private beta code unlocks five total minutes of dictation. TicTic’s API keeps the shared Sarvam credential private and enforces the allowance—there is nothing for you to configure or pay for.</p></div>
+          <div><h2>No account. No API key. Five minutes on us.</h2><p class="section-intro">Each installation receives five total minutes automatically. TicTic’s API keeps the shared Sarvam credential private and enforces the allowance—there is nothing for you to enter, configure, or pay for.</p></div>
         </div>
         <div class="privacy-list reveal">
           <div class="privacy-item"><strong>Audio is temporary</strong><span>Recordings pass through the TicTic API to Sarvam, are processed in memory, and are not stored by the API. Temporary files on your Mac are deleted after each request.</span></div>
-          <div class="privacy-item"><strong>Your code stays in Keychain</strong><span>Your access code is stored in macOS Keychain. The API stores only its one-way hash and the number of milliseconds used.</span></div>
+          <div class="privacy-item"><strong>A random ID stays in Keychain</strong><span>TicTic creates a random installation identifier locally. The API stores only its one-way hash and the number of milliseconds used.</span></div>
           <div class="privacy-item"><strong>History stays local</strong><span>Text history is saved only on your Mac. You can disable it or clear it at any time in Settings.</span></div>
         </div>
       </div>
@@ -512,8 +512,8 @@
         <div class="reveal">
           <details><summary>Which Macs are supported?</summary><p>This beta supports Apple silicon Macs—M1, M2, M3, M4 and newer—running macOS 14 or later. An Intel build is not included yet.</p></details>
           <details><summary>Why does macOS warn me when I open it?</summary><p>This friend beta is not yet notarized by Apple. Control-click the app, choose Open, and confirm. Only download TicTic from this page or the linked GitHub repository.</p></details>
-          <details><summary>Do I need a Sarvam account or API key?</summary><p>No. Enter the private beta access code shared with you. Nandana covers the first five total minutes for each code during this beta.</p></details>
-          <details><summary>What happens after five minutes?</summary><p>Your code stops authorizing new dictations. The allowance is five minutes total for the entire beta and does not reset when you reinstall the app.</p></details>
+          <details><summary>Do I need an account, access code, or API key?</summary><p>No. Nandana covers the first five total minutes for each TicTic installation during this beta.</p></details>
+          <details><summary>What happens after five minutes?</summary><p>That installation stops authorizing new dictations. The allowance is five minutes total for the entire beta.</p></details>
           <details><summary>Does TicTic run in the cloud?</summary><p>The native app and local history run on your Mac. Recorded audio and optional formatting requests pass through the TicTic API to Sarvam; the API does not persist audio or transcripts.</p></details>
           <details><summary>How do updates work?</summary><p>Updates are manual during the beta. Return to this page, download the latest ZIP, quit TicTic, and replace the old app in Applications.</p></details>
         </div>
@@ -525,7 +525,7 @@
       <h2>Say the first draft.</h2>
       <p>Try TicTic, then tell me where it delighted you—or got in your way.</p>
       <div class="actions" style="justify-content:center">
-        <a class="button primary" href="TicTic-0.2.2-macOS-arm64.zip" download>Download TicTic</a>
+        <a class="button primary" href="TicTic-0.3.0-macOS-arm64.zip" download>Download TicTic</a>
         <a class="button secondary" href="mailto:nandanadileep29@gmail.com?subject=TicTic%20beta%20feedback">Send feedback</a>
       </div>
     </section>
