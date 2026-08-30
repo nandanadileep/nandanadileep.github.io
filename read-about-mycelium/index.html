@@ -718,9 +718,9 @@
                     <li><strong>Redis and PostgreSQL</strong> support shared multi-worker deployments when configured with the durability the application requires.</li>
                 </ul>
 
-                <p>A lease gives one worker temporary ownership. Each new claim receives a higher fence number. Important later writes must present the current fence, so a stalled worker cannot wake up and overwrite the result of its replacement. By default, reclaim also requires worker-death evidence; an expired lease alone does not prove the old worker stopped.</p>
+                <p>Mycelium temporarily assigns each action to one worker. If another worker takes over, the old worker can no longer update the result, even if it starts running again. Mycelium also does not treat an expired time limit alone as proof that the worker stopped.</p>
 
-                <p>Ownership cannot reveal whether a remote request happened. The application must mark the point where an external call may begin. Mycelium's synchronous and asynchronous <code>side_effect</code> contexts record that boundary conservatively: entry records <code>maybe_crossed</code> before the provider call, clean exit records <code>crossed</code>, and an exception after entry stays ambiguous.</p>
+                <p>The application also marks where an external request begins. If something fails before that point, Mycelium knows the external action did not start. If it fails after that point, the provider may already have received or completed the request, so Mycelium treats the outcome as uncertain instead of retrying blindly.</p>
 
                 <pre><code>from mycelium import (
     SideEffectClass, ToolTransitionBinding,
