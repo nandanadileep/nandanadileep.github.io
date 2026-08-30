@@ -8,6 +8,9 @@
     <meta name="description" content="How Mycelium gives consequential AI-agent actions stable identity, durable state, guardrails, reconciliation, and evidence-based recovery.">
     <meta name="author" content="Nandana Dileep">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f1ede5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#100e0d" media="(prefers-color-scheme: dark)">
     <link rel="canonical" href="https://nandanadileep.com/read-about-mycelium/">
 
     <meta property="og:type" content="article">
@@ -64,6 +67,15 @@
         body.article-page {
             --article-width: 47rem;
             --prose-width: 41rem;
+            --deck-color: #3f3a34;
+            --prose-color: #3f3b36;
+            --inline-code-color: #4d3021;
+            --table-text-color: #47413b;
+            --accent-border: rgba(185, 86, 34, .45);
+            --callout-glint: rgba(255, 255, 255, .38);
+            --panel: rgba(247, 243, 236, .7);
+            --panel-soft: rgba(247, 243, 236, .55);
+            --panel-shadow: rgba(65, 44, 28, .055);
         }
 
         .article-page main {
@@ -107,7 +119,7 @@
         .article-deck {
             max-width: 41rem;
             margin: 0 0 1.45rem;
-            color: #3f3a34;
+            color: var(--deck-color);
             font-family: var(--serif);
             font-size: clamp(1.08rem, 2.6vw, 1.35rem);
             line-height: 1.48;
@@ -134,36 +146,37 @@
         }
 
         .article-actions {
+            position: absolute;
+            top: clamp(1.25rem, 3.4vw, 2rem);
+            right: 0;
             display: flex;
-            flex-wrap: wrap;
-            gap: .55rem;
-            margin-top: 1.35rem;
+            gap: .45rem;
+            margin: 0;
         }
 
         .article-actions a {
             display: inline-flex;
             align-items: center;
-            gap: .65rem;
-            min-width: 7.4rem;
-            padding: .62rem .78rem;
+            justify-content: center;
+            width: 2.55rem;
+            height: 2.55rem;
+            padding: .7rem;
             border: 1px solid var(--line-strong);
             border-radius: 3px;
             color: var(--ink);
-            font-size: .7rem;
-            font-weight: 750;
-            letter-spacing: .08em;
-            text-transform: uppercase;
             transition: border-color 180ms ease, color 180ms ease, transform 220ms var(--ease-out);
         }
 
         .article-actions a::after {
-            position: static;
-            width: auto;
-            height: auto;
-            margin-left: auto;
-            background: none;
-            content: "↗";
-            transform: none;
+            display: none;
+            content: none;
+        }
+
+        .article-actions svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
         }
 
         .article-actions a:hover {
@@ -285,7 +298,7 @@
 
         .article-body p,
         .article-body li {
-            color: #3f3b36;
+            color: var(--prose-color);
             font-family: var(--serif);
             font-size: 1.045rem;
             line-height: 1.76;
@@ -319,10 +332,10 @@
 
         .article-body code {
             padding: .1em .32em;
-            border: 1px solid rgba(25, 24, 22, .1);
+            border: 1px solid var(--line);
             border-radius: 3px;
             background: var(--paper-deep);
-            color: #4d3021;
+            color: var(--inline-code-color);
             font-size: .82em;
         }
 
@@ -364,10 +377,10 @@
         .callout {
             margin: 1.6rem 0;
             padding: 1.2rem 1.3rem;
-            border: 1px solid rgba(185, 86, 34, .25);
+            border: 1px solid var(--accent-border);
             border-radius: 6px;
             background:
-                linear-gradient(135deg, rgba(255, 255, 255, .38), transparent 62%),
+                linear-gradient(135deg, var(--callout-glint), transparent 62%),
                 var(--accent-soft);
         }
 
@@ -380,8 +393,8 @@
             padding: clamp(1rem, 3.5vw, 1.6rem);
             border: 1px solid var(--line-strong);
             border-radius: 8px;
-            background: rgba(247, 243, 236, .7);
-            box-shadow: 0 1rem 2.8rem rgba(65, 44, 28, .055);
+            background: var(--panel);
+            box-shadow: 0 1rem 2.8rem var(--panel-shadow);
         }
 
         .protocol-rail {
@@ -429,7 +442,7 @@
         }
 
         .protocol-node.is-gate {
-            border-color: rgba(185, 86, 34, .45);
+            border-color: var(--accent-border);
             background: var(--accent-soft);
         }
 
@@ -507,7 +520,7 @@
             overflow-x: auto;
             border: 1px solid var(--line-strong);
             border-radius: 6px;
-            background: rgba(247, 243, 236, .58);
+            background: var(--panel-soft);
         }
 
         .failure-table {
@@ -533,7 +546,7 @@
         }
 
         .failure-table td {
-            color: #47413b;
+            color: var(--table-text-color);
             font-family: var(--serif);
             font-size: .82rem;
             line-height: 1.5;
@@ -560,7 +573,7 @@
             padding: 1rem;
             border: 1px solid var(--line);
             border-radius: 5px;
-            background: rgba(247, 243, 236, .55);
+            background: var(--panel-soft);
         }
 
         .verdict-card b,
@@ -638,6 +651,50 @@
             }
         }
 
+        @media (prefers-color-scheme: dark) {
+            body.article-page {
+                --paper: #100e0d;
+                --paper-raised: #1a1714;
+                --paper-deep: #241d18;
+                --ink: #f2eadf;
+                --muted: #bcae9e;
+                --faint: #8f8174;
+                --accent: #d17a45;
+                --accent-soft: rgba(209, 122, 69, .14);
+                --line: rgba(242, 234, 223, .12);
+                --line-strong: rgba(242, 234, 223, .25);
+                --deck-color: #d6c9bb;
+                --prose-color: #c9bcad;
+                --inline-code-color: #e5ad84;
+                --table-text-color: #c9bcad;
+                --accent-border: rgba(209, 122, 69, .48);
+                --callout-glint: rgba(255, 255, 255, .035);
+                --panel: rgba(31, 26, 22, .82);
+                --panel-soft: rgba(29, 24, 20, .72);
+                --panel-shadow: rgba(0, 0, 0, .28);
+                color-scheme: dark;
+                background:
+                    radial-gradient(circle at 12% 2%, rgba(151, 77, 39, .16), transparent 29rem),
+                    linear-gradient(rgba(255, 255, 255, .018), transparent 15rem),
+                    var(--paper);
+            }
+
+            .article-actions a {
+                background: rgba(255, 255, 255, .018);
+            }
+
+            .article-page .article-body pre {
+                border-color: var(--line-strong);
+                background: #090807;
+                box-shadow: 0 1.2rem 2.7rem rgba(0, 0, 0, .32);
+                color: #f3eadf;
+            }
+
+            .protocol-paths .committed { border-color: #86a984; }
+            .protocol-paths .aborted { border-color: #c49a73; }
+            .protocol-paths .reconcile { border-color: #9b94b1; }
+        }
+
         @media (max-width: 48rem) {
             .protocol-rail {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -671,11 +728,6 @@
 
             .article-byline span + span::before { display: none; }
 
-            .article-actions a {
-                min-width: 0;
-                flex: 1 1 8rem;
-            }
-
             .protocol-rail,
             .protocol-paths,
             .verdict-grid,
@@ -704,8 +756,12 @@
                 <span>14 minute read</span>
             </p>
             <nav class="article-actions" aria-label="Mycelium project links">
-                <a href="https://github.com/mycelium-labs/mycelium">GitHub</a>
-                <a href="https://pypi.org/project/mycelium-runtime/">PyPI</a>
+                <a href="https://github.com/mycelium-labs/mycelium" aria-label="Mycelium on GitHub" title="GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+                <a href="https://pypi.org/project/mycelium-runtime/" aria-label="Mycelium Runtime on PyPI" title="PyPI">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.922 13.58v3.912L20.55 18.72l-.078.055.052.037 3.45-1.256.026-.036v-3.997l-.053-.036-.025.092zM23.621 5.618l-3.04 1.107v3.912l3.339-1.215V5.509zM23.92 13.457V9.544l-3.336 1.215v3.913zM20.47 14.71V10.8L17.17 12v3.913zM17.034 19.996v-3.912l-3.313 1.206v3.912zM17.17 16.057v3.868l3.314-1.206V14.85l-3.314 1.206zm2.093 1.882c-.367.134-.663-.074-.663-.463s.296-.814.663-.947c.365-.133.662.075.662.464s-.297.814-.662.946zM13.225 9.315l.365-.132-3.285-1.197-3.323 1.21.102.037 3.184 1.16zM20.507 10.664V6.751L17.17 7.965v3.913zM17.058 11.918V8.005l-3.302 1.202v3.912zM13.643 9.246l-3.336 1.215v3.913l3.336-1.215zM6.907 13.165l3.322 1.209v-3.913L6.907 9.252zM10.34 7.873l3.281 1.193V5.198l-3.28-1.193zM20.507 2.715L17.19 3.922v3.913l3.317-1.207zM16.95 3.903L13.724 2.73l-3.269 1.19 3.225 1.174zM15.365 4.606l-1.624.592v3.868l3.317-1.207V3.991l-1.693.615zm-.391 2.778c-.367.134-.662-.074-.662-.464s.295-.813.662-.946c.366-.133.663.074.663.464s-.297.813-.663.946zM10.229 18.41v-3.914l-3.322-1.209V17.2zM13.678 17.182v-3.913l-3.371 1.227v3.913zM13.756 17.154l3.3-1.2V12.04l-3.3 1.2zM13.678 21.217l-3.371 1.227v-3.912h-.078v3.912l-3.322-1.209v-3.913l-.053-.058-.025-.06-3.336-1.21v-3.948l.034.013 3.287 1.196.015-.078-3.261-1.187 3.26-1.187v-.109L3.876 9.62l-.307-.112 3.26-1.188v.877l.079-.055V6.769l3.257 1.185.058-.061L7.084 6.75l-.102-.037 3.24-1.179v-.083L6.854 6.677v.018l-.025.018v1.523L3.44 9.47v.02l-.025.017v4.007l-3.39 1.233v.019L0 14.784v3.995l.025.037 3.4 1.237.008-.006.007.01 3.4 1.238.008-.006.006.01 3.4 1.237.014-.009.012.01 3.45-1.256.026-.037-.078-.027zM3.493 9.563l3.257 1.185-3.257 1.187V9.562zM3.4 19.96L.078 18.752v-3.913l2.361.86.96.349v3.913zm.015-3.99L.335 14.85l-.182-.066 3.262-1.187v2.374zm3.399 5.231l-3.321-1.209v-3.912l3.321 1.209v3.912zM23.791 5.434l-3.21-1.17v2.338zM20.387 2.643l-3.24-1.18-3.27 1.19 3.247 1.182z"/></svg>
+                </a>
             </nav>
         </header>
 
