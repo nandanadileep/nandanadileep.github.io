@@ -697,7 +697,7 @@
                 <p>That identity does more than deduplicate. It lets Mycelium coordinate competing workers, return a stored result, detect unsafe changes, reconcile an uncertain provider outcome, require provider-key reuse, and attach evidence to the right operation.</p>
 
                 <div class="callout">
-                    <p><strong>Identity is an application contract.</strong> Omit a meaningful field and two distinct operations can collapse into one. Include volatile model text or a new random UUID on every retry and one operation fragments into many.</p>
+                    <p><strong>Mycelium relies on the application to identify each action consistently.</strong> Too little information can make different actions look the same. Changing information between retries can make the same action look different.</p>
                 </div>
 
                 <p>Mycelium checks argument drift too. If the original action was “charge order 42 for 1,000” and a later call reuses its identity while changing the amount to 1,500, Mycelium refuses the mismatch according to policy. For a keyed mutation, it can require the stored provider idempotency key and, where configured, inject the <code>effect_id</code> as that key.</p>
