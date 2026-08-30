@@ -689,7 +689,7 @@
                         <span>Outcome events observe the protocol</span>
                         <span>Verify exercises synthetic failures</span>
                     </div>
-                    <figcaption>The ledger is the authoritative execution lane. Doctor, Verify, and outcome telemetry are evidence lanes around it—not hidden steps in the business-tool call.</figcaption>
+                    <figcaption>The ledger is the authoritative execution lane. Doctor, Verify, and outcome telemetry are evidence lanes around it, not hidden steps in the business-tool call.</figcaption>
                 </figure>
 
                 <p>Configuration determines which tools are protected, how their effects are classified, which storage backend records them, and which guards apply. Mycelium composes those protections around the registered callable.</p>
@@ -717,14 +717,14 @@
 
                 <p>Mycelium checks argument drift too. If the original action was “charge order 42 for 1,000” and a later call reuses its identity while changing the amount to 1,500, Mycelium refuses the mismatch according to policy. For a keyed mutation, it can require the stored provider idempotency key and, where configured, inject the <code>effect_id</code> as that key.</p>
 
-                <p>Consequential actions should therefore use complete, stable, server-owned business data—not ephemeral tool-call IDs or retry-local identifiers.</p>
+                <p>Consequential actions should therefore use complete, stable, server-owned business data, not ephemeral tool-call IDs or retry-local identifiers.</p>
 
                 <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">transition.py</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/action_ledger.py">action_ledger.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_args_drift.py">argument drift</a>, <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_identity.py">effect identity</a>, and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_provider_idempotency_key.py">provider keys</a></p>
             </section>
 
             <section id="durable-state" aria-labelledby="durable-heading">
                 <span class="section-number">04 · Durable state</span>
-                <h2 id="durable-heading">Who owns the action—and could the effect have begun?</h2>
+                <h2 id="durable-heading">Who owns the action, and could the effect have begun?</h2>
 
                 <p>Once Mycelium recognizes an action, it needs durable answers to two questions: which worker currently owns it, and could the external effect already have happened? The <code>ActionLedger</code> is authoritative for both. It stores identity and arguments, owner, lease and fence, boundary state, provider reference, result, policy decision, outcome, and operator resolution.</p>
 
@@ -771,7 +771,7 @@ def charge_order(order_id: str, amount_cents: int):
                     <li>A <strong>read</strong> creates no external mutation and can normally be repeated.</li>
                     <li>An <strong>idempotent mutation</strong> sets a resource to the same intended state when repeated.</li>
                     <li>A <strong>keyed mutation</strong> is safe only when the provider receives the same valid idempotency key.</li>
-                    <li>A <strong>non-idempotent mutation</strong> creates another effect—another message, charge, or record.</li>
+                    <li>A <strong>non-idempotent mutation</strong> creates another effect, such as another message, charge, or record.</li>
                     <li>An <strong>irreversible action</strong> cannot be safely undone and needs the most conservative handling.</li>
                 </ul>
 
@@ -882,7 +882,7 @@ def charge_order(order_id: str, amount_cents: int):
                     </div>
                 </div>
 
-                <p>Optional cluster verification can exercise a sandbox adapter with shared Redis or PostgreSQL and produce a signed deployment attestation. It proves only the named sandbox sequence and configuration—not production credentials, provider truth, or production equivalence.</p>
+                <p>Optional cluster verification can exercise a sandbox adapter with shared Redis or PostgreSQL and produce a signed deployment attestation. It proves only the named sandbox sequence and configuration, not production credentials, provider truth, or production equivalence.</p>
 
                 <pre><code>$ mycelium doctor --config mycelium.yaml --strict
 $ mycelium verify --config mycelium.yaml --scenario all --strict
