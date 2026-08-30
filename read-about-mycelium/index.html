@@ -487,18 +487,24 @@
         }
 
         .boundary-list li {
-            display: grid;
-            grid-template-columns: 2.1rem 1fr;
-            gap: .65rem;
-            padding: .7rem 0;
+            position: relative;
+            display: block;
+            padding: .7rem 0 .7rem 2.75rem;
             border-bottom: 1px solid var(--line);
             counter-increment: boundary;
         }
 
         .boundary-list li::before {
+            position: absolute;
+            top: .82rem;
+            left: 0;
             color: var(--accent);
             font: 750 .67rem/1.8 var(--sans);
             content: "0" counter(boundary);
+        }
+
+        .boundary-list code {
+            white-space: nowrap;
         }
 
         .article-footer {
