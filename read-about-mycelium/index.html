@@ -133,12 +133,108 @@
             vertical-align: .15em;
         }
 
-        .article-toc {
-            margin-bottom: 3.8rem;
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .55rem;
+            margin-top: 1.35rem;
         }
 
-        .article-toc a {
-            flex: 0 0 auto;
+        .article-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: .65rem;
+            min-width: 7.4rem;
+            padding: .62rem .78rem;
+            border: 1px solid var(--line-strong);
+            border-radius: 3px;
+            color: var(--ink);
+            font-size: .7rem;
+            font-weight: 750;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: border-color 180ms ease, color 180ms ease, transform 220ms var(--ease-out);
+        }
+
+        .article-actions a::after {
+            position: static;
+            width: auto;
+            height: auto;
+            margin-left: auto;
+            background: none;
+            content: "↗";
+            transform: none;
+        }
+
+        .article-actions a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .article-page .article-toc {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: var(--prose-width);
+            margin: 0 auto 3.8rem;
+            padding: .25rem 0 .35rem 1rem;
+            overflow: visible;
+            border: 0;
+            border-left: 1px solid var(--line-strong);
+            background: transparent;
+            font-size: .69rem;
+            letter-spacing: .045em;
+            white-space: normal;
+            backdrop-filter: none;
+            counter-reset: article-section;
+        }
+
+        .article-page .article-toc .toc-label {
+            margin: 0 0 .55rem;
+            color: var(--faint);
+            font-size: .61rem;
+            font-weight: 750;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+
+        .article-page .article-toc a {
+            display: grid;
+            grid-template-columns: 1.75rem 1fr;
+            align-items: baseline;
+            padding: .22rem 0;
+            border-radius: 0;
+            background: transparent;
+            color: var(--muted);
+            line-height: 1.35;
+            transition: color 180ms ease, transform 220ms var(--ease-out);
+            counter-increment: article-section;
+        }
+
+        .article-page .article-toc a:first-of-type {
+            margin-left: 0;
+        }
+
+        .article-page .article-toc a::before {
+            color: var(--faint);
+            font-size: .58rem;
+            font-variant-numeric: tabular-nums;
+            content: counter(article-section, decimal-leading-zero);
+            transition: color 180ms ease;
+        }
+
+        .article-page .article-toc a:hover,
+        .article-page .article-toc a[aria-current="location"] {
+            background: transparent;
+            color: var(--accent);
+            transform: translateX(.2rem);
+        }
+
+        .article-page .article-toc a:hover::before,
+        .article-page .article-toc a[aria-current="location"]::before {
+            color: var(--accent);
         }
 
         .article-body {
@@ -529,6 +625,19 @@
             line-height: 1.55;
         }
 
+        @media (min-width: 72rem) {
+            .article-page .article-toc {
+                position: fixed;
+                top: clamp(5.5rem, 12vh, 8rem);
+                left: max(1.25rem, calc(50vw - 36.5rem));
+                z-index: 4;
+                width: 9.5rem;
+                max-height: calc(100vh - 7rem);
+                margin: 0;
+                overflow-y: auto;
+            }
+        }
+
         @media (max-width: 48rem) {
             .protocol-rail {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -562,6 +671,11 @@
 
             .article-byline span + span::before { display: none; }
 
+            .article-actions a {
+                min-width: 0;
+                flex: 1 1 8rem;
+            }
+
             .protocol-rail,
             .protocol-paths,
             .verdict-grid,
@@ -589,9 +703,14 @@
                 <span><time datetime="2026-08-30">August 30, 2026</time></span>
                 <span>14 minute read</span>
             </p>
+            <nav class="article-actions" aria-label="Mycelium project links">
+                <a href="https://github.com/mycelium-labs/mycelium">GitHub</a>
+                <a href="https://pypi.org/project/mycelium-runtime/">PyPI</a>
+            </nav>
         </header>
 
         <nav class="toc article-toc" aria-label="Article sections">
+            <span class="toc-label">In this essay</span>
             <a href="#gap">The gap</a>
             <a href="#architecture">Architecture</a>
             <a href="#identity">Identity</a>

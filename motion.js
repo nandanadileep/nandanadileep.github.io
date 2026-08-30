@@ -49,7 +49,8 @@
                 return;
             }
 
-            const activationLine = (nav?.offsetHeight || 0) + window.innerHeight * 0.28;
+            const navigationOffset = nav?.classList.contains("article-toc") ? 0 : (nav?.offsetHeight || 0);
+            const activationLine = navigationOffset + window.innerHeight * 0.28;
             let activeSection = sections[0];
             sections.forEach((section) => {
                 if (section.getBoundingClientRect().top <= activationLine) activeSection = section;
