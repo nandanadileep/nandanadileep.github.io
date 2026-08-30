@@ -819,9 +819,9 @@ def charge_order(order_id: str, amount_cents: int):
 
             <section id="guardrails" aria-labelledby="guardrails-heading">
                 <span class="section-number">07 · Guardrails</span>
-                <h2 id="guardrails-heading">“Can this effect run again?” is only one question.</h2>
+                <h2 id="guardrails-heading">Guardrails control what can run and when work is complete.</h2>
 
-                <p>The ledger answers whether the same external effect may execute again. Other controls answer whether the proposed action is allowed now and whether the run is ready to finish.</p>
+                <p>The ledger tracks each external action. Other controls decide whether a proposed action is allowed and whether the agent can report that its work is finished.</p>
 
                 <ul>
                     <li>Outer <strong>scope, state-authority, loop, and budget guards</strong> can stop a call before it creates a ledger claim.</li>
