@@ -639,7 +639,13 @@
 
                 <p>An ambiguous mutation is not blindly repeated. Depending on its classification and the available evidence, Mycelium can return a stored result, wait for an active owner, reconcile with the provider, authorize one proven-safe attempt, or stop for operator resolution.</p>
 
-                <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">transition.py</a> · Evidence: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_state_machine.py">effect-state-machine tests</a></p>
+                <h3>A different failure: the action should not run</h3>
+
+                <p>Now consider a support agent allowed to send messages only to approved customer domains. It tries to send one to an unapproved address. Nothing crashed, and nothing is being retried. The proposed action is simply outside its declared destination boundary.</p>
+
+                <p>With a destination guard configured, Mycelium rejects the call before it creates a ledger claim or reaches the tool body. Reliability here means preventing an unauthorized effect, not deduplicating one.</p>
+
+                <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">transition.py</a> · Evidence: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_state_machine.py">effect-state-machine tests</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_entity_guard.py">destination-guard tests</a></p>
             </section>
 
             <section id="architecture" aria-labelledby="architecture-heading">
