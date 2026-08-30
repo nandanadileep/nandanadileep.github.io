@@ -479,16 +479,6 @@
             line-height: 1.5;
         }
 
-        .evidence {
-            margin-top: 1.6rem !important;
-            padding-top: .85rem;
-            border-top: 1px solid var(--line);
-            color: var(--faint) !important;
-            font-family: var(--sans) !important;
-            font-size: .72rem !important;
-            line-height: 1.65 !important;
-        }
-
         .boundary-list {
             margin: 1.5rem 0;
             padding: 0 !important;
@@ -645,7 +635,6 @@
 
                 <p>With a destination guard configured, Mycelium rejects the call before it creates a ledger claim or reaches the tool body. Reliability here means preventing an unauthorized effect, not deduplicating one.</p>
 
-                <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">transition.py</a> · Evidence: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_state_machine.py">effect-state-machine tests</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_entity_guard.py">destination-guard tests</a></p>
             </section>
 
             <section id="architecture" aria-labelledby="architecture-heading">
@@ -691,7 +680,6 @@
 
                 <p>Before an allowed body runs, applicable use-time, destructive, destination, and secret policies become one fenced decision. A denial records <code>ABORTED</code>; the body never runs. After execution begins, the declared side-effect boundary decides whether failure is known to be pre-effect or must remain <code>UNKNOWN</code>.</p>
 
-                <p class="evidence">Composition: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/config.py#L687-L950">config.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_missing_run_identity.py">missing run identity</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_decision.py">atomic decisions</a></p>
             </section>
 
             <section id="identity" aria-labelledby="identity-heading">
@@ -712,7 +700,6 @@
 
                 <p>Consequential actions should therefore use complete, stable, server-owned business data, not ephemeral tool-call IDs or retry-local identifiers.</p>
 
-                <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">transition.py</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/action_ledger.py">action_ledger.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_args_drift.py">argument drift</a>, <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_identity.py">effect identity</a>, and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_provider_idempotency_key.py">provider keys</a></p>
             </section>
 
             <section id="durable-state" aria-labelledby="durable-heading">
@@ -779,8 +766,6 @@ def charge_order(order_id: str, amount_cents: int):
 
                 <p>Reading inventory may be repeatable. Setting a CRM field to an exact value may be idempotent. Creating a payment may be safe only with the same provider key. Sending a message may produce a duplicate. Deleting a record may be irreversible. The business domain does not decide the classification; the provider operation's real behavior does.</p>
 
-                <p class="evidence">Classification contracts: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">SideEffectClass, ToolCapability, and ToolTransitionBinding</a></p>
-
                 <h3>Failure posture by durable evidence</h3>
                 <div class="table-scroll" tabindex="0" role="region" aria-label="Failure recovery table">
                     <table class="failure-table">
@@ -801,7 +786,6 @@ def charge_order(order_id: str, amount_cents: int):
                     </table>
                 </div>
 
-                <p class="evidence">Two-worker behavior: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_two_worker_envelope.py">test_two_worker_envelope.py</a></p>
             </section>
 
             <section id="reconciliation" aria-labelledby="reconciliation-heading">
@@ -829,7 +813,6 @@ def charge_order(order_id: str, amount_cents: int):
 
                 <p>If automated proof is unavailable, an authorized operator can resolve the transition. Mycelium records that decision instead of erasing history, and a “not executed” resolution grants only one new attempt. An <code>OperatorAuthorizer</code> can enforce host authentication; a CLI <code>--by</code> label is audit context, not identity proof.</p>
 
-                <p class="evidence">Contract: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/reconcile.py">reconcile.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_reconcile.py">test_reconcile.py</a></p>
             </section>
 
             <section id="guardrails" aria-labelledby="guardrails-heading">
@@ -846,7 +829,6 @@ def charge_order(order_id: str, amount_cents: int):
 
                 <p>These controls are opt-in and depend on evidence from the host. YAML cannot protect a callable that bypasses its wrapper, and Mycelium cannot invent destination authority or business permissions. Secret references reduce accidental exposure in configuration and evidence, but no wrapper can protect a value after application code resolves and logs it.</p>
 
-                <p class="evidence">Full assumptions: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/docs/FAILURE_AND_THREAT_MODEL.md">failure and threat model</a></p>
             </section>
 
             <section id="evidence" aria-labelledby="evidence-heading">
@@ -860,8 +842,6 @@ def charge_order(order_id: str, amount_cents: int):
                 <p>Production configuration requires durable outcome storage and an error failure policy. If append fails, Mycelium raises <code>OutcomeEmitError</code> instead of silently discarding required evidence. That exception cannot undo an external effect that already happened, so the ledger remains authoritative and emitter failures need operational monitoring.</p>
 
                 <p>The CLI supports paginated inspection, sanitized NDJSON export, dry-run-first retention pruning, optional archive-before-delete, and plan/apply state migrations. Optional signed audit receipts make selected records tamper-evident; they do not replace authentication or storage access control.</p>
-
-                <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/outcome_emit.py">outcome_emit.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_outcome_emit.py">test_outcome_emit.py</a> · Guide: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/README.md#transition-pagination-and-retention">pagination and retention</a></p>
 
                 <h3>Doctor inspects; Verify exercises</h3>
                 <div class="proof-grid">
@@ -881,7 +861,6 @@ def charge_order(order_id: str, amount_cents: int):
 $ mycelium verify --config mycelium.yaml --scenario all --strict
 $ python -m pytest sdk/tests -q</code></pre>
 
-                <p class="evidence">Engines: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/doctor/engine.py">Doctor</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/verify/engine.py">Verify</a> · Proof tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_protocol_proof.py">effect protocol</a></p>
             </section>
 
             <section id="adoption" aria-labelledby="adoption-heading">
