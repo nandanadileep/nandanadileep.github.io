@@ -873,6 +873,10 @@ $ python -m pytest sdk/tests -q</code></pre>
 
                 <p>Start with one external mutation whose duplicate, wrong destination, or uncertain outcome would matter:</p>
 
+                <div class="callout">
+                    <p><strong>Using an AI coding agent?</strong> After installing <code>mycelium-runtime</code>, run <code>mycelium skills install</code>, then ask the agent: “Set up Mycelium in this project.” The <a href="https://github.com/mycelium-labs/mycelium/tree/main/sdk/mycelium/skills/mycelium-setup">official setup skill</a> guides the agent through inspecting the project, finding consequential tool boundaries, creating or merging the configuration, wiring the integration, adding tests, and running Doctor and Verify. It completes what the code can prove and asks for anything it cannot safely infer, such as a business identity, production credentials, permissions, or provider guarantees.</p>
+                </div>
+
                 <ol class="boundary-list">
                     <li>Install the released <code>mycelium-runtime</code> package and use the documentation for that release.</li>
                     <li>Give the operation a stable, host-owned business identity.</li>
