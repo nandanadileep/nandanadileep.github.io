@@ -79,23 +79,20 @@
         }
 
         .article-page main {
+            position: relative;
             max-width: var(--article-width);
         }
 
         .article-header {
-            position: relative;
+            position: static;
             margin-bottom: 2.35rem;
             padding: clamp(1.5rem, 4vw, 2.4rem) 0 2rem;
+            background: linear-gradient(var(--accent), var(--accent)) top left / 4.5rem 3px no-repeat;
         }
 
         .article-header::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4.5rem;
-            height: 3px;
-            background: var(--accent);
-            content: "";
+            display: none;
+            content: none;
         }
 
         .article-kicker {
@@ -147,7 +144,7 @@
 
         .article-actions {
             position: absolute;
-            top: clamp(1.25rem, 3.4vw, 2rem);
+            top: 0;
             right: 0;
             display: flex;
             gap: .45rem;
