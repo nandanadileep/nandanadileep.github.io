@@ -835,29 +835,25 @@ def charge_order(order_id: str, amount_cents: int):
 
             <section id="evidence" aria-labelledby="evidence-heading">
                 <span class="section-number">08 · Evidence</span>
-                <h2 id="evidence-heading">The state machine governs. Telemetry shows whether it behaved.</h2>
+                <h2 id="evidence-heading">Records and checks show what happened.</h2>
 
-                <p>The ledger is authoritative; outcome rows make its behavior observable. <code>OutcomeEmitter</code> appends compact events for resolution decisions, body start, completion or failure, policy denials, operator releases, stale-fence rejections, and lease-renewal failures. It also records whether a repeated body execution consumed a valid <code>NOT_EXECUTED</code> verdict.</p>
+                <p>Mycelium keeps a durable record of each protected action. It also creates monitoring events that help developers understand completed actions, failures, blocked calls, worker conflicts, and unexpected repeated executions.</p>
 
-                <p>Those rows support the Duplicate Tool Transition Rate: silent duplicate body executions divided by transitions that were redispatched or considered long-running. DTTR measures only the events it receives and retains. It cannot reveal calls that bypassed Mycelium or evidence that was never emitted.</p>
+                <p>If required monitoring information cannot be saved, Mycelium reports an error instead of hiding the problem. That error cannot undo an external action that already happened, so teams should monitor it. The records can also be inspected or exported for operations and audits.</p>
 
-                <p>Production configuration requires durable outcome storage and an error failure policy. If append fails, Mycelium raises <code>OutcomeEmitError</code> instead of silently discarding required evidence. That exception cannot undo an external effect that already happened, so the ledger remains authoritative and emitter failures need operational monitoring.</p>
-
-                <p>The CLI supports paginated inspection, sanitized NDJSON export, dry-run-first retention pruning, optional archive-before-delete, and plan/apply state migrations. Optional signed audit receipts make selected records tamper-evident; they do not replace authentication or storage access control.</p>
-
-                <h3>Doctor inspects; Verify exercises</h3>
+                <h3>Doctor checks; Verify tests</h3>
                 <div class="proof-grid">
                     <div class="proof-card">
-                        <b>Doctor · read-only</b>
-                        <p>Inspects configuration, detectable registration, and optional connectivity. It reports static, runtime, connectivity, operator-asserted, and unverifiable evidence without running application tools or an LLM.</p>
+                        <b>Doctor · Setup check</b>
+                        <p>Checks the configuration, registered tools, and optional connections. It does not run real tools or call an LLM.</p>
                     </div>
                     <div class="proof-card">
-                        <b>Verify · synthetic</b>
-                        <p>Runs Doctor, creates an isolated namespace, and exercises contention, redispatch, crashes, storage failures, ambiguity, reconciliation, guards, and protocol invariants without invoking real business tools.</p>
+                        <b>Verify · Safe simulations</b>
+                        <p>Runs isolated tests of crashes, retries, concurrent workers, storage failures, recovery, and guardrails without touching real business systems.</p>
                     </div>
                 </div>
 
-                <p>Optional cluster verification can exercise a sandbox adapter with shared Redis or PostgreSQL and produce a signed deployment attestation. It proves only the named sandbox sequence and configuration, not production credentials, provider truth, or production equivalence.</p>
+                <p>These checks show whether the tested setup behaves as expected. They cannot prove that production permissions are correct or that an external provider will always return accurate information.</p>
 
                 <pre><code>$ mycelium doctor --config mycelium.yaml --strict
 $ mycelium verify --config mycelium.yaml --scenario all --strict
