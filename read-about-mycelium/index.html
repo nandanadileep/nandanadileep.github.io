@@ -700,9 +700,7 @@
                     <p><strong>Mycelium relies on the application to identify each action consistently.</strong> Too little information can make different actions look the same. Changing information between retries can make the same action look different.</p>
                 </div>
 
-                <p>Mycelium checks argument drift too. If the original action was “charge order 42 for 1,000” and a later call reuses its identity while changing the amount to 1,500, Mycelium refuses the mismatch according to policy. For a keyed mutation, it can require the stored provider idempotency key and, where configured, inject the <code>effect_id</code> as that key.</p>
-
-                <p>Consequential actions should therefore use complete, stable, server-owned business data, not ephemeral tool-call IDs or retry-local identifiers.</p>
+                <p>Mycelium also checks that an action has not changed between retries. If a retry changes an important detail, such as the payment amount, Mycelium blocks it. Applications should identify actions using stable information, such as an order ID, rather than temporary IDs created for each retry.</p>
 
             </section>
 
