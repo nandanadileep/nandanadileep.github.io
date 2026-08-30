@@ -40,6 +40,7 @@
 
 ## Writing
 
+- [Mycelium: Turning AI Agents into Reliable Systems](https://nandanadileep.com/read-about-mycelium/): A source-linked technical essay on stable action identity, durable claims, leases and fencing, effect boundaries, recovery classification, reconciliation, guardrails, outcome evidence, Doctor, Verify, and the limits of Mycelium's guarantees
 - [Checklist to Prevent All the Agent Failure Modes](https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1)
 - [Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX](https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05)
 - [Swapped Every Part of nanoGPT With Modern Alternatives](https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6)

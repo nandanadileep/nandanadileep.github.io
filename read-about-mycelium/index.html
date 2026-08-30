@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mycelium: Turning AI Agents into Reliable Systems | Nandana Dileep</title>
+    <meta name="description" content="How Mycelium gives consequential AI-agent actions stable identity, durable state, guardrails, reconciliation, and evidence-based recovery.">
+    <meta name="author" content="Nandana Dileep">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" href="https://nandanadileep.com/read-about-mycelium/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Nandana Dileep">
+    <meta property="og:title" content="Mycelium: Turning AI Agents into Reliable Systems">
+    <meta property="og:description" content="The protocol behind reliable, governed, and recoverable AI-agent tool execution.">
+    <meta property="og:url" content="https://nandanadileep.com/read-about-mycelium/">
+    <meta property="og:image" content="https://nandanadileep.com/nandana.jpg">
+    <meta property="article:published_time" content="2026-08-30">
+    <meta property="article:author" content="Nandana Dileep">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mycelium: Turning AI Agents into Reliable Systems">
+    <meta name="twitter:description" content="The protocol behind reliable, governed, and recoverable AI-agent tool execution.">
+    <meta name="twitter:image" content="https://nandanadileep.com/nandana.jpg">
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="apple-touch-icon" href="../favicon.png">
+    <script>document.documentElement.classList.add("js")</script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Mycelium: Turning AI Agents into Reliable Systems",
+      "description": "How Mycelium gives consequential AI-agent actions stable identity, durable state, guardrails, reconciliation, and evidence-based recovery.",
+      "datePublished": "2026-08-30",
+      "dateModified": "2026-08-30",
+      "author": {
+        "@type": "Person",
+        "name": "Nandana Dileep",
+        "url": "https://nandanadileep.com/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Nandana Dileep",
+        "url": "https://nandanadileep.com/"
+      },
+      "mainEntityOfPage": "https://nandanadileep.com/read-about-mycelium/",
+      "about": ["AI agents", "reliable systems", "distributed systems", "tool execution"],
+      "inLanguage": "en"
+    }
+    </script>
+
+    <style>
+        body.article-page {
+            --article-width: 47rem;
+            --prose-width: 41rem;
+        }
+
+        .article-page main {
+            max-width: var(--article-width);
+        }
+
+        .article-header {
+            position: relative;
+            margin-bottom: 2.35rem;
+            padding: clamp(1.5rem, 4vw, 2.4rem) 0 2rem;
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-header::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4.5rem;
+            height: 3px;
+            background: var(--accent);
+            content: "";
+        }
+
+        .article-kicker {
+            margin: 0 0 .8rem;
+            color: var(--accent);
+            font-size: .68rem;
+            font-weight: 750;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .article-page .article-title {
+            max-width: 44rem;
+            margin: 0 0 1rem;
+            font-size: clamp(2.45rem, 8vw, 4.75rem);
+            font-weight: 500;
+            line-height: .98;
+            letter-spacing: -.052em;
+        }
+
+        .article-deck {
+            max-width: 41rem;
+            margin: 0 0 1.45rem;
+            color: #3f3a34;
+            font-family: var(--serif);
+            font-size: clamp(1.08rem, 2.6vw, 1.35rem);
+            line-height: 1.48;
+        }
+
+        .article-byline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .35rem .75rem;
+            margin: 0;
+            color: var(--faint);
+            font-size: .73rem;
+            font-weight: 650;
+            letter-spacing: .055em;
+            text-transform: uppercase;
+        }
+
+        .article-byline span + span::before {
+            margin-right: .75rem;
+            color: var(--line-strong);
+            content: "◆";
+            font-size: .48rem;
+            vertical-align: .15em;
+        }
+
+        .article-toc {
+            margin-bottom: 3.8rem;
+        }
+
+        .article-toc a {
+            flex: 0 0 auto;
+        }
+
+        .article-body {
+            max-width: var(--prose-width);
+            margin: 0 auto;
+        }
+
+        .article-body section {
+            margin-bottom: clamp(4rem, 9vw, 6rem);
+            scroll-margin-top: 4.5rem;
+        }
+
+        .article-body section h2 {
+            display: block;
+            margin: 0 0 1.15rem;
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: clamp(1.75rem, 5vw, 2.45rem);
+            font-weight: 500;
+            line-height: 1.12;
+            letter-spacing: -.035em;
+            text-transform: none;
+        }
+
+        .article-body section h2::after {
+            display: none;
+        }
+
+        .section-number {
+            display: block;
+            margin-bottom: .55rem;
+            color: var(--accent);
+            font-family: var(--sans);
+            font-size: .65rem;
+            font-weight: 750;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .article-body h3 {
+            margin: 2.2rem 0 .75rem;
+            font-family: var(--serif);
+            font-size: 1.23rem;
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: -.012em;
+        }
+
+        .article-body p,
+        .article-body li {
+            color: #3f3b36;
+            font-family: var(--serif);
+            font-size: 1.045rem;
+            line-height: 1.76;
+        }
+
+        .article-body p {
+            margin: 0 0 1.15rem;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin: 0 0 1.35rem;
+            padding-left: 1.3rem;
+        }
+
+        .article-body li {
+            margin-bottom: .48rem;
+            padding-left: .2rem;
+        }
+
+        .article-body li::marker {
+            color: var(--accent);
+            font-family: var(--sans);
+            font-weight: 700;
+        }
+
+        .article-body strong {
+            color: var(--ink);
+            font-weight: 650;
+        }
+
+        .article-body code {
+            padding: .1em .32em;
+            border: 1px solid rgba(25, 24, 22, .1);
+            border-radius: 3px;
+            background: var(--paper-deep);
+            color: #4d3021;
+            font-size: .82em;
+        }
+
+        .article-page .article-body pre {
+            margin: 1.5rem 0;
+            padding: 1.15rem 1.25rem;
+            overflow-x: auto;
+            border: 1px solid var(--line-strong);
+            border-radius: 5px;
+            background: #22201d;
+            box-shadow: 0 1.2rem 2.7rem rgba(45, 31, 22, .1);
+            color: #f4eee5;
+            font: .79rem/1.65 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        .article-page .article-body pre code {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: inherit;
+            font-size: inherit;
+        }
+
+        .opening {
+            position: relative;
+            margin-bottom: 5rem;
+            padding-left: clamp(0rem, 5vw, 2.4rem);
+        }
+
+        .opening p:first-child::first-letter {
+            float: left;
+            margin: .09em .12em 0 0;
+            color: var(--accent);
+            font-family: var(--serif);
+            font-size: 4.2rem;
+            line-height: .72;
+        }
+
+        .pullquote {
+            margin: 2rem 0 2.25rem;
+            padding: 1.3rem 0 1.3rem 1.35rem;
+            border-left: 3px solid var(--accent);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: clamp(1.22rem, 3.2vw, 1.55rem);
+            line-height: 1.42;
+            letter-spacing: -.018em;
+        }
+
+        .callout {
+            margin: 1.6rem 0;
+            padding: 1.2rem 1.3rem;
+            border: 1px solid rgba(185, 86, 34, .25);
+            border-radius: 6px;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, .38), transparent 62%),
+                var(--accent-soft);
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        .protocol-figure {
+            margin: 2rem 0 2.25rem;
+            padding: clamp(1rem, 3.5vw, 1.6rem);
+            border: 1px solid var(--line-strong);
+            border-radius: 8px;
+            background: rgba(247, 243, 236, .7);
+            box-shadow: 0 1rem 2.8rem rgba(65, 44, 28, .055);
+        }
+
+        .protocol-rail {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: .6rem;
+        }
+
+        .protocol-node {
+            position: relative;
+            min-height: 6.4rem;
+            padding: .78rem;
+            border: 1px solid var(--line);
+            border-radius: 5px;
+            background: var(--paper-raised);
+        }
+
+        .protocol-node:not(:last-child)::after {
+            position: absolute;
+            top: 50%;
+            right: -.48rem;
+            z-index: 2;
+            width: .34rem;
+            height: .34rem;
+            border-top: 1px solid var(--accent);
+            border-right: 1px solid var(--accent);
+            background: var(--paper-raised);
+            transform: translateY(-50%) rotate(45deg);
+            content: "";
+        }
+
+        .protocol-node b {
+            display: block;
+            margin-bottom: .28rem;
+            color: var(--ink);
+            font-size: .72rem;
+            letter-spacing: .035em;
+        }
+
+        .protocol-node small {
+            display: block;
+            color: var(--muted);
+            font-size: .68rem;
+            line-height: 1.45;
+        }
+
+        .protocol-node.is-gate {
+            border-color: rgba(185, 86, 34, .45);
+            background: var(--accent-soft);
+        }
+
+        .protocol-paths {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: .45rem;
+            margin-top: .75rem;
+        }
+
+        .protocol-paths span {
+            padding: .45rem .5rem;
+            border-top: 2px solid var(--line-strong);
+            color: var(--muted);
+            font-size: .65rem;
+            font-weight: 700;
+            line-height: 1.35;
+            text-transform: uppercase;
+        }
+
+        .protocol-paths .committed { border-color: #668263; }
+        .protocol-paths .aborted { border-color: #aa805b; }
+        .protocol-paths .unknown { border-color: var(--accent); }
+        .protocol-paths .reconcile { border-color: #6e6a80; }
+
+        .evidence-lane {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: .85rem;
+            border-top: 1px dashed var(--line-strong);
+            color: var(--faint);
+            font-size: .67rem;
+            font-weight: 650;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .protocol-figure figcaption {
+            margin-top: 1rem;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: .82rem;
+            line-height: 1.55;
+        }
+
+        .state-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: .35rem;
+            margin: 1.5rem 0;
+        }
+
+        .state-line span {
+            padding: .38rem .58rem;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            background: var(--paper-raised);
+            color: var(--ink);
+            font: 700 .66rem/1 var(--sans);
+            letter-spacing: .045em;
+        }
+
+        .state-line b {
+            color: var(--accent);
+            font-size: .8rem;
+            font-weight: 500;
+        }
+
+        .table-scroll {
+            margin: 1.6rem calc((var(--article-width) - var(--prose-width)) / -2);
+            overflow-x: auto;
+            border: 1px solid var(--line-strong);
+            border-radius: 6px;
+            background: rgba(247, 243, 236, .58);
+        }
+
+        .failure-table {
+            width: 100%;
+            min-width: 46rem;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .failure-table th,
+        .failure-table td {
+            padding: .8rem .9rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        .failure-table th {
+            background: var(--paper-deep);
+            color: var(--muted);
+            font-size: .64rem;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+        }
+
+        .failure-table td {
+            color: #47413b;
+            font-family: var(--serif);
+            font-size: .82rem;
+            line-height: 1.5;
+        }
+
+        .failure-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .verdict-grid,
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: .7rem;
+            margin: 1.5rem 0;
+        }
+
+        .proof-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .verdict-card,
+        .proof-card {
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: 5px;
+            background: rgba(247, 243, 236, .55);
+        }
+
+        .verdict-card b,
+        .proof-card b {
+            display: block;
+            margin-bottom: .35rem;
+            color: var(--accent);
+            font-size: .68rem;
+            letter-spacing: .065em;
+            text-transform: uppercase;
+        }
+
+        .verdict-card p,
+        .proof-card p {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--sans);
+            font-size: .75rem;
+            line-height: 1.5;
+        }
+
+        .evidence {
+            margin-top: 1.6rem !important;
+            padding-top: .85rem;
+            border-top: 1px solid var(--line);
+            color: var(--faint) !important;
+            font-family: var(--sans) !important;
+            font-size: .72rem !important;
+            line-height: 1.65 !important;
+        }
+
+        .boundary-list {
+            margin: 1.5rem 0;
+            padding: 0 !important;
+            list-style: none;
+            counter-reset: boundary;
+        }
+
+        .boundary-list li {
+            display: grid;
+            grid-template-columns: 2.1rem 1fr;
+            gap: .65rem;
+            padding: .7rem 0;
+            border-bottom: 1px solid var(--line);
+            counter-increment: boundary;
+        }
+
+        .boundary-list li::before {
+            color: var(--accent);
+            font: 750 .67rem/1.8 var(--sans);
+            content: "0" counter(boundary);
+        }
+
+        .article-footer {
+            max-width: var(--prose-width);
+            margin: 1rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line-strong);
+        }
+
+        .article-footer .closing {
+            margin: 0 0 1.3rem;
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 48rem) {
+            .protocol-rail {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .protocol-node:nth-child(2)::after { display: none; }
+
+            .protocol-paths {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .table-scroll {
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 34rem) {
+            .article-page .article-title {
+                font-size: clamp(2.35rem, 13vw, 3.25rem);
+            }
+
+            .article-byline {
+                display: block;
+                line-height: 1.8;
+            }
+
+            .article-byline span {
+                display: block;
+            }
+
+            .article-byline span + span::before { display: none; }
+
+            .protocol-rail,
+            .protocol-paths,
+            .verdict-grid,
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .protocol-node::after { display: none; }
+            .evidence-lane { align-items: flex-start; flex-direction: column; }
+        }
+    </style>
+    <link rel="stylesheet" href="../site.css">
+</head>
+
+<body class="article-page">
+    <main>
+        <p class="back"><a href="../index.html#writing">Writing</a></p>
+
+        <header class="article-header">
+            <p class="article-kicker">Agent infrastructure · Technical essay</p>
+            <h1 class="article-title">Mycelium: Turning AI Agents into Reliable Systems</h1>
+            <p class="article-deck">A model can make the right decision and still produce the wrong real-world result. Reliability begins at the moment an agent's intent becomes an external effect.</p>
+            <p class="article-byline">
+                <span>By Nandana Dileep</span>
+                <span><time datetime="2026-08-30">August 30, 2026</time></span>
+                <span>14 minute read</span>
+            </p>
+        </header>
+
+        <nav class="toc article-toc" aria-label="Article sections">
+            <a href="#gap">The gap</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#identity">Identity</a>
+            <a href="#durable-state">Durable state</a>
+            <a href="#recovery">Recovery</a>
+            <a href="#reconciliation">Reconciliation</a>
+            <a href="#guardrails">Guardrails</a>
+            <a href="#evidence">Evidence</a>
+            <a href="#adoption">Adoption</a>
+            <a href="#boundaries">Boundaries</a>
+        </nav>
+
+        <article class="article-body">
+            <div class="opening">
+                <p>AI agents increasingly use tools to charge or refund payments, send emails, update CRM records, create support tickets, write to databases, publish content, modify cloud resources, trigger deployments, manage files, and perform destructive operations. Once an agent crosses that tool boundary, its decision becomes a real-world effect.</p>
+
+                <p>A lot can go wrong there. A worker can crash after a provider accepts a request but before the result is recorded. The same logical action can arrive again under a different dispatch ID. Arguments can change between retries. Two workers can race. An agent can exceed its scope or budget, target the wrong destination, leak a secret in tool arguments, or finish without durable evidence of what happened.</p>
+
+                <p>I built <a href="https://github.com/mycelium-labs/mycelium">Mycelium</a> as a reliability and control layer for these consequential calls. It gives each protected action a stable identity, records its lifecycle durably, coordinates competing workers with leases and fencing, classifies side effects, and decides whether a call may execute, must wait, can return a stored result, needs provider reconciliation, or must stop safely.</p>
+
+                <aside class="pullquote">The goal is not to make a model infallible. It is to make protected actions traceable, bounded, recoverable, and honest about what the system knows.</aside>
+
+                <p>The well-known crash-after-success retry is one important failure mode, but it is not the whole product. Mycelium also enforces declared scope, destination, authority, secret, budget, and loop policies; records outcomes for operations and audits; and provides Doctor and Verify as separate evidence tools.</p>
+            </div>
+
+            <section id="gap" aria-labelledby="gap-heading">
+                <span class="section-number">01 · The reliability gap</span>
+                <h2 id="gap-heading">Prompts can suggest behavior. They cannot enforce execution.</h2>
+
+                <p>Instructions such as “never charge twice,” “only modify this repository,” or “stop after four attempts” can guide a model. They cannot atomically coordinate a provider request, a process crash, a durable write, and a replacement worker.</p>
+
+                <p>Consider a payment request:</p>
+
+                <ol>
+                    <li>A worker records that it plans to charge order 42.</li>
+                    <li>It sends the request to the payment provider.</li>
+                    <li>The provider creates the charge.</li>
+                    <li>The worker loses its connection or dies before recording success.</li>
+                    <li>Another worker receives the same logical request.</li>
+                </ol>
+
+                <p>At step five, “retry” is not a safe default. The system needs to distinguish three facts: the provider completed the effect, the provider definitely did not execute it, or the provider cannot yet say. Pretending the third state is either success or failure is how duplicate charges and missing work enter production.</p>
+
+                <p>Mycelium preserves that uncertainty instead of erasing it:</p>
+
+                <div class="state-line" aria-label="Mycelium effect state lifecycle">
+                    <span>Intended</span><b>→</b><span>Attempting</span><b>→</b><span>Committed</span><b>or</b><span>Aborted</span><b>or</b><span>Unknown</span>
+                </div>
+
+                <p>An ambiguous mutation is not blindly repeated. Depending on its classification and the available evidence, Mycelium can return a stored result, wait for an active owner, reconcile with the provider, authorize one proven-safe attempt, or stop for operator resolution.</p>
+
+                <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">transition.py</a> · Evidence: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_state_machine.py">effect-state-machine tests</a></p>
+            </section>
+
+            <section id="architecture" aria-labelledby="architecture-heading">
+                <span class="section-number">02 · Architecture</span>
+                <h2 id="architecture-heading">A protected call becomes a protocol, not a bare function invocation.</h2>
+
+                <figure class="protocol-figure">
+                    <div class="protocol-rail" aria-label="Mycelium execution flow">
+                        <div class="protocol-node">
+                            <b>Configure &amp; identify</b>
+                            <small>Resolve the callable, policy, storage, scope, and stable effect identity.</small>
+                        </div>
+                        <div class="protocol-node">
+                            <b>Guard &amp; claim</b>
+                            <small>Apply outer guards, then atomically claim the durable ledger record.</small>
+                        </div>
+                        <div class="protocol-node is-gate">
+                            <b>Resolve &amp; decide</b>
+                            <small>Return, poll, allow, or hard-block. Record the atomic policy decision.</small>
+                        </div>
+                        <div class="protocol-node">
+                            <b>Cross &amp; record</b>
+                            <small>Observe the effect boundary and commit, abort, or preserve uncertainty.</small>
+                        </div>
+                    </div>
+                    <div class="protocol-paths" aria-label="Possible outcomes">
+                        <span class="committed">Committed · return result</span>
+                        <span class="aborted">Aborted · body did not effect</span>
+                        <span class="unknown">Unknown · fail closed</span>
+                        <span class="reconcile">Reconcile · ask provider</span>
+                    </div>
+                    <div class="evidence-lane">
+                        <span>Doctor inspects readiness</span>
+                        <span>Outcome events observe the protocol</span>
+                        <span>Verify exercises synthetic failures</span>
+                    </div>
+                    <figcaption>The ledger is the authoritative execution lane. Doctor, Verify, and outcome telemetry are evidence lanes around it—not hidden steps in the business-tool call.</figcaption>
+                </figure>
+
+                <p>Configuration determines which tools are protected, how their effects are classified, which storage backend records them, and which guards apply. Mycelium composes those protections around the registered callable.</p>
+
+                <p>When a call arrives, outer guards such as loop, budget, scope, and state authority can reject it before a claim exists. If they pass, Mycelium derives the effect identity and atomically claims its ledger record. The resolution gate can return an existing result, wait for another worker, permit a new attempt, or stop for reconciliation or operator review.</p>
+
+                <p>Before an allowed body runs, applicable use-time, destructive, destination, and secret policies become one fenced decision. A denial records <code>ABORTED</code>; the body never runs. After execution begins, the declared side-effect boundary decides whether failure is known to be pre-effect or must remain <code>UNKNOWN</code>.</p>
+
+                <p class="evidence">Composition: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/config.py#L687-L950">config.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_missing_run_identity.py">missing run identity</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_decision.py">atomic decisions</a></p>
+            </section>
+
+            <section id="identity" aria-labelledby="identity-heading">
+                <span class="section-number">03 · Identity</span>
+                <h2 id="identity-heading">What counts as the same real-world action?</h2>
+
+                <p>A replacement worker may have a new process ID, dispatch ID, or framework tool-call ID while continuing the same business operation. Mycelium needs to recognize that “charge order 42 for the approved amount” on worker two is the action worker one already started.</p>
+
+                <p>For each protected consequential call, Mycelium derives a deterministic <code>effect_id</code> from stable scope, tool, canonical arguments, destination, side-effect classification, agent, and policy version. A new physical dispatch can resolve to the existing logical effect rather than creating an unrelated record.</p>
+
+                <p>That identity does more than deduplicate. It lets Mycelium coordinate competing workers, return a stored result, detect unsafe changes, reconcile an uncertain provider outcome, require provider-key reuse, and attach evidence to the right operation.</p>
+
+                <div class="callout">
+                    <p><strong>Identity is an application contract.</strong> Omit a meaningful field and two distinct operations can collapse into one. Include volatile model text or a new random UUID on every retry and one operation fragments into many.</p>
+                </div>
+
+                <p>Mycelium checks argument drift too. If the original action was “charge order 42 for 1,000” and a later call reuses its identity while changing the amount to 1,500, Mycelium refuses the mismatch according to policy. For a keyed mutation, it can require the stored provider idempotency key and, where configured, inject the <code>effect_id</code> as that key.</p>
+
+                <p>Consequential actions should therefore use complete, stable, server-owned business data—not ephemeral tool-call IDs or retry-local identifiers.</p>
+
+                <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">transition.py</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/action_ledger.py">action_ledger.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_args_drift.py">argument drift</a>, <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_identity.py">effect identity</a>, and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_provider_idempotency_key.py">provider keys</a></p>
+            </section>
+
+            <section id="durable-state" aria-labelledby="durable-heading">
+                <span class="section-number">04 · Durable state</span>
+                <h2 id="durable-heading">Who owns the action—and could the effect have begun?</h2>
+
+                <p>Once Mycelium recognizes an action, it needs durable answers to two questions: which worker currently owns it, and could the external effect already have happened? The <code>ActionLedger</code> is authoritative for both. It stores identity and arguments, owner, lease and fence, boundary state, provider reference, result, policy decision, outcome, and operator resolution.</p>
+
+                <p>The backend determines where that memory survives:</p>
+
+                <ul>
+                    <li><strong>Memory</strong> is useful for tests but disappears with the process.</li>
+                    <li><strong>File and SQLite</strong> provide durable single-node storage.</li>
+                    <li><strong>Redis and PostgreSQL</strong> support shared multi-worker deployments when configured with the durability the application requires.</li>
+                </ul>
+
+                <p>A lease gives one worker temporary ownership. Each new claim receives a higher fence number. Important later writes must present the current fence, so a stalled worker cannot wake up and overwrite the result of its replacement. By default, reclaim also requires worker-death evidence; an expired lease alone does not prove the old worker stopped.</p>
+
+                <p>Ownership cannot reveal whether a remote request happened. The application must mark the point where an external call may begin. Mycelium's synchronous and asynchronous <code>side_effect</code> contexts record that boundary conservatively: entry records <code>maybe_crossed</code> before the provider call, clean exit records <code>crossed</code>, and an exception after entry stays ambiguous.</p>
+
+                <pre><code>from mycelium import (
+    SideEffectClass, ToolTransitionBinding,
+    ledger_sync, side_effect,
+)
+
+binding = ToolTransitionBinding.for_tool(
+    agent_id="billing-agent",
+    policy_version="2026-08-1",
+    side_effect_class=SideEffectClass.NON_IDEMPOTENT_MUTATE,
+    request_id_from="order_id",
+)
+
+@ledger_sync(storage=durable_ledger, transition_binding=binding)
+def charge_order(order_id: str, amount_cents: int):
+    with side_effect():
+        return payment_gateway.charge(order_id, amount_cents)</code></pre>
+
+                <p>This is intentionally small. A production integration still needs correct scope, durable storage, truthful provider reconciliation or supported idempotency, secret handling, and application tests. A direct provider call that bypasses every protected boundary remains outside Mycelium's control.</p>
+            </section>
+
+            <section id="recovery" aria-labelledby="recovery-heading">
+                <span class="section-number">05 · Recovery semantics</span>
+                <h2 id="recovery-heading">Recovery depends on the effect and the evidence.</h2>
+
+                <p>After an interrupted call, there is no correct universal retry rule. Mycelium needs to know both what repeating the operation would do and what evidence exists about the first attempt.</p>
+
+                <h3>What would a repeat do?</h3>
+                <ul>
+                    <li>A <strong>read</strong> creates no external mutation and can normally be repeated.</li>
+                    <li>An <strong>idempotent mutation</strong> sets a resource to the same intended state when repeated.</li>
+                    <li>A <strong>keyed mutation</strong> is safe only when the provider receives the same valid idempotency key.</li>
+                    <li>A <strong>non-idempotent mutation</strong> creates another effect—another message, charge, or record.</li>
+                    <li>An <strong>irreversible action</strong> cannot be safely undone and needs the most conservative handling.</li>
+                </ul>
+
+                <h3>How can we know what happened?</h3>
+                <ul>
+                    <li>An <strong>idempotent</strong> operation may permit a policy-controlled repeat.</li>
+                    <li>A <strong>queryable</strong> operation has a trustworthy read-only provider lookup for this specific effect.</li>
+                    <li>A <strong>blind</strong> operation has no reliable way to determine its outcome.</li>
+                </ul>
+
+                <p>Mycelium combines those answers with boundary state. It may return a stored result, safely repeat an idempotent operation, reuse a valid provider key, reconcile through a read-only lookup, authorize one attempt after confirmed non-execution, or hard-block when uncertainty remains.</p>
+
+                <p>Reading inventory may be repeatable. Setting a CRM field to an exact value may be idempotent. Creating a payment may be safe only with the same provider key. Sending a message may produce a duplicate. Deleting a record may be irreversible. The business domain does not decide the classification; the provider operation's real behavior does.</p>
+
+                <p class="evidence">Classification contracts: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/transition.py">SideEffectClass, ToolCapability, and ToolTransitionBinding</a></p>
+
+                <h3>Failure posture by durable evidence</h3>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Failure recovery table">
+                    <table class="failure-table">
+                        <thead>
+                            <tr><th>Failure point</th><th>Durable evidence</th><th>Default posture</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Before claim</td><td>No row owns the effect</td><td>A later valid call may claim it</td></tr>
+                            <tr><td>After <code>INTENDED</code>, before permission</td><td>Intent exists; permission does not</td><td>Resolve through the fenced protocol; strict mutations may block</td></tr>
+                            <tr><td>After decision, before provider boundary</td><td><code>ATTEMPTING</code>, boundary <code>not_crossed</code></td><td>Known pre-effect failure aborts; crash recovery follows evidence and classification</td></tr>
+                            <tr><td>Provider call may be in progress</td><td><code>ATTEMPTING</code>, boundary <code>maybe_crossed</code></td><td>Treat as ambiguous; poll, reconcile, or block</td></tr>
+                            <tr><td>Provider succeeded and completion was recorded</td><td><code>COMMITTED</code> with stored result</td><td>Return the result; do not run the body again</td></tr>
+                            <tr><td>Provider succeeded; worker died before recording it</td><td>Expired/in-flight or <code>UNKNOWN</code>; provider reference may exist</td><td>Use trustworthy reconciliation; otherwise block</td></tr>
+                            <tr><td>Provider proves non-execution</td><td><code>NOT_EXECUTED</code> verdict</td><td>Reset under compare-and-swap and permit one execution</td></tr>
+                            <tr><td>Provider cannot decide</td><td><code>UNKNOWN</code></td><td>Fail closed pending evidence or operator action</td></tr>
+                            <tr><td>Old worker resumes after takeover</td><td>Its fence is stale</td><td>Reject its state mutation</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="evidence">Two-worker behavior: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_two_worker_envelope.py">test_two_worker_envelope.py</a></p>
+            </section>
+
+            <section id="reconciliation" aria-labelledby="reconciliation-heading">
+                <span class="section-number">06 · Reconciliation</span>
+                <h2 id="reconciliation-heading">When the answer is unclear, ask what happened.</h2>
+
+                <p>When an action becomes <code>UNKNOWN</code>, Mycelium does not assume failure and blindly repeat it. If the application recorded a provider operation reference, a registered read-only reconciler can ask the provider.</p>
+
+                <div class="verdict-grid">
+                    <div class="verdict-card">
+                        <b>Completed</b>
+                        <p>Record and return the provider-confirmed result. Do not run the tool again.</p>
+                    </div>
+                    <div class="verdict-card">
+                        <b>Not executed</b>
+                        <p>Perform a fenced reset that can authorize one execution.</p>
+                    </div>
+                    <div class="verdict-card">
+                        <b>Unknown</b>
+                        <p>Keep the action blocked. Missing evidence is not permission.</p>
+                    </div>
+                </div>
+
+                <p>Timeouts, outages, lookup errors, and missing references also fail closed. A provider-conformance kit can test whether an adapter behaves conservatively, but it cannot prove that deployed credentials are read-only or that a third-party API is complete. During indexing delay, zero matches should normally remain <code>UNKNOWN</code>, not become <code>NOT_EXECUTED</code>.</p>
+
+                <p>If automated proof is unavailable, an authorized operator can resolve the transition. Mycelium records that decision instead of erasing history, and a “not executed” resolution grants only one new attempt. An <code>OperatorAuthorizer</code> can enforce host authentication; a CLI <code>--by</code> label is audit context, not identity proof.</p>
+
+                <p class="evidence">Contract: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/reconcile.py">reconcile.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_reconcile.py">test_reconcile.py</a></p>
+            </section>
+
+            <section id="guardrails" aria-labelledby="guardrails-heading">
+                <span class="section-number">07 · Guardrails</span>
+                <h2 id="guardrails-heading">“Can this effect run again?” is only one question.</h2>
+
+                <p>The ledger answers whether the same external effect may execute again. Other controls answer whether the proposed action is allowed now and whether the run is ready to finish.</p>
+
+                <ul>
+                    <li>Outer <strong>scope, state-authority, loop, and budget guards</strong> can stop a call before it creates a ledger claim.</li>
+                    <li>For a ledger-backed consequential tool, <strong>destination, destructive, secret, authority, and use-time facts</strong> join the fenced atomic decision before the body runs. Time-sensitive authority is checked again at the final use boundary.</li>
+                    <li><strong>Completion contracts</strong> prevent supported terminal paths from reporting success while required work is still pending.</li>
+                </ul>
+
+                <p>These controls are opt-in and depend on evidence from the host. YAML cannot protect a callable that bypasses its wrapper, and Mycelium cannot invent destination authority or business permissions. Secret references reduce accidental exposure in configuration and evidence, but no wrapper can protect a value after application code resolves and logs it.</p>
+
+                <p class="evidence">Full assumptions: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/docs/FAILURE_AND_THREAT_MODEL.md">failure and threat model</a></p>
+            </section>
+
+            <section id="evidence" aria-labelledby="evidence-heading">
+                <span class="section-number">08 · Evidence</span>
+                <h2 id="evidence-heading">The state machine governs. Telemetry shows whether it behaved.</h2>
+
+                <p>The ledger is authoritative; outcome rows make its behavior observable. <code>OutcomeEmitter</code> appends compact events for resolution decisions, body start, completion or failure, policy denials, operator releases, stale-fence rejections, and lease-renewal failures. It also records whether a repeated body execution consumed a valid <code>NOT_EXECUTED</code> verdict.</p>
+
+                <p>Those rows support the Duplicate Tool Transition Rate: silent duplicate body executions divided by transitions that were redispatched or considered long-running. DTTR measures only the events it receives and retains. It cannot reveal calls that bypassed Mycelium or evidence that was never emitted.</p>
+
+                <p>Production configuration requires durable outcome storage and an error failure policy. If append fails, Mycelium raises <code>OutcomeEmitError</code> instead of silently discarding required evidence. That exception cannot undo an external effect that already happened, so the ledger remains authoritative and emitter failures need operational monitoring.</p>
+
+                <p>The CLI supports paginated inspection, sanitized NDJSON export, dry-run-first retention pruning, optional archive-before-delete, and plan/apply state migrations. Optional signed audit receipts make selected records tamper-evident; they do not replace authentication or storage access control.</p>
+
+                <p class="evidence">Implementation: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/outcome_emit.py">outcome_emit.py</a> · Tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_outcome_emit.py">test_outcome_emit.py</a> · Guide: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/README.md#transition-pagination-and-retention">pagination and retention</a></p>
+
+                <h3>Doctor inspects; Verify exercises</h3>
+                <div class="proof-grid">
+                    <div class="proof-card">
+                        <b>Doctor · read-only</b>
+                        <p>Inspects configuration, detectable registration, and optional connectivity. It reports static, runtime, connectivity, operator-asserted, and unverifiable evidence without running application tools or an LLM.</p>
+                    </div>
+                    <div class="proof-card">
+                        <b>Verify · synthetic</b>
+                        <p>Runs Doctor, creates an isolated namespace, and exercises contention, redispatch, crashes, storage failures, ambiguity, reconciliation, guards, and protocol invariants without invoking real business tools.</p>
+                    </div>
+                </div>
+
+                <p>Optional cluster verification can exercise a sandbox adapter with shared Redis or PostgreSQL and produce a signed deployment attestation. It proves only the named sandbox sequence and configuration—not production credentials, provider truth, or production equivalence.</p>
+
+                <pre><code>$ mycelium doctor --config mycelium.yaml --strict
+$ mycelium verify --config mycelium.yaml --scenario all --strict
+$ python -m pytest sdk/tests -q</code></pre>
+
+                <p class="evidence">Engines: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/doctor/engine.py">Doctor</a> and <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/mycelium/verify/engine.py">Verify</a> · Proof tests: <a href="https://github.com/mycelium-labs/mycelium/blob/main/sdk/tests/test_effect_protocol_proof.py">effect protocol</a></p>
+            </section>
+
+            <section id="adoption" aria-labelledby="adoption-heading">
+                <span class="section-number">09 · Adoption</span>
+                <h2 id="adoption-heading">Begin with one consequential boundary.</h2>
+
+                <p>Start with one external mutation whose duplicate, wrong destination, or uncertain outcome would matter:</p>
+
+                <ol class="boundary-list">
+                    <li>Install the released <code>mycelium-runtime</code> package and use the documentation for that release.</li>
+                    <li>Give the operation a stable, host-owned business identity.</li>
+                    <li>Classify its effect and recovery capability truthfully.</li>
+                    <li>Choose storage that matches the deployment topology.</li>
+                    <li>Route the real provider call through a wrapper or supported integration.</li>
+                    <li>Add a provider key or read-only reconciler only when the provider truly supports it.</li>
+                    <li>Add the necessary guards, then run application tests, Doctor, and Verify.</li>
+                </ol>
+
+                <p>Versioned YAML, JSON Schema, generated configuration reference, and CLI templates make those choices reviewable. They cannot supply business identity, credentials, permissions, or provider truth for the application.</p>
+            </section>
+
+            <section id="boundaries" aria-labelledby="boundaries-heading">
+                <span class="section-number">10 · Guarantees and boundaries</span>
+                <h2 id="boundaries-heading">The limitations are part of the guarantee.</h2>
+
+                <p>For one stable protected effect identity, Mycelium permits one initial winning attempt. Another body execution requires a consumed, truthful <code>NOT_EXECUTED</code> verdict proving the earlier attempt created no external effect. This supports an at-most-once external-effect guarantee under the documented protocol. It is not universal provider-level exactly-once delivery.</p>
+
+                <p>The guarantee depends on every consequential call crossing the protected boundary, complete host-owned identity, truthful classification and provider evidence, and storage whose atomicity and durability fit the deployment. A wrong reconciler verdict, incomplete identity, bypassed wrapper, or unsuitable backend invalidates the premise.</p>
+
+                <p>Mycelium does not automatically observe an agent CLI's internal messages and tool calls or discover every network request in arbitrary code. Calls must pass through a wrapper, registered callable, supported framework or client integration, or another controlled boundary. Broader automatic discovery is later scope.</p>
+
+                <p>One ledgered transition represents one independently observable and reconcilable effect. If one opaque function hides several unrelated effects, Mycelium cannot infer which internal steps succeeded after a crash. Explicit child boundaries or provider/client instrumentation can expose them; unchanged-function composite recovery is later scope.</p>
+
+                <aside class="pullquote">Saying <code>UNKNOWN</code> when evidence is missing is safer than silently turning an assumption into permission.</aside>
+            </section>
+        </article>
+
+        <footer class="article-footer">
+            <p class="closing">A consequential agent action should not be a bare function call surrounded by hope. It should have stable identity, current authorization, durable intent, a fenced owner, an observable effect boundary, a terminal state, outcome evidence, and a recovery path based on proof.</p>
+            <p class="item-links">
+                <a href="https://github.com/mycelium-labs/mycelium">View the source</a> ·
+                <a href="https://mycelium-labs.github.io/">Read the handbook</a> ·
+                <a href="https://pypi.org/project/mycelium-runtime/">Install from PyPI</a>
+            </p>
+            <p>© 2026 Nandana Dileep · <a href="../index.html">Home</a> · <a href="../llms.txt">llms.txt</a></p>
+        </footer>
+    </main>
+
+    <script data-goatcounter="https://nandana.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    <script src="../motion.js"></script>
+</body>
+</html>
