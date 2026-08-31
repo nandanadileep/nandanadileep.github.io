@@ -49,5 +49,6 @@
 
 - [Portfolio home](https://nandanadileep.com/): Primary profile page with projects, work, and writing
 - [Miscellaneous](https://nandanadileep.com/haphazards.html): Reading notes, math, and small curiosities
+- [Some beliefs leave slowly](https://nandanadileep.com/beliefs-leave-slowly.html): A brief note on Bertrand Russell, old beliefs, and reasoning with ourselves until they loosen their hold
 - [Meditations](https://nandanadileep.com/meditations.html): Notes from Marcus Aurelius
 - [sitemap.xml](https://nandanadileep.com/sitemap.xml)
