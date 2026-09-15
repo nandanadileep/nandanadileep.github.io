@@ -185,7 +185,7 @@ body:not(.home) h1 {
 
 .toc a:first-child { margin-left: -.48rem; }
 .toc a:hover,
-.toc a[aria-current="true"] {
+.toc a[aria-current="location"] {
     background: var(--accent-soft);
     color: var(--accent);
 }
@@ -416,6 +416,27 @@ footer {
 }
 footer p { margin: 0; }
 footer a { color: var(--muted); }
+
+.availability {
+    margin: 0 0 1.35rem;
+    padding-left: .85rem;
+    border-left: 2px solid var(--accent);
+    color: var(--muted);
+    font-size: .88rem;
+}
+.skip-link {
+    position: absolute;
+    top: .5rem;
+    left: 1rem;
+    padding: .4rem .7rem;
+    background: var(--paper);
+    transform: translateY(-200%);
+    z-index: 10;
+}
+.skip-link:focus { transform: none; }
+.home .meta, .home .affiliation { color: var(--muted); }
+.home .focus-card { min-height: auto; }
+.home .focus-card::before { margin-bottom: .8rem; }
 
 /* Essays and index pages */
 body:not(.home) { --width: 38rem; }

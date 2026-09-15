@@ -18,16 +18,24 @@
 - Medium: https://medium.com/@nandanadileep29
 - PyPI: https://pypi.org/project/mycelium-runtime/
 
+## Skills
+
+Python, C++, TypeScript, SQL; PyTorch, Transformers, LangGraph, CrewAI, LlamaIndex, RAG, MCP, MLX; FastAPI, Flask, PostgreSQL, Redis, Neo4j, OpenSearch; React, Next.js; AWS, Docker, Git, Linux, Pytest.
+
+## Opportunities
+
+Interested in applied AI, agent engineering, and AI backend roles at startups. Based in Bangalore and open to relocation. Resume: https://nandanadileep.com/resume.pdf
+
 ## Focus areas
 
 - Reliable agent execution and AI agent runtime safety
 - LLM infrastructure and serving (MLX, vLLM-style systems)
 - Knowledge graphs and personal AI memory
-- AI-native engineering platforms for software-defined vehicles
+- AI engineering platforms for software-defined vehicles
 
 ## Projects
 
-- [Mycelium](https://mycelium-labs.github.io/mycelium/): Open-source reliability runtime for consequential AI-agent tool calls. Durable transition envelopes return stored results, poll in-flight work, reconcile provider state, or fail closed under ambiguous mutating retries. Supports LangGraph, CrewAI, and custom Python loops with file, SQLite, Redis, and PostgreSQL ledgers. Its 800+ test verification posture covers process crashes, multi-worker races, storage outages, and reconciliation. SDK: mycelium-runtime on PyPI (v1.31.0). Source: https://github.com/mycelium-labs/mycelium · Stats: https://pepy.tech/projects/mycelium-runtime
+- [Mycelium](https://mycelium-labs.github.io/mycelium/): Open-source reliability runtime for consequential AI-agent tool calls. Durable transition envelopes return stored results, poll in-flight work, reconcile provider state, or fail closed under ambiguous mutating retries. Supports LangGraph, CrewAI, and custom Python loops with file, SQLite, Redis, and PostgreSQL ledgers. Tests cover process crashes, multi-worker races, storage outages, and reconciliation. SDK: mycelium-runtime on PyPI (30k downloads, as reported by Nandana on 2026-09-15). Source: https://github.com/mycelium-labs/mycelium · Stats: https://pepy.tech/projects/mycelium-runtime
 - Meridian: JLR Global Techathon 2026 winning hiring-automation platform. Converts job descriptions into skill-ontology graphs, overlays resumes with evidence-grounded present/partial/gap analysis, and generates adaptive assessments using topic-tree routing, Rasch ability estimation, and deduplicated question banks
 - [KAIROS / Auto-Agent](https://github.com/nandanadileep/auto-agent): Autonomous background coding agent with presence-aware notifications and nightly memory consolidation
 - [vLLM-style LLM Serving on Apple Silicon](https://github.com/nandanadileep/vllm-like-llm-serving): MLX inference engine with PagedAttention-inspired KV cache, continuous batching, OpenAI-compatible chat completions
@@ -35,7 +43,9 @@
 
 ## Work
 
-- JLR Technology & Business Services India (2024–present): Core developer on Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance; ML systems for test-rig optimization (18% cost reduction on 500K+ daily telemetry events)
+- Octopus at JLR: Built a system that prioritizes test cases using past execution results and relevance to code changes; adopted across JLR.
+
+- JLR Technology & Business Services India (2024–present): Core developer on an 8-person SDV team building Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance; develops GitLab CI/CD quality gates, AWS Bedrock-assisted authoring and review, and a knowledge-graph digital thread; deployed an ML system processing 500K+ daily telemetry events that reduced test-rig costs by 18%; adopted by a major vehicle program.
 - Amazon (Summer 2023): SWE Intern — Alexa latency-analysis service on AWS Lambda, Coral, and OpenSearch
 
 ## Writing
