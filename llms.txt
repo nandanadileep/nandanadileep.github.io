@@ -45,7 +45,7 @@ Interested in applied AI, agent engineering, and AI backend roles at startups. B
 
 - Octopus at JLR: Built a system that prioritizes test cases using past execution results and relevance to code changes; adopted across JLR.
 
-- JLR Technology & Business Services India (2024–present): Core developer on an 8-person SDV team building Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance; develops GitLab CI/CD quality gates, AWS Bedrock-assisted authoring and review, and a knowledge-graph digital thread; deployed an ML system processing 500K+ daily telemetry events that reduced test-rig costs by 18%; adopted by a major vehicle program.
+- JLR Technology & Business Services India (2024–present): Core developer on an 8-person SDV team building Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance; develops GitLab CI/CD quality gates, AWS Bedrock-assisted authoring and review, and a knowledge-graph digital thread; deployed an ML system processing 500K+ daily telemetry events that reduced test-rig costs by 18%; adopted by major vehicle programs and presented to JLR's CEO.
 - Amazon (Summer 2023): SWE Intern — Alexa latency-analysis service on AWS Lambda, Coral, and OpenSearch
 
 ## Writing
