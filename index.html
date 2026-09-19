@@ -122,6 +122,17 @@
               "position": 2,
               "item": {
                 "@type": "SoftwareApplication",
+                "name": "Self-Learning Content Writer",
+                "applicationCategory": "AIApplication",
+                "description": "Personal writing assistant that learns a user's voice from writing samples, revision history, and editorial feedback, using semantic retrieval and style profiles for context-aware drafting and editing.",
+                "author": { "@id": "https://nandanadileep.com/#person" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "SoftwareApplication",
                 "name": "Meridian",
                 "applicationCategory": "BusinessApplication",
                 "description": "JLR Global Techathon 2026 winning platform that automates hiring with skill-ontology knowledge graphs, evidence-grounded resume gap analysis, and adaptive technical assessments.",
@@ -130,7 +141,7 @@
             },
             {
               "@type": "ListItem",
-              "position": 3,
+              "position": 4,
               "item": {
                 "@type": "SoftwareSourceCode",
                 "name": "KAIROS / Auto-Agent",
@@ -142,7 +153,7 @@
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 5,
               "item": {
                 "@type": "SoftwareSourceCode",
                 "name": "vLLM-style LLM Serving on Apple Silicon",
@@ -153,7 +164,7 @@
             },
             {
               "@type": "ListItem",
-              "position": 5,
+              "position": 6,
               "item": {
                 "@type": "SoftwareApplication",
                 "name": "Identiti",
@@ -552,6 +563,17 @@
                     </div>
                     <p>Mycelium sits between the agent loop and tools. <code>mycelium init</code> / <code>mycelium run</code> wrap configured callables from YAML, while decorators and manual claim/execute/complete flows remain available. File, SQLite, Redis, and PostgreSQL ledgers persist leases, side-effect boundaries, and terminal outcomes. Tests cover process crashes, multi-worker races, storage outages, reconciliation, and operator release. It does not claim to solve hallucination, prompt injection, or general goal alignment.</p>
                 </details>
+            </article>
+
+            <article class="item" itemscope itemtype="https://schema.org/SoftwareApplication">
+                <h3 itemprop="name">Self-Learning Content Writer</h3>
+                <p class="meta">Personal project · Personalized AI writing</p>
+                <p class="desc" itemprop="description">I built a writing assistant that adapted to each user's voice by learning from writing samples, revision history, and editorial feedback.</p>
+                <ul>
+                    <li>Engineered a personalized retrieval pipeline with semantic embeddings, pgvector, and style profiles to guide context-aware drafting and editing</li>
+                    <li>Converted user edits into reusable writing preferences through a continuous feedback loop across technical tutorials and personal essays</li>
+                    <li>Designed the platform with Python, Supabase, Vercel, and Hugging Face for content ingestion, style analysis, AI-assisted editing, and private draft history</li>
+                </ul>
             </article>
 
             <article class="item" itemscope itemtype="https://schema.org/SoftwareApplication">
