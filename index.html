@@ -510,7 +510,7 @@
             <h1>Nandana Dileep</h1>
             <p class="role-heading">AI Engineer · Agentic Systems</p>
             <p class="affiliation">JLR · IIT Madras ’24</p>
-            <p class="tagline">I build AI agents and the systems that make their actions reliable.</p>
+            <p class="tagline">I build reliable AI systems and the infrastructure that supports them in production.</p>
             <p class="lede">At JLR, I build AI-assisted engineering software and production ML systems. Outside work, I created <a href="#mycelium">Mycelium</a>, an open-source runtime for reliable agent tool execution, and built systems for <a href="#llm-serving">LLM serving</a> and <a href="#identiti">persistent AI memory</a>. My work spans Python backends, tool calling, recovery, and product interfaces.</p>
             <div class="contact-actions">
                 <a class="contact-primary" href="mailto:nandanadileep29@gmail.com">Get in touch</a>
@@ -524,6 +524,52 @@
                 <a href="https://x.com/nandana_dileep" rel="me">Twitter</a>
             </p>
         </header>
+
+        <section id="personalized-writing" class="writing-tool" aria-labelledby="personalized-writing-heading">
+            <div class="writing-tool-intro">
+                <p class="eyebrow">A SMALL TOOL FOR BETTER WORDS</p>
+                <h2 id="personalized-writing-heading">Personalized AI writing</h2>
+                <p>Give it the thought, the reader, and a detail that sounds like you. It will shape a useful first draft in your browser.</p>
+                <p class="writing-privacy">Your notes stay on this page.</p>
+            </div>
+            <form id="writing-tool-form" class="writing-tool-form">
+                <div class="writing-tool-row">
+                    <label>Write a
+                        <select name="kind">
+                            <option value="message">message</option>
+                            <option value="introduction">short introduction</option>
+                            <option value="bio">personal bio</option>
+                            <option value="note">thoughtful note</option>
+                        </select>
+                    </label>
+                    <label>for
+                        <input name="audience" type="text" placeholder="a hiring manager, collaborator…" autocomplete="off">
+                    </label>
+                </div>
+                <label>What do you want to say?
+                    <textarea name="point" rows="3" placeholder="The point you want the reader to remember"></textarea>
+                </label>
+                <div class="writing-tool-row">
+                    <label>The tone
+                        <select name="tone">
+                            <option value="warm">warm and clear</option>
+                            <option value="direct">direct and confident</option>
+                            <option value="curious">curious and thoughtful</option>
+                            <option value="playful">light and playful</option>
+                        </select>
+                    </label>
+                    <label>A detail in your voice
+                        <input name="detail" type="text" placeholder="I like making complex things feel simple" autocomplete="off">
+                    </label>
+                </div>
+                <button type="submit">Shape my draft <span aria-hidden="true">↗</span></button>
+            </form>
+            <div id="writing-tool-result" class="writing-tool-result" hidden aria-live="polite">
+                <div class="writing-tool-result-head"><span class="eyebrow">YOUR FIRST DRAFT</span><button id="copy-writing-draft" type="button">Copy draft</button></div>
+                <p id="writing-tool-output"></p>
+                <button id="another-writing-draft" class="another-writing-draft" type="button">↻ Another take</button>
+            </div>
+        </section>
 
         <nav class="toc" aria-label="Sections">
             <a href="#projects">Projects</a> ·
@@ -686,6 +732,7 @@
     <script data-goatcounter="https://nandana.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
     <script src="motion.js"></script>
+    <script src="writing-tool.js"></script>
 
 </body>
 </html>
