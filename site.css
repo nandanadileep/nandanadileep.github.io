@@ -130,6 +130,35 @@ body:not(.home) h1 {
     text-transform: uppercase;
 }
 
+.role-heading {
+    margin: .6rem 0 .4rem;
+    color: var(--ink);
+    font-size: 1rem;
+    font-weight: 650;
+    letter-spacing: .015em;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .8rem 1.2rem;
+    margin: 0 0 1.2rem;
+    font-size: .85rem;
+    font-weight: 650;
+}
+
+.contact-actions .contact-primary {
+    padding: .7rem 1rem;
+    border-radius: 4px;
+    background: var(--ink);
+    color: var(--paper-raised);
+}
+
+.contact-actions .contact-primary:hover { background: #443a30; }
+.contact-actions .contact-primary::after { display: none; }
+.home article[id] { scroll-margin-top: 5rem; }
+
 .tagline {
     margin: 0 0 1.25rem;
     color: var(--muted);
