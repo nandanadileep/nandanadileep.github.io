@@ -15,6 +15,7 @@
 
 - GitHub: https://github.com/nandanadileep
 - LinkedIn: https://www.linkedin.com/in/nandana-dileep-06935a212/
+- X / Twitter: https://x.com/nandana_dileep
 - Medium: https://medium.com/@nandanadileep29
 - PyPI: https://pypi.org/project/mycelium-runtime/
 
