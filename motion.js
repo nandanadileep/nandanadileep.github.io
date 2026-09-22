@@ -3,7 +3,7 @@
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     
     // Sound state and files
-    let soundsEnabled = false;
+    let soundsEnabled = true; // On by default
     const sounds = {
         tap: null,
         flip: null,
@@ -56,19 +56,33 @@
         };
     }
     
+    // Initialize sounds on first user interaction (unlock AudioContext)
+    let soundsInitialized = false;
+    function ensureSoundsReady() {
+        if (!soundsInitialized) {
+            initSounds();
+            soundsInitialized = true;
+        }
+    }
+    
     // Sound toggle
     const soundToggle = document.getElementById('sound-toggle');
     if (soundToggle) {
-        soundToggle.classList.add('muted');
+        soundToggle.classList.remove('muted'); // Start unmuted
         soundToggle.addEventListener('click', () => {
             soundsEnabled = !soundsEnabled;
             soundToggle.classList.toggle('muted');
             if (soundsEnabled) {
-                initSounds();
-                sounds.tap();
+                ensureSoundsReady();
+                sounds.tap?.();
             }
         });
     }
+    
+    // Unlock audio on first interaction
+    document.addEventListener('click', () => {
+        ensureSoundsReady();
+    }, { once: true });
     
     // Blob canvas animation
     const blobCanvas = document.getElementById('blob-canvas');

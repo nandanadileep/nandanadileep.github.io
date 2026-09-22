@@ -20,7 +20,7 @@ Created a modern, card-based homepage inspired by the Freeform mood board with:
 Implemented all requested interactive elements:
 - **Floating dock navigation** — Smooth scroll, pill-style nav at bottom
 - **Blob canvas animation** — Subtle, cursor-following background element
-- **Sound toggle** — Muted by default, enables tap/flip/hover sounds
+- **Sound toggle** — UI sounds enabled by default, tap/flip/hover sounds
 - **Chat FAQ widget** — Expandable panel with configurable Q&A
 - **Tetris easter egg** — Playable game at /tetris.html
 - **Scroll animations** — Smooth reveal effects with `prefers-reduced-motion` support
@@ -55,7 +55,7 @@ All real articles with working links to Medium and on-site essays
 **Files Modified:**
 - `index.html` — New semantic structure with accessibility
 - `site.css` — Modern design system with CSS variables, grid, animations
-- `motion.js` — Enhanced with blob canvas, sound system, chat widget
+- `motion.js` — Enhanced with blob canvas, sound system (on by default), chat widget
 
 **Files Created:**
 - `tetris.html` — Lightweight Tetris game
@@ -86,7 +86,7 @@ All real articles with working links to Medium and on-site essays
 4. ✅ **"Wanna make a wall"** → Things I Love framed wall
 5. ✅ **"Keep some game"** → Tetris at /tetris.html
 6. ✅ **"Chat thing"** → FAQ widget (bottom-right)
-7. ✅ **"Tapping sound"** → UI sounds with toggle
+7. ✅ **"Tapping sound"** → UI sounds enabled by default
 8. ✅ **"Paper flipping sound"** → For essay/writing links
 9. ✅ **"Interactive element"** → Blob canvas animation
 10. ✅ **"Showing projects"** → Visual grid with hover effects
@@ -182,7 +182,7 @@ All real articles with working links to Medium and on-site essays
 ✅ Things I Love wall  
 ✅ Floating dock navigation  
 ✅ Blob animation (subtle, interactive)  
-✅ Sound toggle + effects (muted by default)  
+✅ Sound toggle + effects (enabled by default)  
 ✅ Chat FAQ widget (editable config)  
 ✅ Tetris easter egg  
 ✅ All real content (no fake data)  
@@ -230,7 +230,7 @@ const chatFAQ = [
 1. **DO NOT MERGE TO MAIN YET** — This is a draft PR for review
 2. **All existing pages work** — Essays, tictic, etc. unchanged
 3. **No deployment settings changed** — CNAME, robots.txt safe
-4. **Sounds muted by default** — Click toggle to enable
+4. **Sounds enabled by default** — Toggle available to mute if needed
 5. **Fully static** — No frameworks, no build process
 6. **Real content only** — All projects, skills, writing are authentic
 

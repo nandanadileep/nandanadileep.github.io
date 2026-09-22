@@ -50,7 +50,7 @@ If you're using VS Code or Cursor, install the "Live Server" extension and right
 - **Soft blob animation** in the background (subtle, interactive, follows cursor)
 
 ### Interactive Features
-- **Sound toggle** (top right) — muted by default, enables UI sounds when clicked
+- **Sound toggle** (top right) — UI sounds are enabled by default
   - Tap sounds for cards and buttons
   - Paper-flip sound for writing links
   - Hover sounds for navigation
@@ -69,7 +69,7 @@ All content is pulled from real sources:
 ### Files Changed
 - `index.html` — Completely redesigned structure
 - `site.css` — New design system with modern colors, cards, and animations
-- `motion.js` — Enhanced with blob canvas, sound effects, chat widget, and scroll animations
+- `motion.js` — Enhanced with blob canvas, sound effects (on by default), chat widget, and scroll animations
 - `tetris.html` — New lightweight Tetris game
 
 ## Testing Checklist
@@ -79,7 +79,7 @@ All content is pulled from real sources:
 - [ ] Skills dark card is readable
 - [ ] Things I Love wall shows 6 frames
 - [ ] Floating dock navigation works
-- [ ] Sound toggle enables/disables sounds
+- [ ] Sound toggle available (sounds enabled by default)
 - [ ] Chat FAQ widget opens and displays questions
 - [ ] Tetris game is playable
 - [ ] All links go to correct destinations
