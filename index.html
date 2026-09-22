@@ -109,579 +109,315 @@
           },
           "inLanguage": "en",
           "dateModified": "2026-09-21"
-        },
-        {
-          "@type": "ItemList",
-          "@id": "https://nandanadileep.com/#projects",
-          "name": "Projects by Nandana Dileep",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": "Mycelium",
-                "applicationCategory": "DeveloperApplication",
-                "operatingSystem": "Cross-platform",
-                "description": "Open-source reliability runtime for consequential AI-agent tool calls. Durable transition envelopes return stored results, poll in-flight work, reconcile provider state, or fail closed under ambiguous mutating retries. Published on PyPI as mycelium-runtime (30k downloads).",
-                "url": "https://mycelium.nandanadileep.com/",
-                "codeRepository": "https://github.com/mycelium-labs/mycelium",
-                "author": {
-                  "@id": "https://nandanadileep.com/#person"
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": "Self-Learning Content Writer",
-                "applicationCategory": "AIApplication",
-                "description": "Personal writing assistant that learns a user's voice from writing samples, revision history, and editorial feedback, using semantic retrieval and style profiles for context-aware drafting and editing.",
-                "author": {
-                  "@id": "https://nandanadileep.com/#person"
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": "Meridian",
-                "applicationCategory": "BusinessApplication",
-                "description": "JLR Global Techathon 2026 winning platform that automates hiring with skill-ontology knowledge graphs, evidence-grounded resume gap analysis, and adaptive technical assessments.",
-                "author": {
-                  "@id": "https://nandanadileep.com/#person"
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "item": {
-                "@type": "SoftwareSourceCode",
-                "name": "KAIROS / Auto-Agent",
-                "description": "Autonomous background coding agent with presence-aware notifications and nightly memory consolidation.",
-                "codeRepository": "https://github.com/nandanadileep/auto-agent",
-                "programmingLanguage": "Python",
-                "author": {
-                  "@id": "https://nandanadileep.com/#person"
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "item": {
-                "@type": "SoftwareSourceCode",
-                "name": "vLLM-style LLM Serving on Apple Silicon",
-                "description": "MLX-based LLM inference engine with PagedAttention-inspired KV cache, continuous batching, and OpenAI-compatible chat completions.",
-                "codeRepository": "https://github.com/nandanadileep/vllm-like-llm-serving",
-                "author": {
-                  "@id": "https://nandanadileep.com/#person"
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": "Identiti",
-                "applicationCategory": "WebApplication",
-                "description": "Personal AI memory layer that stores confidence-scored identity entities in a Neo4j knowledge graph.",
-                "url": "https://identiti.nandanadileep.com",
-                "codeRepository": "https://github.com/nandanadileep/aegis",
-                "author": {
-                  "@id": "https://nandanadileep.com/#person"
-                }
-              }
-            }
-          ]
         }
       ]
     }
     </script>
-    <style>
-        :root {
-            --milk: #ebe5db;
-            --milk-deep: #e2dcd2;
-            --ink: #1a1a1a;
-            --muted: #6b7280;
-            --faint: #9ca3af;
-            --orange: #d97706;
-            --line: #d8d2c8;
-            --width: 42rem;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 3.5rem 1rem 5rem;
-            background: var(--milk);
-            color: var(--ink);
-            font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        main {
-            max-width: var(--width);
-            margin: 0 auto;
-        }
-
-        a {
-            color: var(--orange);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .intro h1 {
-            margin: 0 0 0.15rem;
-            font-size: 1.35rem;
-            font-weight: 600;
-        }
-
-        .affiliation {
-            margin: 0 0 0.35rem;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        .tagline {
-            margin: 0 0 1rem;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .lede {
-            margin: 0 0 1.25rem;
-            max-width: 40rem;
-        }
-
-        .links {
-            margin: 0 0 2rem;
-            font-size: 0.92rem;
-        }
-
-        .toc {
-            margin: 0 0 2.5rem;
-            padding: 0 0 1.5rem;
-            border-bottom: 1px solid var(--line);
-            font-size: 0.88rem;
-            color: var(--muted);
-        }
-
-        .toc a {
-            color: var(--muted);
-        }
-
-        .toc a:hover {
-            color: var(--orange);
-        }
-
-        .aside {
-            margin: -1.75rem 0 2.5rem;
-            font-size: 0.88rem;
-            color: var(--faint);
-        }
-
-        .aside a {
-            color: var(--muted);
-        }
-
-        .aside a:hover {
-            color: var(--orange);
-        }
-
-        section {
-            margin-bottom: 2.75rem;
-        }
-
-        section h2 {
-            margin: 0 0 1rem;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
-        .item {
-            margin-bottom: 1.35rem;
-            padding-bottom: 1.35rem;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .item h3 {
-            margin: 0 0 0.2rem;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .meta {
-            margin: 0 0 0.45rem;
-            font-size: 0.88rem;
-            color: var(--muted);
-        }
-
-        .desc {
-            margin: 0 0 0.45rem;
-            font-size: 0.95rem;
-        }
-
-        .item-links {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        .item ul {
-            margin: 0.35rem 0 0;
-            padding-left: 1.2rem;
-            font-size: 0.95rem;
-        }
-
-        .item li {
-            margin-bottom: 0.3rem;
-        }
-
-        .item.featured {
-            margin-left: -1rem;
-            margin-right: -1rem;
-            padding: 1rem;
-            background: rgba(217, 119, 6, 0.07);
-            border: 1px solid rgba(217, 119, 6, 0.22);
-            border-radius: 10px;
-        }
-
-        .featured-label {
-            display: inline-block;
-            margin-bottom: 0.55rem;
-            color: var(--orange);
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .project-details {
-            margin-top: 0.7rem;
-            font-size: 0.88rem;
-            color: var(--muted);
-        }
-
-        .project-details summary {
-            width: fit-content;
-            color: var(--muted);
-            cursor: pointer;
-        }
-
-        .project-details summary:hover {
-            color: var(--orange);
-        }
-
-        .project-details p {
-            margin: 0.65rem 0 0;
-        }
-
-        .architecture-flow {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            margin-top: 0.75rem;
-            overflow-x: auto;
-            color: var(--ink);
-            white-space: nowrap;
-        }
-
-        .architecture-flow span {
-            padding: 0.35rem 0.55rem;
-            border: 1px solid var(--line);
-            border-radius: 5px;
-            background: var(--milk);
-            font-size: 0.78rem;
-        }
-
-        .architecture-flow b {
-            color: var(--faint);
-            font-weight: 400;
-        }
-
-        .writing {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .writing li {
-            margin-bottom: 0.55rem;
-            padding-bottom: 0.55rem;
-            border-bottom: 1px solid var(--line);
-            font-size: 0.95rem;
-        }
-
-        .writing li:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .section-link {
-            margin: 0.8rem 0 0;
-            font-size: 0.88rem;
-        }
-
-        footer {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--line);
-            font-size: 0.85rem;
-            color: var(--faint);
-        }
-
-        footer a {
-            color: var(--muted);
-        }
-
-        footer a:hover {
-            color: var(--orange);
-        }
-
-        #about .desc {
-            margin-bottom: 0.75rem;
-        }
-
-        #about .desc:last-child {
-            margin-bottom: 0;
-        }
-
-        .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.75rem;
-        }
-
-        .focus-card {
-            padding: 0.9rem;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-        }
-
-        .focus-card h3 {
-            margin: 0 0 0.3rem;
-            font-size: 0.9rem;
-        }
-
-        .focus-card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.86rem;
-        }
-
-        @media (max-width: 36rem) {
-            .focus-grid { grid-template-columns: 1fr; }
-        }
-
-        code {
-            font-size: 0.9em;
-        }
-    </style>
     <link rel="stylesheet" href="site.css">
 </head>
 
-<body class="home">
+<body class="home redesign">
 
-    <a class="skip-link" href="#projects">Skip to projects</a>
-    <main>
-        <header class="intro">
-            <h1>Nandana Dileep</h1>
-            <p class="role-heading">AI Engineer · Agentic Systems</p>
-            <p class="affiliation">JLR · IIT Madras ’24</p>
-            <p class="tagline">I build reliable AI systems and the infrastructure that supports them in production.</p>
-            <p class="lede">At JLR, I build AI-assisted engineering software and production ML systems. Outside work, I created <a href="#mycelium">Mycelium</a>, an open-source runtime for reliable agent tool execution, and built systems for <a href="#llm-serving">LLM serving</a> and <a href="#identiti">persistent AI memory</a>. My work spans Python backends, tool calling, recovery, and product interfaces.</p>
-            <div class="contact-actions">
-                <a class="contact-primary" href="mailto:nandanadileep29@gmail.com">Get in touch</a>
-                <a href="resume.pdf" download="Nandana-Dileep-Resume.pdf">Download resume</a>
-                <a href="#work">View experience</a>
+    <canvas id="blob-canvas" aria-hidden="true"></canvas>
+
+    <nav class="floating-dock" role="navigation" aria-label="Main navigation">
+        <a href="#top" aria-label="Home">Home</a>
+        <a href="#projects" aria-label="Projects">Projects</a>
+        <a href="#work" aria-label="Experience">Work</a>
+        <a href="#skills" aria-label="Skills">Skills</a>
+        <a href="#writing" aria-label="Writing">Writing</a>
+        <a href="#about" aria-label="About">About</a>
+    </nav>
+
+    <button class="sound-toggle" id="sound-toggle" aria-label="Toggle sounds" title="Toggle UI sounds">
+        <span class="sound-icon sound-off">🔇</span>
+        <span class="sound-icon sound-on">🔊</span>
+    </button>
+
+    <main id="top">
+        <header class="hero">
+            <div class="hero-content">
+                <h1 class="hero-name">Nandana Dileep</h1>
+                <p class="hero-title">AI Engineer · Agentic Systems</p>
+                <p class="hero-tagline">Building reliable AI infrastructure at JLR</p>
+                <div class="hero-links">
+                    <a href="mailto:nandanadileep29@gmail.com" class="hero-cta">Get in touch</a>
+                    <a href="https://github.com/nandanadileep" class="hero-link" rel="me">GitHub</a>
+                    <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" class="hero-link" rel="me">LinkedIn</a>
+                    <a href="https://medium.com/@nandanadileep29" class="hero-link" rel="me">Medium</a>
+                </div>
             </div>
-            <p class="links">
-                <a href="mailto:nandanadileep29@gmail.com">Email</a> ·
-                <a href="https://github.com/nandanadileep" rel="me">GitHub</a> ·
-                <a href="https://www.linkedin.com/in/nandana-dileep-06935a212/" rel="me">LinkedIn</a> ·
-                <a href="https://x.com/nandana_dileep" rel="me">Twitter</a>
-            </p>
         </header>
 
-        <nav class="toc" aria-label="Sections">
-            <a href="#projects">Projects</a> ·
-            <a href="#work">Experience</a> ·
-            <a href="#focus">Skills</a> ·
-            <a href="#writing">Writing</a> ·
-            <a href="#about">About</a> ·
-            <a href="haphazards.html">Miscellaneous</a>
-        </nav>
-
-
-        <section id="projects" aria-labelledby="projects-heading">
-            <h2 id="projects-heading">Selected AI engineering projects</h2>
-
-            <article class="item featured" id="mycelium" itemscope itemtype="https://schema.org/SoftwareApplication">
-                <span class="featured-label">Open source · Agent infrastructure</span>
-                <h3 itemprop="name">Mycelium</h3>
-                <p class="meta">Agent reliability runtime · 30k PyPI downloads · Open source</p>
-                <p class="desc" itemprop="description">I built Mycelium to handle a practical problem: an agent retries a tool call, but the first attempt may already have changed something. The runtime tracks actions and outcomes so it can reuse a completed result, wait for ongoing work, or stop an uncertain retry. It works with LangGraph, CrewAI, and custom Python agents.</p>
-                <p class="item-links">
-                    <a href="/read-about-mycelium/">Read the architecture</a> ·
-                    <a href="https://mycelium.nandanadileep.com/handbook.html" itemprop="url">Read docs</a> ·
-                    <a href="https://mycelium.nandanadileep.com/prevent-duplicate-tool-calls-langgraph.html">See a retry failure example</a> ·
-                    <a href="https://github.com/mycelium-labs/mycelium">View source</a> ·
-                    <a href="https://pypi.org/project/mycelium-runtime/">Install from PyPI</a> ·
-                    <a href="https://pepy.tech/projects/mycelium-runtime">Download stats</a>
-                </p>
-                <details class="project-details">
-                    <summary>How it works</summary>
-                    <div class="architecture-flow" aria-label="Mycelium architecture: Agent loop to Mycelium guards to Tool execution">
-                        <span>Agent loop</span>
-                        <b aria-hidden="true">→</b>
-                        <span>Mycelium guards</span>
-                        <b aria-hidden="true">→</b>
-                        <span>Tool execution</span>
+        <section id="projects" class="projects-section">
+            <h2 class="section-heading">Selected Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card project-mycelium">
+                    <span class="project-badge">Featured</span>
+                    <h3>Mycelium</h3>
+                    <p class="project-desc">Open-source reliability runtime for AI agent tool calls. 30k PyPI downloads.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Agent Infrastructure</span>
                     </div>
-                    <p>Mycelium sits between the agent loop and tools. <code>mycelium init</code> / <code>mycelium run</code> wrap configured callables from YAML, while decorators and manual claim/execute/complete flows remain available. File, SQLite, Redis, and PostgreSQL ledgers persist leases, side-effect boundaries, and terminal outcomes. Tests cover process crashes, multi-worker races, storage outages, reconciliation, and operator release. It does not claim to solve hallucination, prompt injection, or general goal alignment.</p>
-                </details>
-            </article>
+                    <div class="project-links">
+                        <a href="/read-about-mycelium/">Essay</a>
+                        <a href="https://github.com/mycelium-labs/mycelium">Source</a>
+                        <a href="https://mycelium.nandanadileep.com/">Docs</a>
+                    </div>
+                </article>
 
-            <article class="item" itemscope itemtype="https://schema.org/SoftwareApplication">
-                <h3 itemprop="name">Self-Learning Content Writer</h3>
-                <p class="meta">Personal project · Personalized AI writing tool</p>
-                <p class="desc" itemprop="description">I built a writing assistant that adapted to each user's voice by learning from writing samples, revision history, and editorial feedback.</p>
-                <ul>
-                    <li>Deployed and maintaining the application, and the database for semantic embeddings and style profiles</li>
-                </ul>
-            </article>
+                <article class="project-card project-meridian">
+                    <span class="project-badge">Techathon Winner</span>
+                    <h3>Meridian</h3>
+                    <p class="project-desc">JLR Global Techathon 2026 winner. AI hiring platform with skill graphs and adaptive assessments.</p>
+                    <div class="project-tags">
+                        <span>Knowledge Graphs</span>
+                        <span>NLP</span>
+                    </div>
+                </article>
 
-            <article class="item" itemscope itemtype="https://schema.org/SoftwareApplication">
-                <h3 itemprop="name">Meridian</h3>
-                <p class="meta">JLR Global Techathon 2026 Winner · AI hiring automation</p>
-                <p class="desc" itemprop="description">I built a hiring platform that compares job requirements with resume evidence, shows skill gaps, and creates adaptive technical assessments. Recruiters can inspect the evidence and review decisions. Meridian won the JLR Global Techathon in 2026.</p>
-                <details class="project-details">
-                    <summary>How it works</summary>
-                    <p>The JD-to-assessment pipeline combines ontology extraction, 5×5 topic-tree routing, 1PL Rasch ability estimation, bank-first question serving, and embedding/lexical deduplication. Audit trails and human review keep the system decision-support rather than automated hiring.</p>
-                </details>
-            </article>
+                <article class="project-card project-vllm">
+                    <h3>vLLM on Apple Silicon</h3>
+                    <p class="project-desc">MLX-based LLM serving with continuous batching and OpenAI-compatible API.</p>
+                    <div class="project-tags">
+                        <span>MLX</span>
+                        <span>LLM Serving</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/nandanadileep/vllm-like-llm-serving">Source</a>
+                        <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Article</a>
+                    </div>
+                </article>
 
-            <article class="item">
-                <h3>KAIROS / Auto-Agent</h3>
-                <p class="meta">Autonomous developer tooling</p>
-                <p class="desc">I built a background coding agent that monitors software projects, identifies tasks, and works on them. It uses git history, TODOs, and modified files for context, retains project memory across runs, and notifies the developer when attention is needed.</p>
-                <p class="item-links"><a href="https://github.com/nandanadileep/auto-agent">View source</a></p>
-                <details class="project-details">
-                    <summary>How it works</summary>
-                    <p>An asynchronous tick engine separates observation, autonomy decisions, and notification delivery. Nightly consolidation keeps persistent memory bounded while preserving useful project context.</p>
-                </details>
-            </article>
+                <article class="project-card project-identiti">
+                    <h3>Identiti</h3>
+                    <p class="project-desc">Personal AI memory layer using Neo4j knowledge graphs and confidence scoring.</p>
+                    <div class="project-tags">
+                        <span>Neo4j</span>
+                        <span>Knowledge Graphs</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://identiti.nandanadileep.com">Demo</a>
+                        <a href="https://github.com/nandanadileep/aegis">Source</a>
+                    </div>
+                </article>
 
-            <article class="item" id="llm-serving">
-                <h3>vLLM-style LLM Serving on Apple Silicon</h3>
-                <p class="meta">LLM inference infrastructure</p>
-                <p class="desc">I built a local LLM serving engine on Apple Silicon using MLX. It handles concurrent requests with continuous batching and PagedAttention-inspired KV cache management, and exposes OpenAI-compatible chat completions. The repository includes benchmarks against vLLM and llama.cpp.</p>
-                <p class="item-links">
-                    <a href="https://github.com/nandanadileep/vllm-like-llm-serving">View source</a> ·
-                    <a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Read architecture</a>
-                </p>
-                <details class="project-details">
-                    <summary>How it works</summary>
-                    <p>Request scheduling is decoupled from token generation so new requests can join active batches. Paged KV blocks and prefix reuse reduce memory waste and repeated prefill work.</p>
-                </details>
-            </article>
+                <article class="project-card project-autoagent">
+                    <h3>Auto-Agent</h3>
+                    <p class="project-desc">Autonomous background coding agent with presence-aware notifications.</p>
+                    <div class="project-tags">
+                        <span>Autonomous Agents</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/nandanadileep/auto-agent">Source</a>
+                    </div>
+                </article>
 
-            <article class="item" id="identiti">
-                <h3>Identiti</h3>
-                <p class="meta">Full-stack AI memory system</p>
-                <p class="desc">I built a personal AI memory layer that extracts information from conversations into a Neo4j knowledge graph. Users can review their stored information and export a portable memory card. The stack includes React, Flask, Redis, and Supabase authentication.</p>
-                <p class="item-links">
-                    <a href="https://identiti.nandanadileep.com">Open product</a> ·
-                    <a href="https://github.com/nandanadileep/aegis">View source</a>
-                </p>
-                <details class="project-details">
-                    <summary>How it works</summary>
-                    <p>Neo4j stores identity relationships, Redis holds conversation history, and extracted observations carry confidence scores to support review.</p>
-                </details>
-            </article>
-        </section>
-
-        <section id="work" aria-labelledby="work-heading">
-            <h2 id="work-heading">Experience</h2>
-
-            <article class="item">
-                <h3>JLR Technology & Business Services India</h3>
-                <p class="meta">AI Engineer · SDV · 2024 to present · Bangalore, India</p>
-                <ul>
-                    <li>Core developer on an 8-person SDV team building Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance</li>
-                    <li>Developing GitLab CI/CD quality gates, AWS Bedrock-assisted authoring and review, and a knowledge-graph digital thread; adopted by major vehicle programs and presented to JLR's CEO</li>
-                    <li>Deployed an ML system processing 500K+ daily telemetry events that reduced test-rig costs by 18%</li>
-                </ul>
-            </article>
-
-            <article class="item">
-                <h3>Amazon</h3>
-                <p class="meta">Software Development Engineer Intern · Summer 2023 · Bangalore, India</p>
-                <ul>
-                    <li>Designed and deployed an Alexa latency-analysis service using AWS Lambda, Coral, and OpenSearch</li>
-                    <li>Built an end-to-end test framework with JUnit 5 and Mockito</li>
-                </ul>
-            </article>
-        </section>
-
-        <section id="focus" aria-labelledby="focus-heading">
-            <h2 id="focus-heading">Tools I work with</h2>
-            <div class="focus-grid">
-                <div class="focus-card"><h3>AI and agents</h3><p>Python, PyTorch, Transformers, LangGraph, CrewAI, LlamaIndex, RAG, MCP, MLX.</p></div>
-                <div class="focus-card"><h3>Backend and data</h3><p>FastAPI, Flask, PostgreSQL, Redis, Neo4j, OpenSearch, SQL.</p></div>
-                <div class="focus-card"><h3>Web interfaces</h3><p>TypeScript, React, Next.js.</p></div>
-                <div class="focus-card"><h3>Engineering</h3><p>C++, AWS, Docker, Git, Linux, Pytest, JUnit, Mockito.</p></div>
+                <article class="project-card project-tictic">
+                    <h3>tictic</h3>
+                    <p class="project-desc">Native macOS voice typing for 23 Indian languages.</p>
+                    <div class="project-tags">
+                        <span>Swift</span>
+                        <span>STT</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="/tictic">Learn more</a>
+                        <a href="https://github.com/nandanadileep/tictic">Source</a>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="writing" aria-labelledby="writing-heading">
-            <h2 id="writing-heading">Writing</h2>
-            <ul class="writing">
-                <li><a href="/read-about-mycelium/">Mycelium: Turning AI Agents into Reliable Systems</a></li>
-                <li><a href="https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1">Checklist to Prevent All the Agent Failure Modes</a></li>
-                <li><a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05">Building a vLLM-Inspired LLM Serving Engine on Apple Silicon with MLX</a></li>
-                <li><a href="https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6">Swapped Every Part of nanoGPT With Modern Alternatives</a></li>
-            </ul>
-            <p class="section-link"><a href="https://medium.com/@nandanadileep29" rel="me">Read more on Medium</a></p>
-        </section>
+        <section id="work" class="work-section">
+            <h2 class="section-heading">Experience</h2>
+            <div class="work-timeline">
+                <article class="work-item">
+                    <div class="work-header">
+                        <h3>JLR Technology & Business Services India</h3>
+                        <span class="work-period">2024 - Present</span>
+                    </div>
+                    <p class="work-role">AI Engineer · Software-Defined Vehicles</p>
+                    <ul class="work-details">
+                        <li>Built Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance</li>
+                        <li>Deployed ML system processing 500K+ daily telemetry events, reducing test-rig costs by 18%</li>
+                        <li>Developed Octopus, a test prioritization system adopted across JLR</li>
+                    </ul>
+                </article>
 
-        <section id="about" aria-labelledby="about-heading">
-            <h2 id="about-heading">About</h2>
-            <div class="item">
-                <p class="desc">I studied Civil Engineering at IIT Madras, graduating in 2024. I interned at Amazon in 2023 and joined JLR as an AI engineer in July 2024.</p>
-                <p class="desc">My projects give me room to explore different parts of AI software: what happens when a tool call fails, how an agent keeps useful memory, and how to serve multiple model requests. I write about the implementation and the tradeoffs as I work through them.</p>
-                <p class="desc">Outside engineering, I keep <a href="haphazards.html">notes on reading, mathematics, and other curiosities</a>.</p>
-                <p class="desc">For questions about my work, <a href="mailto:nandanadileep29@gmail.com">get in touch</a>.</p>
+                <article class="work-item">
+                    <div class="work-header">
+                        <h3>Amazon</h3>
+                        <span class="work-period">Summer 2023</span>
+                    </div>
+                    <p class="work-role">Software Development Engineer Intern</p>
+                    <ul class="work-details">
+                        <li>Designed and deployed Alexa latency-analysis service on AWS Lambda and OpenSearch</li>
+                        <li>Built end-to-end test framework with JUnit 5 and Mockito</li>
+                    </ul>
+                </article>
+
+                <article class="work-item">
+                    <div class="work-header">
+                        <h3>Indian Institute of Technology Madras</h3>
+                        <span class="work-period">2020 - 2024</span>
+                    </div>
+                    <p class="work-role">B.Tech, Civil Engineering</p>
+                </article>
             </div>
         </section>
+
+        <section id="skills" class="skills-section">
+            <h2 class="section-heading">Skills & Stack</h2>
+            <div class="skills-container">
+                <div class="skills-card skills-dark">
+                    <div class="skills-column">
+                        <h3>Software</h3>
+                        <ul class="skills-checklist">
+                            <li><span class="check">✓</span> Python</li>
+                            <li><span class="check">✓</span> TypeScript</li>
+                            <li><span class="check">✓</span> C++</li>
+                            <li><span class="check">✓</span> PyTorch</li>
+                            <li><span class="check">✓</span> Transformers</li>
+                            <li><span class="check">✓</span> LangGraph</li>
+                            <li><span class="check">✓</span> CrewAI</li>
+                            <li><span class="check">✓</span> MLX</li>
+                            <li><span class="check">✓</span> vLLM</li>
+                            <li><span class="check">✓</span> FastAPI</li>
+                            <li><span class="check">✓</span> React</li>
+                            <li><span class="check">✓</span> Next.js</li>
+                        </ul>
+                    </div>
+                    <div class="skills-column">
+                        <h3>Infrastructure</h3>
+                        <ul class="skills-checklist">
+                            <li><span class="check">✓</span> PostgreSQL</li>
+                            <li><span class="check">✓</span> Redis</li>
+                            <li><span class="check">✓</span> Neo4j</li>
+                            <li><span class="check">✓</span> Docker</li>
+                            <li><span class="check">✓</span> AWS</li>
+                            <li><span class="check">✓</span> GCP</li>
+                            <li><span class="check">✓</span> Git</li>
+                            <li><span class="check">✓</span> Linux</li>
+                        </ul>
+                    </div>
+                    <div class="skills-column">
+                        <h3>Hardware</h3>
+                        <ul class="skills-checklist">
+                            <li><span class="check">✓</span> MacBook Pro M3</li>
+                            <li><span class="check">✓</span> CUDA GPUs</li>
+                            <li><span class="check">✓</span> Apple Silicon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="loves" class="loves-section">
+            <h2 class="section-heading">Things I Love</h2>
+            <div class="loves-wall">
+                <div class="love-frame frame-1">
+                    <div class="frame-content">📚</div>
+                    <p class="frame-label">Technical Writing</p>
+                </div>
+                <div class="love-frame frame-2">
+                    <div class="frame-content">🎮</div>
+                    <p class="frame-label">Game Dev</p>
+                </div>
+                <div class="love-frame frame-3">
+                    <div class="frame-content">🤖</div>
+                    <p class="frame-label">Agent Systems</p>
+                </div>
+                <div class="love-frame frame-4">
+                    <div class="frame-content">🏛️</div>
+                    <p class="frame-label">Philosophy</p>
+                </div>
+                <div class="love-frame frame-5">
+                    <div class="frame-content">🔬</div>
+                    <p class="frame-label">Research</p>
+                </div>
+                <div class="love-frame frame-6">
+                    <div class="frame-content">☕</div>
+                    <p class="frame-label">Coffee & Code</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="writing" class="writing-section">
+            <h2 class="section-heading">Writing</h2>
+            <div class="writing-grid">
+                <article class="writing-card">
+                    <h3><a href="/read-about-mycelium/" class="writing-link">Mycelium: Turning AI Agents into Reliable Systems</a></h3>
+                    <p class="writing-desc">A technical essay on stable action identity, durable claims, and recovery classification</p>
+                </article>
+
+                <article class="writing-card">
+                    <h3><a href="https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1" class="writing-link">Checklist to Prevent All the Agent Failure Modes</a></h3>
+                    <p class="writing-desc">Comprehensive guide to agent reliability and failure prevention</p>
+                </article>
+
+                <article class="writing-card">
+                    <h3><a href="https://medium.com/@nandanadileep29/building-a-vllm-inspired-llm-serving-engine-on-apple-silicon-with-mlx-65b0576ebd05" class="writing-link">Building a vLLM-Inspired LLM Serving Engine on Apple Silicon</a></h3>
+                    <p class="writing-desc">Deep dive into MLX inference architecture and continuous batching</p>
+                </article>
+
+                <article class="writing-card">
+                    <h3><a href="https://medium.com/@nandanadileep29/i-rebuilt-a-tiny-gpt-into-a-mini-deepseek-one-component-at-a-time-718d3e04cfb6" class="writing-link">Swapped Every Part of nanoGPT With Modern Alternatives</a></h3>
+                    <p class="writing-desc">Rebuilding a tiny GPT into a mini DeepSeek one component at a time</p>
+                </article>
+
+                <article class="writing-card">
+                    <h3><a href="/haphazards.html" class="writing-link">Haphazards</a></h3>
+                    <p class="writing-desc">Reading notes, math, and small curiosities</p>
+                </article>
+
+                <article class="writing-card">
+                    <h3><a href="/beliefs-leave-slowly.html" class="writing-link">Some Beliefs Leave Slowly</a></h3>
+                    <p class="writing-desc">Notes on Bertrand Russell and reasoning with ourselves</p>
+                </article>
+            </div>
+            <p class="section-more"><a href="https://medium.com/@nandanadileep29">View all writing on Medium →</a></p>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2 class="section-heading">About</h2>
+            <div class="about-content">
+                <p>I'm an AI engineer at JLR Technology & Business Services India, where I work on AI systems for software-defined vehicles. I graduated from IIT Madras in 2024 with a degree in Civil Engineering.</p>
+                
+                <p>My work focuses on reliable agent execution, LLM infrastructure, and the practical challenges of putting AI systems in production. I built Mycelium to solve the problem of retried tool calls in agent systems, and I explore LLM serving, knowledge graphs, and autonomous coding agents.</p>
+
+                <p>Outside engineering, I maintain <a href="/haphazards.html">notes on reading, mathematics, and other curiosities</a>, and I write about implementation details and technical tradeoffs on <a href="https://medium.com/@nandanadileep29">Medium</a>.</p>
+
+                <div class="about-links">
+                    <a href="mailto:nandanadileep29@gmail.com" class="about-cta">Get in touch</a>
+                    <a href="/resume.pdf" download="Nandana-Dileep-Resume.pdf">Download Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <aside class="chat-widget" id="chat-widget">
+            <button class="chat-toggle" id="chat-toggle" aria-label="Toggle FAQ chat">
+                <span class="chat-icon">💬</span>
+            </button>
+            <div class="chat-panel" id="chat-panel">
+                <div class="chat-header">
+                    <h3>Quick Facts</h3>
+                    <button class="chat-close" id="chat-close" aria-label="Close chat">×</button>
+                </div>
+                <div class="chat-content" id="chat-content">
+                    <p class="chat-intro">Pick a question:</p>
+                </div>
+            </div>
+        </aside>
+
+        <div class="easter-egg">
+            <a href="/tetris.html" class="easter-link" title="Play Tetris">🎮</a>
+        </div>
 
         <footer>
             <p>© 2026 Nandana Dileep · <a href="https://nandanadileep.com/">nandanadileep.com</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></p>
         </footer>
     </main>
-
 
     <script data-goatcounter="https://nandana.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
