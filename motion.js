@@ -137,9 +137,9 @@
                 ctx.closePath();
                 
                 const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-                gradient.addColorStop(0, 'rgba(234, 88, 12, 0.15)');
-                gradient.addColorStop(0.5, 'rgba(139, 92, 246, 0.1)');
-                gradient.addColorStop(1, 'rgba(59, 130, 246, 0.05)');
+                gradient.addColorStop(0, 'rgba(125, 29, 63, 0.15)');
+                gradient.addColorStop(0.5, 'rgba(107, 76, 94, 0.1)');
+                gradient.addColorStop(1, 'rgba(61, 90, 61, 0.05)');
                 
                 ctx.fillStyle = gradient;
                 ctx.fill();

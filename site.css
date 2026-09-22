@@ -1,26 +1,28 @@
 :root {
-    --milk: #fafaf9;
-    --paper: #f5f5f4;
-    --paper-raised: #ffffff;
+    --milk: #f5f1ed;
+    --paper: #f0ebe6;
+    --paper-raised: #faf8f5;
     --ink: #1a1817;
     --ink-light: #44403c;
-    --muted: #78716c;
-    --faint: #a8a29e;
-    --accent: #ea580c;
-    --accent-soft: rgba(234, 88, 12, 0.1);
-    --line: #e7e5e4;
-    --line-dark: #d6d3d1;
+    --muted: #6b6460;
+    --faint: #9d9490;
+    --accent: #7d1d3f;
+    --accent-soft: rgba(125, 29, 63, 0.1);
+    --line: #e7e2dc;
+    --line-dark: #d6cfca;
     
-    --purple: #8b5cf6;
-    --blue: #3b82f6;
-    --green: #10b981;
-    --yellow: #f59e0b;
-    --pink: #ec4899;
-    --cyan: #06b6d4;
+    --wine: #7d1d3f;
+    --wine-light: #a53d5f;
+    --forest: #3d5a3d;
+    --sage: #5a7c5a;
+    --plum: #6b4c5e;
+    --mauve: #8b6b7f;
+    --clay: #a67c52;
+    --moss: #6b7c4f;
     
-    --dark: #18181b;
-    --dark-card: #27272a;
-    --dark-border: #3f3f46;
+    --dark: #1a1214;
+    --dark-card: #2a2224;
+    --dark-border: #3f3638;
     
     --ease-out: cubic-bezier(.16, 1, .3, 1);
     --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
@@ -235,7 +237,7 @@ a:hover {
 .hero-cta:hover {
     background: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(234, 88, 12, 0.25);
+    box-shadow: 0 6px 20px rgba(125, 29, 63, 0.25);
 }
 
 .hero-link {
@@ -326,63 +328,63 @@ section {
 }
 
 .project-mycelium {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(139, 92, 246, 0.02));
-    border-color: rgba(139, 92, 246, 0.3);
+    background: linear-gradient(135deg, rgba(125, 29, 63, 0.08), rgba(125, 29, 63, 0.02));
+    border-color: rgba(125, 29, 63, 0.3);
 }
 
 .project-mycelium:hover {
-    border-color: var(--purple);
-    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.2);
+    border-color: var(--wine);
+    box-shadow: 0 12px 32px rgba(125, 29, 63, 0.2);
 }
 
 .project-meridian {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02));
-    border-color: rgba(16, 185, 129, 0.3);
+    background: linear-gradient(135deg, rgba(61, 90, 61, 0.08), rgba(61, 90, 61, 0.02));
+    border-color: rgba(61, 90, 61, 0.3);
 }
 
 .project-meridian:hover {
-    border-color: var(--green);
-    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.2);
+    border-color: var(--forest);
+    box-shadow: 0 12px 32px rgba(61, 90, 61, 0.2);
 }
 
 .project-vllm {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0.02));
-    border-color: rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, rgba(107, 76, 94, 0.08), rgba(107, 76, 94, 0.02));
+    border-color: rgba(107, 76, 94, 0.3);
 }
 
 .project-vllm:hover {
-    border-color: var(--blue);
-    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+    border-color: var(--plum);
+    box-shadow: 0 12px 32px rgba(107, 76, 94, 0.2);
 }
 
 .project-identiti {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(236, 72, 153, 0.02));
-    border-color: rgba(236, 72, 153, 0.3);
+    background: linear-gradient(135deg, rgba(90, 124, 90, 0.08), rgba(90, 124, 90, 0.02));
+    border-color: rgba(90, 124, 90, 0.3);
 }
 
 .project-identiti:hover {
-    border-color: var(--pink);
-    box-shadow: 0 12px 32px rgba(236, 72, 153, 0.2);
+    border-color: var(--sage);
+    box-shadow: 0 12px 32px rgba(90, 124, 90, 0.2);
 }
 
 .project-autoagent {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.02));
-    border-color: rgba(245, 158, 11, 0.3);
+    background: linear-gradient(135deg, rgba(166, 124, 82, 0.08), rgba(166, 124, 82, 0.02));
+    border-color: rgba(166, 124, 82, 0.3);
 }
 
 .project-autoagent:hover {
-    border-color: var(--yellow);
-    box-shadow: 0 12px 32px rgba(245, 158, 11, 0.2);
+    border-color: var(--clay);
+    box-shadow: 0 12px 32px rgba(166, 124, 82, 0.2);
 }
 
 .project-tictic {
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.02));
-    border-color: rgba(6, 182, 212, 0.3);
+    background: linear-gradient(135deg, rgba(107, 124, 79, 0.08), rgba(107, 124, 79, 0.02));
+    border-color: rgba(107, 124, 79, 0.3);
 }
 
 .project-tictic:hover {
-    border-color: var(--cyan);
-    box-shadow: 0 12px 32px rgba(6, 182, 212, 0.2);
+    border-color: var(--moss);
+    box-shadow: 0 12px 32px rgba(107, 124, 79, 0.2);
 }
 
 .project-badge {
@@ -514,7 +516,7 @@ section {
     padding: 1.5rem;
     border-radius: 12px;
     background: var(--paper-raised);
-    border-left: 4px solid var(--blue);
+    border-left: 4px solid var(--forest);
 }
 
 .education-header {
@@ -536,8 +538,8 @@ section {
     flex-shrink: 0;
     padding: 0.25rem 0.75rem;
     border-radius: 6px;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--blue);
+    background: rgba(61, 90, 61, 0.1);
+    color: var(--forest);
     font-size: 0.8rem;
     font-weight: 600;
 }
@@ -735,7 +737,7 @@ section {
     height: 56px;
     border-radius: 50%;
     border: none;
-    background: linear-gradient(135deg, var(--purple), var(--blue));
+    background: linear-gradient(135deg, var(--wine), var(--plum));
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
@@ -835,8 +837,8 @@ section {
     margin: 1rem 0;
     padding: 1rem;
     border-radius: 12px;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), transparent);
-    border-left: 4px solid var(--purple);
+    background: linear-gradient(135deg, rgba(125, 29, 63, 0.08), transparent);
+    border-left: 4px solid var(--wine);
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--ink-light);
