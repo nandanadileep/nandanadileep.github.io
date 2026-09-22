@@ -310,51 +310,19 @@ section {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Project Preview Frames */
+/* Project Preview Images */
 .project-preview {
     margin-bottom: 1.25rem;
-}
-
-.preview-frame {
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.08);
     overflow: hidden;
+    background: rgba(0, 0, 0, 0.02);
 }
 
-.preview-header {
-    display: flex;
-    gap: 6px;
-    padding: 8px 10px;
-    background: rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.preview-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.15);
-}
-
-.preview-content {
-    padding: 2rem 1.5rem;
-    text-align: center;
-}
-
-.preview-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--ink);
-}
-
-.preview-subtitle {
-    font-size: 0.875rem;
-    color: var(--muted);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.preview-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 .project-mycelium {
@@ -651,64 +619,6 @@ section {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 2rem 1.5rem;
-    }
-}
-
-/* Things I Love Wall */
-.loves-wall {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    max-width: 700px;
-}
-
-.love-frame {
-    position: relative;
-    aspect-ratio: 1;
-    padding: 1.5rem;
-    border-radius: 16px;
-    background: var(--paper-raised);
-    border: 3px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: all 0.4s var(--ease-out);
-    cursor: pointer;
-}
-
-.love-frame:hover {
-    transform: translateY(-8px) rotate(2deg);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-}
-
-.frame-content {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-
-.frame-label {
-    margin: 0;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--ink-light);
-}
-
-.frame-1 { border-color: var(--purple); }
-.frame-2 { border-color: var(--blue); }
-.frame-3 { border-color: var(--green); }
-.frame-4 { border-color: var(--yellow); }
-
-.frame-1:hover { background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), transparent); }
-.frame-2:hover { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent); }
-.frame-3:hover { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), transparent); }
-.frame-4:hover { background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), transparent); }
-
-@media (max-width: 768px) {
-    .loves-wall {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
     }
 }
 
