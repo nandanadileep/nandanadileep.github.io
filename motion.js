@@ -201,7 +201,7 @@
         },
         {
             question: "Can I hire you?",
-            answer: "I'm currently working full-time, but I'm always interested in consulting or collaboration opportunities. Email me at nandanadileep29@gmail.com"
+            answer: "I'm currently working full-time, but I'm always interested in collaboration or new opportunities. Email me at nandanadileep29@gmail.com"
         },
         {
             question: "Do you write?",
