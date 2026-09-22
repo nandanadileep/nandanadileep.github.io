@@ -64,22 +64,8 @@
             soundsInitialized = true;
         }
     }
-    
-    // Sound toggle
-    const soundToggle = document.getElementById('sound-toggle');
-    if (soundToggle) {
-        soundToggle.classList.remove('muted'); // Start unmuted
-        soundToggle.addEventListener('click', () => {
-            soundsEnabled = !soundsEnabled;
-            soundToggle.classList.toggle('muted');
-            if (soundsEnabled) {
-                ensureSoundsReady();
-                sounds.tap?.();
-            }
-        });
-    }
-    
-    // Unlock audio on first interaction
+
+    // Sounds always on; unlock AudioContext on first click
     document.addEventListener('click', () => {
         ensureSoundsReady();
     }, { once: true });
