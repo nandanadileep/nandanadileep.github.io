@@ -171,7 +171,7 @@
     const chatFAQ = [
         {
             question: "What do you do?",
-            answer: "I'm an AI engineer at JLR working on software-defined vehicles and AI infrastructure. I built Mycelium, an open-source agent runtime."
+            answer: "I'm an AI engineer working on software-defined vehicles and AI infrastructure. I built Mycelium, an open-source agent runtime."
         },
         {
             question: "Where did you study?",
@@ -187,7 +187,7 @@
         },
         {
             question: "Can I hire you?",
-            answer: "I'm currently at JLR, but I'm always interested in consulting or collaboration opportunities. Email me at nandanadileep29@gmail.com"
+            answer: "I'm currently working full-time, but I'm always interested in consulting or collaboration opportunities. Email me at nandanadileep29@gmail.com"
         },
         {
             question: "Do you write?",
