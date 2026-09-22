@@ -176,20 +176,21 @@ a:hover {
 
 .hero-links {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.75rem 1rem;
 }
 
 .hero-cta {
-    padding: 0.625rem 1.5rem;
-    border-radius: 10px;
-    background: var(--ink);
-    color: var(--paper-raised) !important;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s var(--ease-out);
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: #111;
+    color: #fff;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    text-decoration: none;
 }
 
 .hero-cta:hover {
@@ -199,14 +200,12 @@ a:hover {
 }
 
 .hero-link {
-    padding: 0.625rem 1.25rem;
-    border-radius: 10px;
-    background: var(--paper-raised);
-    border: 2px solid var(--line);
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
     font-size: 0.875rem;
-    color: var(--ink-light) !important;
-    transition: all 0.3s var(--ease-out);
+    line-height: 1.2;
+    color: var(--wine, #7d1d3f);
+    text-decoration: none;
 }
 
 .hero-link:hover {
