@@ -44,9 +44,10 @@ For questions about projects and technical writing: nandanadileep29@gmail.com. P
 
 ## Work
 
-- Octopus at JLR: Built a system that prioritizes test cases using past execution results and relevance to code changes; adopted across JLR.
-
-- JLR Technology & Business Services India (2024–present): Core developer on an 8-person SDV team building Sarvam, an AI-native Everything-as-Code platform for automotive requirements, HLD/LLD, tests, and compliance; develops GitLab CI/CD quality gates, AWS Bedrock-assisted authoring and review, and a knowledge-graph digital thread; deployed an ML system processing 500K+ daily telemetry events that reduced test-rig costs by 18%; adopted by major vehicle programs and presented to JLR's CEO.
+- SARVAM at JLR: Building JLR's Git-native Everything as Code platform for requirements, architecture, design, and tests in GitLab. Built CLI, VS Code, and web tooling; ISO 26262/ASPICE-aligned CI/CD quality gates and an artifact knowledge graph for bidirectional requirement-to-test traceability; and an air-gapped NVIDIA RAG Blueprint deployment on AWS EKS with seven offline NIM models for requirements Q&A and impact analysis.
+- Octopus at JLR: Built and am maintaining test prioritization from past execution results and code changes; adopted across JLR.
+- Telemetry ML at JLR: Built and am maintaining an ensemble classifier for 500K+ daily events, reducing test-rig costs by 18%.
+- GNSS at JLR: Built a C++/GTSAM vehicle positioning pipeline and presented it at the JLR Tech Symposium.
 - Amazon (Summer 2023): SWE Intern — Alexa latency-analysis service on AWS Lambda, Coral, and OpenSearch
 
 ## Writing
