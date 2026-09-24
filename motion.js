@@ -175,7 +175,7 @@
         },
         {
             question: "Where did you study?",
-            answer: "I graduated from IIT Madras in 2024 with a degree in Civil Engineering, but I've always been passionate about software and AI."
+            answer: "I graduated from IIT Madras in 2024 with a B.Tech in Civil Engineering, but I've always been passionate about software and AI."
         },
         {
             question: "What's Mycelium?",
