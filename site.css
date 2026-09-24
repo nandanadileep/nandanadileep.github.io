@@ -1139,6 +1139,15 @@ body.home .about-section footer {
         line-height: 1.45;
     }
 
+    body.home .hero-title-line {
+        display: block;
+        white-space: nowrap;
+    }
+
+    body.home .hero-title-separator {
+        display: none;
+    }
+
     body.home .hero-tagline {
         max-width: 19rem;
         margin: 0 auto 1.5rem;
