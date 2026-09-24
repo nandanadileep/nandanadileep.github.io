@@ -1111,3 +1111,133 @@ body.home .about-section footer {
         border-radius: 16px;
     }
 }
+
+@media (max-width: 560px) {
+    body.home main > .hero,
+    body.home main > section {
+        padding: 1.25rem 1rem calc(8.5rem + env(safe-area-inset-bottom));
+    }
+
+    body.home .hero-name {
+        font-size: clamp(2.25rem, 10vw, 3.25rem);
+        line-height: 1.05;
+    }
+
+    body.home .hero-title {
+        max-width: 25rem;
+        margin: 0 auto 0.6rem;
+        font-size: 1rem;
+        line-height: 1.45;
+    }
+
+    body.home .hero-tagline {
+        max-width: 19rem;
+        margin: 0 auto 1.5rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    body.home .hero-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.55rem;
+        max-width: 21rem;
+        margin: 0 auto;
+    }
+
+    body.home .hero-cta {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+
+    body.home .hero-link {
+        justify-content: center;
+        padding: 0.35rem 0;
+        font-size: 0.85rem;
+    }
+
+    body.home .section-heading {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    body.home .projects-grid,
+    body.home .writing-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.9rem;
+    }
+
+    body.home .project-card,
+    body.home .writing-card,
+    body.home .work-item {
+        padding: 1.1rem;
+    }
+
+    body.home .skills-dark {
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    body.home .skills-column h3 {
+        font-size: 0.72rem;
+        letter-spacing: 0.03em;
+    }
+
+    body.home .skills-checklist li {
+        gap: 0.4rem;
+        font-size: 0.76rem;
+    }
+
+    body.home .skills-checklist .check {
+        width: 17px;
+        height: 17px;
+    }
+
+    body.home .floating-dock {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 0.25rem;
+        left: 0.75rem;
+        right: 0.75rem;
+        max-width: none;
+        padding: 0.45rem;
+        overflow: visible;
+        white-space: normal;
+        border-radius: 18px;
+    }
+
+    body.home .floating-dock a {
+        min-width: 0;
+        padding: 0.55rem 0.15rem;
+        border-radius: 11px;
+        font-size: 0.72rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    body.home .floating-dock a:nth-child(-n + 4) {
+        grid-column: span 3;
+    }
+
+    body.home .floating-dock a:nth-child(n + 5) {
+        grid-column: span 4;
+    }
+
+    body.home .chat-widget {
+        right: 0.8rem;
+        top: calc(0.8rem + env(safe-area-inset-top));
+        bottom: auto;
+    }
+
+    body.home .chat-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 1.15rem;
+    }
+
+    body.home .chat-panel {
+        top: 52px;
+        bottom: auto;
+        max-height: calc(100dvh - 11rem);
+    }
+}
