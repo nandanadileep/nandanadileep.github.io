@@ -934,3 +934,180 @@ body:not(.redesign) #blob-canvas {
 .back a:hover::before {
     transform: translateX(-0.2rem);
 }
+
+/* Homepage: one horizontal panel per dock destination. */
+html:has(body.home) {
+    overflow: hidden;
+    scroll-behavior: auto;
+}
+
+body.home {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body.home main {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+}
+
+body.home main::-webkit-scrollbar {
+    display: none;
+}
+
+body.home main > .hero,
+body.home main > section {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: clamp(1.5rem, 5vh, 3.5rem) max(1.5rem, calc((100vw - 1200px) / 2));
+    padding-bottom: 8.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-dark) transparent;
+}
+
+body.home main > .hero {
+    display: grid;
+    place-items: center;
+}
+
+body.home .hero-content {
+    width: min(100%, 900px);
+}
+
+body.home .hero-links {
+    justify-content: center;
+}
+
+body.home .section-heading {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.25rem, 2.3vw, 2rem);
+    letter-spacing: -0.025em;
+    text-transform: none;
+    color: var(--ink);
+}
+
+body.home .projects-grid,
+body.home .writing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.25rem;
+    width: 100%;
+    padding-bottom: 0;
+    overflow: visible;
+}
+
+body.home .project-card {
+    min-width: 0;
+}
+
+body.home .writing-card {
+    min-width: 0;
+}
+
+body.home .work-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+body.home .skills-card {
+    max-width: 1100px;
+}
+
+body.home .skills-checklist {
+    columns: 1;
+}
+
+body.home .skills-checklist li {
+    break-inside: avoid;
+}
+
+body.home .floating-dock {
+    max-width: calc(100vw - 2rem);
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+}
+
+body.home .floating-dock a {
+    flex-shrink: 0;
+}
+
+body.home .floating-dock a.active,
+body.home .floating-dock a[aria-current="location"] {
+    background: var(--accent);
+    color: #fff;
+}
+
+body.home .about-section footer {
+    margin-top: 2rem;
+    padding: 1rem 0 0;
+}
+
+.js body.home main > * {
+    opacity: 1;
+    animation: none;
+}
+
+@media (max-width: 768px) {
+    body.home main > .hero,
+    body.home main > section {
+        padding: 1.5rem 1rem 7rem;
+    }
+
+    body.home .work-timeline {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        overflow: visible;
+    }
+
+    body.home .work-item {
+        flex: auto;
+    }
+
+    body.home .skills-dark {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    body.home .skills-checklist {
+        columns: 1;
+    }
+
+    body.home .skills-checklist li {
+        font-size: 0.8rem;
+        margin-bottom: 0.35rem;
+    }
+
+    body.home .floating-dock {
+        left: 1rem;
+        right: 1rem;
+        bottom: max(0.75rem, env(safe-area-inset-bottom));
+        transform: none;
+        animation: none;
+        border-radius: 16px;
+    }
+}

@@ -108,7 +108,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="site.css?v=2">
 </head>
 
 <body class="home redesign">
@@ -125,11 +125,11 @@
         <a href="/haphazards.html" aria-label="Miscellaneous">Misc</a>
     </nav>
 
-    <main id="top">
-        <header class="hero">
+    <main id="site-panels" aria-label="Portfolio sections">
+        <header id="top" class="hero">
             <div class="hero-content">
                 <h1 class="hero-name">Nandana Dileep</h1>
-                <p class="hero-title">AI Engineer · Agentic Systems</p>
+                <p class="hero-title">Alum @ IITM ’24 · AI Engineer @ Jaguar Land Rover</p>
                 <p class="hero-tagline">Building reliable AI infrastructure for production</p>
                 <div class="hero-links">
                     <a href="mailto:nandanadileep29@gmail.com" class="hero-cta">Get in touch</a>
@@ -261,17 +261,6 @@
             </div>
         </section>
 
-        <section id="education" class="education-section">
-            <h2 class="section-heading">Education</h2>
-            <div class="education-item">
-                <div class="education-header">
-                    <h3>Indian Institute of Technology Madras</h3>
-                    <span class="education-period">2020 - 2024</span>
-                </div>
-                <p class="education-degree">B.Tech, Civil Engineering</p>
-            </div>
-        </section>
-
         <section id="skills" class="skills-section">
             <h2 class="section-heading">Skills & Stack</h2>
             <div class="skills-container">
@@ -343,8 +332,6 @@
                 
                 <p>My work focuses on reliable agent execution, LLM infrastructure, and the practical challenges of putting AI systems in production. I built Mycelium to solve the problem of retried tool calls in agent systems, and I explore LLM serving, knowledge graphs, and autonomous coding agents.</p>
 
-                <p>Outside engineering, I maintain <a href="/haphazards.html">notes on reading, mathematics, and other curiosities</a>, and I write about implementation details and technical tradeoffs on <a href="https://medium.com/@nandanadileep29">Medium</a>.</p>
-
                 <p>I'm currently working full-time, but I'm always interested in collaboration or new opportunities. Email me at <a href="mailto:nandanadileep29@gmail.com">nandanadileep29@gmail.com</a>.</p>
 
                 <div class="about-links">
@@ -352,7 +339,12 @@
                     <a href="/resume.pdf" download="Nandana-Dileep-Resume.pdf">Download Resume</a>
                 </div>
             </div>
+            <footer>
+                <p>© 2026 Nandana Dileep · <a href="https://nandanadileep.com/">nandanadileep.com</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></p>
+            </footer>
         </section>
+
+    </main>
 
         <aside class="chat-widget" id="chat-widget">
             <button class="chat-toggle" id="chat-toggle" aria-label="Toggle FAQ chat">
@@ -369,14 +361,9 @@
             </div>
         </aside>
 
-        <footer>
-            <p>© 2026 Nandana Dileep · <a href="https://nandanadileep.com/">nandanadileep.com</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></p>
-        </footer>
-    </main>
-
     <script data-goatcounter="https://nandana.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
-    <script src="motion.js"></script>
+    <script src="motion.js?v=2"></script>
 
 </body>
 </html>
