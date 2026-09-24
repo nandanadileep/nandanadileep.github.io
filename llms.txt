@@ -25,7 +25,7 @@ Python, C++, TypeScript, SQL; PyTorch, Transformers, LangGraph, CrewAI, LlamaInd
 
 ## Contact
 
-For questions about projects and technical writing: nandanadileep29@gmail.com. Professional background: https://nandanadileep.com/resume.pdf
+For questions about projects and technical writing: nandanadileep29@gmail.com. Professional background: https://nandanadileep.com/resume.pdf?v=20260924
 
 ## Focus areas
 
