@@ -21,11 +21,11 @@
 
 ## Skills
 
-Python, C++, TypeScript, SQL; PyTorch, Transformers, LangGraph, CrewAI, LlamaIndex, RAG, MCP, MLX; FastAPI, Flask, PostgreSQL, Redis, Neo4j, OpenSearch; React, Next.js, Vercel AI SDK (UI streaming, tool calling, partial JSON); AWS, Docker, Git, Linux, Pytest.
+Python, C++, TypeScript, SQL; PyTorch, Transformers, LangGraph, CrewAI, LlamaIndex, RAG, MCP, MLX; FastAPI, Flask, PostgreSQL, Redis, Neo4j, OpenSearch; React, Next.js, Vercel AI SDK; AWS, Docker, Git, Linux, Pytest.
 
 ## Contact
 
-For questions about projects and technical writing: nandanadileep29@gmail.com. Professional background: https://nandanadileep.com/resume.pdf?v=20260928
+For questions about projects and technical writing: nandanadileep29@gmail.com. Professional background: https://nandanadileep.com/resume.pdf?v=20260928-2
 
 ## Focus areas
 
