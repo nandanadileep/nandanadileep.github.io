@@ -21,7 +21,7 @@
 
 ## Stack I Work With
 
-Python, C++, TypeScript, SQL; PyTorch, Transformers, LangGraph, CrewAI, LlamaIndex, RAG, MCP, MLX; FastAPI, Flask, PostgreSQL, Prisma, Drizzle, Redis, Neo4j, OpenSearch; React, Next.js, Clerk, Vercel AI SDK; AWS, Docker, Git, Linux, Pytest.
+Python, C++, TypeScript, SQL; PyTorch, Transformers, LangGraph, CrewAI, LlamaIndex, RAG, MCP, MLX; FastAPI, Flask, PostgreSQL, Prisma, Drizzle, Redis, Neo4j, OpenSearch; React, Next.js, Clerk, Vercel AI SDK; AWS, Docker, Kubernetes, Git, Linux, Pytest.
 
 ## Contact
 
