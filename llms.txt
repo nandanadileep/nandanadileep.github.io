@@ -23,9 +23,11 @@
 
 Python, C++, TypeScript, SQL; PyTorch, Transformers, LangGraph, CrewAI, LlamaIndex, RAG, MCP, MLX; FastAPI, Flask, PostgreSQL, Prisma, Drizzle, Redis, Neo4j, OpenSearch; React, Next.js, Clerk, Vercel AI SDK; AWS, Azure, Docker, Kubernetes, Git, Linux, Pytest.
 
+Web Platform & Performance: HTTP/HTTPS, browser rendering, caching, Core Web Vitals, Chrome DevTools profiling.
+
 ## Contact
 
-For AI Engineer and Full-Stack AI Engineer opportunities, projects, and technical writing: nandanadileep29@gmail.com. Professional background: https://nandanadileep.com/resume.pdf?v=20261004
+For AI Engineer and Full-Stack AI Engineer opportunities, projects, and technical writing: nandanadileep29@gmail.com. Professional background: https://nandanadileep.com/resume.pdf?v=20261006
 
 ## Focus areas
 
