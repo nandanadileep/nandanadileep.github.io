@@ -116,8 +116,9 @@ def build(output, origin):
                 pid = option.attrs['value']
                 option.set('value',project_routes[pid])
                 if pid == project_id: option.set('selected',None)
-            if not project_id:
-                picker.children.insert(0,element('option',{'value':routes['work'],'selected':None},'Choose a project'))
+            overview_option = element('option', {'value':routes['work']}, 'All projects')
+            if not project_id: overview_option.set('selected',None)
+            picker.children.insert(0,overview_option)
             reader = active.find(cls='work-reader-content')
             reader.children = []
             if project_id:
@@ -170,6 +171,10 @@ def build(output, origin):
             if 'data-jump' in node.attrs:
                 target = node.attrs['data-jump']
                 node.set('href',project_routes['jlr-1'] if target == 'work' else routes[target])
+                if target == 'work' and 'tool' in node.attrs.get('class','').split():
+                    node.set('href',routes['work'])
+                    node.set('data-mobile-href',routes['work'])
+                    node.set('data-desktop-href',project_routes['jlr-1'])
                 node.remove_attr('data-jump')
                 if 'tool' in node.attrs.get('class','').split():
                     is_active = target == ('about' if section_id == 'miscellaneous' else section_id)

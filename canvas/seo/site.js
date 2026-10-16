@@ -31,6 +31,14 @@
  fitHome();
  window.addEventListener('resize', fitHome);
  document.fonts.ready.then(fitHome);
+ const phone = matchMedia('(max-width:700px)');
+ const syncProjectNavigation = () => {
+  document.querySelectorAll('[data-mobile-href]').forEach(link => {
+   link.href = phone.matches ? link.dataset.mobileHref : link.dataset.desktopHref;
+  });
+ };
+ syncProjectNavigation();
+ phone.addEventListener('change', syncProjectNavigation);
  const picker = $('#work-project-select');
  picker?.addEventListener('change', () => location.assign(picker.value));
  const sayHi = $('#say-hi'), contacts = $('#contact-panel');
