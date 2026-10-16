@@ -190,6 +190,7 @@ def build(output, origin):
             doc.find(cls=cls).remove()
         doc.find(id='help-dialog').remove()
         body.append(element('script',{'id':'legacy-routes','type':'application/json'},json.dumps(legacy)))
+        body.append(element('script',{'data-goatcounter':'https://nandana.goatcounter.com/count','async':None,'src':'https://gc.zgo.at/count.js'}))
         head.children = []
         schema_json = json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False).replace('<','\\u003c')
         metadata = f'''<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
