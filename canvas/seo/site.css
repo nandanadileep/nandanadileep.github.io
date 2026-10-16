@@ -1,0 +1,24 @@
+/* Static routes share the canvas layout, including its fixed viewport. */
+.project-sidebar a{flex-shrink:0}
+.work-reader .work-slide h2{font-size:17px;font-weight:500;line-height:1.4;margin:0 0 14px}
+.project-directory{display:block;width:100%;min-width:0;margin:0;padding-bottom:24px}
+.project-directory-group{display:block;width:100%;min-width:0}
+.project-directory .project-directory-intro{font-size:15px;line-height:1.75;margin:0 0 16px;color:var(--muted)}
+.project-directory-group{margin-top:30px}
+.project-directory h2{font-size:15px;font-weight:500;margin:0 0 13px;color:#657184}
+.project-directory .project-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0}
+.project-directory .project-card-grid>li{display:flex;min-width:0;margin:0;padding:0}
+.project-directory .project-directory-card{display:flex;flex-direction:column;gap:12px;width:100%;padding:20px;border:1px solid #dce1e8;border-radius:10px;background:#f6f7f9;color:var(--ink);text-decoration:none;transition:border-color .18s ease,background .18s ease}
+.project-directory-card h3{font-size:18px;font-weight:450;line-height:1.35;letter-spacing:-.25px;margin:0}
+.project-directory .project-directory-card p{font-size:12px;line-height:1.75;color:#737d8d;margin:0}
+.project-directory .project-directory-card:hover{border-color:#aebacb;background:#eef1f5}
+.project-directory .project-directory-card:focus-visible{outline:2px solid #5375b4;outline-offset:3px}
+[data-theme=dark] .project-directory h2{color:#9eabbd}
+[data-theme=dark] .project-directory .project-directory-card{color:#d7dee8;border-color:#424c5b;background:#2c333e}
+[data-theme=dark] .project-directory .project-directory-card:hover{border-color:#b9a86b;background:#313a46}
+[data-theme=dark] .project-directory :is(p,.project-directory-intro){color:#a8b3c3}
+.section-title h1{margin:0;font-size:25px;font-weight:400;letter-spacing:-.6px}
+.misc-header h1{font-weight:400;font-size:32px;margin:8px 0 0}
+@media(max-width:700px){.section-title h1{font-size:21px}.misc-header h1{font-size:27px}.project-directory .project-directory-intro{font-size:13px}.project-directory h2{font-size:17px}.project-directory li>a{font-size:16px}.work-reader .work-slide h2{font-size:15px}}
+@media(max-width:1000px){.project-directory .project-card-grid{grid-template-columns:1fr}.project-directory .project-directory-card{padding:17px}.project-directory-card h3{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.project-directory .project-directory-card{transition:none}}
