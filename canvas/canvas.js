@@ -70,6 +70,7 @@ const fit = () => Math.min(1, Math.max(.45, (viewport.clientWidth - 115) / 1500)
 function fitHome() {
  if (preferredSection !== 'intro') return;
  const intro = document.querySelector('#intro');
+ if (mobile.matches) {intro.style.transform = ''; return;}
  const available = Math.max(1, viewport.clientHeight - (mobile.matches ? 100 : 48));
  intro.style.transform = `scale(${Math.min(1, available / intro.offsetHeight)})`;
  canvas.style.setProperty('--portrait-top',`${intro.offsetTop + 6}px`);

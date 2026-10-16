@@ -23,6 +23,7 @@
  const intro = $('#intro');
  function fitHome() {
   if(!intro) return;
+  if(matchMedia('(max-width:700px)').matches) {intro.style.transform = ''; return;}
   const available = Math.max(1, $('#viewport').clientHeight - (matchMedia('(max-width:700px)').matches ? 100 : 48));
   intro.style.transform = `scale(${Math.min(1, available / intro.offsetHeight)})`;
   $('#canvas').style.setProperty('--portrait-top', `${intro.offsetTop + 6}px`);
