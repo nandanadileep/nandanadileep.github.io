@@ -51,7 +51,8 @@ def build(output, origin):
     portrait = SOURCE / 'seo' / 'portrait.jpg'
     shutil.copy2(portrait if portrait.exists() else SOURCE / 'nandana.jpg', assets / 'portrait.jpg')
     shutil.copy2(REPO / 'resume.pdf', output / 'resume.pdf')
-    assets.joinpath('favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#d1bf78"/><text x="32" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" fill="#20242b">ND</text></svg>')
+    for filename in ['favicon.ico', 'favicon.png']:
+        shutil.copy2(REPO / filename, output / filename)
 
     person = {'@type':'Person', '@id':origin+'/#person', 'name':'Nandana Dileep', 'url':origin+'/',
               'jobTitle':'AI Engineer', 'image':origin+'/assets/portrait.jpg',
@@ -189,7 +190,7 @@ def build(output, origin):
         metadata = f'''<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="{escape(description,quote=True)}">
 <meta name="robots" content="index,follow,max-image-preview:large"><meta name="author" content="Nandana Dileep">
-<link rel="canonical" href="{origin}{route}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{origin}{route}"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="icon" href="/favicon.png" type="image/png"><link rel="apple-touch-icon" href="/favicon.png">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Nandana Dileep">
 <meta property="og:title" content="{escape(title,quote=True)}"><meta property="og:description" content="{escape(description,quote=True)}">
 <meta property="og:url" content="{origin}{route}"><meta property="og:image" content="{origin}/assets/portrait.jpg">
