@@ -1199,3 +1199,73 @@ body.home .about-section footer {
         max-height: calc(100dvh - 11rem);
     }
 }
+
+/* Two full-page color modes, independent of the device's light/dark setting. */
+html:has(body.home) {
+    --page-background: #302c3d;
+    --page-foreground: #ffffff;
+    --next-background: #174f40;
+    background: var(--page-background);
+}
+html[data-color="green"]:has(body.home) {
+    --page-background: #174f40;
+    --page-foreground: #ffffff;
+    --next-background: #302c3d;
+}
+body.home {
+    background: var(--page-background);
+    color: var(--page-foreground);
+}
+body.home main,
+body.home main > .hero,
+body.home main > section {
+    background: transparent;
+}
+body.home .hero-name {
+    background: none;
+    color: var(--page-foreground);
+    -webkit-text-fill-color: currentColor;
+}
+body.home .hero-title,
+body.home .hero-tagline,
+body.home .hero-link,
+body.home .hero-title a,
+body.home .hero-tagline a,
+body.home .section-heading,
+body.home .section-more a,
+body.home .about-content p,
+body.home .about-content p a,
+body.home .about-links > a:not(.about-cta),
+body.home footer,
+body.home footer a {
+    color: var(--page-foreground);
+}
+body.home .hero-title a,
+body.home .hero-tagline a,
+body.home .about-content p a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+body.home .color-toggle {
+    position: fixed;
+    top: calc(1rem + env(safe-area-inset-top));
+    left: 1rem;
+    z-index: 110;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: var(--next-background);
+    color: var(--page-foreground);
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+body.home .color-toggle:focus-visible {
+    outline: 2px solid var(--page-foreground);
+    outline-offset: 4px;
+}
+body.home main > section {
+    padding-top: max(5rem, calc(4rem + env(safe-area-inset-top)));
+}

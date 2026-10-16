@@ -117,12 +117,19 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="site.css?v=6">
+    <script>
+        try {
+            if (localStorage.getItem('portfolio-color') === 'green') {
+                document.documentElement.dataset.color = 'green';
+            }
+        } catch (_) {}
+    </script>
+    <link rel="stylesheet" href="site.css?v=8">
 </head>
 
 <body class="home redesign">
 
-    <canvas id="blob-canvas" aria-hidden="true"></canvas>
+    <button class="color-toggle" type="button" aria-label="Change background color" aria-pressed="false"></button>
 
     <nav class="floating-dock" role="navigation" aria-label="Main navigation">
         <a href="#top" aria-label="Home">Home</a>
@@ -139,6 +146,7 @@
             <div class="hero-content">
                 <h1 class="hero-name">Nandana Dileep</h1>
                 <p class="hero-title" style="font-weight: 400;">alum @ <a href="https://www.iitm.ac.in/" target="_blank" rel="noopener">iit madras</a><br>ai enggg @ <a href="https://www.jaguarlandrover.com/" target="_blank" rel="noopener">jaguar</a></p>
+                <p class="hero-tagline">Building <a href="https://github.com/mycelium-labs/mycelium" target="_blank" rel="noopener">Mycelium</a> (33k+ downloads)</p>
                 <p class="hero-tagline">i play @ <a href="https://www.chess.com/" target="_blank" rel="noopener">chess.com</a>, @<a href="https://www.geoguessr.com/" target="_blank" rel="noopener">geoguessr</a><br>i love to read different <a href="https://sebastianraschka.com/llm-architecture-gallery/">LLM architectures</a><br>i love math and music<br>i like to build around <a href="#projects">AI infrastructure</a><br>currently @ <a href="https://www.google.com/maps/place/Bengaluru,+Karnataka/" target="_blank" rel="noopener">bangalore</a></p>
                 <div class="hero-links">
                     <a href="mailto:nandanadileep29@gmail.com" class="hero-cta">Get in touch</a>
@@ -159,7 +167,7 @@
                         <img src="previews/mycelium-preview.png" alt="Mycelium project screenshot" class="preview-image">
                     </div>
                     <h3>Mycelium</h3>
-                    <p class="project-desc">Open-source reliability runtime for AI agent tool calls. 30k PyPI downloads.</p>
+                    <p class="project-desc">Open-source reliability runtime for AI agent tool calls. 33k+ PyPI downloads.</p>
                     <div class="project-tags">
                         <span>Python</span>
                         <span>Agent Infrastructure</span>
@@ -351,7 +359,7 @@
 
     <script data-goatcounter="https://nandana.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
-    <script src="motion.js?v=2"></script>
+    <script src="motion.js?v=4"></script>
 
 </body>
 </html>

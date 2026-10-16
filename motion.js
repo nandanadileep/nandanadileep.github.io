@@ -1,5 +1,18 @@
 (() => {
     const root = document.documentElement;
+    const colorToggle = document.querySelector('.color-toggle');
+    if (colorToggle) {
+        function syncColorToggle() {
+            const isGreen = root.dataset.color === 'green';
+            colorToggle.setAttribute('aria-pressed', String(isGreen));
+        }
+        syncColorToggle();
+        colorToggle.addEventListener('click', () => {
+            root.dataset.color = root.dataset.color === 'green' ? 'charcoal' : 'green';
+            try { localStorage.setItem('portfolio-color', root.dataset.color); } catch (_) {}
+            syncColorToggle();
+        });
+    }
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     
     // Sound state and files
