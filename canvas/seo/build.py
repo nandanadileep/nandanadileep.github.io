@@ -240,16 +240,16 @@ def build(output, origin):
     output.joinpath('404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page not found | Nandana Dileep</title><body><main><h1>This page is missing.</h1><p><a href="/">Back to Nandana’s homepage</a> or <a href="/projects/">browse the projects</a>.</p></main></body></html>')
     # One background implementation on every public page, including legacy essays.
     # Load it independently of page-specific controls so older pages work too.
-    magnet = (REPO / 'magnetic-dots.js').read_bytes()
-    assets.joinpath('magnetic-dots.js').write_bytes(magnet)
-    magnet_version = sha256(magnet).hexdigest()[:10]
-    magnet_tag = f'<script src="/assets/magnetic-dots.js?v={magnet_version}" defer></script>'
+    background = (REPO / 'voronoi-background.js').read_bytes()
+    assets.joinpath('voronoi-background.js').write_bytes(background)
+    background_version = sha256(background).hexdigest()[:10]
+    background_tag = f'<script src="/assets/voronoi-background.js?v={background_version}" defer></script>'
     for html_file in output.rglob('*.html'):
         html = html_file.read_text()
         if '</body>' in html:
-            html = html.replace('</body>', magnet_tag + '</body>', 1)
+            html = html.replace('</body>', background_tag + '</body>', 1)
         else:
-            html += magnet_tag
+            html += background_tag
         html_file.write_text(html)
     output.joinpath('seo-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print(f'Built {len(manifest)} crawlable canvas pages and preserved {len(old_routes)} legacy URLs in {output}')

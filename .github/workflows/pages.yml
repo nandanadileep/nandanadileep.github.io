@@ -27,7 +27,7 @@ jobs:
           python3 canvas/seo/verify.py
           node --check canvas/canvas.js
           node --check canvas/seo/site.js
-          node --check magnetic-dots.js
+          node --check voronoi-background.js
       - uses: actions/upload-pages-artifact@v4
         with:
           path: canvas/site

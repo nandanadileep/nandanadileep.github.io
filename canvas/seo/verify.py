@@ -83,14 +83,20 @@ check(routes<=sitemap_paths,'New routes missing from sitemap')
 for route in sitemap_paths: check(resolve(route).exists(),'Sitemap points to missing file: '+route)
 check('noindex' in (root/'404.html').read_text(),'404 needs noindex')
 check('Sitemap: https://nandanadileep.com/sitemap.xml' in (root/'robots.txt').read_text(),'robots sitemap missing')
-check((root/'assets/magnetic-dots.js').is_file(),'Shared magnetic background asset missing')
+check((root/'assets/voronoi-background.js').is_file(),'Shared Voronoi background asset missing')
 for html_file in root.rglob('*.html'):
     doc = parse(html_file.read_text())
     scripts = [n for n in doc.nodes() if n.tag == 'script' and
-               n.attrs.get('src','').startswith('/assets/magnetic-dots.js?')]
-    check(len(scripts)==1,str(html_file.relative_to(root))+': exactly one magnetic background required')
+               n.attrs.get('src','').startswith('/assets/voronoi-background.js?')]
+    check(len(scripts)==1,str(html_file.relative_to(root))+': exactly one Voronoi background required')
+    check('magnetic-dots.js' not in html_file.read_text(),str(html_file.relative_to(root))+': obsolete magnetic background loaded')
 home = (root/'index.html').read_text()
 check('35k+ downloads' in home,'Homepage download count must be 35k+')
+credit = parse(home).find(cls='background-credit')
+check(credit is not None,'Homepage needs the Voronoi credit')
+if credit:
+    check(credit.find(tag='a').attrs.get('href')=='https://en.wikipedia.org/wiki/Voronoi_diagram',
+          'Voronoi credit must link to Wikipedia')
 check('35K+ downloads' in (root/'projects/mycelium/index.html').read_text(),
       'Mycelium download count must be 35K+')
 if errors:
