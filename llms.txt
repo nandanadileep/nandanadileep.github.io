@@ -27,7 +27,7 @@ Web Platform & Performance: HTTP/HTTPS, browser rendering, caching, Core Web Vit
 
 ## Contact
 
-For AI Engineer and Full-Stack AI Engineer opportunities, projects, and technical writing: nandanadileep29@gmail.com. Professional background: https://nandanadileep.com/resume.pdf?v=20261006-tanstack-query
+For AI Engineer and Full-Stack AI Engineer opportunities, projects, and technical writing: nandanadileep29@gmail.com. Professional background: https://nandanadileep.com/resume.pdf?v=20261108-vllm-profiling
 
 ## Focus areas
 
@@ -53,6 +53,8 @@ For AI Engineer and Full-Stack AI Engineer opportunities, projects, and technica
 - Amazon (Summer 2023): SWE Intern — Alexa latency-analysis service on AWS Lambda, Coral, and OpenSearch
 
 ## Writing
+
+- [What I Saw from Profiling vLLM on an NVIDIA A100](https://medium.com/@nandanadileep29/what-i-saw-from-profiling-vllm-on-an-nvidia-a100-eb69a9c7da74): Attention profiling, cache-reuse tradeoffs, and conditional performance gains.
 
 - [Mycelium: Turning AI Agents into Reliable Systems](https://nandanadileep.com/read-about-mycelium/): A source-linked technical essay on stable action identity, durable claims, leases and fencing, effect boundaries, recovery classification, reconciliation, guardrails, outcome evidence, Doctor, Verify, and the limits of Mycelium's guarantees
 - [Checklist to Prevent All the Agent Failure Modes](https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1)
