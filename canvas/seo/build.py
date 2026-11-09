@@ -238,6 +238,19 @@ def build(output, origin):
     output.joinpath('sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>'+escape(origin+route)+'</loc></url>\n' for route in all_routes)+'</urlset>\n')
     output.joinpath('llms.txt').write_text('# Nandana Dileep\n\nAI engineer at JLR in Bangalore; IIT Madras alum. Work spans AI agent reliability, LLM inference, retrieval and AI infrastructure.\n\n## Engineering projects\n'+''.join(f'- [{source_articles[pid].find(tag="h4").text()}]({origin}{project_routes[pid]}): {PROJECTS[pid][2]}\n' for pid in PROJECTS)+'\n## More\n'+f'- [Writing]({origin}/writing/)\n- [Stack]({origin}/stack/)\n- [Resume]({origin}/resume.pdf)\n')
     output.joinpath('404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page not found | Nandana Dileep</title><body><main><h1>This page is missing.</h1><p><a href="/">Back to Nandana’s homepage</a> or <a href="/projects/">browse the projects</a>.</p></main></body></html>')
+    # One background implementation on every public page, including legacy essays.
+    # Load it independently of page-specific controls so older pages work too.
+    magnet = (REPO / 'magnetic-dots.js').read_bytes()
+    assets.joinpath('magnetic-dots.js').write_bytes(magnet)
+    magnet_version = sha256(magnet).hexdigest()[:10]
+    magnet_tag = f'<script src="/assets/magnetic-dots.js?v={magnet_version}" defer></script>'
+    for html_file in output.rglob('*.html'):
+        html = html_file.read_text()
+        if '</body>' in html:
+            html = html.replace('</body>', magnet_tag + '</body>', 1)
+        else:
+            html += magnet_tag
+        html_file.write_text(html)
     output.joinpath('seo-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print(f'Built {len(manifest)} crawlable canvas pages and preserved {len(old_routes)} legacy URLs in {output}')
 

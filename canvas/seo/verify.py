@@ -83,6 +83,16 @@ check(routes<=sitemap_paths,'New routes missing from sitemap')
 for route in sitemap_paths: check(resolve(route).exists(),'Sitemap points to missing file: '+route)
 check('noindex' in (root/'404.html').read_text(),'404 needs noindex')
 check('Sitemap: https://nandanadileep.com/sitemap.xml' in (root/'robots.txt').read_text(),'robots sitemap missing')
+check((root/'assets/magnetic-dots.js').is_file(),'Shared magnetic background asset missing')
+for html_file in root.rglob('*.html'):
+    doc = parse(html_file.read_text())
+    scripts = [n for n in doc.nodes() if n.tag == 'script' and
+               n.attrs.get('src','').startswith('/assets/magnetic-dots.js?')]
+    check(len(scripts)==1,str(html_file.relative_to(root))+': exactly one magnetic background required')
+home = (root/'index.html').read_text()
+check('35k+ downloads' in home,'Homepage download count must be 35k+')
+check('35K+ downloads' in (root/'projects/mycelium/index.html').read_text(),
+      'Mycelium download count must be 35K+')
 if errors:
     print('\n'.join(errors)); raise SystemExit(1)
 print(f'PASS: {len(routes)} unique, reachable pages; HTML content, metadata, schema JSON, ARIA, internal links and {len(sitemap_paths)} sitemap URLs checked.')
