@@ -22,6 +22,46 @@
 @media(max-width:700px){.section-title h1{font-size:21px}.misc-header h1{font-size:27px}.project-directory .project-directory-intro{font-size:13px}.project-directory h2{font-size:17px}.project-directory li>a{font-size:16px}.work-reader .work-slide h2{font-size:15px}}
 @media(max-width:1000px){.project-directory .project-card-grid{grid-template-columns:1fr}.project-directory .project-directory-card{padding:17px}.project-directory-card h3{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.project-directory .project-directory-card{transition:none}}
+.writing-entries{grid-template-rows:none;grid-auto-rows:minmax(150px,auto)}
+.is-writing .canvas>.note-article{position:static;width:min(780px,100%);height:100%;margin:0 auto;overflow-y:auto;padding:8px 28px 48px;border-radius:14px;background:rgba(243,244,246,.92);scrollbar-width:thin;scrollbar-color:#b7c4d5 transparent}
+.note-back{margin:0 0 28px;font-size:12px}
+.note-back a{color:#6d7c90;border-bottom:1px solid #c9d3e0;padding-bottom:2px}
+.note-back a:hover{color:var(--ink)}
+.note-kicker{margin:0 0 12px;color:#b49a5b;font-size:10px;font-weight:500;letter-spacing:1.6px}
+.note-article h1{margin:0 0 14px;font-size:clamp(28px,4vw,42px);font-weight:450;letter-spacing:-.8px;line-height:1.15}
+.note-dek{margin:0 0 18px;max-width:40rem;color:#657184;font-size:17px;line-height:1.6}
+.note-byline{margin:0 0 36px;color:#8b95a4;font-size:12px}
+.note-byline a{border-bottom:1px solid #c9d3e0;padding-bottom:1px}
+.note-body{max-width:42rem;font-size:16px;line-height:1.8;color:#3b4759}
+.note-body :is(h2,h3){margin:2.1em 0 .7em;font-weight:500;letter-spacing:-.3px;line-height:1.3}
+.note-body h2{font-size:22px}
+.note-body h3{font-size:18px}
+.note-body p,.note-body ul,.note-body ol,.note-body blockquote,.note-body pre,.note-body figure{margin:0 0 1.15em}
+.note-body ul,.note-body ol{padding-left:1.2em}
+.note-body li{margin:0 0 .45em}
+.note-body a{border-bottom:1px solid #c9d3e0}
+.note-body a:hover{border-color:currentColor}
+.note-body blockquote{border-left:2px solid #c4b17d;padding:.15em 0 .15em 1em;color:#5c6a7c}
+.note-body pre{padding:16px 18px;overflow:auto;background:#e9edf2;border-radius:6px;font-size:13px;line-height:1.7;white-space:pre-wrap}
+.note-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}
+.note-body p code,.note-body li code{padding:.1em .35em;background:#e9edf2;border-radius:4px}
+.note-body pre code{padding:0;background:none}
+.note-body figure{margin:1.6em 0}
+.note-body img{display:block;width:100%;height:auto;border-radius:8px;background:#e9edf2}
+.note-body figcaption{margin-top:8px;color:#8b95a4;font-size:12px;line-height:1.5}
+.note-pager{display:flex;justify-content:space-between;gap:24px;margin:48px 0 12px;padding-top:22px;border-top:1px solid #d6dee7}
+.note-pager a{display:flex;flex-direction:column;gap:6px;max-width:46%;color:#6d7c90;font-size:11px;letter-spacing:.4px}
+.note-pager a:last-child{margin-left:auto;text-align:right}
+.note-pager span{color:var(--ink);font-size:14px;letter-spacing:-.2px;line-height:1.45}
+[data-theme=dark] .is-writing .canvas>.note-article{background:rgba(24,28,34,.9);scrollbar-color:#566980 transparent}
+[data-theme=dark] .note-back a,[data-theme=dark] .note-byline,[data-theme=dark] .note-body figcaption{color:#95a4b9}
+[data-theme=dark] .note-dek,[data-theme=dark] .note-body blockquote{color:#adbbcf}
+[data-theme=dark] .note-body{color:#d2dbe8}
+[data-theme=dark] .note-body :is(pre,p code,li code){background:#29323f;color:#bccbe0}
+[data-theme=dark] .note-pager{border-color:#3d4c61}
+[data-theme=dark] .note-pager a{color:#8e9fb7}
+[data-theme=dark] .note-pager span{color:#d2dbe8}
+@media(max-width:700px){.note-article h1{font-size:26px}.note-body{font-size:15px}.note-pager{flex-direction:column}.note-pager a,.note-pager a:last-child{max-width:none;margin:0;text-align:left}}
 .intro .background-credit{margin:22px 0 0;max-width:340px;font-size:12px;line-height:1.7;color:var(--muted)}
 .background-credit a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
 .background-credit a:hover{color:var(--ink);text-decoration-color:currentColor}

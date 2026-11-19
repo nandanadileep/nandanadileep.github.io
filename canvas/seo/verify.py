@@ -70,13 +70,22 @@ for p in manifest:
         if p['project'].startswith('jlr-'):
             check(not doc.find(id='work-project-links').find(tag='a'),route+': JLR resources must stay empty')
 
+home_routes = {p['path'] for p in manifest if p.get('section') not in {'note','notes-index'}}
+note_routes = routes - home_routes
 seen, queue = set(), deque(['/'])
 while queue:
     route = queue.popleft()
     if route in seen: continue
     seen.add(route)
     queue.extend(edges.get(route,[]))
-check(seen==routes,'Unreachable routes: '+str(routes-seen))
+check(seen==home_routes,'Unreachable routes: '+str(home_routes-seen))
+note_seen, note_queue = set(), deque(['/technical-notes/'] if '/technical-notes/' in routes else [])
+while note_queue:
+    route = note_queue.popleft()
+    if route in note_seen: continue
+    note_seen.add(route)
+    note_queue.extend(edges.get(route,[]))
+check(note_routes<=note_seen,'Unreachable technical notes: '+str(note_routes-note_seen))
 sitemap = ET.parse(root/'sitemap.xml')
 sitemap_paths = {urlparse(n.text).path for n in sitemap.findall('.//{*}loc')}
 check(routes<=sitemap_paths,'New routes missing from sitemap')

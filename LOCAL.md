@@ -1,6 +1,6 @@
 # Local Preview Instructions
 
-This is a static site redesign for nandanadileep.com. **DO NOT deploy or merge to main** — this is for local review only.
+This is a static site for nandanadileep.com. It is live: every push to `main` runs the Pages workflow, which builds `canvas/site` and deploys it. Use these steps to preview locally before you push. See `canvas/seo/SEO.md` for the build, checks and headline notes.
 
 ## Quick Start
 
