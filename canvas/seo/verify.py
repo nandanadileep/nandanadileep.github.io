@@ -91,14 +91,14 @@ for html_file in root.rglob('*.html'):
     check(len(scripts)==1,str(html_file.relative_to(root))+': exactly one Voronoi background required')
     check('magnetic-dots.js' not in html_file.read_text(),str(html_file.relative_to(root))+': obsolete magnetic background loaded')
 home = (root/'index.html').read_text()
-check('35k+ downloads' in home,'Homepage download count must be 35k+')
+check('36k+ downloads' in home,'Homepage download count must be 36k+')
 credit = parse(home).find(cls='background-credit')
 check(credit is not None,'Homepage needs the Voronoi credit')
 if credit:
     check(credit.find(tag='a').attrs.get('href')=='https://en.wikipedia.org/wiki/Voronoi_diagram',
           'Voronoi credit must link to Wikipedia')
-check('35K+ downloads' in (root/'projects/mycelium/index.html').read_text(),
-      'Mycelium download count must be 35K+')
+check('36K+ downloads' in (root/'projects/mycelium/index.html').read_text(),
+      'Mycelium download count must be 36K+')
 if errors:
     print('\n'.join(errors)); raise SystemExit(1)
 print(f'PASS: {len(routes)} unique, reachable pages; HTML content, metadata, schema JSON, ARIA, internal links and {len(sitemap_paths)} sitemap URLs checked.')

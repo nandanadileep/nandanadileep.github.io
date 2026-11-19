@@ -192,7 +192,7 @@
         },
         {
             question: "What's Mycelium?",
-            answer: "Mycelium is a reliability runtime for AI agent tool calls. It prevents duplicate actions when agents retry, and it's available on PyPI with 30k downloads."
+            answer: "Mycelium is a reliability runtime for AI agent tool calls. It prevents duplicate actions when agents retry, and it's available on PyPI with 36k+ downloads."
         },
         {
             question: "What tech do you use?",
