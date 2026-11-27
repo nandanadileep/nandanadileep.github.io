@@ -5,7 +5,7 @@
     "work": ["projects", "AI Engineering Projects | Nandana Dileep", "Explore Nandana Dileep's AI engineering work: agent reliability, LLM serving, GPU optimization, RAG pipelines and machine learning infrastructure at JLR."],
     "stack": ["stack", "AI Engineering Stack | Nandana Dileep", "The tools Nandana Dileep works with across AI models, inference, agents, retrieval and cloud infrastructure: PyTorch, MLX, Python, Kubernetes, AWS and more."],
     "notes": ["notes", "Notes | Nandana Dileep", "Small notes by Nandana Dileep on learning how LLMs work, how tokens move, and what makes inference fast or slow."],
-    "writing": ["writing", "AI Agents, LLM Inference & Engineering Writing | Nandana Dileep", "Read Nandana Dileep's engineering articles on AI agent reliability, LLM memory, GPU performance, MLX inference and modern transformer architectures."],
+    "writing": ["writing", "AI Agents, LLM Inference & Engineering Articles | Nandana Dileep", "Read Nandana Dileep's engineering articles on AI agent reliability, LLM memory, GPU performance, MLX inference and modern transformer architectures."],
     "about": ["beyond-work", "Beyond Work | Nandana Dileep", "Meet Nandana Dileep beyond AI engineering: chess, math, music and a growing reading habit. Personal interests and notes from Bangalore."],
     "miscellaneous": ["miscellaneous", "Personal Notes on Books, Math & Life | Nandana Dileep", "Personal notes by Nandana Dileep on Meditations, changing beliefs, digit sums and small-world networks. Reading, mathematics and everyday curiosity."]
   },
