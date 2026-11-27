@@ -33,12 +33,16 @@ def writing_entries_markup(notes):
     parts = []
     for i, note in enumerate(notes, 1):
         extra = ' target="_blank" rel="noopener"' if note['path'].startswith('http') else ''
+        footer = (
+            f'<div class="writing-entry-bottom"><span>{escape(note["category"])}</span>{arrow}</div>'
+            if note.get('collection') != 'notes' else ''
+        )
         parts.append(
             f'<a class="writing-entry" href="{escape(note["path"], quote=True)}"{extra}>'
             f'<div class="writing-entry-meta"><span>{i:02d}</span>'
             f'<time datetime="{note["date"]}">{escape(note["displayDate"])}</time></div>'
             f'<h3>{escape(note["title"])}</h3>'
-            f'<div class="writing-entry-bottom"><span>{escape(note["category"])}</span>{arrow}</div></a>'
+            f'{footer}</a>'
         )
     return ''.join(parts)
 
