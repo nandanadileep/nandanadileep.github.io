@@ -1,5 +1,17 @@
 [
   {
+    "slug": "how-tokens-move",
+    "category": "LLM BASICS",
+    "description": "A small beginner note on KV-cache memory, model weights, prefill, decode, and using a roofline estimate to understand GPU bottlenecks.",
+    "title": "How tokens move: a small note on LLM inference",
+    "date": "2026-11-27",
+    "displayDate": "27 Nov 2026",
+    "dek": "KV cache, model weights, prefill, and decode. These are for the kids.",
+    "path": "/notes/how-tokens-move/",
+    "hosted": true,
+    "collection": "notes"
+  },
+  {
     "slug": "profiling-vllm-a100",
     "category": "INFERENCE & PERFORMANCE",
     "description": "Profiling vLLM on an NVIDIA A100: when KV-cache reuse helps, when attention-layout copies cost latency, and where a routing change only speeds low concurrency.",
@@ -39,7 +51,7 @@
     "slug": "llm-memory-dreaming-v3-usermemories",
     "category": "LLM MEMORY",
     "description": "A technical comparison of ChatGPT Dreaming V3 and Claude userMemories: how two LLM memory architectures inject state, compress history, and change trust boundaries.",
-    "title": "Inside LLM Memory: OpenAI\u2019s Dreaming V3 vs Anthropic\u2019s userMemories",
+    "title": "Inside LLM Memory: OpenAI’s Dreaming V3 vs Anthropic’s userMemories",
     "medium": "https://medium.com/@nandanadileep29/inside-llm-memory-openais-dreaming-v3-vs-anthropic-s-usermemories-c2bd66134d43",
     "date": "2026-06-22",
     "displayDate": "22 Jun 2026",
@@ -67,7 +79,7 @@
     "medium": "https://medium.com/@nandanadileep29/decoding-multi-agent-orchestration-in-langchain-ad6b46ed1058",
     "date": "2026-04-22",
     "displayDate": "22 Apr 2026",
-    "dek": "Most multi-agent systems don\u2019t fail because the models are weak. They fail because the agents cannot reliably talk to each other.",
+    "dek": "Most multi-agent systems don’t fail because the models are weak. They fail because the agents cannot reliably talk to each other.",
     "path": "/technical-notes/langchain-multi-agent-orchestration/",
     "hosted": true
   },
@@ -91,7 +103,7 @@
     "medium": "https://medium.com/@nandanadileep29/checklist-to-prevent-all-the-agent-failure-modes-f4dfdc7597e1",
     "date": "2026-04-08",
     "displayDate": "08 Apr 2026",
-    "dek": "When your agent says it\u2019s done, how do you know it actually is?",
+    "dek": "When your agent says it’s done, how do you know it actually is?",
     "path": "/technical-notes/agent-failure-modes/",
     "hosted": true
   },

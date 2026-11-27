@@ -1,0 +1,19 @@
+<p>This is a small note for people who get started getting into this field, getting to know how LLMs work, getting to know how tokens move, getting to know what happens when tokens reach this point. This is a small, simple note that I wrote about how I learned this, how I came to it, how it came to my senses that this is how it works. This is a very small note. If you already are in this area, there is no point in reading it, so feel free to skip it. These are for the kids.</p>
+<ul>
+<li><p>When text goes through an LLM, I want to understand four things: KV-cache memory, model-weight memory, prefill, and decode. Then I use a roofline estimate to reason about the GPU bottleneck.</p></li>
+<li><p>KV cache stores keys and values for tokens that have already been processed. During decode, the model can reuse them instead of recalculating them.</p></li>
+<li><p>Each token generally needs a key and a value for every KV head in every attention layer. A longer conversation therefore needs more KV memory.</p></li>
+<li><p>To calculate standard MHA or GQA KV-cache size, I multiply:</p><pre><code>tokens × KV heads × head dimension
+× 2 for K and V × layers × bytes per value</code></pre></li>
+<li><p>GQA reduces KV-cache memory by using fewer KV heads than query heads.</p></li>
+<li><p>Model weights also occupy GPU memory. As a rough estimate, a 7-billion-parameter model in BF16 needs:</p><pre><code>7 billion parameters × 2 bytes ≈ 14 GB</code></pre></li>
+<li><p>Prefill is when the model processes the input prompt. Each transformer layer uses the model weights and performs attention. Prefill also creates the prompt’s KV-cache entries.</p></li>
+<li><p>Processing many prompt tokens together allows the GPU to reuse weight data across those tokens.</p></li>
+<li><p>A rough estimate for dense prefill work is:</p><pre><code>2 × P × S</code></pre><p>Here, P is the parameter count and S is the prompt length. Causal attention adds more computation.</p></li>
+<li><p>Decode is when the model generates one new token at a time. For each token, it uses the model weights and attends to the existing KV cache.</p></li>
+<li><p>A rough estimate for the dense work per decode token is:</p><pre><code>2 × P</code></pre></li>
+<li><p>The attention work grows with context length. For standard full attention, a rough estimate across all layers is:</p><pre><code>4 × L × S × d</code></pre><p>Here, L is the number of layers and d is the total query-head width, usually the hidden size.</p></li>
+<li><p>For one decoding sequence, the GPU often spends much of its time moving weights and KV data from memory. That makes decode likely to be memory-bound.</p></li>
+<li><p>Arithmetic intensity is the number of FLOPs performed per byte moved. I compare it with the GPU’s ridge point to form a hypothesis about whether the workload is memory-bound or compute-bound.</p></li>
+<li><p>Finally, I run the model, measure prefill and decode, and profile the difference between my estimate and the actual result.</p></li>
+</ul>

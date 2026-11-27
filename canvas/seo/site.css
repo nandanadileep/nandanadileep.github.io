@@ -66,3 +66,5 @@
 .background-credit a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
 .background-credit a:hover{color:var(--ink);text-decoration-color:currentColor}
 @media(pointer:coarse){.background-credit>span{display:none}}
+/* Leave room for Notes in the mobile section dock. */
+@media(max-width:700px){.tools .tool,.contact-tool{width:36px;flex-shrink:0}}

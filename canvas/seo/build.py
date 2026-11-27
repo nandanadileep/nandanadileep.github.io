@@ -59,7 +59,8 @@ def fill_notes_index(section, notes):
 
 def note_article_markup(note, notes):
     body = (SOURCE / 'notes' / 'bodies' / f"{note['slug']}.html").read_text().strip()
-    hosted = [item for item in notes if item['hosted']]
+    hosted = [item for item in notes if item['hosted'] and item.get('collection') == note.get('collection')]
+    index_route, index_label = ('/notes/', 'Notes') if note.get('collection') == 'notes' else (NOTES_INDEX_ROUTE, 'Technical notes')
     index = hosted.index(note)
     previous, nxt = (hosted[index - 1] if index else None), (hosted[index + 1] if index + 1 < len(hosted) else None)
     dek = f'<p class="note-dek">{escape(note["dek"])}</p>' if note.get('dek') else ''
@@ -77,7 +78,7 @@ def note_article_markup(note, notes):
     pager += '</nav>'
     return (
         '<section class="note-article" id="note" aria-labelledby="note-title">'
-        '<p class="note-back"><a href="/technical-notes/">Technical notes</a></p>'
+        f'<p class="note-back"><a href="{index_route}">{index_label}</a></p>'
         f'<p class="note-kicker">{escape(note["category"])}</p>'
         f'<h1 id="note-title">{escape(note["title"])}</h1>{dek}'
         f'<p class="note-byline"><time datetime="{note["date"]}">{escape(note["displayDate"])}</time>{medium}</p>'
@@ -94,6 +95,22 @@ def build(output, origin):
     template = parse((SOURCE / 'index.html').read_text())
     source_main = template.find(id='canvas')
     source_sections = {n.attrs['id']: n for n in source_main.children if isinstance(n, Node) and n.tag == 'section'}
+    # Reuse the established writing layout for short, original learning notes.
+    notes_section = deepcopy(source_sections['writing'])
+    notes_section.set('id', 'notes')
+    notes_section.set('aria-labelledby', 'notes-title')
+    notes_section.find(id='writing-title').set('id', 'notes-title')
+    replace_contents(notes_section.find(id='notes-title'), 'notes')
+    replace_contents(notes_section.find(cls='writing-index-header').find(tag='p'), 'Small things I learned, written down while figuring them out.')
+    short_notes = [note for note in NOTES if note.get('collection') == 'notes']
+    replace_contents(notes_section.find(cls='writing-index-label'), f'<span>NOTES</span><span>{len(short_notes)} NOTE{"S" if len(short_notes) != 1 else ""} · 2026</span>')
+    replace_contents(notes_section.find(cls='writing-entries'), writing_entries_markup(short_notes))
+    source_sections['notes'] = notes_section
+    notes_link = element('a', {'class':'tool', 'href':'/notes/', 'data-jump':'notes', 'aria-label':'Notes'}, '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5zM9 8h6M9 12h6M9 16h4"/></svg><span class="tool-label" aria-hidden="true">Notes</span>')
+    tools = template.find(cls='tools')
+    writing_link = next(node for node in tools.nodes() if node.attrs.get('data-jump') == 'writing')
+    tools.children.insert(tools.children.index(writing_link) + 1, notes_link)
+    notes_link.parent = tools
     source_articles = {n.attrs['id']: n for n in source_sections['work'].nodes() if n.tag == 'article' and n.attrs.get('id') in PROJECTS}
     assert set(source_articles) == set(PROJECTS), 'Project configuration and canvas content differ'
     routes = {key: '/' + (value[0] + '/' if value[0] else '') for key, value in SECTIONS.items()}
@@ -134,7 +151,7 @@ def build(output, origin):
         active.remove_attr('hidden')
         main.children = []
         main.append(active)
-        state = {'intro':'home','work':'work','stack':'stack','writing':'writing','about':'personal','miscellaneous':'personal','experience':'experience'}[section_id]
+        state = {'intro':'home','work':'work','stack':'stack','writing':'writing','notes':'writing','about':'personal','miscellaneous':'personal','experience':'experience'}[section_id]
         body.set('class', state+'-view'+(' portrait-visible' if section_id == 'intro' else ''))
         doc.find(id='viewport').set('class','viewport is-'+state)
         if section_id == 'intro':
@@ -280,7 +297,7 @@ def build(output, origin):
     notes_main = notes_doc.find(id='canvas')
     notes_section = deepcopy(source_sections['writing'])
     notes_section.remove_attr('hidden')
-    fill_notes_index(notes_section, NOTES)
+    fill_notes_index(notes_section, [note for note in NOTES if note.get('collection') != 'notes'])
     notes_main.children = []
     notes_main.append(notes_section)
     notes_body.set('class', 'writing-view')
@@ -292,7 +309,7 @@ def build(output, origin):
                   'mainEntity':{'@id':origin+notes_route+'#notes'}}
     notes_graph = [person, site, notes_page,
                    {'@type':'ItemList','@id':origin+notes_route+'#notes','name':'Technical notes by Nandana Dileep',
-                    'itemListElement':[{'@type':'ListItem','position':i,'url':origin+note['path'],'name':note['title']} for i,note in enumerate(NOTES,1)]},
+                    'itemListElement':[{'@type':'ListItem','position':i,'url':origin+note['path'],'name':note['title']} for i,note in enumerate([note for note in NOTES if note.get('collection') != 'notes'],1)]},
                    {'@type':'BreadcrumbList','itemListElement':[
                        {'@type':'ListItem','position':1,'name':'Home','item':origin+'/'},
                        {'@type':'ListItem','position':2,'name':'Technical Notes','item':origin+notes_route}]}]
@@ -365,7 +382,7 @@ def build(output, origin):
                 'about':{'@id':person['@id']},'mainEntity':{'@id':article['@id']}}
         graph = [person, site, article, page, {'@type':'BreadcrumbList','itemListElement':[
             {'@type':'ListItem','position':1,'name':'Home','item':origin+'/'},
-            {'@type':'ListItem','position':2,'name':'Technical Notes','item':origin+'/technical-notes/'},
+            {'@type':'ListItem','position':2,'name':'Notes' if note.get('collection') == 'notes' else 'Technical Notes','item':origin+('/notes/' if note.get('collection') == 'notes' else NOTES_INDEX_ROUTE)},
             {'@type':'ListItem','position':3,'name':note['title'],'item':origin+route}]}]
         for node in list(doc.nodes()):
             if 'data-jump' in node.attrs:
@@ -377,7 +394,7 @@ def build(output, origin):
                     node.set('data-desktop-href', project_routes['jlr-1'])
                 node.remove_attr('data-jump')
                 if 'tool' in node.attrs.get('class','').split():
-                    is_active = target == 'writing'
+                    is_active = target == ('notes' if note.get('collection') == 'notes' else 'writing')
                     node.set('class', 'tool'+(' active' if is_active else ''))
                     if is_active: node.set('aria-current','page')
             if node.tag == 'a' and node.attrs.get('href','').startswith('../'):

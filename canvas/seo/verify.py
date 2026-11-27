@@ -78,7 +78,9 @@ while queue:
     if route in seen: continue
     seen.add(route)
     queue.extend(edges.get(route,[]))
-check(seen==home_routes,'Unreachable routes: '+str(home_routes-seen))
+check(home_routes<=seen,'Unreachable routes: '+str(home_routes-seen))
+check('/notes/' in edges.get('/', []), 'Homepage must link to Notes')
+check('/notes/how-tokens-move/' in edges.get('/notes/', []), 'Notes must link to the beginner inference note')
 note_seen, note_queue = set(), deque(['/technical-notes/'] if '/technical-notes/' in routes else [])
 while note_queue:
     route = note_queue.popleft()
